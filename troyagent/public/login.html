@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Troy Vape - Login</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #0a0a0a;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        color: #e0e0e0;
+      }
+
+      .login-container {
+        width: 100%;
+        max-width: 420px;
+        padding: 24px;
+      }
+
+      .login-card {
+        background: #141414;
+        border: 1px solid #2a2a2a;
+        border-radius: 16px;
+        padding: 40px 32px;
+        box-shadow: 0 0 60px rgba(100, 255, 100, 0.03);
+        position: relative;
+      }
+
+      .login-card::before {
+        content: "";
+        position: absolute;
+        top: -1px;
+        left: -1px;
+        right: -1px;
+        bottom: -1px;
+        border-radius: 17px;
+        background: linear-gradient(
+          135deg,
+          rgba(163, 230, 53, 0.1),
+          transparent,
+          rgba(163, 230, 53, 0.05)
+        );
+        z-index: -1;
+      }
+
+      .logo {
+        text-align: center;
+        margin-bottom: 32px;
+      }
+
+      .logo-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: #1a1a1a;
+        border: 1px solid #333;
+        border-radius: 12px;
+        padding: 12px 20px;
+      }
+
+      .logo-icon {
+        width: 40px;
+        height: 40px;
+        background: #a3e635;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 16px;
+        color: #0a0a0a;
+        letter-spacing: -0.5px;
+      }
+
+      .logo-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .logo-name {
+        font-size: 18px;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: 0.5px;
+      }
+
+      .logo-subtitle {
+        font-size: 11px;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+      }
+
+      h2 {
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 8px;
+      }
+
+      .subtitle {
+        text-align: center;
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 28px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        font-size: 13px;
+        font-weight: 500;
+        color: #999;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      input {
+        width: 100%;
+        padding: 14px 16px;
+        background: #0a0a0a;
+        border: 1px solid #333;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 15px;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+        outline: none;
+      }
+
+      input:focus {
+        border-color: #a3e635;
+        box-shadow: 0 0 0 3px rgba(163, 230, 53, 0.1);
+      }
+
+      input::placeholder {
+        color: #444;
+      }
+
+      .btn-login {
+        width: 100%;
+        padding: 14px;
+        background: #a3e635;
+        color: #0a0a0a;
+        border: none;
+        border-radius: 10px;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.1s;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 8px;
+      }
+
+      .btn-login:hover {
+        background: #bef264;
+      }
+      .btn-login:active {
+        transform: scale(0.98);
+      }
+      .btn-login:disabled {
+        background: #333;
+        color: #666;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .error-msg {
+        text-align: center;
+        color: #ef4444;
+        font-size: 13px;
+        margin-top: 16px;
+        min-height: 20px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .error-msg.visible {
+        opacity: 1;
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 24px;
+        font-size: 12px;
+        color: #444;
+      }
+
+      .spinner {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border: 2px solid #0a0a0a;
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: spin 0.6s linear infinite;
+        vertical-align: middle;
+        margin-right: 8px;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .login-card {
+          padding: 32px 24px;
+        }
+        .login-container {
+          padding: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-card">
+        <div class="logo">
+          <div class="logo-badge">
+            <div class="logo-icon">TV</div>
+            <div class="logo-text">
+              <span class="logo-name">TROY VAPE</span>
+              <span class="logo-subtitle">Painel de Opera&ccedil;&atilde;o</span>
+            </div>
+          </div>
+        </div>
+
+        <h2>Bem-vindo</h2>
+        <p class="subtitle">Entre com suas credenciais para acessar o painel</p>
+
+        <form id="loginForm" autocomplete="on">
+          <div class="form-group">
+            <label for="username">Usu&aacute;rio</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Seu nome de usu&aacute;rio"
+              autocomplete="username"
+              required
+              autofocus
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Senha</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Sua senha"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn-login" id="btnLogin">ENTRAR</button>
+
+          <div class="error-msg" id="errorMsg"></div>
+        </form>
+
+        <div class="footer">&copy; 2026 Troy Vape &mdash; Acesso restrito</div>
+      </div>
+    </div>
+
+    <script>
+      var form = document.getElementById("loginForm");
+      var btn = document.getElementById("btnLogin");
+      var errorMsg = document.getElementById("errorMsg");
+
+      function showError(msg) {
+        errorMsg.textContent = msg;
+        errorMsg.classList.add("visible");
+      }
+
+      function setLoading(loading) {
+        btn.disabled = loading;
+        if (loading) {
+          btn.innerHTML = '<span class="spinner"></span>Verificando...';
+        } else {
+          btn.textContent = "ENTRAR";
+        }
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        errorMsg.classList.remove("visible");
+
+        var username = document.getElementById("username").value.trim();
+        var password = document.getElementById("password").value;
+
+        if (!username || !password) return;
+
+        setLoading(true);
+
+        var credentials = btoa(username + ":" + password);
+
+        fetch("/api/auth/verify", {
+          method: "GET",
+          headers: {
+            Authorization: "Basic " + credentials,
+          },
+        })
+          .then(function (res) {
+            if (res.ok) {
+              // Set session cookie (expires when browser closes, or 24h max)
+              var expiry = new Date();
+              expiry.setTime(expiry.getTime() + 24 * 60 * 60 * 1000);
+              document.cookie =
+                "troy_session=authenticated; path=/; expires=" +
+                expiry.toUTCString() +
+                "; SameSite=Strict; Secure";
+
+              // Redirect to app root
+              window.location.href = "/?token=troy_secure_token_2026";
+            } else {
+              showError("Usu\u00e1rio ou senha incorretos");
+              setLoading(false);
+            }
+          })
+          .catch(function () {
+            showError("Erro de conex\u00e3o. Tente novamente.");
+            setLoading(false);
+          });
+      });
+
+      // If already has session cookie, redirect to app
+      if (document.cookie.indexOf("troy_session=authenticated") !== -1) {
+        window.location.href = "/?token=troy_secure_token_2026";
+      }
+    </script>
+  </body>
+</html>

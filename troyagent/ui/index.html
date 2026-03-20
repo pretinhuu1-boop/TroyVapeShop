@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TAURA</title>
+    <meta name="color-scheme" content="dark light" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  </head>
+  <body>
+    <openclaw-app></openclaw-app>
+    <script type="module" src="/src/main.ts"></script>
+    <script>
+      // TAURA — Disable browser DevTools / Inspect
+      (function () {
+        // Block right-click context menu
+        document.addEventListener('contextmenu', function (e) {
+          e.preventDefault();
+        });
+
+        // Block keyboard shortcuts for DevTools
+        document.addEventListener('keydown', function (e) {
+          // F12
+          if (e.key === 'F12') { e.preventDefault(); return false; }
+          // Ctrl+Shift+I / Cmd+Opt+I (Inspect)
+          if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'I') { e.preventDefault(); return false; }
+          // Ctrl+Shift+J / Cmd+Opt+J (Console)
+          if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'J') { e.preventDefault(); return false; }
+          // Ctrl+Shift+C / Cmd+Opt+C (Element picker)
+          if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'C') { e.preventDefault(); return false; }
+          // Ctrl+U / Cmd+U (View source)
+          if ((e.ctrlKey || e.metaKey) && e.key === 'u') { e.preventDefault(); return false; }
+          // Ctrl+Shift+E (Network tab - Firefox)
+          if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'E') { e.preventDefault(); return false; }
+          // Ctrl+Shift+K (Console - Firefox)
+          if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'K') { e.preventDefault(); return false; }
+        });
+
+        // Detect DevTools open via debugger statement + timing
+        (function detect() {
+          var t = performance.now();
+          debugger;
+          if (performance.now() - t > 100) {
+            document.documentElement.innerHTML = '';
+          }
+          setTimeout(detect, 2000);
+        })();
+      })();
+    </script>
+  </body>
+</html>

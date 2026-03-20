@@ -1,0 +1,74 @@
+{
+  "gateway": {
+    "controlUi": {
+      "allowInsecureAuth": true,
+      "dangerouslyDisableDeviceAuth": true,
+      "allowedOrigins": ["https://ecossistematroy.com"]
+    },
+    "trustedProxies": ["172.28.0.10"]
+  },
+  "plugins": {
+    "entries": {
+      "whatsapp": {
+        "enabled": true
+      }
+    }
+  },
+  "auth": {
+    "profiles": {
+      "openrouter:default": {
+        "provider": "openrouter",
+        "mode": "api_key"
+      }
+    }
+  },
+  "session": {
+    "dmScope": "per-channel-peer",
+    "reset": {
+      "mode": "daily",
+      "atHour": 4
+    }
+  },
+  "messages": {
+    "inbound": {
+      "debounceMs": 3000
+    }
+  },
+  "commands": {
+    "ownerAllowFrom": ["5511948972837"]
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "openrouter/qwen/qwen3-coder:free",
+        "fallbacks": [
+          "openrouter/meta-llama/llama-3.3-70b-instruct:free",
+          "openrouter/mistralai/mistral-small-3.1-24b-instruct:free",
+          "openrouter/google/gemma-3-27b-it:free",
+          "openrouter/google/gemini-2.5-flash",
+          "openrouter/google/gemini-2.5-flash-lite"
+        ]
+      },
+      "models": {
+        "openrouter/qwen/qwen3-coder:free": {
+          "alias": "Qwen3 Coder 480B (free)"
+        },
+        "openrouter/meta-llama/llama-3.3-70b-instruct:free": {
+          "alias": "Llama 3.3 70B (free)"
+        },
+        "openrouter/mistralai/mistral-small-3.1-24b-instruct:free": {
+          "alias": "Mistral Small 3.1 (free)"
+        },
+        "openrouter/google/gemma-3-27b-it:free": {
+          "alias": "Gemma 3 27B (free)"
+        },
+        "openrouter/google/gemini-2.5-flash": {
+          "alias": "Gemini 2.5 Flash"
+        },
+        "openrouter/google/gemini-2.5-flash-lite": {
+          "alias": "Gemini Flash Lite"
+        }
+      }
+    }
+  }
+}

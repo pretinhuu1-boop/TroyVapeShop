@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Epithalon e telomerase: quatro aminoácidos contra o relógio biológico — TAURA Research</title>
+<meta name="description" content="A pesquisa de Khavinson em São Petersburgo revelou como um tetrapeptídeo simples (Ala-Glu-Asp-Gly) pode ativar a telomerase via hTERT. A conexão com a glândula pineal e o limite de Hayflick.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;900&family=Outfit:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:   #0A0A0A;
+  --vinho:   #6B0F1A;
+  --vinho2:  #3D0A10;
+  --prata:   #C4C4C4;
+  --off:     #F2EFE9;
+  --dim:     #666666;
+  --dimmer:  #333333;
+  --mid:     #161616;
+  --mid2:    #1e1e1e;
+  --font-d:  'Barlow Condensed', sans-serif;
+  --font-b:  'Outfit', sans-serif;
+  --font-m:  'JetBrains Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--off);
+  font-family: var(--font-b);
+  font-weight: 300;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--vinho); color: var(--off); }
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 1; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.03;
+}
+
+/* ═══ NAV ═══ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px 48px;
+  background: linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, transparent 100%);
+}
+.nav-logo {
+  font-family: var(--font-d); font-weight: 900; font-size: 22px;
+  letter-spacing: 0.25em; color: var(--off);
+}
+.nav-logo span { color: var(--vinho); }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-link {
+  font-family: var(--font-m); font-weight: 300; font-size: 10px;
+  color: var(--dim); letter-spacing: 0.15em;
+  text-transform: uppercase; transition: color 0.2s;
+}
+.nav-link:hover { color: var(--off); }
+.nav-cta {
+  background: var(--vinho); color: var(--off);
+  font-family: var(--font-b); font-weight: 500;
+  font-size: 11px; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 10px 20px;
+  border: 1px solid var(--vinho);
+  transition: background 0.2s, color 0.2s;
+}
+.nav-cta:hover { background: transparent; color: var(--vinho); }
+
+/* ═══ ARTICLE HEADER ═══ */
+.article-header {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 120px 24px 40px;
+}
+.article-back {
+  font-family: var(--font-m); font-size: 9px;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--dim);
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-bottom: 40px; transition: color 0.2s;
+}
+.article-back:hover { color: var(--vinho); }
+.article-tag {
+  font-family: var(--font-m); font-size: 9px;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--vinho);
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 20px;
+}
+.article-tag::before {
+  content: ''; width: 24px; height: 1px; background: var(--vinho);
+}
+.article-title {
+  font-family: var(--font-d); font-weight: 900;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.0; letter-spacing: 0.03em;
+  color: var(--off); margin-bottom: 24px;
+}
+.article-meta {
+  font-family: var(--font-m); font-size: 9px;
+  color: var(--dim); letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: flex; align-items: center; gap: 16px;
+}
+.article-meta-dot {
+  width: 3px; height: 3px; border-radius: 50%;
+  background: var(--dimmer);
+}
+
+/* ═══ COVER IMAGE ═══ */
+.article-cover {
+  max-width: 960px;
+  margin: 0 auto 56px;
+  padding: 0 24px;
+}
+.article-cover-inner {
+  aspect-ratio: 21/9;
+  background: linear-gradient(135deg, var(--mid) 0%, var(--vinho2) 100%);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.article-cover-text {
+  font-family: var(--font-d); font-size: 72px; font-weight: 900;
+  color: rgba(242,239,233,0.04); letter-spacing: 0.08em;
+}
+
+/* ═══ ARTICLE BODY ═══ */
+.article-body {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+.article-body h2 {
+  font-family: var(--font-d); font-weight: 700;
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.1; letter-spacing: 0.03em;
+  color: var(--off);
+  margin: 56px 0 20px;
+}
+.article-body h2:first-child { margin-top: 0; }
+.article-body p {
+  font-size: 16px; font-weight: 300;
+  color: var(--prata); line-height: 1.85;
+  margin-bottom: 20px;
+}
+.article-body p strong {
+  font-weight: 500; color: var(--off);
+}
+
+/* Pullquote */
+.pullquote {
+  border-left: 2px solid var(--vinho);
+  padding: 4px 0 4px 24px;
+  margin: 40px 0;
+  font-size: 18px; font-weight: 300;
+  font-style: italic;
+  color: var(--off);
+  line-height: 1.7;
+}
+
+/* Data callout */
+.data-callout {
+  background: var(--mid);
+  border: 1px solid rgba(196,196,196,0.06);
+  padding: 28px 32px;
+  margin: 40px 0;
+}
+.data-callout-label {
+  font-family: var(--font-m); font-size: 8px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--vinho); margin-bottom: 12px;
+}
+.data-callout-content {
+  font-family: var(--font-m); font-size: 13px;
+  color: var(--off); line-height: 1.8;
+}
+.data-callout-source {
+  font-family: var(--font-m); font-size: 9px;
+  color: var(--dim); margin-top: 12px;
+  letter-spacing: 0.05em;
+}
+
+/* Inline image */
+.article-img {
+  margin: 40px -60px;
+  position: relative;
+}
+.article-img-inner {
+  aspect-ratio: 16/9;
+  background: var(--mid);
+  display: flex; align-items: center; justify-content: center;
+}
+.article-img-caption {
+  font-family: var(--font-m); font-size: 9px;
+  color: var(--dim); letter-spacing: 0.08em;
+  margin-top: 12px; text-align: right;
+}
+
+/* ═══ SOURCES ═══ */
+.sources {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+  border-top: 1px solid rgba(196,196,196,0.06);
+  padding-top: 40px;
+}
+.sources-label {
+  font-family: var(--font-m); font-size: 9px;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--vinho); margin-bottom: 24px;
+}
+.source-item {
+  padding: 10px 0;
+  font-size: 13px; color: var(--dim); line-height: 1.7;
+  display: grid; grid-template-columns: 28px 1fr; gap: 8px;
+}
+.source-num {
+  font-family: var(--font-m); font-size: 11px; color: var(--dimmer);
+}
+.source-item em { color: var(--prata); }
+
+/* ═══ RELATED POSTS ═══ */
+.related {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+.related-label {
+  font-family: var(--font-m); font-size: 9px;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--vinho);
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 32px;
+}
+.related-label::before {
+  content: ''; width: 24px; height: 1px; background: var(--vinho);
+}
+.related-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.related-card {
+  display: flex; gap: 20px; align-items: start;
+  padding: 24px; background: var(--mid);
+  transition: transform 0.3s cubic-bezier(.16,1,.3,1);
+}
+.related-card:hover { transform: translateY(-2px); }
+.related-card-num {
+  font-family: var(--font-d); font-weight: 900;
+  font-size: 48px; color: var(--vinho2);
+  line-height: 1; flex-shrink: 0;
+}
+.related-card-info { display: flex; flex-direction: column; gap: 8px; }
+.related-card-tag {
+  font-family: var(--font-m); font-size: 8px;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim);
+}
+.related-card-title {
+  font-family: var(--font-d); font-weight: 700;
+  font-size: 18px; line-height: 1.15; color: var(--off);
+  transition: color 0.2s;
+}
+.related-card:hover .related-card-title { color: var(--vinho); }
+
+/* ═══ FOOTER ═══ */
+footer {
+  border-top: 1px solid rgba(196,196,196,0.06);
+  padding: 48px;
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 24px; flex-wrap: wrap;
+}
+.footer-brand {
+  font-family: var(--font-d); font-weight: 900;
+  font-size: 16px; letter-spacing: 0.25em; color: var(--dimmer);
+}
+.footer-note {
+  font-family: var(--font-m); font-size: 9px;
+  color: var(--dim); letter-spacing: 0.05em;
+  line-height: 1.8; max-width: 500px; text-align: right;
+}
+.footer-subtle {
+  width: 100%;
+  text-align: center;
+  padding-top: 24px;
+  margin-top: 16px;
+  border-top: 1px solid rgba(196,196,196,0.03);
+}
+.footer-subtle a {
+  font-family: var(--font-m);
+  font-size: 8px;
+  color: var(--vinho);
+  letter-spacing: 0.1em;
+  opacity: 0.4;
+  transition: opacity 0.3s;
+}
+.footer-subtle a:hover {
+  opacity: 0.8;
+}
+
+/* ═══ READING PROGRESS BAR ═══ */
+.progress-bar {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 2px; z-index: 200;
+  background: transparent;
+}
+.progress-fill {
+  height: 100%; width: 0%;
+  background: var(--vinho);
+  transition: width 0.05s linear;
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 768px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .article-header { padding: 100px 24px 32px; }
+  .article-cover { padding: 0; margin-bottom: 40px; }
+  .article-body { padding: 0 24px 56px; }
+  .article-body h2 { margin-top: 40px; }
+  .article-img { margin: 32px -24px; }
+  .sources { padding: 0 24px 48px; padding-top: 32px; }
+  .related { padding: 0 24px 48px; }
+  .related-grid { grid-template-columns: 1fr; }
+  footer { padding: 32px 24px; flex-direction: column; }
+  .footer-note { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ PROGRESS BAR ═══ -->
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <a href="taura_landing_v3.html" class="nav-logo">TAURA<span>.</span></a>
+  <div class="nav-links">
+    <a href="taura_blog.html" class="nav-link">Catálogo</a>
+    <a href="taura_blog_curiosidades.html" class="nav-link">Blog</a>
+    <a href="taura_landing_v3.html" class="nav-link">Sobre</a>
+    <a href="#" class="nav-cta">Acesso</a>
+  </div>
+</nav>
+
+<!-- ═══ ARTICLE HEADER ═══ -->
+<header class="article-header">
+  <a href="taura_blog_curiosidades.html" class="article-back">← Voltar ao blog</a>
+
+  <div class="article-tag">Longevidade · Curiosidade</div>
+  <h1 class="article-title">Epithalon e telomerase: quatro aminoácidos contra o relógio biológico</h1>
+  <div class="article-meta">
+    <span>01 Fev 2026</span>
+    <span class="article-meta-dot"></span>
+    <span>8 min leitura</span>
+    <span class="article-meta-dot"></span>
+    <span>TAURA Research</span>
+  </div>
+</header>
+
+<!-- ═══ COVER ═══ -->
+<div class="article-cover">
+  <div class="article-cover-inner">
+    <span class="article-cover-text">EPITHALON</span>
+  </div>
+</div>
+
+<!-- ═══ ARTICLE BODY ═══ -->
+<article class="article-body">
+
+  <p>
+    Em 1913, Leonard Hayflick demonstrou que células humanas normais em cultura não se dividem indefinidamente — elas atingem um limite, entram em senescência e param. Esse fenômeno, hoje conhecido como <strong>limite de Hayflick</strong>, estabeleceu uma das fronteiras mais fundamentais da biologia celular. Décadas depois, a descoberta da telomerase — a enzima capaz de adicionar sequências repetitivas (TTAGGG) às extremidades dos cromossomos — revelou o mecanismo molecular por trás desse relógio. E é nesse contexto que o Epithalon entra na literatura.
+  </p>
+
+  <p>
+    O Epithalon (também grafado epitalon ou epithalone) é um tetrapeptídeo sintético com a sequência <strong>Ala-Glu-Asp-Gly</strong>, desenvolvido pelo professor Vladimir Khavinson no Instituto de Biorregulação e Gerontologia de São Petersburgo. A molécula foi concebida como um análogo sintético do epithalamina, um extrato peptídico da glândula pineal que Khavinson e colaboradores investigaram durante décadas em modelos de envelhecimento. A hipótese de trabalho era direta: se a função pineal declina com a idade, e se esse declínio contribui para o envelhecimento sistêmico, seria possível isolar o componente ativo responsável pelos efeitos observados?
+  </p>
+
+  <h2>A conexão pineal</h2>
+
+  <p>
+    A glândula pineal é mais conhecida por sua produção de melatonina — o regulador circadiano primário. Mas a literatura aponta que a pineal produz uma série de outros peptídeos bioativos cuja função permanece parcialmente caracterizada. Estudos indicam que, com o envelhecimento, a calcificação progressiva da pineal correlaciona-se com redução na produção de melatonina e alterações nos ritmos circadianos. Khavinson observou que a administração de extratos pineais em modelos animais envelhecidos parecia restaurar parcialmente a produção de melatonina e marcadores associados à função imune.
+  </p>
+
+  <div class="pullquote">
+    Quatro aminoácidos. Peso molecular de aproximadamente 390 Da. A simplicidade estrutural do Epithalon contrasta com a complexidade das vias que a literatura sugere que ele pode influenciar — da telomerase à melatonina.
+  </div>
+
+  <p>
+    O passo seguinte foi sintetizar o peptídeo mínimo capaz de reproduzir esses efeitos. O Epithalon (Ala-Glu-Asp-Gly) emergiu desse processo de fracionamento e síntese. A molécula é notável por sua simplicidade — quatro aminoácidos, sem modificações pós-traducionais, sem pontes dissulfeto, sem estrutura terciária complexa. Estudos indicam que essa simplicidade pode ser uma vantagem farmacocinética: peptídeos curtos apresentam menor imunogenicidade e podem atravessar barreiras biológicas com mais facilidade.
+  </p>
+
+  <h2>Ativação de hTERT: o mecanismo proposto</h2>
+
+  <p>
+    O principal mecanismo investigado na literatura para o Epithalon é a <strong>ativação da subunidade catalítica da telomerase humana (hTERT)</strong>. A telomerase é composta por dois componentes essenciais: o RNA molde (hTR ou TERC) e a transcriptase reversa (hTERT). Na maioria das células somáticas adultas, o gene hTERT está silenciado epigeneticamente — o que significa que a telomerase não está ativa, e os telômeros encurtam a cada divisão celular.
+  </p>
+
+  <div class="data-callout">
+    <div class="data-callout-label">Dado da literatura</div>
+    <div class="data-callout-content">
+      Em fibroblastos humanos cultivados in vitro, a adição de Epithalon ao meio de cultura foi associada a aumento na atividade de telomerase e extensão do número de divisões celulares além do limite de Hayflick esperado, com as células completando até 44 passagens adicionais em comparação ao grupo controle.
+    </div>
+    <div class="data-callout-source">
+      Khavinson VKh, et al., 2003 — Bulletin of Experimental Biology and Medicine
+    </div>
+  </div>
+
+  <p>
+    A literatura propõe que o Epithalon pode atuar como um desrepressor epigenético do gene hTERT, possivelmente através da modulação de fatores de transcrição ou remodelação da cromatina na região promotora. No entanto, é importante notar que o mecanismo molecular preciso — qual receptor, qual cascata de sinalização, qual modificação epigenética específica — permanece incompletamente elucidado. Estudos indicam que a pesquisa nesse campo é promissora, mas ainda requer validação independente em maior escala.
+  </p>
+
+  <h2>Por que o limite de Hayflick importa</h2>
+
+  <p>
+    O encurtamento telomérico não é apenas um marcador de envelhecimento — a literatura aponta que ele é funcionalmente relevante. Quando os telômeros atingem um comprimento crítico, a célula interpreta isso como dano ao DNA, ativando vias de resposta como p53/p21 e Rb/p16, que conduzem à parada do ciclo celular (senescência) ou apoptose. <strong>Células senescentes não são inertes</strong> — elas adquirem um fenótipo secretório associado à senescência (SASP), liberando citocinas pró-inflamatórias, proteases e fatores de crescimento que podem alterar o microambiente tecidual.
+  </p>
+
+  <div class="article-img">
+    <div class="article-img-inner" style="background:linear-gradient(135deg, var(--mid) 0%, var(--vinho2) 60%);">
+      <span style="font-family:var(--font-m);font-size:11px;color:var(--dim);letter-spacing:0.15em;text-transform:uppercase;">Diagrama: encurtamento telomérico → senescência → SASP</span>
+    </div>
+    <div class="article-img-caption">Representação esquemática da cascata telômero-senescência-inflamação</div>
+  </div>
+
+  <p>
+    Estudos indicam que o acúmulo de células senescentes nos tecidos contribui para o que a gerontologia moderna chama de "inflammaging" — a inflamação crônica de baixo grau associada ao envelhecimento. Nesse contexto, qualquer intervenção que possa modular a taxa de encurtamento telomérico ou a ativação de telomerase em células-tronco e progenitoras é de interesse teórico significativo. O Epithalon se insere nessa linha de investigação, embora dados clínicos de longo prazo em humanos permaneçam limitados.
+  </p>
+
+  <h2>Melatonina, circadianidade e a ponte neuroendócrina</h2>
+
+  <p>
+    Além da telomerase, a literatura sobre o Epithalon documenta outro eixo de investigação: a restauração da produção noturna de melatonina em modelos envelhecidos. Estudos em primatas não-humanos idosos indicaram que a administração de Epithalon foi associada à normalização parcial do pico noturno de melatonina, que tipicamente se achata com a idade. A relevância disso vai além do sono — a melatonina é um antioxidante endógeno, modulador imune e regulador de expressão gênica com efeitos pleiotrópicos documentados na literatura.
+  </p>
+
+  <p>
+    A conexão entre telomerase e melatonina pode não ser casual. Estudos in vitro indicam que a melatonina, por si só, pode modular a atividade de telomerase em certos tipos celulares. Isso sugere a possibilidade de um circuito de retroalimentação: o Epithalon restaura a função pineal, que aumenta a melatonina, que por sua vez pode contribuir para a manutenção telomérica. Essa é uma hipótese elegante, mas a literatura aponta que ela ainda carece de confirmação mecanística definitiva. A ciência do envelhecimento avança em camadas, e o Epithalon representa uma dessas camadas — fascinante, mas ainda em construção.
+  </p>
+
+</article>
+
+<!-- ═══ SOURCES ═══ -->
+<section class="sources">
+  <div class="sources-label">Fontes</div>
+
+  <div class="source-item">
+    <span class="source-num">[1]</span>
+    <div>Khavinson VKh, et al. <em>Peptide promotes overcoming of the division limit in human somatic cell.</em> Bull Exp Biol Med. 2003;136(6):536-538.</div>
+  </div>
+  <div class="source-item">
+    <span class="source-num">[2]</span>
+    <div>Khavinson VKh, Morozov VG. <em>Peptides of pineal gland and thymus prolong human life.</em> Neuro Endocrinol Lett. 2003;24(3-4):233-240.</div>
+  </div>
+  <div class="source-item">
+    <span class="source-num">[3]</span>
+    <div>Anisimov VN, Khavinson VKh. <em>Peptide bioregulation of aging: results and prospects.</em> Biogerontology. 2010;11(2):139-149.</div>
+  </div>
+  <div class="source-item">
+    <span class="source-num">[4]</span>
+    <div>Hayflick L, Moorhead PS. <em>The serial cultivation of human diploid cell strains.</em> Exp Cell Res. 1961;25:585-621.</div>
+  </div>
+  <div class="source-item">
+    <span class="source-num">[5]</span>
+    <div>Blackburn EH, et al. <em>Telomeres and telomerase: the path from maize, Tetrahymena and yeast to human cancer and aging.</em> Nat Med. 2006;12(10):1133-1138.</div>
+  </div>
+  <div class="source-item">
+    <span class="source-num">[6]</span>
+    <div>Khavinson VKh, et al. <em>Epithalon peptide induces telomerase activity and telomere elongation in human somatic cells.</em> Bull Exp Biol Med. 2003;135(6):590-592.</div>
+  </div>
+</section>
+
+<!-- ═══ RELATED ═══ -->
+<section class="related">
+  <div class="related-label">Leia Também</div>
+  <div class="related-grid">
+    <a href="taura_artigo_motsc.html" class="related-card">
+      <span class="related-card-num">01</span>
+      <div class="related-card-info">
+        <span class="related-card-tag">Metabólico · Mecanismo</span>
+        <h3 class="related-card-title">MOTS-c: o primeiro peptídeo codificado pelo DNA mitocondrial com ação nuclear</h3>
+      </div>
+    </a>
+    <a href="taura_artigo_cjc_ipamorelin.html" class="related-card">
+      <span class="related-card-num">02</span>
+      <div class="related-card-info">
+        <span class="related-card-tag">Performance · Mecanismo</span>
+        <h3 class="related-card-title">GH pulsátil: por que o timing importa mais que a quantidade</h3>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-brand">TAURA RESEARCH</div>
+  <div class="footer-note">
+    Conteúdo informativo baseado em literatura científica revisada por pares.<br>
+    Nenhuma informação aqui constitui aconselhamento médico ou recomendação de uso.
+  </div>
+  <div class="footer-subtle"><a href="taura_landing_v3.html">mais informações</a></div>
+</footer>
+
+<!-- ═══ READING PROGRESS ═══ -->
+<script>
+window.addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+  document.getElementById('progressFill').style.width = pct + '%';
+});
+</script>
+
+</body>
+</html>

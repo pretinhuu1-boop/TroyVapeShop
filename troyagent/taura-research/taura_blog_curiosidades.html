@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAURA Research — Dados Primeiro</title>
+<meta name="description" content="Blog de pesquisa TAURA. Curiosidades, mecanismos de ação e o que a literatura científica diz sobre compostos de interesse.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;900&family=Outfit:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:   #0A0A0A;
+  --vinho:   #6B0F1A;
+  --vinho2:  #3D0A10;
+  --prata:   #C4C4C4;
+  --off:     #F2EFE9;
+  --dim:     #666666;
+  --dimmer:  #333333;
+  --mid:     #161616;
+  --mid2:    #1e1e1e;
+  --font-d:  'Barlow Condensed', sans-serif;
+  --font-b:  'Outfit', sans-serif;
+  --font-m:  'JetBrains Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--off);
+  font-family: var(--font-b);
+  font-weight: 300;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--vinho); color: var(--off); }
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+
+/* GRAIN */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 1; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.03;
+}
+
+/* ═══ NAV ═══ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px 48px;
+  background: linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, transparent 100%);
+}
+.nav-logo {
+  font-family: var(--font-d);
+  font-weight: 900; font-size: 22px;
+  letter-spacing: 0.25em; color: var(--off);
+}
+.nav-logo span { color: var(--vinho); }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-link {
+  font-family: var(--font-m); font-weight: 300; font-size: 10px;
+  color: var(--dim); letter-spacing: 0.15em;
+  text-transform: uppercase; transition: color 0.2s;
+}
+.nav-link:hover { color: var(--off); }
+.nav-link.active { color: var(--off); }
+.nav-cta {
+  background: var(--vinho); color: var(--off);
+  font-family: var(--font-b); font-weight: 500;
+  font-size: 11px; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 10px 20px;
+  border: 1px solid var(--vinho);
+  transition: background 0.2s, color 0.2s;
+}
+.nav-cta:hover { background: transparent; color: var(--vinho); }
+
+/* ═══ HERO ═══ */
+.hero {
+  padding: 160px 48px 60px;
+  max-width: 800px;
+}
+.hero-label {
+  font-family: var(--font-m);
+  font-size: 9px; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--vinho);
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 24px;
+}
+.hero-label::before {
+  content: ''; width: 24px; height: 1px;
+  background: var(--vinho);
+}
+.hero-title {
+  font-family: var(--font-d);
+  font-weight: 900; font-size: clamp(48px, 7vw, 88px);
+  line-height: 0.92; letter-spacing: 0.04em;
+  color: var(--off); margin-bottom: 24px;
+}
+.hero-desc {
+  font-size: 15px; font-weight: 300;
+  color: var(--prata); max-width: 520px;
+  line-height: 1.8;
+}
+
+/* ═══ TAGS ═══ */
+.tags {
+  padding: 0 48px 48px;
+  display: flex; gap: 10px; flex-wrap: wrap;
+}
+.tag {
+  font-family: var(--font-m);
+  font-size: 9px; letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dim); background: transparent;
+  border: 1px solid var(--dimmer);
+  padding: 7px 14px; cursor: pointer;
+  transition: all 0.2s;
+}
+.tag:hover, .tag.active {
+  color: var(--off); border-color: var(--vinho);
+  background: var(--vinho2);
+}
+
+/* ═══ FEATURED POST ═══ */
+.featured {
+  max-width: 1200px; margin: 0 auto;
+  padding: 0 48px 64px;
+}
+.featured-card {
+  display: grid; grid-template-columns: 1.2fr 1fr;
+  gap: 0; background: var(--mid);
+  transition: transform 0.4s cubic-bezier(.16,1,.3,1);
+}
+.featured-card:hover { transform: translateY(-3px); }
+.featured-img {
+  aspect-ratio: 16/10; overflow: hidden;
+  background: linear-gradient(135deg, var(--mid) 0%, var(--vinho2) 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.featured-img-text {
+  font-family: var(--font-d); font-size: 56px; font-weight: 900;
+  color: rgba(242,239,233,0.05); letter-spacing: 0.08em;
+}
+.featured-body {
+  padding: 48px; display: flex; flex-direction: column;
+  justify-content: center; gap: 16px;
+}
+.featured-tag {
+  font-family: var(--font-m); font-size: 9px;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--vinho);
+}
+.featured-title {
+  font-family: var(--font-d); font-weight: 900;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.05; letter-spacing: 0.03em; color: var(--off);
+}
+.featured-excerpt {
+  font-size: 14px; color: var(--prata); line-height: 1.75;
+}
+.featured-meta {
+  font-family: var(--font-m); font-size: 9px;
+  color: var(--dim); letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: flex; align-items: center; gap: 16px;
+  margin-top: 8px;
+}
+.featured-meta-dot {
+  width: 3px; height: 3px; border-radius: 50%;
+  background: var(--dimmer);
+}
+.featured-read {
+  font-family: var(--font-m); font-size: 10px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--vinho);
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 12px; transition: gap 0.2s;
+}
+.featured-card:hover .featured-read { gap: 14px; }
+
+/* ═══ GRID DE POSTS ═══ */
+.posts-grid {
+  max-width: 1200px; margin: 0 auto;
+  padding: 0 48px 80px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.post-card {
+  display: flex; flex-direction: column;
+  background: var(--mid);
+  transition: transform 0.4s cubic-bezier(.16,1,.3,1);
+}
+.post-card:hover { transform: translateY(-3px); }
+.post-card-img {
+  aspect-ratio: 16/10; overflow: hidden;
+  position: relative;
+}
+.post-card-img-inner {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.5s cubic-bezier(.16,1,.3,1);
+}
+.post-card:hover .post-card-img-inner { transform: scale(1.04); }
+.post-card-img-text {
+  font-family: var(--font-d); font-size: 32px; font-weight: 900;
+  color: rgba(242,239,233,0.05); letter-spacing: 0.08em;
+}
+.post-card-body {
+  padding: 28px; display: flex; flex-direction: column;
+  gap: 12px; flex: 1;
+}
+.post-card-tag {
+  font-family: var(--font-m); font-size: 8px;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--vinho);
+}
+.post-card-title {
+  font-family: var(--font-d); font-weight: 700;
+  font-size: 22px; line-height: 1.1; letter-spacing: 0.02em;
+  color: var(--off);
+  transition: color 0.2s;
+}
+.post-card:hover .post-card-title { color: var(--vinho); }
+.post-card-excerpt {
+  font-size: 13px; color: var(--prata); line-height: 1.7;
+  flex: 1;
+}
+.post-card-meta {
+  font-family: var(--font-m); font-size: 9px;
+  color: var(--dim); letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: flex; align-items: center; gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(196,196,196,0.06);
+}
+
+/* ═══ LOAD MORE ═══ */
+.load-more {
+  text-align: center;
+  padding: 0 48px 80px;
+}
+.load-more-btn {
+  font-family: var(--font-m); font-size: 10px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--prata); background: transparent;
+  border: 1px solid var(--dimmer);
+  padding: 14px 40px; cursor: pointer;
+  transition: all 0.2s;
+}
+.load-more-btn:hover {
+  border-color: var(--vinho); color: var(--off);
+  background: var(--vinho2);
+}
+
+/* ═══ FOOTER ═══ */
+footer {
+  border-top: 1px solid rgba(196,196,196,0.06);
+  padding: 48px;
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 24px; flex-wrap: wrap;
+}
+.footer-brand {
+  font-family: var(--font-d); font-weight: 900;
+  font-size: 16px; letter-spacing: 0.25em; color: var(--dimmer);
+}
+.footer-note {
+  font-family: var(--font-m); font-size: 9px;
+  color: var(--dim); letter-spacing: 0.05em;
+  line-height: 1.8; max-width: 500px; text-align: right;
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 1024px) {
+  .posts-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .hero { padding: 120px 24px 40px; }
+  .tags { padding: 0 24px 32px; }
+  .featured { padding: 0 24px 48px; }
+  .featured-card { grid-template-columns: 1fr; }
+  .featured-body { padding: 28px; }
+  .posts-grid {
+    grid-template-columns: 1fr;
+    padding: 0 24px 48px; gap: 24px;
+  }
+  .load-more { padding: 0 24px 48px; }
+  footer { padding: 32px 24px; flex-direction: column; }
+  .footer-note { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <a href="taura_landing_v3.html" class="nav-logo">TAURA<span>.</span></a>
+  <div class="nav-links">
+    <a href="taura_blog.html" class="nav-link">Catálogo</a>
+    <a href="taura_blog_curiosidades.html" class="nav-link active">Blog</a>
+    <a href="taura_landing_v3.html" class="nav-link">Sobre</a>
+    <a href="#" class="nav-cta">Acesso</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-label">Dados Primeiro. Opinião Depois.</div>
+  <h1 class="hero-title">O Que a<br>Ciência Diz</h1>
+  <p class="hero-desc">
+    Curiosidades, mecanismos de ação e o que a literatura revisada por pares
+    realmente mostra. Sem hype, sem promessas — só dados.
+  </p>
+</section>
+
+<!-- ═══ TAGS ═══ -->
+<div class="tags">
+  <button class="tag active">Todos</button>
+  <button class="tag">Peptídeos</button>
+  <button class="tag">Longevidade</button>
+  <button class="tag">Mecanismos</button>
+  <button class="tag">Metabólico</button>
+  <button class="tag">Neuro</button>
+</div>
+
+<!-- ═══ POST DESTAQUE ═══ -->
+<section class="featured">
+  <a href="taura_artigo_retatrutida.html" class="featured-card">
+    <div class="featured-img">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg, #111 0%, #1a0508 100%);display:flex;align-items:center;justify-content:center;">
+        <span class="featured-img-text">RETATRUTIDA</span>
+      </div>
+    </div>
+    <div class="featured-body">
+      <div class="featured-tag">Metabólico · Mecanismo</div>
+      <h2 class="featured-title">Agonismo triplo: por que três receptores mudam tudo na pesquisa metabólica</h2>
+      <p class="featured-excerpt">
+        Retatrutida ativa GLP-1, GIP e glucagon simultaneamente — um mecanismo
+        triplo inédito. A literatura sugere que essa combinação pode superar
+        monoterapias em modelos pré-clínicos de obesidade.
+      </p>
+      <div class="featured-meta">
+        <span>12 Mar 2026</span>
+        <span class="featured-meta-dot"></span>
+        <span>8 min leitura</span>
+      </div>
+      <div class="featured-read">Ler artigo <span>→</span></div>
+    </div>
+  </a>
+</section>
+
+<!-- ═══ GRID DE POSTS ═══ -->
+<section class="posts-grid">
+
+  <!-- POST 1 — Tirzepatida -->
+  <a href="taura_artigo_tirzepatida.html" class="post-card" data-tag="metabólico">
+    <div class="post-card-img">
+      <div class="post-card-img-inner" style="background:linear-gradient(135deg, #111 0%, #1a0a0d 100%);">
+        <span class="post-card-img-text">TIRZEPATIDA</span>
+      </div>
+    </div>
+    <div class="post-card-body">
+      <div class="post-card-tag">Metabólico · Mecanismo</div>
+      <h3 class="post-card-title">GIP + GLP-1: a combinação que redefiniu o campo das incretinas</h3>
+      <p class="post-card-excerpt">
+        Tirzepatida é o primeiro agonista duplo GIP/GLP-1. A literatura aponta
+        que a adição do receptor GIP pode explicar por que os resultados
+        metabólicos superam monoterapias com GLP-1 isolado.
+      </p>
+      <div class="post-card-meta">
+        <span>10 Mar 2026</span>
+        <span class="featured-meta-dot"></span>
+        <span>7 min</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- POST 2 — Semax -->
+  <a href="taura_artigo_semax.html" class="post-card" data-tag="neuro">
+    <div class="post-card-img">
+      <div class="post-card-img-inner" style="background:linear-gradient(135deg, #0d0d0d 0%, #0d0d1a 100%);">
+        <span class="post-card-img-text">SEMAX</span>
+      </div>
+    </div>
+    <div class="post-card-body">
+      <div class="post-card-tag">Neuro · Mecanismo</div>
+      <h3 class="post-card-title">Semax e BDNF: o peptídeo russo que modula fator neurotrófico</h3>
+      <p class="post-card-excerpt">
+        Desenvolvido na Rússia nos anos 80, o Semax é um dos poucos peptídeos
+        com aprovação regulatória em algum país. Sua relação com BDNF é o que
+        atrai pesquisadores ocidentais.
+      </p>
+      <div class="post-card-meta">
+        <span>08 Mar 2026</span>
+        <span class="featured-meta-dot"></span>
+        <span>6 min</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- POST 3 — BPC-157 -->
+  <a href="taura_artigo_bpc157.html" class="post-card" data-tag="peptídeos">
+    <div class="post-card-img">
+      <div class="post-card-img-inner" style="background:linear-gradient(135deg, #111 0%, #1a0508 100%);">
+        <span class="post-card-img-text">BPC-157</span>
+      </div>
+    </div>
+    <div class="post-card-body">
+      <div class="post-card-tag">Peptídeos · Mecanismo</div>
+      <h3 class="post-card-title">Como um fragmento gástrico se tornou o peptídeo mais estudado em reparo tecidual</h3>
+      <p class="post-card-excerpt">
+        BPC-157 foi isolado de suco gástrico humano. A curiosidade: ele não deveria
+        sobreviver ao pH do estômago — mas sobrevive. E isso mudou o campo.
+      </p>
+      <div class="post-card-meta">
+        <span>05 Mar 2026</span>
+        <span class="featured-meta-dot"></span>
+        <span>5 min</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- POST 4 — PP332 -->
+  <a href="taura_artigo_pp332.html" class="post-card" data-tag="mecanismos">
+    <div class="post-card-img">
+      <div class="post-card-img-inner" style="background:linear-gradient(135deg, #0f0f0f 0%, #1a1008 100%);">
+        <span class="post-card-img-text">PP-332</span>
+      </div>
+    </div>
+    <div class="post-card-body">
+      <div class="post-card-tag">Mecanismos · Performance</div>
+      <h3 class="post-card-title">SLU-PP-332: o composto que mimetiza exercício físico a nível molecular</h3>
+      <p class="post-card-excerpt">
+        Um agonista de ERRα, ERRβ e ERRγ que ativa as mesmas vias metabólicas
+        do exercício aeróbico. A literatura aponta aumento de fibras tipo I
+        e biogênese mitocondrial em modelos animais.
+      </p>
+      <div class="post-card-meta">
+        <span>01 Mar 2026</span>
+        <span class="featured-meta-dot"></span>
+        <span>6 min</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- POST 5 — PT-141 -->
+  <a href="taura_artigo_pt141.html" class="post-card" data-tag="peptídeos">
+    <div class="post-card-img">
+      <div class="post-card-img-inner" style="background:linear-gradient(135deg, #111 0%, #160a0a 100%);">
+        <span class="post-card-img-text">PT-141</span>
+      </div>
+    </div>
+    <div class="post-card-body">
+      <div class="post-card-tag">Peptídeos · Curiosidade</div>
+      <h3 class="post-card-title">PT-141: o único peptídeo aprovado que age via sistema nervoso central</h3>
+      <p class="post-card-excerpt">
+        Derivado do Melanotan II, o PT-141 (bremelanotida) atua no receptor MC4R
+        no hipotálamo. Diferente de vasodilatadores, seu mecanismo é central —
+        e isso tem implicações farmacológicas únicas.
+      </p>
+      <div class="post-card-meta">
+        <span>25 Fev 2026</span>
+        <span class="featured-meta-dot"></span>
+        <span>5 min</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- POST 6 — CJC+Ipamorelin -->
+  <a href="taura_artigo_cjc_ipamorelin.html" class="post-card" data-tag="mecanismos">
+    <div class="post-card-img">
+      <div class="post-card-img-inner" style="background:linear-gradient(135deg, #0d0d0d 0%, #0d1a12 100%);">
+        <span class="post-card-img-text">CJC+IPA</span>
+      </div>
+    </div>
+    <div class="post-card-body">
+      <div class="post-card-tag">Mecanismos · Peptídeos</div>
+      <h3 class="post-card-title">GH pulsátil: por que o timing importa mais que a quantidade</h3>
+      <p class="post-card-excerpt">
+        CJC-1295 estende a meia-vida do GHRH, enquanto Ipamorelin mimetiza grelina
+        sem elevar cortisol. A combinação visa restaurar a pulsatilidade natural
+        do GH — e a literatura explica por quê.
+      </p>
+      <div class="post-card-meta">
+        <span>20 Fev 2026</span>
+        <span class="featured-meta-dot"></span>
+        <span>7 min</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- POST 7 — Epithalon -->
+  <a href="taura_artigo_epithalon.html" class="post-card" data-tag="longevidade">
+    <div class="post-card-img">
+      <div class="post-card-img-inner" style="background:linear-gradient(135deg, #0d0d0d 0%, #0a0d1a 100%);">
+        <span class="post-card-img-text">EPITHALON</span>
+      </div>
+    </div>
+    <div class="post-card-body">
+      <div class="post-card-tag">Longevidade · Mecanismo</div>
+      <h3 class="post-card-title">Epithalon e telomerase: quatro aminoácidos que intrigam a gerontologia</h3>
+      <p class="post-card-excerpt">
+        Um tetrapeptídeo (Ala-Glu-Asp-Gly) estudado pelo grupo Khavinson desde
+        os anos 90. A literatura indica ativação de telomerase e regulação
+        de melatonina — dados preliminares que a comunidade debate.
+      </p>
+      <div class="post-card-meta">
+        <span>15 Fev 2026</span>
+        <span class="featured-meta-dot"></span>
+        <span>6 min</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- POST 8 — MOTS-c -->
+  <a href="taura_artigo_motsc.html" class="post-card" data-tag="longevidade">
+    <div class="post-card-img">
+      <div class="post-card-img-inner" style="background:linear-gradient(135deg, #0f0f0f 0%, #1a0a08 100%);">
+        <span class="post-card-img-text">MOTS-c</span>
+      </div>
+    </div>
+    <div class="post-card-body">
+      <div class="post-card-tag">Longevidade · Metabólico</div>
+      <h3 class="post-card-title">MOTS-c: o primeiro peptídeo codificado pelo DNA mitocondrial com ação nuclear</h3>
+      <p class="post-card-excerpt">
+        Descoberto em 2015 pelo grupo de Pinchas Cohen, o MOTS-c é codificado
+        pelo gene 12S rRNA mitocondrial. A literatura sugere que ele transloca
+        ao núcleo sob estresse e ativa vias AMPK.
+      </p>
+      <div class="post-card-meta">
+        <span>10 Fev 2026</span>
+        <span class="featured-meta-dot"></span>
+        <span>7 min</span>
+      </div>
+    </div>
+  </a>
+
+</section>
+
+<!-- ═══ LOAD MORE ═══ -->
+<div class="load-more">
+  <button class="load-more-btn">Carregar mais artigos</button>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-brand">TAURA RESEARCH</div>
+  <div class="footer-note">
+    Conteúdo informativo baseado em literatura científica revisada por pares.<br>
+    Nenhuma informação aqui constitui aconselhamento médico ou recomendação de uso.
+  </div>
+</footer>
+
+</body>
+</html>

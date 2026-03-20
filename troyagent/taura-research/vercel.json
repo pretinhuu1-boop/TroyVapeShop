@@ -1,0 +1,7 @@
+{
+  "buildCommand": "cd new_page && npm run build",
+  "outputDirectory": "new_page/dist",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" fill="none">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#0d1a14"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+    <filter id="blur2"><feGaussianBlur stdDeviation="10"/></filter>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg)"/>
+  <g stroke="#2a8b6a" stroke-opacity="0.06" stroke-width="0.5">
+    <line x1="0" y1="100" x2="600" y2="100"/><line x1="0" y1="200" x2="600" y2="200"/>
+    <line x1="0" y1="300" x2="600" y2="300"/><line x1="0" y1="400" x2="600" y2="400"/>
+    <line x1="100" y1="0" x2="100" y2="600"/><line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="300" y1="0" x2="300" y2="600"/><line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="500" y1="0" x2="500" y2="600"/>
+  </g>
+  <!-- Mitochondria outer membrane -->
+  <ellipse cx="300" cy="260" rx="170" ry="100" fill="none" stroke="#2a8b6a" stroke-opacity="0.2" stroke-width="1.5"/>
+  <!-- Inner membrane with cristae -->
+  <ellipse cx="300" cy="260" rx="150" ry="85" fill="none" stroke="#2a8b6a" stroke-opacity="0.15" stroke-width="1"/>
+  <g stroke="#2a8b6a" stroke-opacity="0.15" stroke-width="1" fill="none">
+    <path d="M170 260 Q185 220 200 260 Q215 300 230 260"/>
+    <path d="M230 260 Q245 220 260 260 Q275 300 290 260"/>
+    <path d="M290 260 Q305 220 320 260 Q335 300 350 260"/>
+    <path d="M350 260 Q365 220 380 260 Q395 300 410 260"/>
+  </g>
+  <!-- mtDNA circle -->
+  <circle cx="300" cy="260" r="30" fill="none" stroke="#2a8b6a" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="4 2"/>
+  <text x="300" y="255" text-anchor="middle" fill="#c4a882" font-family="monospace" font-size="7" opacity="0.6">12S rRNA</text>
+  <text x="300" y="268" text-anchor="middle" fill="#2a8b6a" font-family="monospace" font-size="8" opacity="0.5">mtDNA</text>
+  <!-- MOTS-c peptide emerging -->
+  <g stroke="#2a8b6a" stroke-opacity="0.3" stroke-width="1.5">
+    <line x1="300" y1="230" x2="300" y2="130" stroke-dasharray="3 3"/>
+  </g>
+  <circle cx="300" cy="120" r="15" fill="#2a8b6a" fill-opacity="0.1" stroke="#2a8b6a" stroke-opacity="0.3"/>
+  <text x="300" y="124" text-anchor="middle" fill="#c4a882" font-family="monospace" font-size="7" opacity="0.6">MOTS-c</text>
+  <!-- Nuclear translocation -->
+  <g stroke="#2a8b6a" stroke-opacity="0.15" stroke-width="0.8" stroke-dasharray="4 4">
+    <path d="M300 105 Q300 70 340 60 Q380 50 400 70"/>
+  </g>
+  <!-- Nucleus -->
+  <ellipse cx="430" cy="80" rx="40" ry="30" fill="none" stroke="#2a8b6a" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="430" y="76" text-anchor="middle" fill="#c4a882" font-family="monospace" font-size="7" opacity="0.5">NÚCLEO</text>
+  <text x="430" y="88" text-anchor="middle" fill="#2a8b6a" font-family="monospace" font-size="6" opacity="0.3">NRF2↑</text>
+  <!-- AMPK pathway -->
+  <g transform="translate(300, 400)">
+    <rect x="-30" y="-12" width="60" height="24" rx="4" fill="#2a8b6a" fill-opacity="0.08" stroke="#2a8b6a" stroke-opacity="0.25" stroke-width="0.8"/>
+    <text x="0" y="4" text-anchor="middle" fill="#c4a882" font-family="monospace" font-size="9" opacity="0.6">AMPK</text>
+  </g>
+  <line x1="300" y1="360" x2="300" y2="388" stroke="#2a8b6a" stroke-opacity="0.15" stroke-width="0.8"/>
+  <!-- Downstream effects -->
+  <g fill="#2a8b6a" font-family="monospace" font-size="7" opacity="0.3">
+    <text x="180" y="440">GLUT4↑</text>
+    <text x="370" y="440">β-OX↑</text>
+    <text x="270" y="460">FOLATO</text>
+  </g>
+  <!-- Glow -->
+  <ellipse cx="300" cy="260" rx="120" ry="70" fill="#2a8b6a" fill-opacity="0.03" filter="url(#blur2)"/>
+  <!-- Label -->
+  <text x="300" y="520" text-anchor="middle" fill="#f2efe9" font-family="monospace" font-size="14" letter-spacing="6" opacity="0.4">MTC</text>
+  <text x="300" y="544" text-anchor="middle" fill="#2a8b6a" font-family="monospace" font-size="10" letter-spacing="3" opacity="0.3">MITOCONDRIAL</text>
+</svg>

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="70%"><stop offset="0%" stop-color="#1a0508"/><stop offset="100%" stop-color="#0a0a0a"/></radialGradient>
+    <filter id="g"><feGaussianBlur stdDeviation="8"/></filter>
+    <filter id="g2"><feGaussianBlur stdDeviation="3"/></filter>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <g stroke="#8b2035" stroke-opacity="0.04" stroke-width="0.5">
+    <line x1="0" y1="80" x2="800" y2="80"/><line x1="0" y1="160" x2="800" y2="160"/><line x1="0" y1="240" x2="800" y2="240"/><line x1="0" y1="320" x2="800" y2="320"/>
+    <line x1="160" y1="0" x2="160" y2="400"/><line x1="320" y1="0" x2="320" y2="400"/><line x1="480" y1="0" x2="480" y2="400"/><line x1="640" y1="0" x2="640" y2="400"/>
+  </g>
+  <!-- Bar chart axes -->
+  <line x1="140" y1="310" x2="520" y2="310" stroke="#C4C4C4" stroke-opacity="0.15" stroke-width="0.8"/>
+  <line x1="140" y1="80" x2="140" y2="310" stroke="#C4C4C4" stroke-opacity="0.1" stroke-width="0.5"/>
+  <!-- Y-axis labels -->
+  <g fill="#C4C4C4" fill-opacity="0.15" font-family="monospace" font-size="6">
+    <text x="130" y="310" text-anchor="end">0</text>
+    <text x="130" y="252" text-anchor="end">+0.5</text>
+    <text x="130" y="195" text-anchor="end">+1.0</text>
+    <text x="130" y="137" text-anchor="end">+1.5</text>
+    <text x="130" y="90" text-anchor="end">+2.0</text>
+  </g>
+  <text x="80" y="200" text-anchor="middle" fill="#C4C4C4" font-family="monospace" font-size="6" opacity="0.2" transform="rotate(-90,80,200)">LBM CHANGE (kg)</text>
+  <!-- Grid lines -->
+  <g stroke="#C4C4C4" stroke-opacity="0.04" stroke-width="0.3">
+    <line x1="140" y1="252" x2="520" y2="252"/>
+    <line x1="140" y1="195" x2="520" y2="195"/>
+    <line x1="140" y1="137" x2="520" y2="137"/>
+  </g>
+  <!-- Bars - Placebo -->
+  <rect x="170" y="290" width="50" height="20" fill="#C4C4C4" fill-opacity="0.08" stroke="#C4C4C4" stroke-opacity="0.12" stroke-width="0.5"/>
+  <text x="195" y="325" text-anchor="middle" fill="#C4C4C4" font-family="monospace" font-size="6" opacity="0.2">PLACEBO</text>
+  <!-- Bars - 0.3mg -->
+  <rect x="250" y="240" width="50" height="70" fill="#8b2035" fill-opacity="0.1" stroke="#8b2035" stroke-opacity="0.2" stroke-width="0.8"/>
+  <text x="275" y="325" text-anchor="middle" fill="#C4C4C4" font-family="monospace" font-size="6" opacity="0.2">0.3mg</text>
+  <!-- Bars - 1mg -->
+  <rect x="330" y="190" width="50" height="120" fill="#8b2035" fill-opacity="0.15" stroke="#8b2035" stroke-opacity="0.25" stroke-width="0.8"/>
+  <rect x="330" y="190" width="50" height="120" fill="#8b2035" fill-opacity="0.04" filter="url(#g)"/>
+  <text x="355" y="325" text-anchor="middle" fill="#C4C4C4" font-family="monospace" font-size="6" opacity="0.25">1mg</text>
+  <!-- Bars - 3mg -->
+  <rect x="410" y="155" width="50" height="155" fill="#8b2035" fill-opacity="0.2" stroke="#8b2035" stroke-opacity="0.3" stroke-width="0.8"/>
+  <rect x="410" y="155" width="50" height="155" fill="#8b2035" fill-opacity="0.05" filter="url(#g)"/>
+  <text x="435" y="325" text-anchor="middle" fill="#C4C4C4" font-family="monospace" font-size="6" opacity="0.25">3mg</text>
+  <!-- Error bars -->
+  <g stroke="#C4C4C4" stroke-opacity="0.15" stroke-width="0.5">
+    <line x1="195" y1="285" x2="195" y2="295"/><line x1="190" y1="285" x2="200" y2="285"/>
+    <line x1="275" y1="230" x2="275" y2="250"/><line x1="270" y1="230" x2="280" y2="230"/>
+    <line x1="355" y1="178" x2="355" y2="200"/><line x1="350" y1="178" x2="360" y2="178"/>
+    <line x1="435" y1="140" x2="435" y2="165"/><line x1="430" y1="140" x2="440" y2="140"/>
+  </g>
+  <!-- Scatter plot area (right side) -->
+  <line x1="560" y1="310" x2="740" y2="310" stroke="#C4C4C4" stroke-opacity="0.1" stroke-width="0.5"/>
+  <line x1="560" y1="100" x2="560" y2="310" stroke="#C4C4C4" stroke-opacity="0.08" stroke-width="0.3"/>
+  <!-- Scatter data points - dose response -->
+  <g fill="#8b2035" fill-opacity="0.3">
+    <circle cx="585" cy="280" r="2.5"/><circle cx="590" cy="290" r="2"/>
+    <circle cx="610" cy="255" r="2.5"/><circle cx="620" cy="245" r="2"/>
+    <circle cx="640" cy="220" r="2.5"/><circle cx="645" cy="210" r="2.5"/>
+    <circle cx="650" cy="230" r="2"/><circle cx="670" cy="180" r="2.5"/>
+    <circle cx="680" cy="170" r="3"/><circle cx="690" cy="190" r="2"/>
+    <circle cx="710" cy="150" r="2.5"/><circle cx="720" cy="140" r="2.5"/>
+    <circle cx="715" cy="160" r="2"/>
+  </g>
+  <!-- Trend line -->
+  <path d="M580,285 Q640,230 720,148" fill="none" stroke="#8b2035" stroke-opacity="0.2" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <!-- Phase label -->
+  <rect x="600" y="80" width="80" height="20" rx="3" fill="none" stroke="#8b2035" stroke-opacity="0.2" stroke-width="0.5"/>
+  <text x="640" y="94" text-anchor="middle" fill="#8b2035" font-family="monospace" font-size="7" opacity="0.35">PHASE II</text>
+  <!-- P-value -->
+  <text x="435" y="145" text-anchor="middle" fill="#C4C4C4" font-family="monospace" font-size="5" opacity="0.25">p&lt;0.001</text>
+  <!-- Significance bracket -->
+  <path d="M195,278 L195,273 L435,273 L435,278" fill="none" stroke="#C4C4C4" stroke-opacity="0.08" stroke-width="0.4"/>
+  <text x="315" y="270" text-anchor="middle" fill="#C4C4C4" font-family="monospace" font-size="5" opacity="0.15">*</text>
+  <text x="400" y="385" text-anchor="middle" fill="#8b2035" font-family="monospace" font-size="9" letter-spacing="4" opacity="0.2">SARMs</text>
+</svg>

@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPC-157 (BC5) — TAURA Research</title>
+<meta name="description" content="Ficha técnica completa do BPC-157. Pentadecapeptídeo gástrico, pureza ≥99.1%, COA por lote, referências da literatura científica.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;900&family=Outfit:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:   #0A0A0A;
+  --vinho:   #6B0F1A;
+  --vinho2:  #3D0A10;
+  --prata:   #C4C4C4;
+  --off:     #F2EFE9;
+  --dim:     #666666;
+  --dimmer:  #333333;
+  --mid:     #161616;
+  --mid2:    #1e1e1e;
+  --font-d:  'Barlow Condensed', sans-serif;
+  --font-b:  'Outfit', sans-serif;
+  --font-m:  'JetBrains Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--off);
+  font-family: var(--font-b);
+  font-weight: 300;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--vinho); color: var(--off); }
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 1; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.03;
+}
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px 48px;
+  background: linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, transparent 100%);
+}
+.nav-logo {
+  font-family: var(--font-d);
+  font-weight: 900; font-size: 22px;
+  letter-spacing: 0.25em; color: var(--off);
+}
+.nav-logo span { color: var(--vinho); }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-link {
+  font-family: var(--font-m);
+  font-weight: 300; font-size: 10px;
+  color: var(--dim); letter-spacing: 0.15em;
+  text-transform: uppercase; transition: color 0.2s;
+}
+.nav-link:hover { color: var(--off); }
+.nav-cta {
+  background: var(--vinho); color: var(--off);
+  font-family: var(--font-b); font-weight: 500;
+  font-size: 11px; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 10px 20px;
+  border: 1px solid var(--vinho);
+  transition: background 0.2s, color 0.2s;
+}
+.nav-cta:hover { background: transparent; color: var(--vinho); }
+.breadcrumb {
+  padding: 100px 48px 0;
+  font-family: var(--font-m);
+  font-size: 9px; letter-spacing: 0.15em;
+  color: var(--dim); text-transform: uppercase;
+  display: flex; align-items: center; gap: 8px;
+}
+.breadcrumb a { color: var(--dim); transition: color 0.2s; }
+.breadcrumb a:hover { color: var(--vinho); }
+.breadcrumb-sep { color: var(--dimmer); }
+.product-hero {
+  padding: 40px 48px 64px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+  max-width: 1200px;
+}
+.product-hero-img {
+  aspect-ratio: 1/1;
+  background: var(--mid);
+  position: relative;
+  overflow: hidden;
+}
+.product-hero-img-placeholder {
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, var(--mid) 0%, var(--vinho2) 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.product-hero-img-placeholder span {
+  font-family: var(--font-d);
+  font-size: 72px; font-weight: 900;
+  color: rgba(242,239,233,0.06);
+  letter-spacing: 0.08em;
+}
+.product-hero-info { padding-top: 16px; }
+.product-hero-cat {
+  font-family: var(--font-m);
+  font-size: 9px; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--vinho);
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 20px;
+}
+.product-hero-cat::before {
+  content: ''; width: 24px; height: 1px;
+  background: var(--vinho);
+}
+.product-hero-title {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(56px, 7vw, 96px);
+  line-height: 0.92; letter-spacing: 0.04em;
+  color: var(--off);
+  margin-bottom: 24px;
+}
+.product-hero-subtitle {
+  font-family: var(--font-b);
+  font-size: 14px; font-weight: 300; font-style: italic;
+  color: var(--prata); margin-bottom: 32px;
+}
+.quick-specs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(196,196,196,0.06);
+  margin-bottom: 32px;
+}
+.quick-spec {
+  background: var(--black);
+  padding: 16px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.quick-spec-label {
+  font-family: var(--font-m);
+  font-size: 8px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--dim);
+}
+.quick-spec-value {
+  font-family: var(--font-m);
+  font-size: 16px; font-weight: 400;
+  color: var(--off);
+}
+.cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.cta-primary {
+  background: var(--vinho); color: var(--off);
+  font-family: var(--font-b); font-weight: 500;
+  font-size: 12px; letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border: 1px solid var(--vinho);
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.cta-primary:hover { background: transparent; color: var(--vinho); }
+.cta-secondary {
+  background: transparent; color: var(--prata);
+  font-family: var(--font-m); font-weight: 300;
+  font-size: 10px; letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border: 1px solid var(--dimmer);
+  transition: border-color 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.cta-secondary:hover { border-color: var(--prata); color: var(--off); }
+.divider {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+.divider-line {
+  height: 1px;
+  background: rgba(196,196,196,0.06);
+}
+.editorial {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 48px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 64px;
+}
+.editorial-sidebar {
+  position: sticky; top: 100px;
+  align-self: start;
+}
+.editorial-sidebar-label {
+  font-family: var(--font-m);
+  font-size: 9px; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--vinho);
+  margin-bottom: 24px;
+}
+.editorial-toc-item {
+  display: block;
+  font-family: var(--font-m);
+  font-size: 10px; color: var(--dim);
+  letter-spacing: 0.1em;
+  padding: 8px 0;
+  border-left: 1px solid var(--dimmer);
+  padding-left: 16px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.editorial-toc-item:hover {
+  color: var(--off);
+  border-color: var(--vinho);
+}
+.editorial-content { max-width: 680px; }
+.editorial-h2 {
+  font-family: var(--font-d);
+  font-weight: 700;
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.1; letter-spacing: 0.03em;
+  color: var(--off);
+  margin-bottom: 20px;
+  padding-top: 48px;
+}
+.editorial-h2:first-child { padding-top: 0; }
+.editorial-p {
+  font-size: 15px; font-weight: 300;
+  color: var(--prata); line-height: 1.8;
+  margin-bottom: 20px;
+}
+.editorial-highlight {
+  border-left: 2px solid var(--vinho);
+  padding-left: 20px;
+  margin: 32px 0;
+  font-style: italic;
+  color: var(--off);
+  font-size: 15px;
+  line-height: 1.8;
+}
+.datasheet {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 48px;
+}
+.datasheet-label {
+  font-family: var(--font-m);
+  font-size: 9px; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--vinho);
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 32px;
+}
+.datasheet-label::before {
+  content: ''; width: 24px; height: 1px;
+  background: var(--vinho);
+}
+.datasheet-title {
+  font-family: var(--font-d);
+  font-weight: 700;
+  font-size: clamp(32px, 4vw, 52px);
+  letter-spacing: 0.03em;
+  color: var(--off);
+  margin-bottom: 40px;
+}
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.data-table tr {
+  border-bottom: 1px solid rgba(196,196,196,0.06);
+}
+.data-table td {
+  padding: 16px 0;
+  vertical-align: top;
+}
+.data-table td:first-child {
+  font-family: var(--font-m);
+  font-size: 10px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--dim);
+  width: 200px;
+  padding-right: 24px;
+}
+.data-table td:last-child {
+  font-family: var(--font-m);
+  font-size: 14px; color: var(--off);
+}
+.references {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 48px;
+}
+.ref-label {
+  font-family: var(--font-m);
+  font-size: 9px; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--vinho);
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 32px;
+}
+.ref-label::before {
+  content: ''; width: 24px; height: 1px;
+  background: var(--vinho);
+}
+.ref-item {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(196,196,196,0.04);
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 16px;
+}
+.ref-number {
+  font-family: var(--font-m);
+  font-size: 11px; color: var(--dimmer);
+}
+.ref-text {
+  font-size: 13px; color: var(--prata);
+  line-height: 1.7;
+}
+.ref-text em { font-style: italic; color: var(--off); }
+.ref-doi {
+  font-family: var(--font-m);
+  font-size: 10px; color: var(--dim);
+  margin-top: 4px; display: block;
+}
+/* ═══════════════════════════════════════════════════
+   BLOG LINK
+═══════════════════════════════════════════════════ */
+.blog-link-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 48px 0;
+}
+.blog-link-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 32px;
+  background: var(--mid);
+  border: 1px solid var(--dimmer);
+  transition: border-color 0.3s;
+}
+.blog-link-card:hover {
+  border-color: var(--vinho);
+}
+.blog-link-icon {
+  font-family: var(--font-m);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vinho);
+  white-space: nowrap;
+}
+.blog-link-content {
+  flex: 1;
+}
+.blog-link-label {
+  font-family: var(--font-m);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 6px;
+}
+.blog-link-title {
+  font-family: var(--font-d);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--off);
+  letter-spacing: 0.02em;
+}
+.blog-link-arrow {
+  font-family: var(--font-m);
+  font-size: 18px;
+  color: var(--vinho);
+}
+@media (max-width: 600px) {
+  .blog-link-section { padding: 32px 24px 0; }
+  .blog-link-card { flex-direction: column; align-items: flex-start; gap: 16px; padding: 24px; }
+}
+.final-cta {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 48px;
+  text-align: center;
+}
+.final-cta-title {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(36px, 5vw, 64px);
+  letter-spacing: 0.04em;
+  color: var(--off);
+  margin-bottom: 16px;
+}
+.final-cta-desc {
+  font-size: 14px; color: var(--prata);
+  margin-bottom: 32px;
+}
+.final-cta .cta-primary { display: inline-block; }
+footer {
+  border-top: 1px solid rgba(196,196,196,0.06);
+  padding: 48px;
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 24px; flex-wrap: wrap;
+}
+.footer-brand {
+  font-family: var(--font-d);
+  font-weight: 900; font-size: 16px;
+  letter-spacing: 0.25em; color: var(--dimmer);
+}
+.footer-disclaimer {
+  font-family: var(--font-m);
+  font-size: 9px; color: var(--dim);
+  letter-spacing: 0.05em; line-height: 1.8;
+  max-width: 600px; text-align: right;
+}
+@media (max-width: 768px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .breadcrumb { padding: 80px 24px 0; }
+  .product-hero {
+    padding: 24px 24px 48px;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .quick-specs { grid-template-columns: 1fr; }
+  .editorial {
+    padding: 48px 24px;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .editorial-sidebar { position: static; }
+  .datasheet { padding: 48px 24px; }
+  .data-table td:first-child { width: 120px; font-size: 9px; }
+  .references { padding: 48px 24px; }
+  .final-cta { padding: 48px 24px; }
+  footer { padding: 32px 24px; flex-direction: column; }
+  .footer-disclaimer { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <a href="taura_landing_v3.html" class="nav-logo">TAURA<span>.</span></a>
+  <div class="nav-links">
+    <a href="taura_blog.html" class="nav-link">Catálogo</a>
+    <a href="taura_blog_curiosidades.html" class="nav-link">Blog</a>
+    <a href="taura_landing_v3.html" class="nav-link">Sobre</a>
+    <a href="#" class="nav-cta">Acesso</a>
+  </div>
+</nav>
+
+<!-- ═══ BREADCRUMB ═══ -->
+<div class="breadcrumb">
+  <a href="taura_blog.html">Catálogo</a>
+  <span class="breadcrumb-sep">/</span>
+  <span style="color:var(--prata)">BPC-157 (BC5)</span>
+</div>
+
+<!-- ═══ PRODUCT HERO ═══ -->
+<section class="product-hero">
+  <div class="product-hero-img">
+    <div class="product-hero-img-placeholder">
+      <span>BC5</span>
+    </div>
+  </div>
+  <div class="product-hero-info">
+    <div class="product-hero-cat">Peptídeo · Recuperação</div>
+    <h1 class="product-hero-title">BPC-157</h1>
+    <p class="product-hero-subtitle">
+      BC5 · Pentadecapeptídeo gástrico · 10mg Vial
+    </p>
+
+    <div class="quick-specs">
+      <div class="quick-spec">
+        <span class="quick-spec-label">Pureza</span>
+        <span class="quick-spec-value">≥99.1%</span>
+      </div>
+      <div class="quick-spec">
+        <span class="quick-spec-label">Peso Mol.</span>
+        <span class="quick-spec-value">1419.53</span>
+      </div>
+      <div class="quick-spec">
+        <span class="quick-spec-label">CAS</span>
+        <span class="quick-spec-value">137525-51-0</span>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <a href="#" class="cta-primary">Solicitar Acesso</a>
+      <a href="#datasheet" class="cta-secondary">Ver Ficha Completa</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DIVIDER ═══ -->
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ═══ EDITORIAL ═══ -->
+<section class="editorial">
+  <aside class="editorial-sidebar">
+    <div class="editorial-sidebar-label">Neste Protocolo</div>
+    <a href="#overview" class="editorial-toc-item">Visão Geral</a>
+    <a href="#mechanism" class="editorial-toc-item">Mecanismo</a>
+    <a href="#literature" class="editorial-toc-item">Literatura</a>
+    <a href="#datasheet" class="editorial-toc-item">Ficha Técnica</a>
+    <a href="#refs" class="editorial-toc-item">Referências</a>
+  </aside>
+
+  <div class="editorial-content">
+    <h2 class="editorial-h2" id="overview">Visão Geral</h2>
+    <p class="editorial-p">
+      BPC-157 (Body Protection Compound-157) é um pentadecapeptídeo composto por 15 aminoácidos, parcialmente derivado de uma proteína presente no suco gástrico humano. O composto tem sido objeto de investigação em modelos pré-clínicos desde o início dos anos 1990, primariamente pelo grupo de pesquisa liderado por Predrag Sikiric na Universidade de Zagreb, Croácia.
+    </p>
+    <p class="editorial-p">
+      A sequência peptídica (Gly-Glu-Pro-Pro-Pro-Gly-Lys-Pro-Ala-Asp-Asp-Ala-Gly-Leu-Val) não corresponde a nenhuma proteína endógena conhecida de forma integral, sendo considerada um fragmento parcial com estabilidade notável em meio ácido — uma propriedade incomum entre peptídeos biologicamente ativos. Estudos indicam que o composto mantém atividade mesmo sem a necessidade de carreador, diferenciando-se de outros peptídeos que requerem formulações complexas para estabilização.
+    </p>
+
+    <div class="editorial-highlight">
+      Estudos indicam atividade em modelos de cicatrização de tendões, mucosa gástrica, tecido muscular e ligamentos — com perfil de segurança favorável nos modelos pré-clínicos avaliados ao longo de três décadas de investigação.
+    </div>
+
+    <h2 class="editorial-h2" id="mechanism">Mecanismo de Ação Proposto</h2>
+    <p class="editorial-p">
+      A literatura aponta para múltiplas vias de ação, sendo a modulação do sistema NO (óxido nítrico) uma das mais consistentemente reportadas. Pesquisas sugerem que BPC-157 interage com o sistema NO de forma bidirecional, prevenindo tanto a depleção excessiva quanto a superprodução de óxido nítrico em modelos de lesão tecidual.
+    </p>
+    <p class="editorial-p">
+      Estudos indicam também envolvimento do sistema FAK-paxilina (focal adhesion kinase) em contextos de migração celular e reparo tecidual, com upregulation de receptores de hormônio de crescimento (GHR) em tecidos lesionados. A literatura aponta para modulação de vias angiogênicas, incluindo expressão de VEGF e regulação da formação de vasos colaterais em modelos de isquemia.
+    </p>
+
+    <h2 class="editorial-h2" id="literature">O Que a Literatura Indica</h2>
+    <p class="editorial-p">
+      Sikiric et al. (2018) compilam mais de 100 estudos em modelos animais abrangendo lesões musculoesqueléticas, gastrointestinais e vasculares. A consistência dos achados em diferentes modelos experimentais e protocolos de administração (sistêmica e local) é notada como característica distintiva na revisão da literatura. A ausência de toxicidade reportada em estudos de LD1 e LD50 até a maior concentração testada é destacada pelos autores.
+    </p>
+    <p class="editorial-p">
+      Chang et al. (2011) investigaram especificamente a ação em modelos de lesão de tendão de Aquiles em ratos, reportando aceleração de marcadores histológicos de reparo, aumento da expressão de tenascina e colágeno tipo I, além de melhora funcional avaliada por biomecânica. A literatura reporta resultados similares em modelos de lesão do ligamento colateral medial e de transecção muscular.
+    </p>
+    <p class="editorial-p">
+      Em contexto gastrointestinal, Sikiric et al. (2016) demonstraram atividade citoprotetora em modelos de lesão gástrica induzida por etanol, NSAIDS e estresse. A literatura aponta para ação tanto sistêmica quanto local, com manutenção de eficácia mesmo em protocolos de administração oral — propriedade atribuída à estabilidade do peptídeo em pH ácido.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ DIVIDER ═══ -->
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ═══ FICHA TÉCNICA ═══ -->
+<section class="datasheet" id="datasheet">
+  <div class="datasheet-label">Dados Técnicos</div>
+  <h2 class="datasheet-title">Ficha do Composto</h2>
+
+  <table class="data-table">
+    <tr>
+      <td>Nome</td>
+      <td>BPC-157 (Body Protection Compound-157 / BC5)</td>
+    </tr>
+    <tr>
+      <td>Sequência</td>
+      <td>Gly-Glu-Pro-Pro-Pro-Gly-Lys-Pro-Ala-Asp-Asp-Ala-Gly-Leu-Val</td>
+    </tr>
+    <tr>
+      <td>CAS</td>
+      <td>137525-51-0</td>
+    </tr>
+    <tr>
+      <td>Peso Molecular</td>
+      <td>1419.53 g/mol</td>
+    </tr>
+    <tr>
+      <td>Fórmula</td>
+      <td>C₆₂H₉₈N₁₆O₂₂</td>
+    </tr>
+    <tr>
+      <td>Pureza HPLC</td>
+      <td>≥99.1%</td>
+    </tr>
+    <tr>
+      <td>Forma</td>
+      <td>Liofilizado</td>
+    </tr>
+    <tr>
+      <td>Concentração</td>
+      <td>10mg / vial</td>
+    </tr>
+    <tr>
+      <td>Armazenamento</td>
+      <td>-20°C protegido da luz · Após reconstituição: 2-8°C por até 14 dias</td>
+    </tr>
+    <tr>
+      <td>Laboratório</td>
+      <td>Thera</td>
+    </tr>
+    <tr>
+      <td>Solubilidade</td>
+      <td>Água bacteriostática · Solução salina 0.9%</td>
+    </tr>
+    <tr>
+      <td>COA</td>
+      <td>Disponível por lote mediante solicitação</td>
+    </tr>
+  </table>
+</section>
+
+<!-- ═══ DIVIDER ═══ -->
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ═══ REFERÊNCIAS ═══ -->
+<section class="references" id="refs">
+  <div class="ref-label">Referências</div>
+
+  <div class="ref-item">
+    <span class="ref-number">[1]</span>
+    <div>
+      <div class="ref-text">
+        Sikiric P, Hahm KB, Blagaic AB, et al. <em>Stable gastric pentadecapeptide BPC 157, Robert's cytoprotection, Selye's stress coping response, and Gutmannn's factors. Prophylaxis and therapy.</em>
+        Curr Pharm Des. 2018;24(18):1930-1950.
+      </div>
+      <span class="ref-doi">doi: 10.2174/1381612824666180515125204</span>
+    </div>
+  </div>
+  <div class="ref-item">
+    <span class="ref-number">[2]</span>
+    <div>
+      <div class="ref-text">
+        Chang CH, Tsai WC, Lin MS, Hsu YH, Pang JH. <em>The promoting effect of pentadecapeptide BPC 157 on tendon healing involves tendon outgrowth, cell survival, and cell migration.</em>
+        J Appl Physiol. 2011;110(3):774-780.
+      </div>
+      <span class="ref-doi">doi: 10.1152/japplphysiol.00945.2010</span>
+    </div>
+  </div>
+  <div class="ref-item">
+    <span class="ref-number">[3]</span>
+    <div>
+      <div class="ref-text">
+        Sikiric P, Rucman R, Turkovic B, et al. <em>Brain-gut Axis and Pentadecapeptide BPC 157: Theoretical and Practical Implications.</em>
+        Curr Neuropharmacol. 2016;14(8):857-865.
+      </div>
+      <span class="ref-doi">doi: 10.2174/1570159X13666160502153022</span>
+    </div>
+  </div>
+  <div class="ref-item">
+    <span class="ref-number">[4]</span>
+    <div>
+      <div class="ref-text">
+        Sikiric P, Seiwerth S, Rucman R, et al. <em>Stable gastric pentadecapeptide BPC 157-NO-system relation.</em>
+        Curr Pharm Des. 2014;20(7):1126-1135.
+      </div>
+      <span class="ref-doi">doi: 10.2174/13816128113190990411</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LEIA A CIÊNCIA ═══ -->
+<section class="blog-link-section">
+  <a href="taura_artigo_bpc157.html" class="blog-link-card">
+    <div class="blog-link-icon">⬡ Dados</div>
+    <div class="blog-link-content">
+      <div class="blog-link-label">Leia o que a ciência diz</div>
+      <div class="blog-link-title">Como um fragmento gástrico se tornou o peptídeo mais estudado em reparo tecidual</div>
+    </div>
+    <div class="blog-link-arrow">→</div>
+  </a>
+</section>
+
+<!-- ═══ CTA FINAL ═══ -->
+<section class="final-cta">
+  <h2 class="final-cta-title">Acesso ao Composto</h2>
+  <p class="final-cta-desc">
+    Protocolo de verificação obrigatório. Compostos disponíveis exclusivamente para fins de pesquisa.
+  </p>
+  <a href="#" class="cta-primary">Solicitar via WhatsApp</a>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-brand">TAURA RESEARCH</div>
+  <div class="footer-disclaimer">
+    Todos os compostos são destinados exclusivamente a fins de pesquisa.<br>
+    Não se destinam a uso humano, diagnóstico ou tratamento de doenças.<br>
+    COA disponível por lote mediante solicitação.
+  </div>
+</footer>
+
+</body>
+</html>

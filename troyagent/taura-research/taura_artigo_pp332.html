@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SLU-PP-332: o composto que mimetiza exercício sem se mover — TAURA Research</title>
+<meta name="description" content="ERRα como o receptor do exercício. Como o SLU-PP-332 ativa vias de biogênese mitocondrial normalmente desencadeadas por treino de endurance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;900&family=Outfit:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:   #0A0A0A;
+  --vinho:   #6B0F1A;
+  --vinho2:  #3D0A10;
+  --prata:   #C4C4C4;
+  --off:     #F2EFE9;
+  --dim:     #666666;
+  --dimmer:  #333333;
+  --mid:     #161616;
+  --mid2:    #1e1e1e;
+  --font-d:  'Barlow Condensed', sans-serif;
+  --font-b:  'Outfit', sans-serif;
+  --font-m:  'JetBrains Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--off);
+  font-family: var(--font-b);
+  font-weight: 300;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--vinho); color: var(--off); }
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 1; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.03;
+}
+
+/* ═══ NAV ═══ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px 48px;
+  background: linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, transparent 100%);
+}
+.nav-logo {
+  font-family: var(--font-d); font-weight: 900; font-size: 22px;
+  letter-spacing: 0.25em; color: var(--off);
+}
+.nav-logo span { color: var(--vinho); }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-link {
+  font-family: var(--font-m); font-weight: 300; font-size: 10px;
+  color: var(--dim); letter-spacing: 0.15em;
+  text-transform: uppercase; transition: color 0.2s;
+}
+.nav-link:hover { color: var(--off); }
+.nav-cta {
+  background: var(--vinho); color: var(--off);
+  font-family: var(--font-b); font-weight: 500;
+  font-size: 11px; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 10px 20px;
+  border: 1px solid var(--vinho);
+  transition: background 0.2s, color 0.2s;
+}
+.nav-cta:hover { background: transparent; color: var(--vinho); }
+
+/* ═══ ARTICLE HEADER ═══ */
+.article-header {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 120px 24px 40px;
+}
+.article-back {
+  font-family: var(--font-m); font-size: 9px;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--dim);
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-bottom: 40px; transition: color 0.2s;
+}
+.article-back:hover { color: var(--vinho); }
+.article-tag {
+  font-family: var(--font-m); font-size: 9px;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--vinho);
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 20px;
+}
+.article-tag::before {
+  content: ''; width: 24px; height: 1px; background: var(--vinho);
+}
+.article-title {
+  font-family: var(--font-d); font-weight: 900;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.0; letter-spacing: 0.03em;
+  color: var(--off); margin-bottom: 24px;
+}
+.article-meta {
+  font-family: var(--font-m); font-size: 9px;
+  color: var(--dim); letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: flex; align-items: center; gap: 16px;
+}
+.article-meta-dot {
+  width: 3px; height: 3px; border-radius: 50%;
+  background: var(--dimmer);
+}
+
+/* ═══ COVER IMAGE ═══ */
+.article-cover {
+  max-width: 960px;
+  margin: 0 auto 56px;
+  padding: 0 24px;
+}
+.article-cover-inner {
+  aspect-ratio: 21/9;
+  background: linear-gradient(135deg, var(--mid) 0%, var(--vinho2) 100%);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.article-cover-text {
+  font-family: var(--font-d); font-size: 72px; font-weight: 900;
+  color: rgba(242,239,233,0.04); letter-spacing: 0.08em;
+}
+
+/* ═══ ARTICLE BODY ═══ */
+.article-body {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+.article-body h2 {
+  font-family: var(--font-d); font-weight: 700;
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.1; letter-spacing: 0.03em;
+  color: var(--off);
+  margin: 56px 0 20px;
+}
+.article-body h2:first-child { margin-top: 0; }
+.article-body p {
+  font-size: 16px; font-weight: 300;
+  color: var(--prata); line-height: 1.85;
+  margin-bottom: 20px;
+}
+.article-body p strong {
+  font-weight: 500; color: var(--off);
+}
+
+/* Pullquote */
+.pullquote {
+  border-left: 2px solid var(--vinho);
+  padding: 4px 0 4px 24px;
+  margin: 40px 0;
+  font-size: 18px; font-weight: 300;
+  font-style: italic;
+  color: var(--off);
+  line-height: 1.7;
+}
+
+/* Data callout */
+.data-callout {
+  background: var(--mid);
+  border: 1px solid rgba(196,196,196,0.06);
+  padding: 28px 32px;
+  margin: 40px 0;
+}
+.data-callout-label {
+  font-family: var(--font-m); font-size: 8px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--vinho); margin-bottom: 12px;
+}
+.data-callout-content {
+  font-family: var(--font-m); font-size: 13px;
+  color: var(--off); line-height: 1.8;
+}
+.data-callout-source {
+  font-family: var(--font-m); font-size: 9px;
+  color: var(--dim); margin-top: 12px;
+  letter-spacing: 0.05em;
+}
+
+/* Inline image */
+.article-img {
+  margin: 40px -60px;
+  position: relative;
+}
+.article-img-inner {
+  aspect-ratio: 16/9;
+  background: var(--mid);
+  display: flex; align-items: center; justify-content: center;
+}
+.article-img-caption {
+  font-family: var(--font-m); font-size: 9px;
+  color: var(--dim); letter-spacing: 0.08em;
+  margin-top: 12px; text-align: right;
+}
+
+/* ═══ SOURCES ═══ */
+.sources {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+  border-top: 1px solid rgba(196,196,196,0.06);
+  padding-top: 40px;
+}
+.sources-label {
+  font-family: var(--font-m); font-size: 9px;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--vinho); margin-bottom: 24px;
+}
+.source-item {
+  padding: 10px 0;
+  font-size: 13px; color: var(--dim); line-height: 1.7;
+  display: grid; grid-template-columns: 28px 1fr; gap: 8px;
+}
+.source-num {
+  font-family: var(--font-m); font-size: 11px; color: var(--dimmer);
+}
+.source-item em { color: var(--prata); }
+
+/* ═══ RELATED POSTS ═══ */
+.related {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+.related-label {
+  font-family: var(--font-m); font-size: 9px;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--vinho);
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 32px;
+}
+.related-label::before {
+  content: ''; width: 24px; height: 1px; background: var(--vinho);
+}
+.related-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.related-card {
+  display: flex; gap: 20px; align-items: start;
+  padding: 24px; background: var(--mid);
+  transition: transform 0.3s cubic-bezier(.16,1,.3,1);
+}
+.related-card:hover { transform: translateY(-2px); }
+.related-card-num {
+  font-family: var(--font-d); font-weight: 900;
+  font-size: 48px; color: var(--vinho2);
+  line-height: 1; flex-shrink: 0;
+}
+.related-card-info { display: flex; flex-direction: column; gap: 8px; }
+.related-card-tag {
+  font-family: var(--font-m); font-size: 8px;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim);
+}
+.related-card-title {
+  font-family: var(--font-d); font-weight: 700;
+  font-size: 18px; line-height: 1.15; color: var(--off);
+  transition: color 0.2s;
+}
+.related-card:hover .related-card-title { color: var(--vinho); }
+
+/* ═══ FOOTER ═══ */
+footer {
+  border-top: 1px solid rgba(196,196,196,0.06);
+  padding: 48px;
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 24px; flex-wrap: wrap;
+}
+.footer-brand {
+  font-family: var(--font-d); font-weight: 900;
+  font-size: 16px; letter-spacing: 0.25em; color: var(--dimmer);
+}
+.footer-note {
+  font-family: var(--font-m); font-size: 9px;
+  color: var(--dim); letter-spacing: 0.05em;
+  line-height: 1.8; max-width: 500px; text-align: right;
+}
+.footer-subtle {
+  width: 100%;
+  text-align: center;
+  padding-top: 24px;
+  margin-top: 16px;
+  border-top: 1px solid rgba(196,196,196,0.03);
+}
+.footer-subtle a {
+  font-family: var(--font-m);
+  font-size: 8px;
+  color: var(--vinho);
+  letter-spacing: 0.1em;
+  opacity: 0.4;
+  transition: opacity 0.3s;
+}
+.footer-subtle a:hover {
+  opacity: 0.8;
+}
+
+/* ═══ READING PROGRESS BAR ═══ */
+.progress-bar {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 2px; z-index: 200;
+  background: transparent;
+}
+.progress-fill {
+  height: 100%; width: 0%;
+  background: var(--vinho);
+  transition: width 0.05s linear;
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 768px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .article-header { padding: 100px 24px 32px; }
+  .article-cover { padding: 0; margin-bottom: 40px; }
+  .article-body { padding: 0 24px 56px; }
+  .article-body h2 { margin-top: 40px; }
+  .article-img { margin: 32px -24px; }
+  .sources { padding: 0 24px 48px; padding-top: 32px; }
+  .related { padding: 0 24px 48px; }
+  .related-grid { grid-template-columns: 1fr; }
+  footer { padding: 32px 24px; flex-direction: column; }
+  .footer-note { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ PROGRESS BAR ═══ -->
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <a href="taura_landing_v3.html" class="nav-logo">TAURA<span>.</span></a>
+  <div class="nav-links">
+    <a href="taura_blog.html" class="nav-link">Catálogo</a>
+    <a href="taura_blog_curiosidades.html" class="nav-link">Blog</a>
+    <a href="taura_landing_v3.html" class="nav-link">Sobre</a>
+    <a href="#" class="nav-cta">Acesso</a>
+  </div>
+</nav>
+
+<!-- ═══ ARTICLE HEADER ═══ -->
+<header class="article-header">
+  <a href="taura_blog_curiosidades.html" class="article-back">← Voltar ao blog</a>
+
+  <div class="article-tag">Performance · Curiosidade</div>
+  <h1 class="article-title">SLU-PP-332: o composto que mimetiza exercício sem se mover</h1>
+  <div class="article-meta">
+    <span>28 Fev 2026</span>
+    <span class="article-meta-dot"></span>
+    <span>5 min leitura</span>
+    <span class="article-meta-dot"></span>
+    <span>TAURA Research</span>
+  </div>
+</header>
+
+<!-- ═══ COVER ═══ -->
+<div class="article-cover">
+  <div class="article-cover-inner">
+    <span class="article-cover-text">SLU-PP-332</span>
+  </div>
+</div>
+
+<!-- ═══ ARTICLE BODY ═══ -->
+<article class="article-body">
+
+  <p>
+    A ideia de uma molécula capaz de replicar os benefícios do exercício físico sem contração muscular parece ficção científica — e, em grande parte, ainda é. Mas um composto desenvolvido na Universidade de Washington em St. Louis reacendeu o debate sobre os limites farmacológicos da biologia do exercício. <strong>O SLU-PP-332 é um agonista do receptor ERRα (estrogen-related receptor alpha), um receptor nuclear que a literatura identifica como mediador central das adaptações metabólicas induzidas por exercício de endurance.</strong>
+  </p>
+
+  <p>
+    A curiosidade não está em substituir a atividade física — os próprios autores enfatizam que esse não é o objetivo — mas em entender se as vias moleculares ativadas pelo exercício podem ser farmacologicamente acessadas em contextos onde o exercício não é possível: imobilização prolongada, sarcopenia avançada, condições neuromusculares degenerativas.
+  </p>
+
+  <h2>ERRα: o receptor que o exercício ativa</h2>
+
+  <p>
+    Os receptores ERR (estrogen-related receptors) são uma família de receptores nucleares órfãos — chamados "órfãos" porque, diferentemente de outros receptores nucleares, não possuem ligantes endógenos clássicos bem caracterizados. O ERRα, em particular, é altamente expresso no músculo esquelético, no coração e no tecido adiposo marrom — tecidos com alta demanda oxidativa.
+  </p>
+
+  <p>
+    Estudos indicam que o ERRα funciona como um regulador-mestre de genes envolvidos na biogênese mitocondrial, na oxidação de ácidos graxos e na transição de fibras musculares do tipo II (glicolíticas) para o tipo I (oxidativas). <strong>Em termos funcionais, ativar ERRα é acionar o programa genético que o exercício de endurance naturalmente ativa</strong> — mas por uma via farmacológica direta, sem a necessidade do estímulo mecânico.
+  </p>
+
+  <div class="pullquote">
+    O exercício não é um evento — é uma cascata de sinalização molecular. A questão é se podemos reproduzir partes dessa cascata quimicamente, e a que custo biológico.
+  </div>
+
+  <h2>O que os dados pré-clínicos mostram</h2>
+
+  <p>
+    O grupo de Thomas Bhurke, na Universidade de Washington em St. Louis, publicou dados demonstrando que o SLU-PP-332 aumentou a resistência à fadiga em camundongos sedentários. Os animais tratados com o composto apresentaram aumento no tempo de corrida até exaustão, sem terem sido submetidos a qualquer protocolo de treinamento. A literatura aponta que esse efeito foi acompanhado de aumento na expressão de genes mitocondriais e marcadores de fibras oxidativas no músculo esquelético.
+  </p>
+
+  <div class="data-callout">
+    <div class="data-callout-label">Dado da literatura</div>
+    <div class="data-callout-content">
+      Camundongos sedentários tratados com SLU-PP-332 por 28 dias apresentaram aumento significativo na capacidade de exercício em esteira, com elevação concomitante na expressão de PGC-1α e genes-alvo de biogênese mitocondrial no músculo gastrocnêmio.
+    </div>
+    <div class="data-callout-source">
+      Kim W, et al., 2023 — American Chemical Society (apresentação ACS Spring Meeting)
+    </div>
+  </div>
+
+  <p>
+    É importante contextualizar: estes são dados de modelos murinos, em condições controladas de laboratório. A translação de resultados de exercício mimético de roedores para humanos é historicamente problemática — o AICAR e o GW501516, compostos anteriores com promessas semelhantes, encontraram barreiras significativas de segurança e eficácia em estágios pré-clínicos e clínicos avançados.
+  </p>
+
+  <h2>A questão ética dos miméticos de exercício</h2>
+
+  <p>
+    Além da farmacologia, o SLU-PP-332 levanta questões que transcendem o laboratório. A WADA (Agência Mundial Antidoping) já classifica moduladores metabólicos como substâncias proibidas, e compostos como o GW501516 (agonista PPARδ) foram explicitamente banidos antes mesmo de qualquer aprovação regulatória. Estudos indicam que a comunidade científica debate ativamente se miméticos de exercício representam uma ferramenta legítima para populações com limitações físicas ou se inevitavelmente serão cooptados pelo esporte de alto rendimento.
+  </p>
+
+  <p>
+    A literatura aponta que o exercício físico é uma intervenção multissistêmica — seus efeitos abrangem metabolismo, sistema cardiovascular, imunidade, cognição e microbioma intestinal. <strong>Nenhum composto farmacológico, por mais sofisticado que seja, replica a totalidade dessa intervenção.</strong> O SLU-PP-332 pode mimetizar o braço mitocondrial/oxidativo da resposta ao exercício, mas os benefícios mecânicos (adaptação óssea, propriocepção), neuroendócrinos e psicossociais da atividade física permanecem inacessíveis por via farmacológica.
+  </p>
+
+  <div class="article-img">
+    <div class="article-img-inner" style="background:linear-gradient(135deg, var(--mid) 0%, var(--vinho2) 60%);">
+      <span style="font-family:var(--font-m);font-size:11px;color:var(--dim);letter-spacing:0.15em;text-transform:uppercase;">Diagrama: via ERRα → PGC-1α → biogênese mitocondrial</span>
+    </div>
+    <div class="article-img-caption">Representação esquemática da via ERRα e sua convergência com programas de biogênese mitocondrial</div>
+  </div>
+
+  <h2>Perspectiva: ferramenta ou atalho?</h2>
+
+  <p>
+    O futuro dos miméticos de exercício dependerá menos da farmacologia e mais do contexto de uso. Para um paciente com insuficiência cardíaca avançada que não consegue subir um lance de escada, ativar farmacologicamente vias de adaptação oxidativa muscular poderia representar ganho funcional significativo. Para um atleta saudável buscando vantagem competitiva, o mesmo composto representa doping sofisticado.
+  </p>
+
+  <p>
+    A literatura aponta que o SLU-PP-332 ainda está em estágio pré-clínico inicial, sem dados de segurança em humanos ou timeline regulatório definido. O que ele oferece, neste momento, é sobretudo uma prova de conceito: é possível ativar farmacologicamente o programa de exercício de endurance via ERRα. Se isso se traduzirá em benefício clínico mensurável em humanos, apenas ensaios futuros determinarão.
+  </p>
+
+</article>
+
+<!-- ═══ SOURCES ═══ -->
+<section class="sources">
+  <div class="sources-label">Fontes</div>
+
+  <div class="source-item">
+    <span class="source-num">[1]</span>
+    <div>Kim W, et al. <em>SLU-PP-332: a potent ERRα/γ agonist that enhances exercise capacity in sedentary mice.</em> Apresentação no ACS Spring Meeting 2023, Indianápolis.</div>
+  </div>
+  <div class="source-item">
+    <span class="source-num">[2]</span>
+    <div>Rangwala SM, et al. <em>Estrogen-related receptor alpha is essential for the expression of antioxidant protection genes and mitochondrial function.</em> Biochem Biophys Res Commun. 2007;357(1):231-236.</div>
+  </div>
+  <div class="source-item">
+    <span class="source-num">[3]</span>
+    <div>Narkar VA, et al. <em>AMPK and PPARδ agonists are exercise mimetics.</em> Cell. 2008;134(3):405-415.</div>
+  </div>
+  <div class="source-item">
+    <span class="source-num">[4]</span>
+    <div>Fan W, Evans RM. <em>Exercise mimetics: impact on health and performance.</em> Cell Metab. 2017;25(2):242-247.</div>
+  </div>
+  <div class="source-item">
+    <span class="source-num">[5]</span>
+    <div>Hawley JA, et al. <em>Maximizing cellular adaptation to endurance exercise in skeletal muscle.</em> Cell Metab. 2018;27(5):962-976.</div>
+  </div>
+</section>
+
+<!-- ═══ RELATED ═══ -->
+<section class="related">
+  <div class="related-label">Leia Também</div>
+  <div class="related-grid">
+    <a href="taura_artigo_retatrutida.html" class="related-card">
+      <span class="related-card-num">01</span>
+      <div class="related-card-info">
+        <span class="related-card-tag">Metabólico · Curiosidade</span>
+        <h3 class="related-card-title">Agonismo triplo: por que três receptores ao mesmo tempo muda o jogo metabólico</h3>
+      </div>
+    </a>
+    <a href="taura_artigo_semax.html" class="related-card">
+      <span class="related-card-num">02</span>
+      <div class="related-card-info">
+        <span class="related-card-tag">Neuro · Curiosidade</span>
+        <h3 class="related-card-title">Semax e BDNF: o peptídeo russo que modula fator neurotrófico</h3>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-brand">TAURA RESEARCH</div>
+  <div class="footer-note">
+    Conteúdo informativo baseado em literatura científica revisada por pares.<br>
+    Nenhuma informação aqui constitui aconselhamento médico ou recomendação de uso.
+  </div>
+  <div class="footer-subtle"><a href="taura_landing_v3.html">mais informações</a></div>
+</footer>
+
+<!-- ═══ READING PROGRESS ═══ -->
+<script>
+window.addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+  document.getElementById('progressFill').style.width = pct + '%';
+});
+</script>
+
+</body>
+</html>

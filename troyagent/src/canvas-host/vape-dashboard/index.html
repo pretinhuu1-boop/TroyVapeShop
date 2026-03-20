@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#050505" />
+    <title>Troy Vape — Painel de Vendas</title>
+    <link rel="stylesheet" href="dashboard.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="background-effects">
+      <div class="glow glow-1"></div>
+      <div class="glow glow-2"></div>
+    </div>
+
+    <header>
+      <div class="header-left">
+        <div class="logo"><span class="gold-text">TROY</span> VAPE</div>
+        <span class="header-badge">Painel de Vendas</span>
+      </div>
+      <div class="header-right">
+        <div id="connection-status" class="conn-status offline">
+          <span class="conn-dot"></span>
+          <span class="conn-label">Offline</span>
+        </div>
+        <div class="date-display" id="current-date"></div>
+      </div>
+    </header>
+
+    <main>
+      <!-- KPI Cards -->
+      <section class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-icon">💰</div>
+          <div class="kpi-data">
+            <span class="kpi-value" id="kpi-revenue">R$ 0,00</span>
+            <span class="kpi-label">Faturamento Hoje</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon">📦</div>
+          <div class="kpi-data">
+            <span class="kpi-value" id="kpi-pending">0</span>
+            <span class="kpi-label">Pedidos Pendentes</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon">✅</div>
+          <div class="kpi-data">
+            <span class="kpi-value" id="kpi-completed">0</span>
+            <span class="kpi-label">Concluídos Hoje</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon">🎯</div>
+          <div class="kpi-data">
+            <span class="kpi-value" id="kpi-ticket">R$ 0,00</span>
+            <span class="kpi-label">Ticket Médio</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Content Grid -->
+      <div class="content-grid">
+        <!-- Orders Table -->
+        <section class="panel orders-panel">
+          <div class="panel-header">
+            <h2 class="playfair">Pedidos</h2>
+            <div class="panel-actions">
+              <select id="filter-status" class="filter-select">
+                <option value="all">Todos</option>
+                <option value="novo">Novo</option>
+                <option value="pago">Pago</option>
+                <option value="separado">Separado</option>
+                <option value="enviado">Enviado</option>
+              </select>
+            </div>
+          </div>
+          <div class="table-container">
+            <table id="orders-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Cliente</th>
+                  <th>Produtos</th>
+                  <th>Total</th>
+                  <th>Status</th>
+                  <th>Hora</th>
+                </tr>
+              </thead>
+              <tbody id="orders-body">
+                <tr class="empty-row">
+                  <td colspan="6">Nenhum pedido registrado ainda.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Activity Feed -->
+        <section class="panel feed-panel">
+          <div class="panel-header">
+            <h2 class="playfair">Feed de Atividades</h2>
+            <button id="btn-clear-feed" class="clear-btn">Limpar</button>
+          </div>
+          <div id="activity-feed" class="activity-feed">
+            <div class="feed-empty">Aguardando eventos...</div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Conversion Metrics -->
+      <section class="panel metrics-panel">
+        <div class="panel-header">
+          <h2 class="playfair">Métricas de Conversão</h2>
+        </div>
+        <div class="metrics-grid">
+          <div class="metric">
+            <span class="metric-label">Conversas Iniciadas</span>
+            <span class="metric-value" id="metric-conversations">0</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Catálogos Abertos</span>
+            <span class="metric-value" id="metric-catalogs">0</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Checkouts Enviados</span>
+            <span class="metric-value" id="metric-checkouts">0</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Pagamentos Confirmados</span>
+            <span class="metric-value" id="metric-payments">0</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Taxa de Conversão</span>
+            <span class="metric-value gold" id="metric-conversion">0%</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Settings Header -->
+      <div class="settings-header">
+        <h2 class="playfair">Configurações</h2>
+        <span id="config-status" class="config-saved-badge" style="display: none">✓ Salvo</span>
+      </div>
+
+      <!-- Settings Cards Grid -->
+      <div class="settings-grid">
+        <!-- Card: Loja & Pagamento -->
+        <div class="settings-card">
+          <div class="settings-card-header">
+            <span class="settings-card-icon">💳</span>
+            <div>
+              <h3 class="settings-card-title">Loja & Pagamento</h3>
+              <p class="settings-card-desc">WhatsApp, Pix e nome da loja</p>
+            </div>
+          </div>
+          <div class="settings-card-body">
+            <div class="config-field">
+              <label for="cfg-whatsapp">WhatsApp do Escritório</label>
+              <input type="tel" id="cfg-whatsapp" placeholder="5511999999999" autocomplete="off" />
+              <span class="config-hint">DDI+DDD (ex: 5511987654321)</span>
+            </div>
+            <div class="config-field">
+              <label for="cfg-pix">Chave Pix</label>
+              <input
+                type="text"
+                id="cfg-pix"
+                placeholder="email@loja.com ou CPF/CNPJ"
+                autocomplete="off"
+              />
+              <span class="config-hint">Email, CPF, CNPJ ou chave aleatória</span>
+            </div>
+            <div class="config-field">
+              <label for="cfg-store-name">Nome da Loja</label>
+              <input type="text" id="cfg-store-name" placeholder="Troy Vape" autocomplete="off" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Card: Horário de Atendimento -->
+        <div class="settings-card">
+          <div class="settings-card-header">
+            <span class="settings-card-icon">🕐</span>
+            <div>
+              <h3 class="settings-card-title">Horário de Atendimento</h3>
+              <p class="settings-card-desc">Dias e horários de funcionamento</p>
+            </div>
+          </div>
+          <div class="settings-card-body">
+            <div class="config-field">
+              <label for="cfg-hours-weekdays">Segunda a Sexta</label>
+              <input
+                type="text"
+                id="cfg-hours-weekdays"
+                placeholder="08:00-17:00"
+                autocomplete="off"
+              />
+              <span class="config-hint">Formato: HH:MM-HH:MM (vazio = fechado)</span>
+            </div>
+            <div class="settings-card-row">
+              <div class="config-field">
+                <label for="cfg-hours-saturday">Sábado</label>
+                <input
+                  type="text"
+                  id="cfg-hours-saturday"
+                  placeholder="08:00-16:00"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="config-field">
+                <label for="cfg-hours-sunday">Domingo</label>
+                <input type="text" id="cfg-hours-sunday" placeholder="Fechado" autocomplete="off" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card: Modelo de IA -->
+        <div class="settings-card">
+          <div class="settings-card-header">
+            <span class="settings-card-icon">🤖</span>
+            <div>
+              <h3 class="settings-card-title">Modelo de IA</h3>
+              <p class="settings-card-desc">Motor que responde seus clientes</p>
+            </div>
+          </div>
+          <div class="settings-card-body">
+            <div class="config-field">
+              <label for="cfg-llm-model">Modelo LLM (OpenRouter)</label>
+              <select id="cfg-llm-model">
+                <option value="deepseek/deepseek-r1">DeepSeek R1 (Reasoning)</option>
+                <option value="qwen/qwq-32b">Qwen QwQ 32B (Reasoning)</option>
+                <option value="anthropic/claude-sonnet-4">Claude Sonnet 4</option>
+                <option value="anthropic/claude-haiku-4">Claude Haiku 4 (Rápido)</option>
+                <option value="openai/gpt-4o">GPT-4o</option>
+                <option value="openai/gpt-4o-mini">GPT-4o Mini (Econômico)</option>
+                <option value="google/gemini-2.5-flash">Gemini 2.5 Flash</option>
+              </select>
+              <span class="config-hint">Modelo usado pelo agente para responder clientes</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card: Regras de Negócio -->
+        <div class="settings-card">
+          <div class="settings-card-header">
+            <span class="settings-card-icon">📋</span>
+            <div>
+              <h3 class="settings-card-title">Regras de Negócio</h3>
+              <p class="settings-card-desc">Garantia, envio, atacado e pagamento</p>
+            </div>
+          </div>
+          <div class="settings-card-body">
+            <div class="settings-card-row">
+              <div class="config-field">
+                <label for="cfg-warranty">Garantia</label>
+                <input
+                  type="text"
+                  id="cfg-warranty"
+                  placeholder="Não trabalhamos com garantia"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="config-field">
+                <label for="cfg-shipping">Prazo de Envio</label>
+                <input type="text" id="cfg-shipping" placeholder="48h úteis" autocomplete="off" />
+              </div>
+            </div>
+            <div class="settings-card-row">
+              <div class="config-field">
+                <label for="cfg-wholesale">Qtd Mín. Atacado</label>
+                <input
+                  type="number"
+                  id="cfg-wholesale"
+                  placeholder="10"
+                  min="1"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="config-field">
+                <label for="cfg-payment">Pagamento</label>
+                <input type="text" id="cfg-payment" placeholder="Pix" autocomplete="off" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Config Actions -->
+      <div class="config-actions">
+        <button id="btn-save-config" class="gold-btn">Salvar Configurações</button>
+        <button id="btn-test-forward" class="test-btn">📤 Testar Encaminhamento</button>
+      </div>
+    </main>
+
+    <script src="crm.js"></script>
+    <script src="dashboard.js"></script>
+  </body>
+</html>

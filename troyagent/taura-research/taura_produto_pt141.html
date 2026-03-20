@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PT-141 / Bremelanotida — TAURA Research</title>
+<meta name="description" content="Ficha técnica completa do PT-141 (Bremelanotida). Análogo cíclico de alfa-MSH, agonista MC3R/MC4R. Pureza ≥98%, COA por lote, referências da literatura científica.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;900&family=Outfit:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════════════════ */
+:root {
+  --black:   #0A0A0A;
+  --vinho:   #6B0F1A;
+  --vinho2:  #3D0A10;
+  --prata:   #C4C4C4;
+  --off:     #F2EFE9;
+  --dim:     #666666;
+  --dimmer:  #333333;
+  --mid:     #161616;
+  --mid2:    #1e1e1e;
+  --font-d:  'Barlow Condensed', sans-serif;
+  --font-b:  'Outfit', sans-serif;
+  --font-m:  'JetBrains Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--off);
+  font-family: var(--font-b);
+  font-weight: 300;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--vinho); color: var(--off); }
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+
+/* GRAIN */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 1; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.03;
+}
+
+/* ═══════════════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px 48px;
+  background: linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, transparent 100%);
+}
+.nav-logo {
+  font-family: var(--font-d);
+  font-weight: 900; font-size: 22px;
+  letter-spacing: 0.25em; color: var(--off);
+}
+.nav-logo span { color: var(--vinho); }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-link {
+  font-family: var(--font-m);
+  font-weight: 300; font-size: 10px;
+  color: var(--dim); letter-spacing: 0.15em;
+  text-transform: uppercase; transition: color 0.2s;
+}
+.nav-link:hover { color: var(--off); }
+.nav-cta {
+  background: var(--vinho); color: var(--off);
+  font-family: var(--font-b); font-weight: 500;
+  font-size: 11px; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 10px 20px;
+  border: 1px solid var(--vinho);
+  transition: background 0.2s, color 0.2s;
+}
+.nav-cta:hover { background: transparent; color: var(--vinho); }
+
+/* ═══════════════════════════════════════════════════
+   BREADCRUMB
+═══════════════════════════════════════════════════ */
+.breadcrumb {
+  padding: 100px 48px 0;
+  font-family: var(--font-m);
+  font-size: 9px; letter-spacing: 0.15em;
+  color: var(--dim); text-transform: uppercase;
+  display: flex; align-items: center; gap: 8px;
+}
+.breadcrumb a { color: var(--dim); transition: color 0.2s; }
+.breadcrumb a:hover { color: var(--vinho); }
+.breadcrumb-sep { color: var(--dimmer); }
+
+/* ═══════════════════════════════════════════════════
+   PRODUCT HERO
+═══════════════════════════════════════════════════ */
+.product-hero {
+  padding: 40px 48px 64px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+  max-width: 1200px;
+}
+.product-hero-img {
+  aspect-ratio: 1/1;
+  background: var(--mid);
+  position: relative;
+  overflow: hidden;
+}
+.product-hero-img-placeholder {
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, var(--mid) 0%, var(--vinho2) 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.product-hero-img-placeholder span {
+  font-family: var(--font-d);
+  font-size: 72px; font-weight: 900;
+  color: rgba(242,239,233,0.06);
+  letter-spacing: 0.08em;
+}
+
+.product-hero-info { padding-top: 16px; }
+.product-hero-cat {
+  font-family: var(--font-m);
+  font-size: 9px; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--vinho);
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 20px;
+}
+.product-hero-cat::before {
+  content: ''; width: 24px; height: 1px;
+  background: var(--vinho);
+}
+.product-hero-title {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(56px, 7vw, 96px);
+  line-height: 0.92; letter-spacing: 0.04em;
+  color: var(--off);
+  margin-bottom: 24px;
+}
+.product-hero-subtitle {
+  font-family: var(--font-b);
+  font-size: 14px; font-weight: 300; font-style: italic;
+  color: var(--prata); margin-bottom: 32px;
+}
+
+/* Quick specs row */
+.quick-specs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(196,196,196,0.06);
+  margin-bottom: 32px;
+}
+.quick-spec {
+  background: var(--black);
+  padding: 16px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.quick-spec-label {
+  font-family: var(--font-m);
+  font-size: 8px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--dim);
+}
+.quick-spec-value {
+  font-family: var(--font-m);
+  font-size: 16px; font-weight: 400;
+  color: var(--off);
+}
+
+.cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.cta-primary {
+  background: var(--vinho); color: var(--off);
+  font-family: var(--font-b); font-weight: 500;
+  font-size: 12px; letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border: 1px solid var(--vinho);
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.cta-primary:hover { background: transparent; color: var(--vinho); }
+.cta-secondary {
+  background: transparent; color: var(--prata);
+  font-family: var(--font-m); font-weight: 300;
+  font-size: 10px; letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border: 1px solid var(--dimmer);
+  transition: border-color 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.cta-secondary:hover { border-color: var(--prata); color: var(--off); }
+
+/* ═══════════════════════════════════════════════════
+   DIVIDER
+═══════════════════════════════════════════════════ */
+.divider {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+.divider-line {
+  height: 1px;
+  background: rgba(196,196,196,0.06);
+}
+
+/* ═══════════════════════════════════════════════════
+   EDITORIAL SECTION
+═══════════════════════════════════════════════════ */
+.editorial {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 48px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 64px;
+}
+.editorial-sidebar {
+  position: sticky; top: 100px;
+  align-self: start;
+}
+.editorial-sidebar-label {
+  font-family: var(--font-m);
+  font-size: 9px; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--vinho);
+  margin-bottom: 24px;
+}
+.editorial-toc-item {
+  display: block;
+  font-family: var(--font-m);
+  font-size: 10px; color: var(--dim);
+  letter-spacing: 0.1em;
+  padding: 8px 0;
+  border-left: 1px solid var(--dimmer);
+  padding-left: 16px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.editorial-toc-item:hover {
+  color: var(--off);
+  border-color: var(--vinho);
+}
+
+.editorial-content { max-width: 680px; }
+.editorial-h2 {
+  font-family: var(--font-d);
+  font-weight: 700;
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.1; letter-spacing: 0.03em;
+  color: var(--off);
+  margin-bottom: 20px;
+  padding-top: 48px;
+}
+.editorial-h2:first-child { padding-top: 0; }
+.editorial-p {
+  font-size: 15px; font-weight: 300;
+  color: var(--prata); line-height: 1.8;
+  margin-bottom: 20px;
+}
+.editorial-highlight {
+  border-left: 2px solid var(--vinho);
+  padding-left: 20px;
+  margin: 32px 0;
+  font-style: italic;
+  color: var(--off);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* ═══════════════════════════════════════════════════
+   FICHA TÉCNICA
+═══════════════════════════════════════════════════ */
+.datasheet {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 48px;
+}
+.datasheet-label {
+  font-family: var(--font-m);
+  font-size: 9px; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--vinho);
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 32px;
+}
+.datasheet-label::before {
+  content: ''; width: 24px; height: 1px;
+  background: var(--vinho);
+}
+.datasheet-title {
+  font-family: var(--font-d);
+  font-weight: 700;
+  font-size: clamp(32px, 4vw, 52px);
+  letter-spacing: 0.03em;
+  color: var(--off);
+  margin-bottom: 40px;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.data-table tr {
+  border-bottom: 1px solid rgba(196,196,196,0.06);
+}
+.data-table td {
+  padding: 16px 0;
+  vertical-align: top;
+}
+.data-table td:first-child {
+  font-family: var(--font-m);
+  font-size: 10px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--dim);
+  width: 200px;
+  padding-right: 24px;
+}
+.data-table td:last-child {
+  font-family: var(--font-m);
+  font-size: 14px; color: var(--off);
+}
+
+/* ═══════════════════════════════════════════════════
+   REFERÊNCIAS
+═══════════════════════════════════════════════════ */
+.references {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 48px;
+}
+.ref-label {
+  font-family: var(--font-m);
+  font-size: 9px; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--vinho);
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 32px;
+}
+.ref-label::before {
+  content: ''; width: 24px; height: 1px;
+  background: var(--vinho);
+}
+.ref-item {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(196,196,196,0.04);
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 16px;
+}
+.ref-number {
+  font-family: var(--font-m);
+  font-size: 11px; color: var(--dimmer);
+}
+.ref-text {
+  font-size: 13px; color: var(--prata);
+  line-height: 1.7;
+}
+.ref-text em { font-style: italic; color: var(--off); }
+.ref-doi {
+  font-family: var(--font-m);
+  font-size: 10px; color: var(--dim);
+  margin-top: 4px; display: block;
+}
+
+/* ═══════════════════════════════════════════════════
+   BLOG LINK
+═══════════════════════════════════════════════════ */
+.blog-link-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 48px 0;
+}
+.blog-link-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 32px;
+  background: var(--mid);
+  border: 1px solid var(--dimmer);
+  transition: border-color 0.3s;
+}
+.blog-link-card:hover {
+  border-color: var(--vinho);
+}
+.blog-link-icon {
+  font-family: var(--font-m);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vinho);
+  white-space: nowrap;
+}
+.blog-link-content {
+  flex: 1;
+}
+.blog-link-label {
+  font-family: var(--font-m);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 6px;
+}
+.blog-link-title {
+  font-family: var(--font-d);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--off);
+  letter-spacing: 0.02em;
+}
+.blog-link-arrow {
+  font-family: var(--font-m);
+  font-size: 18px;
+  color: var(--vinho);
+}
+@media (max-width: 600px) {
+  .blog-link-section { padding: 32px 24px 0; }
+  .blog-link-card { flex-direction: column; align-items: flex-start; gap: 16px; padding: 24px; }
+}
+
+/* ═══════════════════════════════════════════════════
+   CTA FINAL
+═══════════════════════════════════════════════════ */
+.final-cta {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 48px;
+  text-align: center;
+}
+.final-cta-title {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(36px, 5vw, 64px);
+  letter-spacing: 0.04em;
+  color: var(--off);
+  margin-bottom: 16px;
+}
+.final-cta-desc {
+  font-size: 14px; color: var(--prata);
+  margin-bottom: 32px;
+}
+.final-cta .cta-primary { display: inline-block; }
+
+/* ═══════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════ */
+footer {
+  border-top: 1px solid rgba(196,196,196,0.06);
+  padding: 48px;
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 24px; flex-wrap: wrap;
+}
+.footer-brand {
+  font-family: var(--font-d);
+  font-weight: 900; font-size: 16px;
+  letter-spacing: 0.25em; color: var(--dimmer);
+}
+.footer-disclaimer {
+  font-family: var(--font-m);
+  font-size: 9px; color: var(--dim);
+  letter-spacing: 0.05em; line-height: 1.8;
+  max-width: 600px; text-align: right;
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .breadcrumb { padding: 80px 24px 0; }
+  .product-hero {
+    padding: 24px 24px 48px;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .quick-specs { grid-template-columns: 1fr; }
+  .editorial {
+    padding: 48px 24px;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .editorial-sidebar { position: static; }
+  .datasheet { padding: 48px 24px; }
+  .data-table td:first-child { width: 120px; font-size: 9px; }
+  .references { padding: 48px 24px; }
+  .final-cta { padding: 48px 24px; }
+  footer { padding: 32px 24px; flex-direction: column; }
+  .footer-disclaimer { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <a href="taura_landing_v3.html" class="nav-logo">TAURA<span>.</span></a>
+  <div class="nav-links">
+    <a href="taura_blog.html" class="nav-link">Catálogo</a>
+    <a href="taura_blog_curiosidades.html" class="nav-link">Blog</a>
+    <a href="#" class="nav-link">Protocolo</a>
+    <a href="#" class="nav-cta">Acesso</a>
+  </div>
+</nav>
+
+<!-- ═══ BREADCRUMB ═══ -->
+<div class="breadcrumb">
+  <a href="taura_blog.html">Catálogo</a>
+  <span class="breadcrumb-sep">/</span>
+  <span style="color:var(--prata)">PT-141 / Bremelanotida</span>
+</div>
+
+<!-- ═══ PRODUCT HERO ═══ -->
+<section class="product-hero">
+  <div class="product-hero-img">
+    <div class="product-hero-img-placeholder">
+      <span>P41</span>
+    </div>
+  </div>
+  <div class="product-hero-info">
+    <div class="product-hero-cat">Peptídeo · Função Sexual</div>
+    <h1 class="product-hero-title">PT-141</h1>
+    <p class="product-hero-subtitle">
+      Bremelanotida · Análogo cíclico de α-MSH · Agonista MC3R/MC4R
+    </p>
+
+    <div class="quick-specs">
+      <div class="quick-spec">
+        <span class="quick-spec-label">Pureza</span>
+        <span class="quick-spec-value">≥98%</span>
+      </div>
+      <div class="quick-spec">
+        <span class="quick-spec-label">Peso Mol.</span>
+        <span class="quick-spec-value">1025.18</span>
+      </div>
+      <div class="quick-spec">
+        <span class="quick-spec-label">CAS</span>
+        <span class="quick-spec-value">189691-06-3</span>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <a href="#" class="cta-primary">Solicitar Acesso — R$ 550</a>
+      <a href="#datasheet" class="cta-secondary">Ver Ficha Completa</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DIVIDER ═══ -->
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ═══ EDITORIAL ═══ -->
+<section class="editorial">
+  <aside class="editorial-sidebar">
+    <div class="editorial-sidebar-label">Neste Protocolo</div>
+    <a href="#overview" class="editorial-toc-item">Visão Geral</a>
+    <a href="#mechanism" class="editorial-toc-item">Mecanismo</a>
+    <a href="#literature" class="editorial-toc-item">Literatura</a>
+    <a href="#datasheet" class="editorial-toc-item">Ficha Técnica</a>
+    <a href="#refs" class="editorial-toc-item">Referências</a>
+  </aside>
+
+  <div class="editorial-content">
+
+    <h2 class="editorial-h2" id="overview">Visão Geral</h2>
+    <p class="editorial-p">
+      PT-141, também designado bremelanotida, é um heptapeptídeo cíclico derivado estruturalmente do Melanotan II (MT-II), que por sua vez constitui um análogo sintético do alfa-hormônio estimulante de melanócitos (α-MSH). Diferentemente de agentes vasoativos periféricos, a literatura aponta que o PT-141 atua por via central, ativando receptores de melanocortina no sistema nervoso central.
+    </p>
+    <p class="editorial-p">
+      A molécula foi objeto de programas clínicos de fase III, tendo recebido aprovação regulatória pelo FDA em 2019 sob o nome comercial Vyleesi para disfunção do desejo sexual hipoativo (HSDD) em mulheres pré-menopáusicas. Os estudos indicam que seu mecanismo difere fundamentalmente de inibidores de PDE5, por não depender de vasodilatação periférica.
+    </p>
+
+    <div class="editorial-highlight">
+      A literatura aponta para ativação seletiva de receptores MC3R e MC4R no SNC, com modulação de circuitos dopaminérgicos e oxytocinérgicos envolvidos na resposta sexual — um mecanismo distinto de abordagens vasculares periféricas.
+    </div>
+
+    <h2 class="editorial-h2" id="mechanism">Mecanismo de Ação Proposto</h2>
+    <p class="editorial-p">
+      Pesquisas indicam que o PT-141 liga-se aos receptores de melanocortina tipo 3 (MC3R) e tipo 4 (MC4R) localizados no hipotálamo e em áreas límbicas. A ativação desses receptores modula cascatas intracelulares envolvendo cAMP, com downstream effects sobre neurônios dopaminérgicos na área pré-óptica medial e no núcleo paraventricular do hipotálamo.
+    </p>
+    <p class="editorial-p">
+      Estudos em modelos animais, particularmente os trabalhos de Pfaus et al., demonstraram que a administração intracerebral de agonistas MC4R em ratas fêmeas induziu comportamentos proceptivos de forma dose-dependente. A via melanocortinérgica central é considerada na literatura como um dos principais moduladores endógenos da excitação sexual, com interações documentadas com sistemas oxytocinérgico e dopaminérgico mesolímbico.
+    </p>
+
+    <h2 class="editorial-h2" id="literature">O Que a Literatura Indica</h2>
+    <p class="editorial-p">
+      O programa clínico RECONNECT (dois ensaios de fase III, randomizados, duplo-cegos, placebo-controlados, com N > 1200 mulheres) avaliou a eficácia e segurança da bremelanotida 1.75 mg subcutâneo em HSDD. Os estudos indicam aumento estatisticamente significativo no escore de desejo sexual (FSDS-DAO) e no número de eventos sexuais satisfatórios em comparação ao placebo, com os efeitos adversos mais comuns sendo náusea (40%) e rubor facial.
+    </p>
+    <p class="editorial-p">
+      Kingsberg et al. (2019) reportaram os dados integrados do programa RECONNECT, observando que a melhora no desejo foi detectada já nas primeiras 4 semanas e se manteve ao longo de 24 semanas de acompanhamento. A literatura também aponta para investigações do PT-141 em modelos masculinos de disfunção erétil, onde Diamond et al. (2004) demonstraram resposta erétil em pacientes que não responderam a sildenafil, sugerindo um mecanismo complementar ao da via NO-GMPc.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ DIVIDER ═══ -->
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ═══ FICHA TÉCNICA ═══ -->
+<section class="datasheet" id="datasheet">
+  <div class="datasheet-label">Dados Técnicos</div>
+  <h2 class="datasheet-title">Ficha do Composto</h2>
+
+  <table class="data-table">
+    <tr>
+      <td>Nome</td>
+      <td>PT-141 / Bremelanotida (P41)</td>
+    </tr>
+    <tr>
+      <td>Categoria</td>
+      <td>Peptídeo · Função Sexual</td>
+    </tr>
+    <tr>
+      <td>CAS</td>
+      <td>189691-06-3</td>
+    </tr>
+    <tr>
+      <td>Peso Molecular</td>
+      <td>1025.18 g/mol</td>
+    </tr>
+    <tr>
+      <td>Fórmula</td>
+      <td>C₅₀H₆₉N₁₅O₁₀</td>
+    </tr>
+    <tr>
+      <td>Sequência</td>
+      <td>Ac-Nle-cyclo[Asp-His-D-Phe-Arg-Trp-Lys]-OH</td>
+    </tr>
+    <tr>
+      <td>Pureza HPLC</td>
+      <td>≥98%</td>
+    </tr>
+    <tr>
+      <td>Forma</td>
+      <td>Pó liofilizado branco</td>
+    </tr>
+    <tr>
+      <td>Concentração</td>
+      <td>10 mg / vial</td>
+    </tr>
+    <tr>
+      <td>Laboratório</td>
+      <td>Thera</td>
+    </tr>
+    <tr>
+      <td>Armazenamento</td>
+      <td>-20°C protegido da luz · Após reconstituição: 2-8°C por até 14 dias</td>
+    </tr>
+    <tr>
+      <td>Solubilidade</td>
+      <td>Água bacteriostática · Solução salina 0.9%</td>
+    </tr>
+    <tr>
+      <td>COA</td>
+      <td>Disponível por lote mediante solicitação</td>
+    </tr>
+  </table>
+</section>
+
+<!-- ═══ DIVIDER ═══ -->
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ═══ REFERÊNCIAS ═══ -->
+<section class="references" id="refs">
+  <div class="ref-label">Referências</div>
+
+  <div class="ref-item">
+    <span class="ref-number">[1]</span>
+    <div>
+      <div class="ref-text">
+        Kingsberg SA, Clayton AH, Portman D, et al. <em>Bremelanotide for the Treatment of Hypoactive Sexual Desire Disorder: Two Randomized Phase 3 Trials.</em>
+        Obstet Gynecol. 2019;134(5):899-908.
+      </div>
+      <span class="ref-doi">doi: 10.1097/AOG.0000000000003500</span>
+    </div>
+  </div>
+  <div class="ref-item">
+    <span class="ref-number">[2]</span>
+    <div>
+      <div class="ref-text">
+        Diamond LE, Earle DC, Heiman JR, et al. <em>An effect on the subjective sexual response in premenopausal women with sexual arousal disorder by bremelanotide (PT-141), a melanocortin receptor agonist.</em>
+        J Sex Med. 2006;3(4):628-638.
+      </div>
+      <span class="ref-doi">doi: 10.1111/j.1743-6109.2006.00268.x</span>
+    </div>
+  </div>
+  <div class="ref-item">
+    <span class="ref-number">[3]</span>
+    <div>
+      <div class="ref-text">
+        Pfaus JG, Shadiack A, Van Soest T, et al. <em>Selective facilitation of sexual solicitation in the female rat by a melanocortin receptor agonist.</em>
+        Proc Natl Acad Sci USA. 2004;101(27):10201-10204.
+      </div>
+      <span class="ref-doi">doi: 10.1073/pnas.0400491101</span>
+    </div>
+  </div>
+  <div class="ref-item">
+    <span class="ref-number">[4]</span>
+    <div>
+      <div class="ref-text">
+        Molinoff PB, Shadiack AM, Earle D, et al. <em>PT-141: a melanocortin agonist for the treatment of sexual dysfunction.</em>
+        Ann N Y Acad Sci. 2003;994:96-102.
+      </div>
+      <span class="ref-doi">doi: 10.1111/j.1749-6632.2003.tb03167.x</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LEIA A CIÊNCIA ═══ -->
+<section class="blog-link-section">
+  <a href="taura_artigo_pt141.html" class="blog-link-card">
+    <div class="blog-link-icon">⬡ Dados</div>
+    <div class="blog-link-content">
+      <div class="blog-link-label">Leia o que a ciência diz</div>
+      <div class="blog-link-title">PT-141: o único peptídeo aprovado que age via sistema nervoso central</div>
+    </div>
+    <div class="blog-link-arrow">→</div>
+  </a>
+</section>
+
+<!-- ═══ CTA FINAL ═══ -->
+<section class="final-cta">
+  <h2 class="final-cta-title">Acesso ao Composto</h2>
+  <p class="final-cta-desc">
+    Protocolo de verificação obrigatório. Compostos disponíveis exclusivamente para fins de pesquisa.
+  </p>
+  <a href="#" class="cta-primary">Solicitar via WhatsApp</a>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-brand">TAURA RESEARCH</div>
+  <div class="footer-disclaimer">
+    Todos os compostos são destinados exclusivamente a fins de pesquisa.<br>
+    Não se destinam a uso humano, diagnóstico ou tratamento de doenças.<br>
+    COA disponível por lote mediante solicitação.
+  </div>
+</footer>
+
+</body>
+</html>

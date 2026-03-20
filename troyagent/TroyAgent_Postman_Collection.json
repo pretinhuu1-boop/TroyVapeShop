@@ -1,0 +1,422 @@
+{
+  "info": {
+    "name": "TroyAgent API",
+    "description": "Colecao completa de endpoints da API TroyAgent para testes.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:18789" },
+    { "key": "token", "value": "SEU_OPENCLAW_GATEWAY_TOKEN" },
+    { "key": "product_id", "value": "" },
+    { "key": "customer_id", "value": "" },
+    { "key": "conversation_id", "value": "" }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [{ "key": "token", "value": "{{token}}" }]
+  },
+  "item": [
+    {
+      "name": "Health & Status",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/health"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OpenAI Compatibility",
+      "item": [
+        {
+          "name": "Chat Completions",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/v1/chat/completions",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"openclaw\",\n  \"stream\": false,\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Ola, como voce esta?\"\n    }\n  ]\n}"
+            }
+          }
+        },
+        {
+          "name": "Chat Completions (Streaming)",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/v1/chat/completions",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"openclaw\",\n  \"stream\": true,\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"Voce e um assistente util.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"Me explique o que e um peptideo em 2 frases.\"\n    }\n  ]\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "OpenResponses",
+      "item": [
+        {
+          "name": "Create Response",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/v1/responses",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"openclaw\",\n  \"stream\": false,\n  \"input\": [\n    {\n      \"type\": \"message\",\n      \"content\": [\n        {\n          \"type\": \"input_text\",\n          \"source\": {\n            \"type\": \"url\",\n            \"url\": \"Qual e o status do sistema?\"\n          }\n        }\n      ]\n    }\n  ],\n  \"instructions\": \"Responda de forma concisa.\",\n  \"max_output_tokens\": 1024\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tools",
+      "item": [
+        {
+          "name": "Invoke Tool",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/tools/invoke",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tool\": \"nome-da-ferramenta\",\n  \"args\": {},\n  \"dryRun\": true\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Hooks",
+      "item": [
+        {
+          "name": "Wake Hook",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/hooks/wake",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-OpenClaw-Token", "value": "{{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"Wake up! Preciso de voce.\",\n  \"mode\": \"now\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Agent Hook",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/hooks/agent",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-OpenClaw-Token", "value": "{{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"agentId\": \"default\",\n  \"message\": \"Verifique o status dos canais.\",\n  \"deliver\": false,\n  \"thinking\": true,\n  \"timeoutSeconds\": 60\n}"
+            }
+          }
+        },
+        {
+          "name": "Agent Hook (WhatsApp delivery)",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/hooks/agent",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-OpenClaw-Token", "value": "{{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"agentId\": \"default\",\n  \"message\": \"Envie uma saudacao ao cliente.\",\n  \"channel\": \"whatsapp\",\n  \"deliver\": true,\n  \"to\": \"+5511999999999\",\n  \"timeoutSeconds\": 120\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Products (Supabase Proxy)",
+      "item": [
+        {
+          "name": "List All Products",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/products",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ]
+          }
+        },
+        {
+          "name": "List Visible Products",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/products/visible",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ]
+          }
+        },
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/products",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sku\": \"TEST-01\",\n  \"name\": \"Produto Teste\",\n  \"description\": \"Descricao do produto teste\",\n  \"category\": \"Peptideo\",\n  \"format\": \"Liofilizado\",\n  \"concentration\": \"10mg\",\n  \"brand\": \"TAURA\",\n  \"price_brl\": 199.90,\n  \"stock_qty\": 10,\n  \"warehouse\": \"SP\",\n  \"purity\": \">=98%\",\n  \"active\": true,\n  \"visible_to_customer\": false\n}"
+            }
+          }
+        },
+        {
+          "name": "Update Product",
+          "request": {
+            "method": "PATCH",
+            "url": "{{base_url}}/api/products/{{product_id}}",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"price_brl\": 249.90,\n  \"stock_qty\": 25\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Product",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/api/products/{{product_id}}",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Customers (Supabase Proxy)",
+      "item": [
+        {
+          "name": "List Customers",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/customers",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ]
+          }
+        },
+        {
+          "name": "Create Customer",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/customers",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Cliente Teste\",\n  \"phone\": \"+5511999999999\",\n  \"type\": \"lead\",\n  \"notes\": \"Interessado em peptideos\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update Customer",
+          "request": {
+            "method": "PATCH",
+            "url": "{{base_url}}/api/customers/{{customer_id}}",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"customer\",\n  \"notes\": \"Comprou Retatrutida\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Customer",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/api/customers/{{customer_id}}",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Orders (Supabase Proxy)",
+      "item": [
+        {
+          "name": "List Orders",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/orders",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ]
+          }
+        },
+        {
+          "name": "Create Order",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/orders",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customer_id\": \"{{customer_id}}\",\n  \"status\": \"pending\",\n  \"total_brl\": 450.00,\n  \"notes\": \"Pedido via WhatsApp\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Suppliers (Supabase Proxy)",
+      "item": [
+        {
+          "name": "List Suppliers",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/suppliers",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Conversations (Supabase Proxy)",
+      "item": [
+        {
+          "name": "List Conversations",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/conversations",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ]
+          }
+        },
+        {
+          "name": "Get Conversation with Messages",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/conversations/{{conversation_id}}",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ]
+          }
+        },
+        {
+          "name": "Update Conversation Status",
+          "request": {
+            "method": "PATCH",
+            "url": "{{base_url}}/api/conversations/{{conversation_id}}",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"closed\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Messages (Supabase Proxy)",
+      "item": [
+        {
+          "name": "List Messages by Conversation",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/messages?conversation_id={{conversation_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "messages"],
+              "query": [
+                { "key": "conversation_id", "value": "{{conversation_id}}" }
+              ]
+            },
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Control UI",
+      "item": [
+        {
+          "name": "Control Interface",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/control/"
+          }
+        },
+        {
+          "name": "Agent Avatar",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/control/avatar/default"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Slack",
+      "item": [
+        {
+          "name": "Slack Events Webhook",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/slack/events",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"url_verification\",\n  \"challenge\": \"test-challenge-string\"\n}"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

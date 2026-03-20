@@ -1,0 +1,42 @@
+# Caddyfile for Troy Vape — ecossistematroy.com
+# Auth: cookie-based session gate. Login form posts credentials via JS fetch.
+# basic_auth validates but handle_errors strips WWW-Authenticate to prevent
+# the browser native auth popup from appearing.
+
+ecossistematroy.com {
+    # Auth verify — validates credentials, returns 200 on success
+    @verify path /api/auth/verify
+    handle @verify {
+        basic_auth {
+            NettoManoel $2a$14$apFLzDbn3aZUkUG0w7t2Veo2K2d028lQeooRpoisB4rDtuOThbb0.
+        }
+        respond "OK" 200
+    }
+
+    # Strip WWW-Authenticate from 401 responses so browser doesn't show
+    # native auth popup — our login.html handles auth UI instead.
+    handle_errors {
+        @auth401 expression {err.status_code} == 401
+        handle @auth401 {
+            header -Www-Authenticate
+            respond "Unauthorized" 401
+        }
+    }
+
+    # Authenticated users (have session cookie) → proxy to gateway
+    @hasSession header_regexp session Cookie troy_session=authenticated
+    handle @hasSession {
+        reverse_proxy openclaw-gateway:18789
+    }
+
+    # Everything else: serve login page (no redirect, just serve the file)
+    handle {
+        root * /srv
+        try_files /login.html
+        file_server
+    }
+}
+
+www.ecossistematroy.com {
+    redir https://ecossistematroy.com{uri} permanent
+}

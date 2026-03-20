@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Como um fragmento gástrico se tornou o peptídeo mais estudado em reparo tecidual — TAURA Research</title>
+<meta name="description" content="BPC-157 foi isolado do suco gástrico humano. Ele não deveria sobreviver ao pH do estômago — mas sobrevive. A conexão com o sistema NO e mais de 100 estudos animais sem fase I humana.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;900&family=Outfit:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:   #0A0A0A;
+  --vinho:   #6B0F1A;
+  --vinho2:  #3D0A10;
+  --prata:   #C4C4C4;
+  --off:     #F2EFE9;
+  --dim:     #666666;
+  --dimmer:  #333333;
+  --mid:     #161616;
+  --mid2:    #1e1e1e;
+  --font-d:  'Barlow Condensed', sans-serif;
+  --font-b:  'Outfit', sans-serif;
+  --font-m:  'JetBrains Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--off);
+  font-family: var(--font-b);
+  font-weight: 300;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--vinho); color: var(--off); }
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 1; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.03;
+}
+
+/* ═══ NAV ═══ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px 48px;
+  background: linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, transparent 100%);
+}
+.nav-logo {
+  font-family: var(--font-d); font-weight: 900; font-size: 22px;
+  letter-spacing: 0.25em; color: var(--off);
+}
+.nav-logo span { color: var(--vinho); }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-link {
+  font-family: var(--font-m); font-weight: 300; font-size: 10px;
+  color: var(--dim); letter-spacing: 0.15em;
+  text-transform: uppercase; transition: color 0.2s;
+}
+.nav-link:hover { color: var(--off); }
+.nav-cta {
+  background: var(--vinho); color: var(--off);
+  font-family: var(--font-b); font-weight: 500;
+  font-size: 11px; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 10px 20px;
+  border: 1px solid var(--vinho);
+  transition: background 0.2s, color 0.2s;
+}
+.nav-cta:hover { background: transparent; color: var(--vinho); }
+
+/* ═══ ARTICLE HEADER ═══ */
+.article-header {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 120px 24px 40px;
+}
+.article-back {
+  font-family: var(--font-m); font-size: 9px;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--dim);
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-bottom: 40px; transition: color 0.2s;
+}
+.article-back:hover { color: var(--vinho); }
+.article-tag {
+  font-family: var(--font-m); font-size: 9px;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--vinho);
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 20px;
+}
+.article-tag::before {
+  content: ''; width: 24px; height: 1px; background: var(--vinho);
+}
+.article-title {
+  font-family: var(--font-d); font-weight: 900;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.0; letter-spacing: 0.03em;
+  color: var(--off); margin-bottom: 24px;
+}
+.article-meta {
+  font-family: var(--font-m); font-size: 9px;
+  color: var(--dim); letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: flex; align-items: center; gap: 16px;
+}
+.article-meta-dot {
+  width: 3px; height: 3px; border-radius: 50%;
+  background: var(--dimmer);
+}
+
+/* ═══ COVER IMAGE ═══ */
+.article-cover {
+  max-width: 960px;
+  margin: 0 auto 56px;
+  padding: 0 24px;
+}
+.article-cover-inner {
+  aspect-ratio: 21/9;
+  background: linear-gradient(135deg, var(--mid) 0%, var(--vinho2) 100%);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.article-cover-text {
+  font-family: var(--font-d); font-size: 72px; font-weight: 900;
+  color: rgba(242,239,233,0.04); letter-spacing: 0.08em;
+}
+
+/* ═══ ARTICLE BODY ═══ */
+.article-body {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+.article-body h2 {
+  font-family: var(--font-d); font-weight: 700;
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.1; letter-spacing: 0.03em;
+  color: var(--off);
+  margin: 56px 0 20px;
+}
+.article-body h2:first-child { margin-top: 0; }
+.article-body p {
+  font-size: 16px; font-weight: 300;
+  color: var(--prata); line-height: 1.85;
+  margin-bottom: 20px;
+}
+.article-body p strong {
+  font-weight: 500; color: var(--off);
+}
+
+/* Pullquote */
+.pullquote {
+  border-left: 2px solid var(--vinho);
+  padding: 4px 0 4px 24px;
+  margin: 40px 0;
+  font-size: 18px; font-weight: 300;
+  font-style: italic;
+  color: var(--off);
+  line-height: 1.7;
+}
+
+/* Data callout */
+.data-callout {
+  background: var(--mid);
+  border: 1px solid rgba(196,196,196,0.06);
+  padding: 28px 32px;
+  margin: 40px 0;
+}
+.data-callout-label {
+  font-family: var(--font-m); font-size: 8px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--vinho); margin-bottom: 12px;
+}
+.data-callout-content {
+  font-family: var(--font-m); font-size: 13px;
+  color: var(--off); line-height: 1.8;
+}
+.data-callout-source {
+  font-family: var(--font-m); font-size: 9px;
+  color: var(--dim); margin-top: 12px;
+  letter-spacing: 0.05em;
+}
+
+/* Inline image */
+.article-img {
+  margin: 40px -60px;
+  position: relative;
+}
+.article-img-inner {
+  aspect-ratio: 16/9;
+  background: var(--mid);
+  display: flex; align-items: center; justify-content: center;
+}
+.article-img-caption {
+  font-family: var(--font-m); font-size: 9px;
+  color: var(--dim); letter-spacing: 0.08em;
+  margin-top: 12px; text-align: right;
+}
+
+/* ═══ SOURCES ═══ */
+.sources {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+  border-top: 1px solid rgba(196,196,196,0.06);
+  padding-top: 40px;
+}
+.sources-label {
+  font-family: var(--font-m); font-size: 9px;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--vinho); margin-bottom: 24px;
+}
+.source-item {
+  padding: 10px 0;
+  font-size: 13px; color: var(--dim); line-height: 1.7;
+  display: grid; grid-template-columns: 28px 1fr; gap: 8px;
+}
+.source-num {
+  font-family: var(--font-m); font-size: 11px; color: var(--dimmer);
+}
+.source-item em { color: var(--prata); }
+
+/* ═══ RELATED POSTS ═══ */
+.related {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+.related-label {
+  font-family: var(--font-m); font-size: 9px;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--vinho);
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 32px;
+}
+.related-label::before {
+  content: ''; width: 24px; height: 1px; background: var(--vinho);
+}
+.related-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.related-card {
+  display: flex; gap: 20px; align-items: start;
+  padding: 24px; background: var(--mid);
+  transition: transform 0.3s cubic-bezier(.16,1,.3,1);
+}
+.related-card:hover { transform: translateY(-2px); }
+.related-card-num {
+  font-family: var(--font-d); font-weight: 900;
+  font-size: 48px; color: var(--vinho2);
+  line-height: 1; flex-shrink: 0;
+}
+.related-card-info { display: flex; flex-direction: column; gap: 8px; }
+.related-card-tag {
+  font-family: var(--font-m); font-size: 8px;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim);
+}
+.related-card-title {
+  font-family: var(--font-d); font-weight: 700;
+  font-size: 18px; line-height: 1.15; color: var(--off);
+  transition: color 0.2s;
+}
+.related-card:hover .related-card-title { color: var(--vinho); }
+
+/* ═══ FOOTER ═══ */
+footer {
+  border-top: 1px solid rgba(196,196,196,0.06);
+  padding: 48px;
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 24px; flex-wrap: wrap;
+}
+.footer-brand {
+  font-family: var(--font-d); font-weight: 900;
+  font-size: 16px; letter-spacing: 0.25em; color: var(--dimmer);
+}
+.footer-note {
+  font-family: var(--font-m); font-size: 9px;
+  color: var(--dim); letter-spacing: 0.05em;
+  line-height: 1.8; max-width: 500px; text-align: right;
+}
+.footer-subtle {
+  width: 100%;
+  text-align: center;
+  padding-top: 24px;
+  margin-top: 16px;
+  border-top: 1px solid rgba(196,196,196,0.03);
+}
+.footer-subtle a {
+  font-family: var(--font-m);
+  font-size: 8px;
+  color: var(--vinho);
+  letter-spacing: 0.1em;
+  opacity: 0.4;
+  transition: opacity 0.3s;
+}
+.footer-subtle a:hover {
+  opacity: 0.8;
+}
+
+/* ═══ READING PROGRESS BAR ═══ */
+.progress-bar {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 2px; z-index: 200;
+  background: transparent;
+}
+.progress-fill {
+  height: 100%; width: 0%;
+  background: var(--vinho);
+  transition: width 0.05s linear;
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 768px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .article-header { padding: 100px 24px 32px; }
+  .article-cover { padding: 0; margin-bottom: 40px; }
+  .article-body { padding: 0 24px 56px; }
+  .article-body h2 { margin-top: 40px; }
+  .article-img { margin: 32px -24px; }
+  .sources { padding: 0 24px 48px; padding-top: 32px; }
+  .related { padding: 0 24px 48px; }
+  .related-grid { grid-template-columns: 1fr; }
+  footer { padding: 32px 24px; flex-direction: column; }
+  .footer-note { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ PROGRESS BAR ═══ -->
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <a href="taura_landing_v3.html" class="nav-logo">TAURA<span>.</span></a>
+  <div class="nav-links">
+    <a href="taura_blog.html" class="nav-link">Catálogo</a>
+    <a href="taura_blog_curiosidades.html" class="nav-link">Blog</a>
+    <a href="taura_landing_v3.html" class="nav-link">Sobre</a>
+    <a href="#" class="nav-cta">Acesso</a>
+  </div>
+</nav>
+
+<!-- ═══ ARTICLE HEADER ═══ -->
+<header class="article-header">
+  <a href="taura_blog_curiosidades.html" class="article-back">← Voltar ao blog</a>
+
+  <div class="article-tag">Peptídeos · Mecanismo</div>
+  <h1 class="article-title">Como um fragmento gástrico se tornou o peptídeo mais estudado em reparo tecidual</h1>
+  <div class="article-meta">
+    <span>22 Fev 2026</span>
+    <span class="article-meta-dot"></span>
+    <span>5 min leitura</span>
+    <span class="article-meta-dot"></span>
+    <span>TAURA Research</span>
+  </div>
+</header>
+
+<!-- ═══ COVER ═══ -->
+<div class="article-cover">
+  <div class="article-cover-inner">
+    <span class="article-cover-text">BPC-157</span>
+  </div>
+</div>
+
+<!-- ═══ ARTICLE BODY ═══ -->
+<article class="article-body">
+
+  <p>
+    Entre os peptídeos que circulam na literatura de reparo tecidual, poucos acumulam uma combinação tão peculiar de características quanto o BPC-157. <strong>Isolado originalmente do suco gástrico humano, este pentadecapeptídeo (15 aminoácidos) apresenta uma propriedade que desafia a intuição bioquímica: estabilidade em pH extremamente ácido.</strong> Peptídeos, como regra geral, são degradados rapidamente em ambiente gástrico. O BPC-157 não apenas resiste a essa degradação como parece exercer atividade biológica precisamente nesse ambiente hostil.
+  </p>
+
+  <p>
+    A história desse composto começa na Croácia, no laboratório de Predrag Sikiric na Universidade de Zagreb, que publicou o primeiro de uma longa série de estudos na década de 1990. Desde então, mais de cem publicações pré-clínicas documentam efeitos em modelos de lesão tendínea, muscular, óssea, vascular, hepática e neurológica. A curiosidade é que, apesar desse volume de dados animais, nenhum ensaio de fase I em humanos foi publicado até hoje.
+  </p>
+
+  <h2>A estabilidade que não deveria existir</h2>
+
+  <p>
+    O suco gástrico humano opera em pH entre 1,5 e 3,5 — um ambiente que desnatura a maioria das proteínas e peptídeos em minutos. Enzimas proteolíticas como a pepsina são otimizadas para funcionar nessas condições. A literatura aponta que o BPC-157, apesar de ser um peptídeo linear relativamente curto, mantém conformação funcional nesse ambiente. Estudos indicam que essa estabilidade pode estar relacionada à sua sequência aminoacídica específica, que favorece interações intramoleculares resistentes à hidrólise ácida.
+  </p>
+
+  <div class="pullquote">
+    Um peptídeo do suco gástrico que resiste ao suco gástrico. A redundância aparente esconde uma lógica evolutiva: se ele existe nesse ambiente, foi selecionado para funcionar nele.
+  </div>
+
+  <p>
+    Essa estabilidade é biologicamente significativa porque implica a possibilidade de administração oral — uma rota incomum para peptídeos, que geralmente requerem injeção subcutânea ou intravenosa para evitar degradação gastrointestinal. Estudos indicam que o BPC-157 demonstra atividade biológica tanto por via parenteral quanto por via oral em modelos animais, embora a biodisponibilidade e a farmacocinética exata por cada via não estejam completamente caracterizadas.
+  </p>
+
+  <h2>O sistema NO: o fio condutor</h2>
+
+  <p>
+    Se existe um mecanismo que conecta os múltiplos efeitos relatados do BPC-157, a literatura aponta para o sistema do óxido nítrico (NO). O NO é um mediador gasoso produzido por três isoformas de óxido nítrico sintase (NOS) — endotelial (eNOS), neuronal (nNOS) e induzível (iNOS). <strong>Estudos indicam que o BPC-157 modula a expressão e a atividade dessas isoformas de maneira contexto-dependente</strong>: em situações de excesso de NO (inflamação aguda), parece exercer efeito inibitório sobre iNOS; em situações de deficiência (isquemia), parece estimular eNOS.
+  </p>
+
+  <div class="data-callout">
+    <div class="data-callout-label">Dado da literatura</div>
+    <div class="data-callout-content">
+      Em modelos de lesão tendínea em ratos, o BPC-157 acelerou a formação de tecido de granulação e a reorganização de fibras colágenas, com aumento concomitante da expressão de eNOS no local da lesão e redução de marcadores inflamatórios como TNF-α e IL-6.
+    </div>
+    <div class="data-callout-source">
+      Staresinic M, et al., 2006 — J Physiol Pharmacol
+    </div>
+  </div>
+
+  <p>
+    Essa modulação bidirecional do sistema NO é particularmente interessante porque explica, ao menos parcialmente, a amplitude de tecidos em que o BPC-157 demonstra efeito. O NO participa da regulação do tônus vascular, da angiogênese, da resposta inflamatória e da sinalização neural. Um composto que modula esse sistema de forma adaptativa — aumentando ou reduzindo NO conforme o contexto tecidual — teria, em teoria, aplicabilidade em múltiplos cenários de lesão e reparo.
+  </p>
+
+  <h2>Mais de 100 estudos animais. Zero fase I humana.</h2>
+
+  <p>
+    A assimetria entre o volume de dados pré-clínicos e a ausência de ensaios clínicos formais é talvez o aspecto mais discutido do BPC-157 na comunidade científica. A literatura aponta vários fatores que contribuem para essa lacuna. Primeiro, a maioria esmagadora dos estudos foi conduzida por um único grupo de pesquisa (o de Sikiric em Zagreb), o que levanta questões sobre reprodutibilidade independente — embora alguns grupos na China e na Coreia do Sul tenham publicado dados confirmatórios em modelos específicos.
+  </p>
+
+  <p>
+    Segundo, o BPC-157 não é patenteável da forma tradicional (é uma sequência natural do proteoma humano), o que reduz o incentivo econômico para que empresas farmacêuticas invistam nos custosos ensaios de fase I/II/III. Estudos indicam que compostos sem perspectiva clara de retorno sobre investimento enfrentam o chamado "vale da morte" translacional com muito mais frequência do que compostos protegidos por propriedade intelectual forte.
+  </p>
+
+  <div class="article-img">
+    <div class="article-img-inner" style="background:linear-gradient(135deg, var(--mid) 0%, var(--vinho2) 60%);">
+      <span style="font-family:var(--font-m);font-size:11px;color:var(--dim);letter-spacing:0.15em;text-transform:uppercase;">Diagrama: modulação bidirecional do sistema NO pelo BPC-157</span>
+    </div>
+    <div class="article-img-caption">Representação esquemática da interação do BPC-157 com isoformas de NOS em diferentes contextos teciduais</div>
+  </div>
+
+  <h2>O estado atual da questão</h2>
+
+  <p>
+    A literatura aponta que o BPC-157 permanece num espaço peculiar: evidência pré-clínica abundante, interesse crescente da comunidade científica, uso anedótico disseminado e ausência completa de dados clínicos formais. Essa combinação gera tanto entusiasmo quanto ceticismo legítimo. Os mecanismos propostos — modulação de NO, ativação de vias de crescimento como VEGF e EGF, interação com o sistema dopaminérgico — são farmacologicamente plausíveis, mas a validação em humanos é um requisito que não pode ser contornado por volume de dados animais.
+  </p>
+
+  <p>
+    O que o BPC-157 oferece, neste estágio, é uma hipótese cientificamente fundamentada e biologicamente fascinante: <strong>que o trato gastrointestinal produz peptídeos com funções sistêmicas de reparo tecidual que vão muito além da digestão.</strong> Se essa hipótese se sustentará em ensaios clínicos rigorosos é uma pergunta que, por enquanto, permanece sem resposta.
+  </p>
+
+</article>
+
+<!-- ═══ SOURCES ═══ -->
+<section class="sources">
+  <div class="sources-label">Fontes</div>
+
+  <div class="source-item">
+    <span class="source-num">[1]</span>
+    <div>Sikiric P, et al. <em>Stable gastric pentadecapeptide BPC 157: novel therapy in gastrointestinal tract.</em> Curr Pharm Des. 2011;17(16):1612-1632.</div>
+  </div>
+  <div class="source-item">
+    <span class="source-num">[2]</span>
+    <div>Staresinic M, et al. <em>Gastric pentadecapeptide BPC 157 accelerates healing of transected rat Achilles tendon and in vitro stimulates tendocytes growth.</em> J Orthop Res. 2003;21(6):976-983.</div>
+  </div>
+  <div class="source-item">
+    <span class="source-num">[3]</span>
+    <div>Seiwerth S, et al. <em>BPC 157 and blood vessels.</em> Curr Pharm Des. 2014;20(7):1121-1125.</div>
+  </div>
+  <div class="source-item">
+    <span class="source-num">[4]</span>
+    <div>Sikiric P, et al. <em>Brain-gut axis and pentadecapeptide BPC 157: theoretical and practical implications.</em> Curr Neuropharmacol. 2016;14(8):857-865.</div>
+  </div>
+  <div class="source-item">
+    <span class="source-num">[5]</span>
+    <div>Vukojevic J, et al. <em>Rat inferior caval vein (ICV) ligature and BPC 157. Thrombosis model revised.</em> Curr Pharm Des. 2020;26(25):2998-3005.</div>
+  </div>
+</section>
+
+<!-- ═══ RELATED ═══ -->
+<section class="related">
+  <div class="related-label">Leia Também</div>
+  <div class="related-grid">
+    <a href="taura_artigo_semax.html" class="related-card">
+      <span class="related-card-num">01</span>
+      <div class="related-card-info">
+        <span class="related-card-tag">Neuro · Curiosidade</span>
+        <h3 class="related-card-title">Semax e BDNF: o peptídeo russo que modula fator neurotrófico</h3>
+      </div>
+    </a>
+    <a href="taura_artigo_tirzepatida.html" class="related-card">
+      <span class="related-card-num">02</span>
+      <div class="related-card-info">
+        <span class="related-card-tag">Metabólico · Mecanismo</span>
+        <h3 class="related-card-title">GIP + GLP-1: a combinação que redefiniu incretinas</h3>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-brand">TAURA RESEARCH</div>
+  <div class="footer-note">
+    Conteúdo informativo baseado em literatura científica revisada por pares.<br>
+    Nenhuma informação aqui constitui aconselhamento médico ou recomendação de uso.
+  </div>
+  <div class="footer-subtle"><a href="taura_landing_v3.html">mais informações</a></div>
+</footer>
+
+<!-- ═══ READING PROGRESS ═══ -->
+<script>
+window.addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+  document.getElementById('progressFill').style.width = pct + '%';
+});
+</script>
+
+</body>
+</html>

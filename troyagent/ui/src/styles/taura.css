@@ -1,0 +1,87 @@
+/* ══════════════════════════════════════════════════════════
+   TAURA Identity System — UI Components
+   Vinho/black palette · Precision aesthetic
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Card left-border accent ─────────────────── */
+.card {
+  position: relative;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+}
+
+/* ── Divider gradient line ───────────────────── */
+.div-line {
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent) 0%, rgba(107, 15, 26, 0.2) 60%, transparent 100%);
+  margin: 24px 0;
+}
+
+/* ── Data table — first column mono/accent ───── */
+.data-table td:first-child {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+}
+
+/* ── Noise grain overlay (subtle texture) ────── */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.02;
+  z-index: 9990;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* ── Selection color ─────────────────────────── */
+::selection {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+/* ── Section sub-heading (TAURA mono tag) ────── */
+.section-sub {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+/* ── Display headings (Barlow Condensed) ─────── */
+.d-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 0.92;
+  color: var(--text-strong);
+}
+
+/* ── Quote block (good/bad feedback) ─────────── */
+.quote-block {
+  border-left: 3px solid var(--accent);
+  padding: 16px 20px;
+  background: var(--bg-elevated);
+  margin: 8px 0;
+}
+
+/* ── Mono tag (metadata, timestamps) ─────────── */
+.mono-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}

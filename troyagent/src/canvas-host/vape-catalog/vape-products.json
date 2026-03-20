@@ -1,0 +1,200 @@
+[
+  {
+    "id": "ignite-tadalafil",
+    "sku": "IGNITE-TADALAFIL",
+    "name": "Ignite Tadalafil Spray 20mg",
+    "description": "Spray de performance Ignite. 120 doses.",
+    "price": 100.1,
+    "image": "https://ignitesaude.com/cdn/shop/files/teste_img_2_spray.jpg?v=1758025041",
+    "category": "Ignite",
+    "flavors": ["Grape", "Cherry", "Menthol"]
+  },
+  {
+    "id": "ignite-v-nano",
+    "sku": "IGNITE-V-NANO",
+    "name": "Ignite V Nano 1.000 Puffs",
+    "description": "Compacto e potente.",
+    "price": 22.95,
+    "image": "images/ignite-v-nano.png",
+    "category": "Ignite",
+    "flavors": ["Passion Sour Kiwi"]
+  },
+  {
+    "id": "ignite-v80",
+    "sku": "IGNITE-V80",
+    "name": "Ignite V80 New Edition 8.000 Puffs",
+    "description": "Nova edição limitada com 8k puffs.",
+    "price": 64.93,
+    "image": "https://puffignite.co/cdn/shop/files/V80_BlackEdition_SinglePackDevice_0001_tobacco_5000x.jpg?v=1718828985",
+    "category": "Ignite",
+    "flavors": ["Blueberry Ice", "Grape Ice", "Passion Fruit Sour Kiwi"]
+  },
+  {
+    "id": "ignite-v15",
+    "sku": "IGNITE-V15",
+    "name": "Ignite V15 1500 Puffs",
+    "description": "O clássico da Ignite. Favorito do mercado.",
+    "price": 69.92,
+    "image": "images/ignite-v15.png",
+    "category": "Ignite",
+    "flavors": [
+      "Grape",
+      "Blueberry Ice",
+      "Icy Mint",
+      "Pineapple Ice",
+      "Menthol",
+      "Strawberry Kiwi",
+      "Strawberry Watermelon Ice",
+      "Kiwi Passion Fruit Guava"
+    ]
+  },
+  {
+    "id": "elfbar-bc-pro",
+    "sku": "ELFBAR-BC-PRO",
+    "name": "ElfBar BC Pro 45.000 Puffs",
+    "description": "Capacidade monstro com display de bateria e juice.",
+    "price": 94.95,
+    "image": "http://shopelfbar.ca/cdn/shop/files/ELFBAR-BC-PRO-80K-Blue-Razz-Ice-Disposable-Vape-Nic-Salt-Official-Store-1.png?v=1767882455",
+    "category": "ElfBar",
+    "flavors": [
+      "Kiwi Passion Fruit Guava",
+      "Strawberry Ice",
+      "Pineapple Ice",
+      "Grape Twist",
+      "Tropical Baja",
+      "Americano Ice",
+      "Cool Menthol",
+      "Strawberry Kiwi",
+      "Grape Ice",
+      "Green Apple Ice",
+      "Watermelon Peach Frost",
+      "Miami Mint",
+      "Blueberry Strawberry Coconut",
+      "Watermelon Ice"
+    ]
+  },
+  {
+    "id": "elfbar-ice-king",
+    "sku": "ELFBAR-ICE-KING",
+    "name": "ElfBar Ice King 40.000 Puffs",
+    "description": "Refresco extremo com tecnologia Dual Mesh.",
+    "price": 79.95,
+    "image": "images/elfbar-ice-king.png",
+    "category": "ElfBar",
+    "flavors": [
+      "Green Apple",
+      "Hawaiian Splash",
+      "Neon Twist",
+      "Passion Flash",
+      "Peach Blue",
+      "Strawberry Park",
+      "Triple Berry",
+      "Wild Berry",
+      "Black Mint"
+    ]
+  },
+  {
+    "id": "nikbar-30000",
+    "sku": "NIKBAR-30000",
+    "name": "Nikbar 30.000 Puffs",
+    "description": "Sabor intenso e nuvens densas.",
+    "price": 64.95,
+    "image": "https://www.wolfshopbrasil.net/wp-content/uploads/2025/10/Principal-Pod-Descartavel-NIKBAR-30K-na-Wolf-Shop-Brasil-1200x900.jpg",
+    "category": "Nikbar",
+    "flavors": [
+      "Strawberry Kiwi",
+      "Menthol",
+      "Grape Ice",
+      "Watermelon Cherry",
+      "Blueberry Ice",
+      "Strawberry Apple Watermelon",
+      "Sour Apple Ice",
+      "Fresh Mint",
+      "Strawberry Ice",
+      "Miami Mint"
+    ]
+  },
+  {
+    "id": "lost-mary-dura",
+    "sku": "LOST-MARY-DURA",
+    "name": "Lost Mary Dura 35.000 Puffs",
+    "description": "Design ergonômico e durabilidade sem igual.",
+    "price": 75.0,
+    "image": "https://admin.elementvape.com/media/catalog/product/l/o/lost_mary_mt35k_turbo_disposable_-_default.png",
+    "category": "Lost Mary",
+    "flavors": [
+      "Hawaiian Mint",
+      "Hawaiian Juice",
+      "Blue RAZZ Ice",
+      "Summer Orange",
+      "Pineapple Ice",
+      "Mango Ice",
+      "Grapefruit Passion Guava"
+    ]
+  },
+  {
+    "id": "lifepod-eco-8000",
+    "sku": "LIFEPOD-ECO-8000",
+    "name": "Life Pod Eco 8.000 Puffs (Refil)",
+    "description": "Ecológico e econômico. Refil para sistema Eco.",
+    "price": 39.9,
+    "image": "https://cdn.sistemawbuy.com.br/arquivos/61793d4f71e57473a93a378e72c4df88/produtos/6615434dbde6e/bb9970950233811f7393495cdfaf41a6-6615434e0fc80.jpg",
+    "category": "Life Pod",
+    "flavors": [
+      "White Mocha Ice",
+      "Lemon Grass",
+      "Mango Ice",
+      "Golden Kiwi Fruit",
+      "Pear Ice",
+      "Green Grape Ice",
+      "Coconut Water",
+      "Banana Ice",
+      "Cactus",
+      "Strawberry Ice",
+      "Love 66",
+      "Tropical",
+      "Apple Kiwi Ice",
+      "Lemon Kiwi",
+      "Apple Melon Ice",
+      "Apple Grape Ice",
+      "Triple Berry",
+      "Coke Ice"
+    ]
+  },
+  {
+    "id": "black-sheep-30000",
+    "sku": "BLACK-SHEEP-30000",
+    "name": "The Black Sheep 30.000 Puffs",
+    "description": "Estilo rebelde com sabores marcantes.",
+    "price": 84.9,
+    "image": "images/black-sheep-30k.png",
+    "category": "The Black Sheep",
+    "flavors": [
+      "Fresh Mint/Grape",
+      "Grape/Passion Fruit",
+      "Grape/Watermelon Bubble",
+      "Cherry Raspberry/Watermelon Strawberry",
+      "Grape/Strawberry Banana",
+      "Menthol/Watermelon Green Apple",
+      "Grape/Strawberry Kiwi"
+    ]
+  },
+  {
+    "id": "oxbar-32000-refil",
+    "sku": "OXBAR-32000-REFIL",
+    "name": "Oxbar 32.000 (Somente Refil)",
+    "description": "Refil de alto rendimento para aparelhos Oxbar.",
+    "price": 60.0,
+    "image": "images/oxbar-32k-refil.png",
+    "category": "Oxbar",
+    "flavors": [
+      "Fanta Strawberry",
+      "Grape Paradise",
+      "Ox Love",
+      "Banana Ice",
+      "Apple Kiwi Ice",
+      "Watermelon Ice",
+      "Red Ice"
+    ]
+  }
+]

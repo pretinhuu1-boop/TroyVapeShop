@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="theme-color" content="#050505" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta
+      name="description"
+      content="Troy Vape — Vaporizadores premium. Escolha seu estilo e finalize direto no WhatsApp."
+    />
+    <title>Troy Vape — Catálogo</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="background-effects">
+      <div class="glow glow-1"></div>
+      <div class="glow glow-2"></div>
+    </div>
+
+    <header>
+      <div class="logo"><span class="gold-text">TROY</span> VAPE</div>
+      <div id="cart-status" class="cart-status">
+        🛒 <span id="cart-count">0</span> <span id="cart-label">itens</span>
+      </div>
+    </header>
+
+    <main>
+      <div class="welcome">
+        <h1 class="playfair">Escolha seu Estilo</h1>
+        <p>Vaporizadores premium selecionados para você</p>
+        <div id="mode-indicator" class="mode-indicator browser">📱 Browser Mode</div>
+      </div>
+
+      <!-- Search -->
+      <div class="search-bar">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Buscar produto ou sabor..."
+          autocomplete="off"
+        />
+      </div>
+
+      <!-- Category Filter -->
+      <div id="category-bar" class="category-bar">
+        <!-- Populated by JS -->
+      </div>
+
+      <div id="product-grid" class="grid">
+        <!-- Produtos carregados via JS -->
+        <div class="loading">Carregando catálogo...</div>
+      </div>
+    </main>
+
+    <footer>
+      <p>Troy Vape © 2026 — Todos os direitos reservados</p>
+      <a href="https://wa.me/5511999999999" class="footer-wa-link" target="_blank" rel="noopener">
+        💬 Falar com a Troy Vape no WhatsApp
+      </a>
+    </footer>
+
+    <div id="checkout-drawer" class="drawer">
+      <div class="drawer-content">
+        <h2 class="playfair">Seu Pedido</h2>
+        <div id="cart-items"></div>
+        <div class="total-bar">Total: <span id="cart-total">R$ 0,00</span></div>
+        <button id="btn-finalizar" class="gold-btn">Finalizar no WhatsApp</button>
+        <button id="btn-fechar" class="close-btn">Continuar comprando</button>
+      </div>
+    </div>
+
+    <script src="catalog.js"></script>
+  </body>
+</html>

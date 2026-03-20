@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="70%"><stop offset="0%" stop-color="#1a0508"/><stop offset="100%" stop-color="#0a0a0a"/></radialGradient>
+    <filter id="g"><feGaussianBlur stdDeviation="8"/></filter>
+    <filter id="g2"><feGaussianBlur stdDeviation="3"/></filter>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <g stroke="#8b2035" stroke-opacity="0.04" stroke-width="0.5">
+    <line x1="0" y1="80" x2="800" y2="80"/><line x1="0" y1="160" x2="800" y2="160"/><line x1="0" y1="240" x2="800" y2="240"/><line x1="0" y1="320" x2="800" y2="320"/>
+    <line x1="160" y1="0" x2="160" y2="400"/><line x1="320" y1="0" x2="320" y2="400"/><line x1="480" y1="0" x2="480" y2="400"/><line x1="640" y1="0" x2="640" y2="400"/>
+  </g>
+  <!-- Normal cell (left) -->
+  <text x="200" y="70" text-anchor="middle" fill="#C4C4C4" font-family="monospace" font-size="7" opacity="0.25">NORMAL CELL</text>
+  <circle cx="200" cy="180" r="50" fill="none" stroke="#8b2035" stroke-opacity="0.2" stroke-width="1.2"/>
+  <circle cx="200" cy="180" r="50" fill="#8b2035" fill-opacity="0.03"/>
+  <!-- Nucleus -->
+  <circle cx="200" cy="175" r="18" fill="none" stroke="#8b2035" stroke-opacity="0.15" stroke-width="0.8"/>
+  <circle cx="200" cy="175" r="6" fill="#8b2035" fill-opacity="0.1"/>
+  <!-- Organelles -->
+  <ellipse cx="180" cy="200" rx="8" ry="4" fill="none" stroke="#C4C4C4" stroke-opacity="0.1" stroke-width="0.4"/>
+  <ellipse cx="220" cy="195" rx="7" ry="3.5" fill="none" stroke="#C4C4C4" stroke-opacity="0.1" stroke-width="0.4"/>
+  <!-- Arrow between cells -->
+  <line x1="270" y1="180" x2="340" y2="180" stroke="#C4C4C4" stroke-opacity="0.1" stroke-width="0.5"/>
+  <polygon points="340,180 332,176 332,184" fill="#C4C4C4" fill-opacity="0.1"/>
+  <text x="305" y="170" text-anchor="middle" fill="#C4C4C4" font-family="monospace" font-size="5" opacity="0.15">STRESS</text>
+  <text x="305" y="195" text-anchor="middle" fill="#C4C4C4" font-family="monospace" font-size="5" opacity="0.15">DAMAGE</text>
+
+  <!-- Senescent cell (center) - larger, irregular -->
+  <text x="440" y="70" text-anchor="middle" fill="#8b2035" font-family="monospace" font-size="7" opacity="0.3">SENESCENT CELL</text>
+  <path d="M380,140 Q400,110 440,115 Q480,120 500,145 Q515,170 510,200 Q505,230 490,250 Q470,270 440,275 Q400,280 380,260 Q360,240 355,210 Q350,180 365,155 Q370,145 380,140" fill="none" stroke="#8b2035" stroke-opacity="0.25" stroke-width="1.5"/>
+  <path d="M380,140 Q400,110 440,115 Q480,120 500,145 Q515,170 510,200 Q505,230 490,250 Q470,270 440,275 Q400,280 380,260 Q360,240 355,210 Q350,180 365,155 Q370,145 380,140" fill="#8b2035" fill-opacity="0.04"/>
+  <!-- Enlarged nucleus -->
+  <circle cx="435" cy="185" r="28" fill="none" stroke="#8b2035" stroke-opacity="0.2" stroke-width="0.8"/>
+  <circle cx="435" cy="185" r="10" fill="#8b2035" fill-opacity="0.08"/>
+  <!-- SASP secretion particles -->
+  <g fill="#8b2035" fill-opacity="0.25">
+    <circle cx="520" cy="160" r="2.5" filter="url(#g2)"/>
+    <circle cx="525" cy="195" r="2" filter="url(#g2)"/>
+    <circle cx="515" cy="230" r="2.5" filter="url(#g2)"/>
+    <circle cx="535" cy="175" r="1.5"/>
+    <circle cx="540" cy="210" r="1.5"/>
+    <circle cx="370" cy="130" r="2"/>
+    <circle cx="355" cy="160" r="1.5"/>
+    <circle cx="500" cy="130" r="2"/>
+  </g>
+  <text x="550" y="195" fill="#C4C4C4" font-family="monospace" font-size="5" opacity="0.2">SASP</text>
+  <!-- SA-beta-gal marker -->
+  <text x="435" y="235" text-anchor="middle" fill="#C4C4C4" font-family="monospace" font-size="5" opacity="0.2">SA-β-gal+</text>
+  <!-- p16/p21 markers -->
+  <text x="435" y="160" text-anchor="middle" fill="#C4C4C4" font-family="monospace" font-size="5" opacity="0.2">p16 p21</text>
+
+  <!-- Senolytic agent (right) targeting the cell -->
+  <text x="670" y="120" text-anchor="middle" fill="#8b2035" font-family="monospace" font-size="7" opacity="0.35">SENOLYTIC</text>
+  <!-- Agent molecule -->
+  <polygon points="670,145 690,155 690,175 670,185 650,175 650,155" fill="none" stroke="#8b2035" stroke-opacity="0.3" stroke-width="1"/>
+  <polygon points="670,145 690,155 690,175 670,185 650,175 650,155" fill="#8b2035" fill-opacity="0.08" filter="url(#g2)"/>
+  <text x="670" y="168" text-anchor="middle" fill="#C4C4C4" font-family="monospace" font-size="5" opacity="0.3">D+Q</text>
+  <!-- Targeting arrow -->
+  <path d="M650,175 Q600,220 510,220" fill="none" stroke="#8b2035" stroke-opacity="0.25" stroke-width="0.8" stroke-dasharray="5 3"/>
+  <polygon points="510,220 518,216 518,224" fill="#8b2035" fill-opacity="0.3"/>
+  <!-- Targeting glow -->
+  <circle cx="510" cy="220" r="8" fill="#8b2035" fill-opacity="0.06" filter="url(#g)"/>
+  <!-- Clearance result (bottom right) -->
+  <text x="670" y="260" text-anchor="middle" fill="#C4C4C4" font-family="monospace" font-size="6" opacity="0.15">APOPTOSIS</text>
+  <g stroke="#C4C4C4" stroke-opacity="0.08" stroke-width="0.4">
+    <line x1="660" y1="270" x2="680" y2="290"/>
+    <line x1="680" y1="270" x2="660" y2="290"/>
+  </g>
+  <!-- Fragmented cell remnants -->
+  <circle cx="655" cy="300" r="4" fill="none" stroke="#C4C4C4" stroke-opacity="0.08" stroke-width="0.3" stroke-dasharray="2 2"/>
+  <circle cx="670" cy="310" r="3" fill="none" stroke="#C4C4C4" stroke-opacity="0.06" stroke-width="0.3" stroke-dasharray="2 2"/>
+  <circle cx="685" cy="300" r="3.5" fill="none" stroke="#C4C4C4" stroke-opacity="0.07" stroke-width="0.3" stroke-dasharray="2 2"/>
+  <text x="400" y="385" text-anchor="middle" fill="#8b2035" font-family="monospace" font-size="9" letter-spacing="4" opacity="0.2">LONGEVIDADE</text>
+</svg>

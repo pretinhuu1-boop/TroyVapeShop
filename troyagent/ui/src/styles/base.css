@@ -1,0 +1,388 @@
+:root {
+  /* Background - TAURA black */
+  --bg: #0a0a0a;
+  --bg-accent: #0f0f0f;
+  --bg-elevated: #161616;
+  --bg-hover: #1e1e1e;
+  --bg-muted: #1a1a1a;
+
+  /* Card / Surface - Dark elevated surfaces */
+  --card: #111111;
+  --card-foreground: #F2EFE9;
+  --card-highlight: rgba(107, 15, 26, 0.05);
+  --popover: #141414;
+  --popover-foreground: #F2EFE9;
+
+  /* Panel */
+  --panel: #0a0a0a;
+  --panel-strong: #161616;
+  --panel-hover: #1e1e1e;
+  --chrome: rgba(10, 10, 10, 0.96);
+  --chrome-strong: rgba(10, 10, 10, 0.98);
+
+  /* Text */
+  --text: #C4C4C4;
+  --text-strong: #F2EFE9;
+  --chat-text: #C4C4C4;
+  --muted: #666666;
+  --muted-strong: #555555;
+  --muted-foreground: #666666;
+
+  /* Border */
+  --border: #2a2a2a;
+  --border-strong: #333333;
+  --border-hover: #444444;
+  --input: #2a2a2a;
+  --ring: #6B0F1A;
+
+  /* Accent - TAURA vinho */
+  --accent: #6B0F1A;
+  --accent-hover: #8a1322;
+  --accent-muted: #6B0F1A;
+  --accent-subtle: rgba(107, 15, 26, 0.12);
+  --accent-foreground: #F2EFE9;
+  --accent-glow: rgba(107, 15, 26, 0.20);
+  --primary: #6B0F1A;
+  --primary-foreground: #F2EFE9;
+
+  /* Secondary */
+  --secondary: #1a1a1a;
+  --secondary-foreground: #C4C4C4;
+  --accent-2: #3D0A10;
+  --accent-2-muted: rgba(61, 10, 16, 0.7);
+  --accent-2-subtle: rgba(61, 10, 16, 0.12);
+
+  /* Semantic */
+  --ok: #22c55e;
+  --ok-muted: rgba(34, 197, 94, 0.75);
+  --ok-subtle: rgba(34, 197, 94, 0.12);
+  --destructive: #ef4444;
+  --destructive-foreground: #fafafa;
+  --warn: #f59e0b;
+  --warn-muted: rgba(245, 158, 11, 0.75);
+  --warn-subtle: rgba(245, 158, 11, 0.12);
+  --danger: #ef4444;
+  --danger-muted: rgba(239, 68, 68, 0.75);
+  --danger-subtle: rgba(239, 68, 68, 0.12);
+  --info: #3b82f6;
+
+  /* Focus - Vinho glow */
+  --focus: rgba(107, 15, 26, 0.20);
+  --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--ring);
+  --focus-glow: 0 0 0 2px var(--bg), 0 0 0 4px var(--ring), 0 0 20px var(--accent-glow);
+
+  /* Grid */
+  --grid-line: rgba(255, 255, 255, 0.03);
+
+  /* Theme transition */
+  --theme-switch-x: 50%;
+  --theme-switch-y: 50%;
+
+  /* Typography - TAURA */
+  --mono:
+    "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, monospace;
+  --font-body: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Barlow Condensed", sans-serif;
+
+  /* Shadows - Subtle vinho-tinted */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(107, 15, 26, 0.03);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(107, 15, 26, 0.03);
+  --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(107, 15, 26, 0.03);
+  --shadow-glow: 0 0 30px var(--accent-glow);
+
+  /* Radii - Smooth glassmorphism (matching canvas original) */
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+  --radius: 10px;
+
+  --border-width: 1px;
+
+  /* Transitions - Snappy but smooth */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 120ms;
+  --duration-normal: 200ms;
+  --duration-slow: 350ms;
+
+  color-scheme: dark;
+}
+
+/* Light theme - TAURA off-white (never pure white) */
+:root[data-theme="light"] {
+  --bg: #F2EFE9;
+  --bg-accent: #EBE8E2;
+  --bg-elevated: #F2EFE9;
+  --bg-hover: #E5E2DC;
+  --bg-muted: #E5E2DC;
+  --bg-content: #EBE8E2;
+
+  --card: #F2EFE9;
+  --card-foreground: #0A0A0A;
+  --card-highlight: rgba(107, 15, 26, 0.05);
+  --popover: #F2EFE9;
+  --popover-foreground: #0A0A0A;
+
+  --panel: #F2EFE9;
+  --panel-strong: #EBE8E2;
+  --panel-hover: #E5E2DC;
+  --chrome: rgba(242, 239, 233, 0.95);
+  --chrome-strong: rgba(242, 239, 233, 0.98);
+
+  --text: #333333;
+  --text-strong: #0A0A0A;
+  --chat-text: #333333;
+  --muted: #666666;
+  --muted-strong: #555555;
+  --muted-foreground: #666666;
+
+  --border: #D5D2CC;
+  --border-strong: #C4C1BB;
+  --border-hover: #999999;
+  --input: #D5D2CC;
+
+  --accent: #3D0A10;
+  --accent-hover: #6B0F1A;
+  --accent-muted: #3D0A10;
+  --accent-subtle: rgba(61, 10, 16, 0.12);
+  --accent-foreground: #F2EFE9;
+  --accent-glow: rgba(107, 15, 26, 0.15);
+  --primary: #3D0A10;
+  --primary-foreground: #F2EFE9;
+  --ring: #3D0A10;
+
+  --secondary: #EBE8E2;
+  --secondary-foreground: #333333;
+  --accent-2: #1a0508;
+  --accent-2-muted: rgba(26, 5, 8, 0.75);
+  --accent-2-subtle: rgba(26, 5, 8, 0.12);
+
+  --ok: #16a34a;
+  --ok-muted: rgba(22, 163, 74, 0.75);
+  --ok-subtle: rgba(22, 163, 74, 0.1);
+  --destructive: #dc2626;
+  --destructive-foreground: #F2EFE9;
+  --warn: #d97706;
+  --warn-muted: rgba(217, 119, 6, 0.75);
+  --warn-subtle: rgba(217, 119, 6, 0.1);
+  --danger: #dc2626;
+  --danger-muted: rgba(220, 38, 38, 0.75);
+  --danger-subtle: rgba(220, 38, 38, 0.1);
+  --info: #2563eb;
+
+  --focus: rgba(107, 15, 26, 0.2);
+  --focus-glow: 0 0 0 2px var(--bg), 0 0 0 4px var(--ring), 0 0 16px var(--accent-glow);
+
+  --grid-line: rgba(0, 0, 0, 0.05);
+
+  /* Light shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(107, 15, 26, 0.04);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(107, 15, 26, 0.04);
+  --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(107, 15, 26, 0.04);
+  --shadow-glow: 0 0 24px var(--accent-glow);
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font: 400 14px/1.55 var(--font-body);
+  letter-spacing: -0.02em;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Theme transition */
+@keyframes theme-circle-transition {
+  0% {
+    clip-path: circle(0% at var(--theme-switch-x, 50%) var(--theme-switch-y, 50%));
+  }
+  100% {
+    clip-path: circle(150% at var(--theme-switch-x, 50%) var(--theme-switch-y, 50%));
+  }
+}
+
+html.theme-transition {
+  view-transition-name: theme;
+}
+
+html.theme-transition::view-transition-old(theme) {
+  mix-blend-mode: normal;
+  animation: none;
+  z-index: 1;
+}
+
+html.theme-transition::view-transition-new(theme) {
+  mix-blend-mode: normal;
+  z-index: 2;
+  animation: theme-circle-transition 0.4s var(--ease-out) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-transition::view-transition-old(theme),
+  html.theme-transition::view-transition-new(theme) {
+    animation: none !important;
+  }
+}
+
+openclaw-app {
+  display: block;
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+::selection {
+  background: var(--accent-subtle);
+  color: var(--text-strong);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-strong);
+}
+
+/* Animations - Polished with spring feel */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes dashboard-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulse-subtle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(255, 92, 92, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--accent-glow);
+  }
+}
+
+/* Stagger animation delays for grouped elements */
+.stagger-1 {
+  animation-delay: 0ms;
+}
+.stagger-2 {
+  animation-delay: 50ms;
+}
+.stagger-3 {
+  animation-delay: 100ms;
+}
+.stagger-4 {
+  animation-delay: 150ms;
+}
+.stagger-5 {
+  animation-delay: 200ms;
+}
+.stagger-6 {
+  animation-delay: 250ms;
+}
+
+/* Focus visible styles */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}

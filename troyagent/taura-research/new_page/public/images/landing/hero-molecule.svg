@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" fill="none">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#120608"/><stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="12"/></filter>
+    <filter id="glow2"><feGaussianBlur stdDeviation="4"/></filter>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bg)"/>
+  <!-- Subtle grid -->
+  <g stroke="#8b2035" stroke-opacity="0.03" stroke-width="0.5">
+    <line x1="0" y1="100" x2="1200" y2="100"/><line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/><line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="600"/><line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="600" y1="0" x2="600" y2="600"/><line x1="800" y1="0" x2="800" y2="600"/>
+    <line x1="1000" y1="0" x2="1000" y2="600"/>
+  </g>
+  <!-- Large abstract molecular structure -->
+  <g stroke="#8b2035" stroke-opacity="0.12" stroke-width="0.8">
+    <!-- Hexagonal rings -->
+    <polygon points="600,200 640,180 680,200 680,240 640,260 600,240" fill="none" stroke-opacity="0.2"/>
+    <polygon points="680,200 720,180 760,200 760,240 720,260 680,240" fill="none" stroke-opacity="0.15"/>
+    <polygon points="640,260 680,240 720,260 720,300 680,320 640,300" fill="none" stroke-opacity="0.15"/>
+    <polygon points="520,200 560,180 600,200 600,240 560,260 520,240" fill="none" stroke-opacity="0.12"/>
+    <polygon points="560,260 600,240 640,260 640,300 600,320 560,300" fill="none" stroke-opacity="0.1"/>
+    <!-- Extended chains -->
+    <line x1="760" y1="220" x2="820" y2="200"/><line x1="820" y1="200" x2="860" y2="230"/>
+    <line x1="860" y1="230" x2="920" y2="210"/><line x1="920" y1="210" x2="960" y2="240"/>
+    <line x1="520" y1="220" x2="460" y2="200"/><line x1="460" y1="200" x2="400" y2="230"/>
+    <line x1="400" y1="230" x2="340" y2="210"/><line x1="340" y1="210" x2="280" y2="240"/>
+    <line x1="680" y1="320" x2="700" y2="370"/><line x1="700" y1="370" x2="740" y2="400"/>
+    <line x1="600" y1="320" x2="580" y2="370"/><line x1="580" y1="370" x2="540" y2="400"/>
+  </g>
+  <!-- Node atoms -->
+  <g fill="#8b2035">
+    <circle cx="600" cy="200" r="3" fill-opacity="0.4"/><circle cx="640" cy="180" r="2" fill-opacity="0.3"/>
+    <circle cx="680" cy="200" r="3" fill-opacity="0.4"/><circle cx="720" cy="180" r="2" fill-opacity="0.3"/>
+    <circle cx="760" cy="200" r="3" fill-opacity="0.3"/><circle cx="600" cy="240" r="2" fill-opacity="0.3"/>
+    <circle cx="680" cy="240" r="3" fill-opacity="0.3"/><circle cx="640" cy="260" r="4" fill-opacity="0.5"/>
+    <circle cx="720" cy="260" r="3" fill-opacity="0.3"/><circle cx="680" cy="320" r="2" fill-opacity="0.2"/>
+    <circle cx="820" cy="200" r="2" fill-opacity="0.2"/><circle cx="860" cy="230" r="2" fill-opacity="0.15"/>
+    <circle cx="460" cy="200" r="2" fill-opacity="0.2"/><circle cx="400" cy="230" r="2" fill-opacity="0.15"/>
+  </g>
+  <!-- Central glow -->
+  <circle cx="660" cy="250" r="100" fill="#8b2035" fill-opacity="0.04" filter="url(#glow)"/>
+  <!-- Floating data particles -->
+  <g fill="#c4a882" fill-opacity="0.1">
+    <circle cx="150" cy="150" r="1.5"/><circle cx="200" cy="450" r="1"/>
+    <circle cx="350" cy="100" r="1.5"/><circle cx="900" cy="150" r="1"/>
+    <circle cx="1050" cy="350" r="1.5"/><circle cx="1000" cy="500" r="1"/>
+    <circle cx="100" cy="350" r="1"/><circle cx="1100" cy="150" r="1.5"/>
+  </g>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="70%"><stop offset="0%" stop-color="#1a0508"/><stop offset="100%" stop-color="#0a0a0a"/></radialGradient>
+    <filter id="g"><feGaussianBlur stdDeviation="8"/></filter>
+    <filter id="g2"><feGaussianBlur stdDeviation="3"/></filter>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <g stroke="#8b2035" stroke-opacity="0.04" stroke-width="0.5">
+    <line x1="0" y1="80" x2="800" y2="80"/><line x1="0" y1="160" x2="800" y2="160"/><line x1="0" y1="240" x2="800" y2="240"/><line x1="0" y1="320" x2="800" y2="320"/>
+    <line x1="160" y1="0" x2="160" y2="400"/><line x1="320" y1="0" x2="320" y2="400"/><line x1="480" y1="0" x2="480" y2="400"/><line x1="640" y1="0" x2="640" y2="400"/>
+  </g>
+  <!-- Brain cross-section outline -->
+  <path d="M250,100 Q300,60 400,55 Q500,60 550,100 Q590,140 590,200 Q590,260 550,300 Q500,340 400,345 Q300,340 250,300 Q210,260 210,200 Q210,140 250,100" fill="none" stroke="#8b2035" stroke-opacity="0.15" stroke-width="1"/>
+  <!-- Brain internal folds -->
+  <path d="M280,120 Q350,130 400,110 Q450,130 520,120" fill="none" stroke="#8b2035" stroke-opacity="0.08" stroke-width="0.6"/>
+  <path d="M260,160 Q330,170 400,155 Q470,170 540,160" fill="none" stroke="#8b2035" stroke-opacity="0.08" stroke-width="0.6"/>
+  <!-- Hypothalamus region highlighted -->
+  <ellipse cx="400" cy="230" rx="50" ry="30" fill="#8b2035" fill-opacity="0.08" filter="url(#g)"/>
+  <ellipse cx="400" cy="230" rx="50" ry="30" fill="none" stroke="#8b2035" stroke-opacity="0.25" stroke-width="1"/>
+  <text x="400" y="235" text-anchor="middle" fill="#C4C4C4" font-family="monospace" font-size="6" opacity="0.35">HYPOTHALAMUS</text>
+  <!-- MC4R receptor location -->
+  <circle cx="400" cy="210" r="8" fill="#8b2035" fill-opacity="0.15" filter="url(#g2)"/>
+  <circle cx="400" cy="210" r="8" fill="none" stroke="#8b2035" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="400" y="195" text-anchor="middle" fill="#8b2035" font-family="monospace" font-size="7" letter-spacing="1" opacity="0.5">MC4R</text>
+  <!-- Melanocortin pathway - highlighted neural path -->
+  <path d="M400,218 Q380,250 370,280 Q365,310 370,340" stroke="#8b2035" stroke-opacity="0.3" stroke-width="1.5" fill="none"/>
+  <path d="M400,218 Q420,250 430,280 Q435,310 430,340" stroke="#8b2035" stroke-opacity="0.2" stroke-width="1" fill="none"/>
+  <!-- Pathway glow -->
+  <path d="M400,218 Q380,250 370,280 Q365,310 370,340" stroke="#8b2035" stroke-opacity="0.08" stroke-width="6" fill="none" filter="url(#g2)"/>
+  <!-- Signal nodes along pathway -->
+  <circle cx="385" cy="250" r="3" fill="#8b2035" fill-opacity="0.4"/>
+  <circle cx="375" cy="280" r="3" fill="#8b2035" fill-opacity="0.35"/>
+  <circle cx="370" cy="310" r="3" fill="#8b2035" fill-opacity="0.3"/>
+  <circle cx="370" cy="340" r="3.5" fill="#8b2035" fill-opacity="0.4"/>
+  <!-- Peptide molecule entering -->
+  <g stroke="#C4C4C4" stroke-opacity="0.2" stroke-width="0.6">
+    <line x1="130" y1="180" x2="170" y2="195"/>
+    <line x1="170" y1="195" x2="200" y2="185"/>
+    <line x1="200" y1="185" x2="230" y2="200"/>
+  </g>
+  <circle cx="130" cy="180" r="2.5" fill="#C4C4C4" fill-opacity="0.25"/>
+  <circle cx="170" cy="195" r="2" fill="#C4C4C4" fill-opacity="0.2"/>
+  <circle cx="200" cy="185" r="2" fill="#C4C4C4" fill-opacity="0.2"/>
+  <circle cx="230" cy="200" r="2.5" fill="#C4C4C4" fill-opacity="0.25"/>
+  <!-- Arrow to receptor -->
+  <line x1="230" y1="200" x2="390" y2="210" stroke="#8b2035" stroke-opacity="0.15" stroke-width="0.6" stroke-dasharray="4 3"/>
+  <!-- Cortex label -->
+  <text x="320" y="90" fill="#C4C4C4" font-family="monospace" font-size="6" opacity="0.15">CORTEX</text>
+  <text x="300" y="165" fill="#C4C4C4" font-family="monospace" font-size="6" opacity="0.15">LIMBIC</text>
+  <text x="400" y="385" text-anchor="middle" fill="#8b2035" font-family="monospace" font-size="9" letter-spacing="4" opacity="0.2">PEPTÍDEOS</text>
+</svg>

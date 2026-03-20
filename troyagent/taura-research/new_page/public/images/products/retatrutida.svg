@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" fill="none">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#1a0a0d"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8b2035" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#4a0e1a" stop-opacity="0.1"/>
+    </linearGradient>
+    <filter id="blur1"><feGaussianBlur stdDeviation="2"/></filter>
+    <filter id="blur2"><feGaussianBlur stdDeviation="8"/></filter>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <g stroke="#8b2035" stroke-opacity="0.06" stroke-width="0.5">
+    <line x1="0" y1="100" x2="600" y2="100"/><line x1="0" y1="200" x2="600" y2="200"/>
+    <line x1="0" y1="300" x2="600" y2="300"/><line x1="0" y1="400" x2="600" y2="400"/>
+    <line x1="0" y1="500" x2="600" y2="500"/><line x1="100" y1="0" x2="100" y2="600"/>
+    <line x1="200" y1="0" x2="200" y2="600"/><line x1="300" y1="0" x2="300" y2="600"/>
+    <line x1="400" y1="0" x2="400" y2="600"/><line x1="500" y1="0" x2="500" y2="600"/>
+  </g>
+  <!-- Triple receptor visualization - 3 concentric rings -->
+  <circle cx="300" cy="280" r="180" stroke="#8b2035" stroke-opacity="0.15" stroke-width="1" fill="none" filter="url(#blur1)"/>
+  <circle cx="300" cy="280" r="130" stroke="#8b2035" stroke-opacity="0.25" stroke-width="1.5" fill="none"/>
+  <circle cx="300" cy="280" r="80" stroke="#8b2035" stroke-opacity="0.4" stroke-width="2" fill="none"/>
+  <!-- GLP-1 node -->
+  <circle cx="200" cy="180" r="24" fill="#8b2035" fill-opacity="0.15" stroke="#8b2035" stroke-opacity="0.5" stroke-width="1"/>
+  <text x="200" y="185" text-anchor="middle" fill="#c4a882" font-family="monospace" font-size="9" opacity="0.8">GLP-1</text>
+  <!-- GIP node -->
+  <circle cx="400" cy="180" r="24" fill="#8b2035" fill-opacity="0.15" stroke="#8b2035" stroke-opacity="0.5" stroke-width="1"/>
+  <text x="400" y="185" text-anchor="middle" fill="#c4a882" font-family="monospace" font-size="9" opacity="0.8">GIP</text>
+  <!-- Glucagon node -->
+  <circle cx="300" cy="380" r="24" fill="#8b2035" fill-opacity="0.15" stroke="#8b2035" stroke-opacity="0.5" stroke-width="1"/>
+  <text x="300" y="385" text-anchor="middle" fill="#c4a882" font-family="monospace" font-size="9" opacity="0.7">GCG</text>
+  <!-- Connecting lines -->
+  <line x1="224" y1="180" x2="376" y2="180" stroke="#8b2035" stroke-opacity="0.2" stroke-width="0.8"/>
+  <line x1="212" y1="200" x2="288" y2="360" stroke="#8b2035" stroke-opacity="0.2" stroke-width="0.8"/>
+  <line x1="388" y1="200" x2="312" y2="360" stroke="#8b2035" stroke-opacity="0.2" stroke-width="0.8"/>
+  <!-- Central molecule -->
+  <circle cx="300" cy="280" r="6" fill="#8b2035" fill-opacity="0.8"/>
+  <circle cx="300" cy="280" r="16" fill="none" stroke="#8b2035" stroke-opacity="0.3" stroke-width="0.5" stroke-dasharray="3 3"/>
+  <!-- Glow effect -->
+  <circle cx="300" cy="280" r="60" fill="url(#glow)" filter="url(#blur2)" opacity="0.4"/>
+  <!-- Label -->
+  <text x="300" y="500" text-anchor="middle" fill="#f2efe9" font-family="monospace" font-size="14" letter-spacing="6" opacity="0.4">RT-40</text>
+  <text x="300" y="524" text-anchor="middle" fill="#8b2035" font-family="monospace" font-size="10" letter-spacing="3" opacity="0.3">AGONISTA TRIPLO</text>
+  <!-- Peptide chain suggestion -->
+  <g stroke="#c4a882" stroke-opacity="0.1" stroke-width="0.8" fill="none">
+    <path d="M100 450 Q150 430 180 450 Q210 470 240 450 Q270 430 300 450 Q330 470 360 450 Q390 430 420 450 Q450 470 500 450"/>
+  </g>
+</svg>

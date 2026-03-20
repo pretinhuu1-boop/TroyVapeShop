@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" fill="none">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#0d1a12"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </radialGradient>
+    <filter id="blur2"><feGaussianBlur stdDeviation="10"/></filter>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg)"/>
+  <g stroke="#2a8b4a" stroke-opacity="0.06" stroke-width="0.5">
+    <line x1="0" y1="100" x2="600" y2="100"/><line x1="0" y1="200" x2="600" y2="200"/>
+    <line x1="0" y1="300" x2="600" y2="300"/><line x1="0" y1="400" x2="600" y2="400"/>
+    <line x1="100" y1="0" x2="100" y2="600"/><line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="300" y1="0" x2="300" y2="600"/><line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="500" y1="0" x2="500" y2="600"/>
+  </g>
+  <!-- GH Pulsatile wave pattern -->
+  <g stroke="#2a8b4a" stroke-opacity="0.25" stroke-width="1.5" fill="none">
+    <path d="M80 300 L120 300 L130 290 L135 200 L140 180 L145 200 L150 290 L160 300 L220 300 L230 290 L235 210 L240 190 L245 210 L250 290 L260 300 L320 300 L330 290 L335 220 L340 200 L345 220 L350 290 L360 300 L420 300 L430 290 L435 230 L440 210 L445 230 L450 290 L460 300 L520 300"/>
+  </g>
+  <!-- Baseline -->
+  <line x1="60" y1="300" x2="540" y2="300" stroke="#2a8b4a" stroke-opacity="0.1" stroke-width="0.5" stroke-dasharray="4 4"/>
+  <!-- Pulse labels -->
+  <g fill="#2a8b4a" font-family="monospace" font-size="7" opacity="0.3">
+    <text x="140" y="170">PULSE</text><text x="240" y="180">PULSE</text>
+    <text x="340" y="190">PULSE</text><text x="440" y="200">PULSE</text>
+  </g>
+  <!-- GHRH-R pathway (CJC side) -->
+  <g transform="translate(180, 400)">
+    <rect x="-45" y="-15" width="90" height="30" rx="4" fill="#2a8b4a" fill-opacity="0.08" stroke="#2a8b4a" stroke-opacity="0.25" stroke-width="0.8"/>
+    <text x="0" y="-2" text-anchor="middle" fill="#c4a882" font-family="monospace" font-size="8" opacity="0.6">GHRH-R</text>
+    <text x="0" y="9" text-anchor="middle" fill="#2a8b4a" font-family="monospace" font-size="6" opacity="0.4">cAMP↑</text>
+  </g>
+  <!-- GHS-R pathway (Ipamorelin side) -->
+  <g transform="translate(420, 400)">
+    <rect x="-45" y="-15" width="90" height="30" rx="4" fill="#2a8b4a" fill-opacity="0.08" stroke="#2a8b4a" stroke-opacity="0.25" stroke-width="0.8"/>
+    <text x="0" y="-2" text-anchor="middle" fill="#c4a882" font-family="monospace" font-size="8" opacity="0.6">GHS-R1a</text>
+    <text x="0" y="9" text-anchor="middle" fill="#2a8b4a" font-family="monospace" font-size="6" opacity="0.4">Ca²⁺↑</text>
+  </g>
+  <!-- Convergence arrow -->
+  <line x1="225" y1="415" x2="280" y2="460" stroke="#2a8b4a" stroke-opacity="0.15" stroke-width="0.8"/>
+  <line x1="375" y1="415" x2="320" y2="460" stroke="#2a8b4a" stroke-opacity="0.15" stroke-width="0.8"/>
+  <!-- Somatotroph -->
+  <circle cx="300" cy="470" r="18" fill="#2a8b4a" fill-opacity="0.08" stroke="#2a8b4a" stroke-opacity="0.2" stroke-width="0.8"/>
+  <text x="300" y="474" text-anchor="middle" fill="#c4a882" font-family="monospace" font-size="6" opacity="0.5">GH↑↑</text>
+  <!-- Glow -->
+  <ellipse cx="300" cy="240" rx="200" ry="80" fill="#2a8b4a" fill-opacity="0.03" filter="url(#blur2)"/>
+  <!-- Label -->
+  <text x="300" y="530" text-anchor="middle" fill="#f2efe9" font-family="monospace" font-size="14" letter-spacing="6" opacity="0.4">CJC+IPA</text>
+  <text x="300" y="554" text-anchor="middle" fill="#2a8b4a" font-family="monospace" font-size="10" letter-spacing="3" opacity="0.3">SECRETAGOGO GH</text>
+</svg>

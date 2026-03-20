@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agonismo triplo: por que três receptores ao mesmo tempo muda o jogo metabólico — TAURA Research</title>
+<meta name="description" content="Retatrutida é o primeiro agonista triplo (GLP-1 + GIP + glucagon). Entenda por que ativar três receptores simultaneamente gera efeitos sinérgicos no metabolismo energético.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;900&family=Outfit:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:   #0A0A0A;
+  --vinho:   #6B0F1A;
+  --vinho2:  #3D0A10;
+  --prata:   #C4C4C4;
+  --off:     #F2EFE9;
+  --dim:     #666666;
+  --dimmer:  #333333;
+  --mid:     #161616;
+  --mid2:    #1e1e1e;
+  --font-d:  'Barlow Condensed', sans-serif;
+  --font-b:  'Outfit', sans-serif;
+  --font-m:  'JetBrains Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--off);
+  font-family: var(--font-b);
+  font-weight: 300;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--vinho); color: var(--off); }
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 1; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.03;
+}
+
+/* ═══ NAV ═══ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px 48px;
+  background: linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, transparent 100%);
+}
+.nav-logo {
+  font-family: var(--font-d); font-weight: 900; font-size: 22px;
+  letter-spacing: 0.25em; color: var(--off);
+}
+.nav-logo span { color: var(--vinho); }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-link {
+  font-family: var(--font-m); font-weight: 300; font-size: 10px;
+  color: var(--dim); letter-spacing: 0.15em;
+  text-transform: uppercase; transition: color 0.2s;
+}
+.nav-link:hover { color: var(--off); }
+.nav-cta {
+  background: var(--vinho); color: var(--off);
+  font-family: var(--font-b); font-weight: 500;
+  font-size: 11px; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 10px 20px;
+  border: 1px solid var(--vinho);
+  transition: background 0.2s, color 0.2s;
+}
+.nav-cta:hover { background: transparent; color: var(--vinho); }
+
+/* ═══ ARTICLE HEADER ═══ */
+.article-header {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 120px 24px 40px;
+}
+.article-back {
+  font-family: var(--font-m); font-size: 9px;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--dim);
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-bottom: 40px; transition: color 0.2s;
+}
+.article-back:hover { color: var(--vinho); }
+.article-tag {
+  font-family: var(--font-m); font-size: 9px;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--vinho);
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 20px;
+}
+.article-tag::before {
+  content: ''; width: 24px; height: 1px; background: var(--vinho);
+}
+.article-title {
+  font-family: var(--font-d); font-weight: 900;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.0; letter-spacing: 0.03em;
+  color: var(--off); margin-bottom: 24px;
+}
+.article-meta {
+  font-family: var(--font-m); font-size: 9px;
+  color: var(--dim); letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: flex; align-items: center; gap: 16px;
+}
+.article-meta-dot {
+  width: 3px; height: 3px; border-radius: 50%;
+  background: var(--dimmer);
+}
+
+/* ═══ COVER IMAGE ═══ */
+.article-cover {
+  max-width: 960px;
+  margin: 0 auto 56px;
+  padding: 0 24px;
+}
+.article-cover-inner {
+  aspect-ratio: 21/9;
+  background: linear-gradient(135deg, var(--mid) 0%, var(--vinho2) 100%);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.article-cover-text {
+  font-family: var(--font-d); font-size: 72px; font-weight: 900;
+  color: rgba(242,239,233,0.04); letter-spacing: 0.08em;
+}
+
+/* ═══ ARTICLE BODY ═══ */
+.article-body {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+.article-body h2 {
+  font-family: var(--font-d); font-weight: 700;
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.1; letter-spacing: 0.03em;
+  color: var(--off);
+  margin: 56px 0 20px;
+}
+.article-body h2:first-child { margin-top: 0; }
+.article-body p {
+  font-size: 16px; font-weight: 300;
+  color: var(--prata); line-height: 1.85;
+  margin-bottom: 20px;
+}
+.article-body p strong {
+  font-weight: 500; color: var(--off);
+}
+
+/* Pullquote */
+.pullquote {
+  border-left: 2px solid var(--vinho);
+  padding: 4px 0 4px 24px;
+  margin: 40px 0;
+  font-size: 18px; font-weight: 300;
+  font-style: italic;
+  color: var(--off);
+  line-height: 1.7;
+}
+
+/* Data callout */
+.data-callout {
+  background: var(--mid);
+  border: 1px solid rgba(196,196,196,0.06);
+  padding: 28px 32px;
+  margin: 40px 0;
+}
+.data-callout-label {
+  font-family: var(--font-m); font-size: 8px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--vinho); margin-bottom: 12px;
+}
+.data-callout-content {
+  font-family: var(--font-m); font-size: 13px;
+  color: var(--off); line-height: 1.8;
+}
+.data-callout-source {
+  font-family: var(--font-m); font-size: 9px;
+  color: var(--dim); margin-top: 12px;
+  letter-spacing: 0.05em;
+}
+
+/* Inline image */
+.article-img {
+  margin: 40px -60px;
+  position: relative;
+}
+.article-img-inner {
+  aspect-ratio: 16/9;
+  background: var(--mid);
+  display: flex; align-items: center; justify-content: center;
+}
+.article-img-caption {
+  font-family: var(--font-m); font-size: 9px;
+  color: var(--dim); letter-spacing: 0.08em;
+  margin-top: 12px; text-align: right;
+}
+
+/* ═══ SOURCES ═══ */
+.sources {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+  border-top: 1px solid rgba(196,196,196,0.06);
+  padding-top: 40px;
+}
+.sources-label {
+  font-family: var(--font-m); font-size: 9px;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--vinho); margin-bottom: 24px;
+}
+.source-item {
+  padding: 10px 0;
+  font-size: 13px; color: var(--dim); line-height: 1.7;
+  display: grid; grid-template-columns: 28px 1fr; gap: 8px;
+}
+.source-num {
+  font-family: var(--font-m); font-size: 11px; color: var(--dimmer);
+}
+.source-item em { color: var(--prata); }
+
+/* ═══ RELATED POSTS ═══ */
+.related {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+.related-label {
+  font-family: var(--font-m); font-size: 9px;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--vinho);
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 32px;
+}
+.related-label::before {
+  content: ''; width: 24px; height: 1px; background: var(--vinho);
+}
+.related-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.related-card {
+  display: flex; gap: 20px; align-items: start;
+  padding: 24px; background: var(--mid);
+  transition: transform 0.3s cubic-bezier(.16,1,.3,1);
+}
+.related-card:hover { transform: translateY(-2px); }
+.related-card-num {
+  font-family: var(--font-d); font-weight: 900;
+  font-size: 48px; color: var(--vinho2);
+  line-height: 1; flex-shrink: 0;
+}
+.related-card-info { display: flex; flex-direction: column; gap: 8px; }
+.related-card-tag {
+  font-family: var(--font-m); font-size: 8px;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim);
+}
+.related-card-title {
+  font-family: var(--font-d); font-weight: 700;
+  font-size: 18px; line-height: 1.15; color: var(--off);
+  transition: color 0.2s;
+}
+.related-card:hover .related-card-title { color: var(--vinho); }
+
+/* ═══ FOOTER ═══ */
+footer {
+  border-top: 1px solid rgba(196,196,196,0.06);
+  padding: 48px;
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 24px; flex-wrap: wrap;
+}
+.footer-brand {
+  font-family: var(--font-d); font-weight: 900;
+  font-size: 16px; letter-spacing: 0.25em; color: var(--dimmer);
+}
+.footer-note {
+  font-family: var(--font-m); font-size: 9px;
+  color: var(--dim); letter-spacing: 0.05em;
+  line-height: 1.8; max-width: 500px; text-align: right;
+}
+.footer-subtle {
+  width: 100%;
+  text-align: center;
+  padding-top: 24px;
+  margin-top: 16px;
+  border-top: 1px solid rgba(196,196,196,0.03);
+}
+.footer-subtle a {
+  font-family: var(--font-m);
+  font-size: 8px;
+  color: var(--vinho);
+  letter-spacing: 0.1em;
+  opacity: 0.4;
+  transition: opacity 0.3s;
+}
+.footer-subtle a:hover {
+  opacity: 0.8;
+}
+
+/* ═══ READING PROGRESS BAR ═══ */
+.progress-bar {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 2px; z-index: 200;
+  background: transparent;
+}
+.progress-fill {
+  height: 100%; width: 0%;
+  background: var(--vinho);
+  transition: width 0.05s linear;
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 768px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .article-header { padding: 100px 24px 32px; }
+  .article-cover { padding: 0; margin-bottom: 40px; }
+  .article-body { padding: 0 24px 56px; }
+  .article-body h2 { margin-top: 40px; }
+  .article-img { margin: 32px -24px; }
+  .sources { padding: 0 24px 48px; padding-top: 32px; }
+  .related { padding: 0 24px 48px; }
+  .related-grid { grid-template-columns: 1fr; }
+  footer { padding: 32px 24px; flex-direction: column; }
+  .footer-note { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ PROGRESS BAR ═══ -->
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <a href="taura_landing_v3.html" class="nav-logo">TAURA<span>.</span></a>
+  <div class="nav-links">
+    <a href="taura_blog.html" class="nav-link">Catálogo</a>
+    <a href="taura_blog_curiosidades.html" class="nav-link">Blog</a>
+    <a href="taura_landing_v3.html" class="nav-link">Sobre</a>
+    <a href="#" class="nav-cta">Acesso</a>
+  </div>
+</nav>
+
+<!-- ═══ ARTICLE HEADER ═══ -->
+<header class="article-header">
+  <a href="taura_blog_curiosidades.html" class="article-back">← Voltar ao blog</a>
+
+  <div class="article-tag">Metabólico · Curiosidade</div>
+  <h1 class="article-title">Agonismo triplo: por que três receptores ao mesmo tempo muda o jogo metabólico</h1>
+  <div class="article-meta">
+    <span>10 Mar 2026</span>
+    <span class="article-meta-dot"></span>
+    <span>7 min leitura</span>
+    <span class="article-meta-dot"></span>
+    <span>TAURA Research</span>
+  </div>
+</header>
+
+<!-- ═══ COVER ═══ -->
+<div class="article-cover">
+  <div class="article-cover-inner">
+    <span class="article-cover-text">GLP-1 + GIP + GCG</span>
+  </div>
+</div>
+
+<!-- ═══ ARTICLE BODY ═══ -->
+<article class="article-body">
+
+  <p>
+    Desde que os agonistas de GLP-1 entraram na prática clínica, o campo das incretinas seguiu uma lógica incremental: primeiro um receptor, depois dois. <strong>A retatrutida representa um salto conceitual — ativar três receptores simultaneamente: GLP-1, GIP e glucagon.</strong> A questão que fascina pesquisadores não é apenas a soma aritmética de efeitos, mas a emergência de interações sinérgicas que nenhum dos três agonismos isolados reproduz.
+  </p>
+
+  <p>
+    Para entender por que isso importa, é preciso revisitar o papel de cada receptor individualmente — e, mais importante, o que acontece quando seus sinais convergem no mesmo organismo ao mesmo tempo.
+  </p>
+
+  <h2>Três receptores, três lógicas distintas</h2>
+
+  <p>
+    O receptor de GLP-1 é o mais bem caracterizado: sua ativação potencializa a secreção de insulina dependente de glicose, reduz o esvaziamento gástrico e age em núcleos hipotalâmicos ligados à saciedade. O receptor de GIP (polipeptídeo insulinotrópico dependente de glicose) teve uma trajetória controversa na literatura — durante anos, estudos indicavam que sua ativação parecia ineficaz em indivíduos com resistência insulínica. A tirzepatida reabriu esse debate ao demonstrar que o agonismo GIP, quando combinado com GLP-1, produz resultados que superam o agonismo GLP-1 isolado.
+  </p>
+
+  <p>
+    O terceiro receptor — o de glucagon — é onde a retatrutida se diferencia radicalmente. <strong>O glucagon é classicamente associado à elevação de glicemia</strong>, o oposto do que se deseja em contextos metabólicos. Por que, então, incluí-lo? A literatura aponta que o glucagon ativa vias de gasto energético hepático, estimula a oxidação de ácidos graxos e aumenta a termogênese. Em doses controladas e no contexto de agonismo simultâneo de GLP-1 (que contrabalança o efeito hiperglicêmico), o componente glucagon adiciona uma dimensão de gasto calórico que os outros dois receptores não alcançam sozinhos.
+  </p>
+
+  <div class="pullquote">
+    A inclusão do receptor de glucagon não é um paradoxo — é uma aposta calculada em sinergia metabólica que a natureza já utiliza no estado pós-prandial.
+  </div>
+
+  <h2>A lógica da sinergia, não da soma</h2>
+
+  <p>
+    Um princípio fundamental diferencia o agonismo triplo da simples combinação de três fármacos: quando uma única molécula ativa três receptores, a farmacocinética é unificada. Não existem três picos plasmáticos distintos, três meias-vidas diferentes ou três perfis de distribuição tecidual. A retatrutida apresenta afinidades relativas calibradas para cada receptor, e estudos indicam que essa calibração é parte central do seu perfil farmacológico.
+  </p>
+
+  <div class="data-callout">
+    <div class="data-callout-label">Dado da literatura</div>
+    <div class="data-callout-content">
+      No ensaio de fase II publicado no NEJM, participantes recebendo retatrutida na maior dose avaliada apresentaram redução média de 24,2% no peso corporal em 48 semanas — um resultado sem precedente para monoterapia em ensaios controlados até aquela data.
+    </div>
+    <div class="data-callout-source">
+      Jastreboff AM, et al., 2023 — N Engl J Med
+    </div>
+  </div>
+
+  <p>
+    Estudos indicam que o componente glucagon é responsável por uma fração significativa da perda de massa gorda observada, possivelmente via aumento do gasto energético basal. Modelos pré-clínicos demonstraram que triagonistas induzem aumento na expressão de UCP1 (proteína desacopladora 1) no tecido adiposo marrom, sugerindo ativação de termogênese adaptativa — um mecanismo que agonistas duais não replicam com a mesma magnitude.
+  </p>
+
+  <h2>Glucagon: o componente contraintuitivo</h2>
+
+  <p>
+    A história do glucagon na farmacologia metabólica é um caso de estudo em dogmas revisados. Durante décadas, a literatura posicionou o glucagon exclusivamente como antagonista funcional da insulina. Sua inclusão em uma molécula voltada para controle metabólico pareceria, à primeira vista, contraproducente. Mas a biologia de sistemas opera de forma diferente da farmacologia reducionista.
+  </p>
+
+  <p>
+    A literatura aponta que o fígado, principal órgão-alvo do glucagon, responde à ativação do receptor com aumento da beta-oxidação de ácidos graxos, redução da lipogênese de novo e ativação de vias ligadas à autofagia. Esses efeitos, quando ocorrem no contexto de agonismo GLP-1 simultâneo (que mantém o controle glicêmico via potencialização da insulina), criam um ambiente metabólico que favorece a utilização de substratos lipídicos sem descompensação glicêmica.
+  </p>
+
+  <div class="article-img">
+    <div class="article-img-inner" style="background:linear-gradient(135deg, var(--mid) 0%, var(--vinho2) 60%);">
+      <span style="font-family:var(--font-m);font-size:11px;color:var(--dim);letter-spacing:0.15em;text-transform:uppercase;">Diagrama: convergência de sinalização GLP-1 / GIP / Glucagon</span>
+    </div>
+    <div class="article-img-caption">Representação esquemática da convergência de três vias de sinalização no triagonismo</div>
+  </div>
+
+  <h2>O que a fase III dirá — e o que não dirá</h2>
+
+  <p>
+    Os ensaios de fase III da retatrutida (programa TRIUMPH) estão em andamento e incluem populações com obesidade, diabetes tipo 2, apneia obstrutiva do sono e doença hepática gordurosa. Os resultados preliminares da fase II foram expressivos, mas a ciência de ensaios clínicos exige cautela: efeitos adversos de longo prazo, durabilidade dos resultados e comportamento em populações diversas ainda precisam ser caracterizados.
+  </p>
+
+  <p>
+    A curiosidade científica central permanece: <strong>será que a sinergia observada em 48 semanas se mantém em horizontes temporais maiores?</strong> Estudos indicam que adaptações metabólicas compensatórias podem atenuar respostas a longo prazo — um fenômeno observado com outros agentes. A retatrutida, ao engajar três vias simultaneamente, poderia teoricamente oferecer maior resistência a essa adaptação, mas esta é uma hipótese que apenas dados de longo prazo confirmarão ou refutarão.
+  </p>
+
+</article>
+
+<!-- ═══ SOURCES ═══ -->
+<section class="sources">
+  <div class="sources-label">Fontes</div>
+
+  <div class="source-item">
+    <span class="source-num">[1]</span>
+    <div>Jastreboff AM, et al. <em>Triple-hormone-receptor agonist retatrutide for obesity — a phase 2 trial.</em> N Engl J Med. 2023;389(6):514-526.</div>
+  </div>
+  <div class="source-item">
+    <span class="source-num">[2]</span>
+    <div>Coskun T, et al. <em>LY3437943, a novel triple GIP/GLP-1/glucagon receptor agonist for glycemic control and weight loss.</em> Cell Metab. 2022;34(8):1234-1247.e9.</div>
+  </div>
+  <div class="source-item">
+    <span class="source-num">[3]</span>
+    <div>Day JW, et al. <em>A new glucagon and GLP-1 co-agonist eliminates obesity in rodents.</em> Nat Chem Biol. 2009;5(10):749-757.</div>
+  </div>
+  <div class="source-item">
+    <span class="source-num">[4]</span>
+    <div>Finan B, et al. <em>A rationally designed monomeric peptide triagonist corrects obesity and diabetes in rodents.</em> Nat Med. 2015;21(1):27-36.</div>
+  </div>
+  <div class="source-item">
+    <span class="source-num">[5]</span>
+    <div>Habegger KM, et al. <em>The metabolic actions of glucagon revisited.</em> Nat Rev Endocrinol. 2010;6(12):689-697.</div>
+  </div>
+</section>
+
+<!-- ═══ RELATED ═══ -->
+<section class="related">
+  <div class="related-label">Leia Também</div>
+  <div class="related-grid">
+    <a href="taura_artigo_tirzepatida.html" class="related-card">
+      <span class="related-card-num">01</span>
+      <div class="related-card-info">
+        <span class="related-card-tag">Metabólico · Mecanismo</span>
+        <h3 class="related-card-title">GIP + GLP-1: a combinação que redefiniu incretinas</h3>
+      </div>
+    </a>
+    <a href="taura_artigo_pp332.html" class="related-card">
+      <span class="related-card-num">02</span>
+      <div class="related-card-info">
+        <span class="related-card-tag">Performance · Curiosidade</span>
+        <h3 class="related-card-title">SLU-PP-332: o composto que mimetiza exercício sem se mover</h3>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-brand">TAURA RESEARCH</div>
+  <div class="footer-note">
+    Conteúdo informativo baseado em literatura científica revisada por pares.<br>
+    Nenhuma informação aqui constitui aconselhamento médico ou recomendação de uso.
+  </div>
+  <div class="footer-subtle"><a href="taura_landing_v3.html">mais informações</a></div>
+</footer>
+
+<!-- ═══ READING PROGRESS ═══ -->
+<script>
+window.addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+  document.getElementById('progressFill').style.width = pct + '%';
+});
+</script>
+
+</body>
+</html>

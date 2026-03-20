@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="70%"><stop offset="0%" stop-color="#1a0508"/><stop offset="100%" stop-color="#0a0a0a"/></radialGradient>
+    <filter id="g"><feGaussianBlur stdDeviation="8"/></filter>
+    <filter id="g2"><feGaussianBlur stdDeviation="4"/></filter>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <g stroke="#8b2035" stroke-opacity="0.04" stroke-width="0.5">
+    <line x1="0" y1="80" x2="800" y2="80"/><line x1="0" y1="160" x2="800" y2="160"/><line x1="0" y1="240" x2="800" y2="240"/><line x1="0" y1="320" x2="800" y2="320"/>
+    <line x1="160" y1="0" x2="160" y2="400"/><line x1="320" y1="0" x2="320" y2="400"/><line x1="480" y1="0" x2="480" y2="400"/><line x1="640" y1="0" x2="640" y2="400"/>
+  </g>
+  <!-- Hexagon 1 - GLP-1 -->
+  <polygon points="320,120 370,145 370,195 320,220 270,195 270,145" fill="none" stroke="#8b2035" stroke-opacity="0.25" stroke-width="1.5"/>
+  <polygon points="320,120 370,145 370,195 320,220 270,195 270,145" fill="#8b2035" fill-opacity="0.04"/>
+  <!-- Hexagon 2 - GIP -->
+  <polygon points="480,120 530,145 530,195 480,220 430,195 430,145" fill="none" stroke="#8b2035" stroke-opacity="0.25" stroke-width="1.5"/>
+  <polygon points="480,120 530,145 530,195 480,220 430,195 430,145" fill="#8b2035" fill-opacity="0.04"/>
+  <!-- Interlocking region glow -->
+  <rect x="370" y="130" width="60" height="80" fill="#8b2035" fill-opacity="0.06" filter="url(#g)"/>
+  <!-- Molecular bonds connecting hexagons -->
+  <line x1="370" y1="145" x2="430" y2="145" stroke="#C4C4C4" stroke-opacity="0.2" stroke-width="1"/>
+  <line x1="370" y1="170" x2="430" y2="170" stroke="#8b2035" stroke-opacity="0.3" stroke-width="1.2"/>
+  <line x1="370" y1="195" x2="430" y2="195" stroke="#C4C4C4" stroke-opacity="0.2" stroke-width="1"/>
+  <!-- Bond nodes -->
+  <circle cx="370" cy="145" r="3" fill="#8b2035" fill-opacity="0.5"/>
+  <circle cx="430" cy="145" r="3" fill="#8b2035" fill-opacity="0.5"/>
+  <circle cx="370" cy="195" r="3" fill="#8b2035" fill-opacity="0.5"/>
+  <circle cx="430" cy="195" r="3" fill="#8b2035" fill-opacity="0.5"/>
+  <circle cx="400" cy="170" r="5" fill="#8b2035" fill-opacity="0.4" filter="url(#g2)"/>
+  <!-- Signal arrows downward -->
+  <g stroke="#8b2035" stroke-opacity="0.15" stroke-width="0.8">
+    <line x1="320" y1="220" x2="320" y2="300"/>
+    <line x1="480" y1="220" x2="480" y2="300"/>
+    <line x1="400" y1="210" x2="400" y2="320"/>
+  </g>
+  <!-- Arrow heads -->
+  <polygon points="320,300 316,290 324,290" fill="#8b2035" fill-opacity="0.2"/>
+  <polygon points="480,300 476,290 484,290" fill="#8b2035" fill-opacity="0.2"/>
+  <polygon points="400,320 396,310 404,310" fill="#8b2035" fill-opacity="0.25"/>
+  <!-- Receptor labels -->
+  <text x="320" y="108" text-anchor="middle" fill="#8b2035" font-family="monospace" font-size="9" letter-spacing="1" opacity="0.4">GLP-1R</text>
+  <text x="480" y="108" text-anchor="middle" fill="#8b2035" font-family="monospace" font-size="9" letter-spacing="1" opacity="0.4">GIPR</text>
+  <text x="400" y="250" text-anchor="middle" fill="#C4C4C4" font-family="monospace" font-size="7" opacity="0.25">DUAL AGONISM</text>
+  <!-- Scattered small molecules -->
+  <circle cx="200" cy="160" r="2" fill="#C4C4C4" fill-opacity="0.15"/>
+  <circle cx="220" cy="200" r="1.5" fill="#C4C4C4" fill-opacity="0.1"/>
+  <circle cx="580" cy="150" r="2" fill="#C4C4C4" fill-opacity="0.15"/>
+  <circle cx="610" cy="190" r="1.5" fill="#C4C4C4" fill-opacity="0.1"/>
+  <circle cx="150" cy="250" r="1.5" fill="#8b2035" fill-opacity="0.2"/>
+  <circle cx="650" cy="240" r="1.5" fill="#8b2035" fill-opacity="0.2"/>
+  <!-- Downstream cascade dots -->
+  <circle cx="320" cy="310" r="2.5" fill="#C4C4C4" fill-opacity="0.2"/>
+  <circle cx="480" cy="310" r="2.5" fill="#C4C4C4" fill-opacity="0.2"/>
+  <circle cx="400" cy="335" r="3" fill="#8b2035" fill-opacity="0.3"/>
+  <text x="400" y="385" text-anchor="middle" fill="#8b2035" font-family="monospace" font-size="9" letter-spacing="4" opacity="0.2">PEPTÍDEOS</text>
+</svg>

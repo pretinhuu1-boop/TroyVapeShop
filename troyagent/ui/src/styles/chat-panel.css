@@ -1,0 +1,182 @@
+/* ===========================================
+   Chat Side Panel (persistent right sidebar)
+   =========================================== */
+
+.chat-panel {
+  grid-area: chatpanel;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  border-left: var(--border-width, 2px) solid var(--border);
+  background: var(--bg);
+  animation: chat-panel-slide-in 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes chat-panel-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ---- Panel header ---- */
+.chat-panel__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  border-bottom: var(--border-width, 2px) solid var(--border);
+  flex-shrink: 0;
+  gap: 8px;
+  min-height: 48px;
+}
+
+.chat-panel__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--fg);
+  letter-spacing: 0.02em;
+}
+
+.chat-panel__title svg {
+  width: 16px;
+  height: 16px;
+  color: var(--fg-muted);
+}
+
+.chat-panel__controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ---- Live dot (pulsing green indicator) ---- */
+.chat-panel__live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #6B0F1A;
+  box-shadow: 0 0 6px rgba(107, 15, 26, 0.5);
+  animation: live-dot-pulse 1.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes live-dot-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+/* ---- Live mode badge ---- */
+.live-badge {
+  background: #6B0F1A;
+  color: #0a0a0a;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  animation: live-badge-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes live-badge-pulse {
+  0%, 100% { box-shadow: 0 0 4px rgba(107, 15, 26, 0.4); }
+  50% { box-shadow: 0 0 12px rgba(107, 15, 26, 0.7); }
+}
+
+.live-active {
+  border-color: #6B0F1A;
+  color: #6B0F1A;
+}
+
+/* ---- Topbar toggle button ---- */
+.chat-panel-toggle {
+  position: relative;
+}
+
+.chat-panel-toggle.active {
+  color: var(--accent);
+}
+
+.chat-panel-toggle__dot {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #6B0F1A;
+  box-shadow: 0 0 4px rgba(107, 15, 26, 0.5);
+  animation: live-dot-pulse 1.5s ease-in-out infinite;
+}
+
+/* ---- Panel body — compact chat layout ---- */
+.chat-panel .chat-container {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tighter padding for panel mode */
+.chat-panel .chat-messages {
+  padding: 8px;
+}
+
+.chat-panel .chat-message {
+  max-width: 100%;
+}
+
+.chat-panel .chat-compose {
+  padding: 8px 10px;
+}
+
+/* Hide focus mode toggle in panel */
+.chat-panel .chat-focus-toggle {
+  display: none;
+}
+
+/* ---- Tablet: narrower panel ---- */
+@media (max-width: 1100px) {
+  .shell--chat-panel {
+    --shell-chat-panel-width: 340px;
+  }
+}
+
+/* ---- Mobile: full-screen overlay ---- */
+@media (max-width: 768px) {
+  .chat-panel {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    border-left: none;
+    grid-area: unset;
+    animation: chat-panel-mobile-in 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes chat-panel-mobile-in {
+    from { opacity: 0; transform: translateY(100%); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* On mobile, 3-column grid falls back to 2-column */
+  .shell--chat-panel {
+    grid-template-columns: var(--shell-nav-width) minmax(0, 1fr);
+    grid-template-areas:
+      "topbar topbar"
+      "nav content";
+  }
+
+  .shell--chat-panel.shell--nav-collapsed {
+    grid-template-columns: 0px minmax(0, 1fr);
+  }
+}
