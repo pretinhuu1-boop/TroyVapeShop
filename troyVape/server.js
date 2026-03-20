@@ -1,8 +1,11 @@
+import 'dotenv/config';
 import express from 'express';
 import Database from 'better-sqlite3';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs';
+import http from 'http';
+import https from 'https';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -202,6 +205,78 @@ app.get('/api/sales', (req, res) => {
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
+});
+
+// Chat AI → OpenRouter API (same provider as troyagent)
+const OPENROUTER_KEY = process.env.OPENROUTER_API_KEY || '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';
+const AI_MODEL = process.env.AI_MODEL || 'meta-llama/llama-3.3-70b-instruct:free';
+
+app.post('/api/chat', (req, res) => {
+    const { message, sessionId } = req.body;
+
+    if (!message || typeof message !== 'string' || message.length > 2000) {
+        return res.status(400).json({ error: 'Mensagem inválida (max 2000 chars)' });
+    }
+
+    const products = db.prepare('SELECT name, brand, price, puffs, flavor, stock, promo FROM products').all();
+    const catalog = products.map(p =>
+        `${p.name} (${p.brand}) - R$${p.price} | ${p.puffs} puffs | Sabor: ${p.flavor || 'N/A'} | Estoque: ${p.stock}${p.promo ? ' | PROMO' : ''}`
+    ).join('\n');
+
+    const systemPrompt = `Você é o Troy AI, assistente virtual da Troy Vape Shop.
+Idioma: Português brasileiro. Tom: amigável, casual, entusiasmado com vaping.
+Você conhece todos os produtos da loja. Recomende com base em preferências do cliente (sabor, puffs, preço).
+Para comprar, direcione ao WhatsApp: https://wa.me/5511999999999
+Responda de forma concisa (max 3 parágrafos).
+
+CATÁLOGO ATUAL:
+${catalog}`;
+
+    const payload = JSON.stringify({
+        model: AI_MODEL,
+        stream: true,
+        messages: [
+            { role: 'system', content: systemPrompt },
+            { role: 'user', content: message }
+        ]
+    });
+
+    const options = {
+        hostname: 'openrouter.ai',
+        port: 443,
+        path: '/api/v1/chat/completions',
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${OPENROUTER_KEY}`,
+            'HTTP-Referer': 'https://troyvapes.store',
+            'X-Title': 'Troy Vape Shop'
+        }
+    };
+
+    res.writeHead(200, {
+        'Content-Type': 'text/event-stream',
+        'Cache-Control': 'no-cache',
+        'Connection': 'keep-alive'
+    });
+
+    const proxyReq = https.request(options, (proxyRes) => {
+        proxyRes.pipe(res);
+    });
+
+    proxyReq.on('error', (err) => {
+        console.error('OpenRouter error:', err.message);
+        if (!res.writableEnded) {
+            const errChunk = JSON.stringify({ choices: [{ delta: { content: 'Desculpe, estou offline. Fale conosco pelo WhatsApp!' } }] });
+            res.write(`data: ${errChunk}\n\n`);
+            res.write('data: [DONE]\n\n');
+            res.end();
+        }
+    });
+
+    req.on('close', () => proxyReq.destroy());
+    proxyReq.write(payload);
+    proxyReq.end();
 });
 
 // Servir arquivos estáticos (opcional, mas bom para uploads)
