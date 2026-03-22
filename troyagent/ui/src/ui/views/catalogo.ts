@@ -542,7 +542,7 @@ export function renderCatalogo(state: CatalogoState) {
           <div class="tv-product-card">
             <div class="tv-product-img" style="
               display: flex; align-items: center; justify-content: center;
-              font-size: 3rem; background: rgba(107, 15, 26, 0.06);
+              font-size: 3rem; background: rgba(245, 166, 35, 0.06);
             ">
               ${formatIcon(p.format)}
             </div>

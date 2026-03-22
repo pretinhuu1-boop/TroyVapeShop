@@ -443,7 +443,7 @@ export function renderCRM(state: CRMState) {
           <div class="tv-product-card ${selectedId === c.id ? "tv-card-selected" : ""}" @click=${handleSelect(c.id)}>
             <div class="tv-product-img" style="
               display: flex; align-items: center; justify-content: center;
-              font-size: 2.5rem; background: rgba(107, 15, 26, 0.06);
+              font-size: 2.5rem; background: rgba(245, 166, 35, 0.06);
             ">
               ${c.type === "b2b" ? "🏢" : "👤"}
             </div>
@@ -459,7 +459,7 @@ export function renderCRM(state: CRMState) {
                 ${fullPhone(c.phone)}
                 ${c.email ? html` · ✉️ ${c.email}` : nothing}
               </div>
-              ${c.company_name ? html`<div class="tv-product-sku" style="color: var(--tv-lime-light, #8a1322);">🏢 ${c.company_name}</div>` : nothing}
+              ${c.company_name ? html`<div class="tv-product-sku" style="color: var(--tv-lime-light, #FFD07B);">🏢 ${c.company_name}</div>` : nothing}
               ${c.city ? html`<div class="tv-product-sku">📍 ${c.city}${c.state ? `, ${c.state}` : ""}</div>` : nothing}
               ${c.notes ? html`<div class="tv-product-desc">${c.notes}</div>` : nothing}
               <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:4px">
@@ -477,7 +477,7 @@ export function renderCRM(state: CRMState) {
 
       <!-- Selected Customer Detail -->
       ${selected ? html`
-        <div class="tv-panel" style="border-left: 3px solid var(--accent, #6B0F1A); margin-top: 1rem;">
+        <div class="tv-panel" style="border-left: 3px solid var(--accent, #F5A623); margin-top: 1rem;">
           <h3 style="margin: 0 0 0.75rem; font-size: 1.1rem;">${selected.name}</h3>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem;">
             <div><span style="font-size:0.7rem;color:var(--tv-text-muted);text-transform:uppercase;">Telefone</span><br/><strong>${fullPhone(selected.phone)}</strong></div>
