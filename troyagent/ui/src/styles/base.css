@@ -9,7 +9,7 @@
   /* Card / Surface - Dark elevated surfaces */
   --card: #111111;
   --card-foreground: #F2EFE9;
-  --card-highlight: rgba(107, 15, 26, 0.05);
+  --card-highlight: rgba(245, 166, 35, 0.05);
   --popover: #141414;
   --popover-foreground: #F2EFE9;
 
@@ -33,24 +33,24 @@
   --border-strong: #333333;
   --border-hover: #444444;
   --input: #2a2a2a;
-  --ring: #6B0F1A;
+  --ring: #F5A623;
 
-  /* Accent - TAURA vinho */
-  --accent: #6B0F1A;
-  --accent-hover: #8a1322;
-  --accent-muted: #6B0F1A;
-  --accent-subtle: rgba(107, 15, 26, 0.12);
+  /* Accent - Troy Vape gold */
+  --accent: #F5A623;
+  --accent-hover: #FFD07B;
+  --accent-muted: #F5A623;
+  --accent-subtle: rgba(245, 166, 35, 0.12);
   --accent-foreground: #F2EFE9;
-  --accent-glow: rgba(107, 15, 26, 0.20);
-  --primary: #6B0F1A;
+  --accent-glow: rgba(245, 166, 35, 0.20);
+  --primary: #F5A623;
   --primary-foreground: #F2EFE9;
 
   /* Secondary */
   --secondary: #1a1a1a;
   --secondary-foreground: #C4C4C4;
-  --accent-2: #3D0A10;
-  --accent-2-muted: rgba(61, 10, 16, 0.7);
-  --accent-2-subtle: rgba(61, 10, 16, 0.12);
+  --accent-2: #C47D10;
+  --accent-2-muted: rgba(196, 125, 16, 0.7);
+  --accent-2-subtle: rgba(196, 125, 16, 0.12);
 
   /* Semantic */
   --ok: #22c55e;
@@ -66,8 +66,8 @@
   --danger-subtle: rgba(239, 68, 68, 0.12);
   --info: #3b82f6;
 
-  /* Focus - Vinho glow */
-  --focus: rgba(107, 15, 26, 0.20);
+  /* Focus - Gold glow */
+  --focus: rgba(245, 166, 35, 0.20);
   --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--ring);
   --focus-glow: 0 0 0 2px var(--bg), 0 0 0 4px var(--ring), 0 0 20px var(--accent-glow);
 
@@ -81,14 +81,14 @@
   /* Typography - TAURA */
   --mono:
     "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, monospace;
-  --font-body: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-display: "Barlow Condensed", sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  --font-display: "Inter", sans-serif;
 
-  /* Shadows - Subtle vinho-tinted */
+  /* Shadows - Subtle gold-tinted */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(107, 15, 26, 0.03);
-  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(107, 15, 26, 0.03);
-  --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(107, 15, 26, 0.03);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(245, 166, 35, 0.03);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(245, 166, 35, 0.03);
+  --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(245, 166, 35, 0.03);
   --shadow-glow: 0 0 30px var(--accent-glow);
 
   /* Radii - Smooth glassmorphism (matching canvas original) */
@@ -123,7 +123,7 @@
 
   --card: #F2EFE9;
   --card-foreground: #0A0A0A;
-  --card-highlight: rgba(107, 15, 26, 0.05);
+  --card-highlight: rgba(245, 166, 35, 0.05);
   --popover: #F2EFE9;
   --popover-foreground: #0A0A0A;
 
@@ -145,15 +145,15 @@
   --border-hover: #999999;
   --input: #D5D2CC;
 
-  --accent: #3D0A10;
-  --accent-hover: #6B0F1A;
-  --accent-muted: #3D0A10;
-  --accent-subtle: rgba(61, 10, 16, 0.12);
+  --accent: #C47D10;
+  --accent-hover: #F5A623;
+  --accent-muted: #C47D10;
+  --accent-subtle: rgba(196, 125, 16, 0.12);
   --accent-foreground: #F2EFE9;
-  --accent-glow: rgba(107, 15, 26, 0.15);
-  --primary: #3D0A10;
+  --accent-glow: rgba(245, 166, 35, 0.15);
+  --primary: #C47D10;
   --primary-foreground: #F2EFE9;
-  --ring: #3D0A10;
+  --ring: #C47D10;
 
   --secondary: #EBE8E2;
   --secondary-foreground: #333333;
@@ -174,16 +174,16 @@
   --danger-subtle: rgba(220, 38, 38, 0.1);
   --info: #2563eb;
 
-  --focus: rgba(107, 15, 26, 0.2);
+  --focus: rgba(245, 166, 35, 0.2);
   --focus-glow: 0 0 0 2px var(--bg), 0 0 0 4px var(--ring), 0 0 16px var(--accent-glow);
 
   --grid-line: rgba(0, 0, 0, 0.05);
 
   /* Light shadows */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(107, 15, 26, 0.04);
-  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(107, 15, 26, 0.04);
-  --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(107, 15, 26, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(245, 166, 35, 0.04);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(245, 166, 35, 0.04);
+  --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(245, 166, 35, 0.04);
   --shadow-glow: 0 0 24px var(--accent-glow);
 
   color-scheme: light;

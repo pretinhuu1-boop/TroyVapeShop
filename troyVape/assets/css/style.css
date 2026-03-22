@@ -7,12 +7,17 @@
    ============================================ */
 
 :root {
+    /* Troy Vape Identity — Gold + Orange */
     --gold: #F5A623;
     --gold-light: #FFD07B;
     --gold-dark: #C47D10;
-    --accent: #FF6321;
-    --accent-glow: rgba(245, 166, 35, 0.4);
+    --orange: #FF6321;
     --cyan: #00D4FF;
+    --accent: #F5A623;
+    --accent-hover: #FFD07B;
+    --accent-dark: #C47D10;
+    --accent-glow: rgba(245, 166, 35, 0.4);
+    --accent-subtle: rgba(245, 166, 35, 0.12);
     --green: #22c55e;
     --bg-primary: #0A0A0A;
     --bg-secondary: #111111;
@@ -32,6 +37,9 @@
     --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-spring: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --font-body: "Inter", -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+    --font-display: "Inter", sans-serif;
 }
 
 * {
@@ -46,7 +54,7 @@ html {
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+    font-family: var(--font-body);
     background-color: var(--bg-primary);
     color: var(--text-primary);
     overflow-x: hidden;
@@ -54,8 +62,8 @@ body {
 }
 
 ::selection {
-    background: var(--gold);
-    color: black;
+    background: var(--accent-subtle);
+    color: var(--text-primary);
 }
 
 /* ============================================
@@ -64,11 +72,11 @@ body {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
-    background: rgba(245, 166, 35, 0.3);
+    background: rgba(245, 166, 35, 0.4);
     border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--gold);
+    background: var(--accent);
 }
 
 /* ============================================
@@ -87,7 +95,7 @@ body {
     content: '';
     position: absolute;
     inset: -8px -12px;
-    background: radial-gradient(ellipse, rgba(245, 166, 35, 0.15) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(245, 166, 35, 0.2) 0%, transparent 70%);
     border-radius: 50%;
     opacity: 0;
     transition: opacity 0.4s ease;
@@ -120,28 +128,28 @@ body {
    BUTTONS
    ============================================ */
 .btn-primary {
-    background: linear-gradient(135deg, var(--gold) 0%, var(--accent) 100%);
-    color: white;
+    background: var(--accent);
+    color: #FFFFFF;
     font-weight: 700;
     border: none;
     transition: all var(--transition-smooth);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(245, 166, 35, 0.25);
+    box-shadow: 0 4px 15px rgba(245, 166, 35, 0.35);
 }
 
 .btn-primary::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, var(--accent) 0%, var(--gold) 100%);
+    background: var(--accent-hover);
     opacity: 0;
     transition: opacity var(--transition-smooth);
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(245, 166, 35, 0.35);
+    box-shadow: 0 8px 30px rgba(245, 166, 35, 0.45);
 }
 
 .btn-primary:hover::before {
@@ -162,20 +170,20 @@ body {
 }
 
 .btn-secondary:hover {
-    border-color: var(--gold);
-    background: rgba(245, 166, 35, 0.08);
+    border-color: var(--accent);
+    background: var(--accent-subtle);
     transform: translateY(-2px);
 }
 
 .button-orange {
-    background: linear-gradient(135deg, var(--gold) 0%, var(--accent) 100%);
+    background: var(--accent);
     transition: all var(--transition-smooth);
-    box-shadow: 0 4px 15px rgba(245, 166, 35, 0.25);
+    box-shadow: 0 4px 15px rgba(245, 166, 35, 0.35);
 }
 
 .button-orange:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(245, 166, 35, 0.4);
+    box-shadow: 0 8px 30px rgba(245, 166, 35, 0.5);
 }
 
 /* ============================================
@@ -203,10 +211,10 @@ body {
 
 .glass-card:hover {
     transform: translateY(-6px);
-    border-color: rgba(245, 166, 35, 0.3);
+    border-color: rgba(245, 166, 35, 0.35);
     box-shadow:
         0 25px 50px rgba(0, 0, 0, 0.6),
-        0 0 40px rgba(245, 166, 35, 0.12);
+        0 0 40px rgba(245, 166, 35, 0.15);
     background: var(--bg-elevated);
 }
 
@@ -244,7 +252,7 @@ body {
     position: absolute;
     inset: -1px;
     border-radius: inherit;
-    background: linear-gradient(135deg, rgba(245, 166, 35, 0.3), transparent 40%, transparent 60%, rgba(0, 212, 255, 0.2));
+    background: linear-gradient(135deg, rgba(245, 166, 35, 0.5), transparent 40%, transparent 60%, rgba(255, 99, 33, 0.2));
     opacity: 0;
     transition: opacity var(--transition-smooth);
     z-index: 0;
@@ -260,7 +268,7 @@ body {
     border-color: transparent;
     box-shadow:
         0 30px 60px rgba(0, 0, 0, 0.7),
-        0 0 50px rgba(245, 166, 35, 0.12);
+        0 0 50px rgba(245, 166, 35, 0.15);
 }
 
 .product-card:hover::before {
@@ -335,9 +343,9 @@ body {
    ============================================ */
 .hero-gradient {
     background:
-        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(245, 166, 35, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(245, 166, 35, 0.2) 0%, transparent 60%),
         radial-gradient(ellipse 60% 40% at 80% 60%, rgba(255, 99, 33, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse 40% 30% at 20% 80%, rgba(0, 212, 255, 0.04) 0%, transparent 50%);
+        radial-gradient(ellipse 40% 30% at 20% 80%, rgba(196, 125, 16, 0.06) 0%, transparent 50%);
 }
 
 .hero-gradient::before {
@@ -348,7 +356,7 @@ body {
     transform: translate(-50%, -50%);
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(245, 166, 35, 0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(245, 166, 35, 0.1) 0%, transparent 70%);
     border-radius: 50%;
     animation: hero-pulse 6s ease-in-out infinite;
     pointer-events: none;
@@ -357,6 +365,11 @@ body {
 @keyframes hero-pulse {
     0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
     50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+}
+
+.hero-title, .hero-accent {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
 }
 
 .hero-title {
@@ -368,7 +381,7 @@ body {
 }
 
 .hero-accent {
-    background: linear-gradient(135deg, var(--gold) 0%, var(--accent) 50%, #FF4500 100%);
+    background: linear-gradient(135deg, var(--gold) 0%, var(--orange) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -405,8 +418,8 @@ body {
 }
 
 .search-input:focus {
-    border-color: var(--gold) !important;
-    box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.1);
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.15);
     background: var(--bg-elevated) !important;
 }
 
@@ -429,15 +442,15 @@ body {
 }
 
 .category-pill:hover {
-    border-color: rgba(245, 166, 35, 0.3);
-    color: white;
+    border-color: rgba(245, 166, 35, 0.4);
+    color: var(--text-primary);
 }
 
 .category-pill.active {
-    background: linear-gradient(135deg, var(--gold) 0%, var(--accent) 100%);
+    background: var(--accent);
     border-color: transparent;
-    color: white;
-    box-shadow: 0 4px 12px rgba(245, 166, 35, 0.3);
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(245, 166, 35, 0.35);
 }
 
 /* ============================================
@@ -501,7 +514,7 @@ body {
 .star-rating label:hover,
 .star-rating label:hover ~ label,
 .star-rating input:checked ~ label {
-    color: var(--gold);
+    color: var(--accent);
 }
 
 /* ============================================
@@ -517,8 +530,8 @@ input, select, textarea {
 }
 
 input:focus, select:focus, textarea:focus {
-    border-color: var(--gold) !important;
-    box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.1);
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.15);
 }
 
 /* ============================================
@@ -551,7 +564,7 @@ input:focus, select:focus, textarea:focus {
 
 @keyframes text-glow {
     0%, 100% { text-shadow: 0 0 20px rgba(245, 166, 35, 0); }
-    50% { text-shadow: 0 0 30px rgba(245, 166, 35, 0.3); }
+    50% { text-shadow: 0 0 30px rgba(245, 166, 35, 0.4); }
 }
 
 .animate-float {
@@ -617,14 +630,14 @@ input:focus, select:focus, textarea:focus {
 .hidden { display: none; }
 
 .text-gradient-gold {
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--accent) 100%);
+    background: linear-gradient(135deg, var(--gold) 0%, var(--orange) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
 .border-gradient {
-    border-image: linear-gradient(135deg, var(--gold), var(--accent)) 1;
+    border-image: linear-gradient(135deg, var(--accent), var(--accent-hover)) 1;
 }
 
 .divider {
@@ -638,7 +651,7 @@ input:focus, select:focus, textarea:focus {
 @media (max-width: 768px) {
     .hero-gradient {
         background:
-            radial-gradient(ellipse 100% 60% at 50% -20%, rgba(245, 166, 35, 0.15) 0%, transparent 60%);
+            radial-gradient(ellipse 100% 60% at 50% -20%, rgba(245, 166, 35, 0.18) 0%, transparent 60%);
     }
 
     .glass-card:hover,
@@ -723,7 +736,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 .brand-item:hover {
-    color: rgba(245, 166, 35, 0.3);
+    color: rgba(245, 166, 35, 0.5);
 }
 
 @keyframes marquee {
@@ -741,7 +754,7 @@ input:focus, select:focus, textarea:focus {
     z-index: 201;
     width: 56px;
     height: 56px;
-    background: #00D4FF;
+    background: linear-gradient(135deg, #F5A623 0%, #FF6321 100%);
     color: #000;
     border: none;
     border-radius: 50%;
@@ -749,16 +762,17 @@ input:focus, select:focus, textarea:focus {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+    box-shadow: 0 4px 20px rgba(245, 166, 35, 0.5);
     transition: all 0.3s ease;
 }
 #troy-chat-btn:hover {
     transform: scale(1.1) translateY(-2px);
-    box-shadow: 0 8px 30px rgba(0, 212, 255, 0.5);
+    box-shadow: 0 8px 30px rgba(245, 166, 35, 0.6);
+    background: linear-gradient(135deg, #FFD07B 0%, #F5A623 100%);
 }
 #troy-chat-btn.troy-chat-btn-active {
-    background: #FF6321;
-    box-shadow: 0 4px 20px rgba(255, 99, 33, 0.4);
+    background: #C47D10;
+    box-shadow: 0 4px 20px rgba(196, 125, 16, 0.5);
 }
 
 #troy-chat-panel {
@@ -803,7 +817,7 @@ input:focus, select:focus, textarea:focus {
 .troy-chat-dot {
     width: 8px;
     height: 8px;
-    background: #00D4FF;
+    background: #F5A623;
     border-radius: 50%;
     animation: troyChatPulse 2s infinite;
 }
@@ -843,8 +857,8 @@ input:focus, select:focus, textarea:focus {
 }
 .troy-msg-user {
     align-self: flex-end;
-    background: #FF6321;
-    color: #fff;
+    background: linear-gradient(135deg, #F5A623 0%, #FF6321 100%);
+    color: #000;
     border-bottom-right-radius: 4px;
 }
 .troy-msg-bot {
@@ -873,11 +887,11 @@ input:focus, select:focus, textarea:focus {
     outline: none;
     transition: border-color 0.2s;
 }
-#troy-chat-input:focus { border-color: #00D4FF; }
+#troy-chat-input:focus { border-color: #F5A623; }
 #troy-chat-input::placeholder { color: rgba(255,255,255,0.3); }
 #troy-chat-send {
-    background: #00D4FF;
-    color: #000;
+    background: #F5A623;
+    color: #FFFFFF;
     border: none;
     border-radius: 10px;
     width: 40px;
@@ -887,7 +901,7 @@ input:focus, select:focus, textarea:focus {
     cursor: pointer;
     transition: background 0.2s;
 }
-#troy-chat-send:hover { background: #33ddff; }
+#troy-chat-send:hover { background: #FFD07B; }
 
 /* Mobile */
 @media (max-width: 768px) {

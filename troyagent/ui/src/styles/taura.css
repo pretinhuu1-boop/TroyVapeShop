@@ -1,6 +1,6 @@
 /* ══════════════════════════════════════════════════════════
    TAURA Identity System — UI Components
-   Vinho/black palette · Precision aesthetic
+   Gold/black palette · Troy Vape identity
    ══════════════════════════════════════════════════════════ */
 
 /* ── Card left-border accent ─────────────────── */
@@ -22,7 +22,7 @@
 /* ── Divider gradient line ───────────────────── */
 .div-line {
   height: 1px;
-  background: linear-gradient(90deg, var(--accent) 0%, rgba(107, 15, 26, 0.2) 60%, transparent 100%);
+  background: linear-gradient(90deg, var(--accent) 0%, rgba(245, 166, 35, 0.2) 60%, transparent 100%);
   margin: 24px 0;
 }
 
