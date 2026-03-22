@@ -207,6 +207,50 @@ app.get('/api/sales', (req, res) => {
     }
 });
 
+// GET /api/stats — monitoramento em tempo real para o troy agent
+app.get('/api/stats', (req, res) => {
+    try {
+        const totalProducts = db.prepare('SELECT COUNT(*) as n FROM products').get().n;
+        const totalStock = db.prepare('SELECT SUM(stock) as n FROM products').get().n || 0;
+        const lowStock = db.prepare('SELECT COUNT(*) as n FROM products WHERE stock <= 3').get().n;
+        const outOfStock = db.prepare('SELECT COUNT(*) as n FROM products WHERE stock = 0').get().n;
+
+        const salesAll = db.prepare(`
+            SELECT s.*, p.name as product_name, p.price as unit_price
+            FROM sales s LEFT JOIN products p ON s.product_id = p.id
+        `).all();
+
+        const today = new Date().toISOString().split('T')[0];
+        const salesToday = salesAll.filter(s => s.created_at && s.created_at.startsWith(today));
+        const revenueToday = salesToday.reduce((acc, s) => acc + (s.total_price || 0), 0);
+        const revenueTotal = salesAll.reduce((acc, s) => acc + (s.total_price || 0), 0);
+
+        const topProducts = db.prepare(`
+            SELECT p.name, p.brand, SUM(s.quantity) as units_sold, SUM(s.total_price) as revenue
+            FROM sales s LEFT JOIN products p ON s.product_id = p.id
+            GROUP BY s.product_id ORDER BY units_sold DESC LIMIT 5
+        `).all();
+
+        const brandBreakdown = db.prepare(`
+            SELECT brand, COUNT(*) as count, AVG(price) as avg_price, SUM(stock) as total_stock
+            FROM products GROUP BY brand ORDER BY total_stock DESC
+        `).all();
+
+        res.json({
+            timestamp: new Date().toISOString(),
+            products: { total: totalProducts, totalStock, lowStock, outOfStock },
+            sales: {
+                today: { count: salesToday.length, revenue: revenueToday },
+                allTime: { count: salesAll.length, revenue: revenueTotal }
+            },
+            topProducts,
+            brandBreakdown
+        });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
 // Chat AI → OpenRouter API (same provider as troyagent)
 const OPENROUTER_KEY = process.env.OPENROUTER_API_KEY || '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';
 const AI_MODEL = process.env.AI_MODEL || 'meta-llama/llama-3.3-70b-instruct:free';
