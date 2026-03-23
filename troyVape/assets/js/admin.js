@@ -1,5 +1,5 @@
 /**
- * Troy Vape Store - Admin Logic Reprogrammed
+ * Cloud Lab Store - Admin Logic Reprogrammed
  */
 
 import { getProducts, updateProduct, deleteProduct, createProduct, bulkDeleteProducts, updateStock, createSale, getSales, uploadImage } from './products.js';

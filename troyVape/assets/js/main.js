@@ -1,5 +1,5 @@
 /**
- * Troy Vape - Main Store Logic
+ * Cloud Lab - Main Store Logic
  * Note: grid.innerHTML = '' is used only to clear the container, not to inject untrusted content.
  * Product cards are built via safe DOM methods in product-card.js.
  */

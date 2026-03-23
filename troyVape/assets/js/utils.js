@@ -1,5 +1,5 @@
 /**
- * Troy Vape Store - Utility Functions
+ * Cloud Lab Store - Utility Functions
  */
 
 /**

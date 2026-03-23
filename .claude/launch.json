@@ -1,0 +1,26 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "troyVape-frontend",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 3000,
+      "cwd": "troyVape"
+    },
+    {
+      "name": "troyVape-api",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["server.js"],
+      "port": 3002,
+      "cwd": "troyVape"
+    },
+    {
+      "name": "troyagent-gateway",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["dev"],
+      "port": 18789,
+      "cwd": "troyagent"
+    }
+  ]
+}

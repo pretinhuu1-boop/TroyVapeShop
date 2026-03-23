@@ -75,7 +75,7 @@ let metrics: Metrics = { conversations: 0, catalogs: 0, checkouts: 0, payments: 
 let config: VapeConfig = {
   whatsapp: "",
   pix: "",
-  storeName: "Troy Vape",
+  storeName: "Cloud Lab",
   hours: { weekdays: "08:00-17:00", saturday: "08:00-16:00", sunday: "" },
   llmModel: "deepseek/deepseek-r1",
   businessRules: {
@@ -216,7 +216,7 @@ function buildForwardMsg(orderData: {
   cep?: string;
   paymentStatus?: string;
 }) {
-  const store = config.storeName || "Troy Vape";
+  const store = config.storeName || "Cloud Lab";
   const items = (orderData.items ?? [])
     .map((i) => {
       let line = `- ${i.quantity}x ${i.name} (${i.sku})`;
@@ -349,7 +349,7 @@ export function renderVendas(state: VendasRenderState) {
   const handleSaveConfig = () => {
     config.whatsapp = formWa.replace(/\D/g, "");
     config.pix = formPix.trim();
-    config.storeName = formName.trim() || "Troy Vape";
+    config.storeName = formName.trim() || "Cloud Lab";
     config.hours = {
       weekdays: formHoursWeekdays.trim() || "08:00-17:00",
       saturday: formHoursSaturday.trim() || "08:00-16:00",
@@ -543,7 +543,7 @@ export function renderVendas(state: VendasRenderState) {
               <label>Nome da Loja</label>
               <input type="text" .value=${formName} @input=${(e: Event) => {
                 formName = (e.target as HTMLInputElement).value;
-              }} placeholder="Troy Vape" />
+              }} placeholder="Cloud Lab" />
             </div>
           </div>
         </div>

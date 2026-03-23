@@ -1,5 +1,5 @@
 /**
- * Troy Vape Store - Authentication Module
+ * Cloud Lab Store - Authentication Module
  * Handles Supabase Auth integration
  */
 
@@ -15,7 +15,7 @@ export const login = async (email, password) => {
         // Fallback para desenvolvimento local sem Supabase
         if (password === 'admin' || password === '123456') {
             localStorage.setItem('troy_vape_admin_session', 'true');
-            return { user: { email: email || 'admin@troyvape.com' } };
+            return { user: { email: email || 'admin@cloudlab.com' } };
         } else {
             throw new Error('Senha incorreta para o modo de desenvolvimento local.');
         }

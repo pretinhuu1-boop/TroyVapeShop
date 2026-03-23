@@ -267,7 +267,7 @@ app.post('/api/chat', (req, res) => {
         `${p.name} (${p.brand}) - R$${p.price} | ${p.puffs} puffs | Sabor: ${p.flavor || 'N/A'} | Estoque: ${p.stock}${p.promo ? ' | PROMO' : ''}`
     ).join('\n');
 
-    const systemPrompt = `Você é o Troy AI, assistente virtual da Troy Vape Shop.
+    const systemPrompt = `Você é o Troy AI, assistente virtual da Cloud Lab Shop.
 Idioma: Português brasileiro. Tom: amigável, casual, entusiasmado com vaping.
 Você conhece todos os produtos da loja. Recomende com base em preferências do cliente (sabor, puffs, preço).
 Para comprar, direcione ao WhatsApp: https://wa.me/5511999999999
@@ -293,8 +293,8 @@ ${catalog}`;
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${OPENROUTER_KEY}`,
-            'HTTP-Referer': 'https://troyvapes.store',
-            'X-Title': 'Troy Vape Shop'
+            'HTTP-Referer': 'https://cloudlabs.store',
+            'X-Title': 'Cloud Lab Shop'
         }
     };
 

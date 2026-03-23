@@ -1,5 +1,5 @@
 /**
- * Troy Vape Store - Reviews Service
+ * Cloud Lab Store - Reviews Service
  */
 
 import { supabase, isSupabaseConfigured } from './supabase.js';

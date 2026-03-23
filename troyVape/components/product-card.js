@@ -1,5 +1,5 @@
 /**
- * Product Card Component - Troy Vapes
+ * Product Card Component - Cloud Lab
  * Note: Product data comes from our own trusted sources (Supabase or hardcoded samples),
  * not from user input, so innerHTML usage here is safe.
  */
