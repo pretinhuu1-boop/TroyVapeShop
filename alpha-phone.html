@@ -1,0 +1,3264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alpha Phone — O iPhone certo, com garantia real. Tatuapé, SP</title>
+<meta name="description" content="iPhone verificado, certificado e com garantia estendida. Novos e seminovos no Tatuapé, São Paulo. Atendimento consultivo via WhatsApp.">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --black: #0D0D0D;
+  --dark: #1A1A2E;
+  --accent: #E94560;
+  --accent-hover: #D63050;
+  --white: #FFFFFF;
+  --snow: #F5F5F7;
+  --silver: #A0A0B0;
+  --platinum: #555;
+  --card-bg: #1E1E32;
+  --green: #34C759;
+  --gold: #FFD60A;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.3);
+  --shadow-lg: 0 12px 48px rgba(0,0,0,0.5);
+  --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  /* Dark theme surfaces */
+  --surface-0: #0D0D14;
+  --surface-1: #131322;
+  --surface-2: #1A1A2E;
+  --surface-3: #222240;
+  --text-primary: #F0F0F5;
+  --text-secondary: #A0A0B0;
+  --border-dark: rgba(255,255,255,0.06);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; scroll-restoration: manual; }
+body { font-family: -apple-system, 'SF Pro Display', 'Inter', 'Segoe UI', sans-serif; color: var(--text-primary); background: var(--surface-0); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; font-family: inherit; }
+
+/* ===== ANNOUNCEMENT BAR ===== */
+.announcement {
+  background: var(--dark);
+  color: var(--white);
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 0.82rem;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+.announcement::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 200%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(233,69,96,0.15), transparent);
+  animation: shimmer 3s infinite;
+}
+@keyframes shimmer { to { transform: translateX(50%); } }
+.announcement strong { color: var(--accent); }
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(13,13,20,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-dark);
+  padding: 0 40px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: var(--transition);
+}
+.navbar.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.4); }
+.logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--white);
+}
+.logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--silver);
+  transition: var(--transition);
+  position: relative;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  background: var(--accent);
+  color: var(--white);
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-cta:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(233,69,96,0.3); }
+
+/* ===== MAIN PAGE VIDEO BANNER ===== */
+.video-banner {
+  width: 100%;
+  background: #fff;
+  position: relative;
+}
+.video-banner video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+/* Gradient fade from white video → dark site */
+.video-banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, #1A1A2E);
+  pointer-events: none;
+  z-index: 1;
+}
+/* Transition strip between video and hero */
+.video-transition {
+  background: var(--dark);
+  padding: 28px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: relative;
+  overflow: hidden;
+}
+.video-transition::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(233,69,96,0.04) 50%, transparent);
+  pointer-events: none;
+}
+.vt-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--silver);
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.vt-item svg {
+  width: 18px; height: 18px;
+  stroke: var(--accent);
+  flex-shrink: 0;
+}
+.vt-item strong {
+  color: #fff;
+  font-weight: 600;
+}
+.vt-new {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-left: 6px;
+  animation: vtPulse 2s ease-in-out infinite;
+}
+@keyframes vtPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+@media (max-width: 768px) {
+  .video-transition { flex-wrap: wrap; gap: 16px 32px; padding: 20px 24px; }
+  .vt-item { font-size: 0.78rem; }
+}
+
+/* ===== SHOWCASE SECTION (Video/Placeholder + Comparison) ===== */
+.ap-showcase {
+  background: #000;
+  padding: 6px 0 4px;
+}
+.ap-showcase-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.ap-showcase-layout {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 24px;
+  align-items: center;
+}
+/* Video / Placeholder side */
+.ap-showcase-media {
+  border-radius: 16px;
+  background: transparent;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ap-showcase-media video {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+}
+.ap-showcase-media img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  padding: 20px;
+}
+.ap-showcase-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.25);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.ap-showcase-media.placeholder .ap-showcase-play { opacity: 1; }
+.ap-showcase-play svg {
+  width: 56px; height: 56px;
+  fill: rgba(255,255,255,0.85);
+  filter: drop-shadow(0 4px 20px rgba(0,0,0,0.5));
+}
+/* Comparison side */
+.ap-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 16px 18px;
+  overflow: hidden;
+}
+.ap-compare-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.ap-compare-chip {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #0071E3;
+  background: rgba(0,113,227,0.1);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.ap-compare-vs {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.35);
+}
+.ap-compare-model {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+}
+/* Spec rows */
+.ap-spec-row {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.ap-spec-row:last-child { border-bottom: none; }
+.ap-spec-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.ap-spec-label svg {
+  width: 16px; height: 16px;
+  stroke: rgba(255,255,255,0.5);
+  fill: none;
+  stroke-width: 1.5;
+  flex-shrink: 0;
+}
+.ap-spec-label span {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.45);
+}
+.ap-spec-bars { display: flex; flex-direction: column; gap: 5px; }
+.ap-spec-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ap-spec-bar-name {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.65);
+  width: 70px;
+  flex-shrink: 0;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ap-spec-bar-track {
+  flex: 1;
+  height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.ap-spec-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
+  width: 0;
+}
+.ap-spec-bar-fill.current { background: linear-gradient(90deg, #0071E3, #34AADC); }
+.ap-spec-bar-fill.prev { background: rgba(255,255,255,0.15); }
+.ap-spec-bar-val {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.55);
+  width: 54px;
+  flex-shrink: 0;
+}
+.ap-spec-bar-val.current-val { color: #34AADC; }
+/* Responsive */
+@media (max-width: 700px) {
+  .ap-showcase-layout { grid-template-columns: 1fr; gap: 14px; }
+  .ap-compare { padding: 12px 14px; }
+  .ap-spec-bar-name { width: 58px; font-size: 0.68rem; }
+}
+@media (max-width: 420px) {
+}
+
+/* ===== PRODUCT GALLERY ===== */
+.ap-gallery-section {
+  padding: 4px 0 2px;
+}
+.ap-gallery-section .ap-section-inner { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+.ap-gallery-label {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+.ap-gallery-scroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 12px;
+  scrollbar-width: none;
+}
+.ap-gallery-scroll::-webkit-scrollbar { display: none; }
+.ap-gallery-item {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f5f5f7;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+.ap-gallery-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+.ap-gallery-item img {
+  display: block;
+  height: 200px;
+  width: auto;
+  object-fit: cover;
+}
+.ap-gallery-item.portrait img {
+  height: 320px;
+  width: auto;
+}
+.ap-gallery-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+.ap-gallery-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  transition: background 0.3s;
+}
+.ap-gallery-dot.active { background: var(--accent); }
+/* Gallery lightbox */
+.ap-lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+.ap-lightbox.active { display: flex; }
+.ap-lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 12px;
+}
+.ap-lightbox-close {
+  position: absolute;
+  top: 20px; right: 20px;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #fff;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ap-lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #fff;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ap-lightbox-nav.prev { left: 16px; }
+.ap-lightbox-nav.next { right: 16px; }
+@media (max-width: 768px) {
+  .ap-gallery-item img { height: 200px; }
+  .ap-gallery-item.portrait img { height: 240px; }
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: calc(100vh - 64px);
+  background: linear-gradient(135deg, var(--dark) 0%, #16213E 50%, #0F3460 100%);
+  display: flex;
+  align-items: center;
+  padding: 60px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(233,69,96,0.15), transparent 70%);
+  top: -100px; right: -100px;
+  border-radius: 50%;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(233,69,96,0.08), transparent 70%);
+  bottom: -50px; left: 10%;
+  border-radius: 50%;
+}
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+.hero-text h1 {
+  font-size: 3.6rem;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+  margin-bottom: 20px;
+}
+.hero-text h1 .accent { color: var(--accent); }
+.hero-text h1 .line { display: block; }
+.hero-sub {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 480px;
+}
+.hero-badges {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.85);
+  backdrop-filter: blur(10px);
+}
+.badge svg { width: 16px; height: 16px; flex-shrink: 0; }
+.hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--accent);
+  color: var(--white);
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+.btn-primary:hover::before { left: 100%; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(233,69,96,0.4); }
+.btn-secondary {
+  background: transparent;
+  color: var(--white);
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 1.5px solid rgba(255,255,255,0.25);
+  transition: var(--transition);
+}
+.btn-secondary:hover { border-color: var(--white); background: rgba(255,255,255,0.05); }
+
+/* Hero Phone Visual */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.hero-phone-img {
+  animation: heroFloat 4s ease-in-out infinite;
+}
+.hero-phone-img img {
+  height: 520px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 30px 60px rgba(0,0,0,0.5)) drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+}
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.floating-tag {
+  position: absolute;
+  background: var(--accent);
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(233,69,96,0.3);
+  animation: float 3s ease-in-out infinite;
+  white-space: nowrap;
+}
+.floating-tag.tag1 { top: 60px; right: -20px; animation-delay: 0s; }
+.floating-tag.tag2 { bottom: 120px; left: -30px; animation-delay: 1s; }
+.floating-tag.tag3 { top: 200px; left: -40px; animation-delay: 2s; }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ===== TRUST BAR ===== */
+.trust-bar {
+  background: var(--surface-1);
+  padding: 24px 40px;
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--border-dark);
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--silver);
+  font-weight: 500;
+}
+.trust-item svg { width: 20px; height: 20px; color: var(--accent); flex-shrink: 0; }
+.trust-item strong { color: var(--white); }
+
+/* ===== SECTIONS COMMON ===== */
+section { padding: 80px 40px; }
+.section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.section-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -1px;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--silver);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ===== PRODUCT GRID ===== */
+.products { background: var(--surface-0); }
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.product-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: var(--transition);
+  position: relative;
+}
+.product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: rgba(233,69,96,0.3); }
+.product-badge {
+  position: absolute;
+  top: 16px; left: 16px;
+  background: var(--green);
+  color: var(--white);
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  z-index: 2;
+}
+.product-badge.hot { background: var(--accent); }
+.product-badge.new { background: var(--dark); }
+.product-image {
+  height: 360px;
+  background: radial-gradient(ellipse at center, var(--surface-3) 0%, var(--surface-1) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+}
+/* Carousel dots */
+.carousel-dots {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 5;
+}
+.carousel-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  transition: all 0.3s ease;
+}
+.carousel-dot.active {
+  background: var(--accent);
+  width: 20px;
+  border-radius: 4px;
+}
+.product-image::before {
+  content: '';
+  position: absolute;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(233,69,96,0.06), transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+.product-image::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 60px;
+  background: linear-gradient(transparent, var(--surface-1));
+  z-index: 1;
+  pointer-events: none;
+}
+/* Carousel 3D coverflow */
+.product-image img {
+  max-height: 280px;
+  max-width: 70%;
+  object-fit: contain;
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  transform: scale(0.55) translateX(0);
+  transition: all 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.3)) brightness(0.6);
+  pointer-events: none;
+}
+/* Center active */
+.product-image img.carousel-active {
+  opacity: 1;
+  z-index: 3;
+  transform: scale(1.3) translateX(0);
+  filter: drop-shadow(0 16px 32px rgba(0,0,0,0.5)) brightness(1);
+}
+/* Previous — left side, smaller */
+.product-image img.carousel-prev {
+  opacity: 0.5;
+  z-index: 2;
+  transform: scale(0.55) translateX(-110%);
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.3)) brightness(0.55);
+}
+/* Next — right side, smaller */
+.product-image img.carousel-next {
+  opacity: 0.5;
+  z-index: 2;
+  transform: scale(0.55) translateX(110%);
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.3)) brightness(0.55);
+}
+.product-card:hover .product-image img.carousel-active {
+  transform: scale(1.36) translateY(-4px);
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5)) brightness(1);
+}
+.product-info { padding: 22px 24px; }
+.product-name { font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+.product-spec { font-size: 0.82rem; color: var(--silver); margin-bottom: 12px; }
+.product-condition {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--green);
+  background: rgba(52,199,89,0.08);
+  padding: 4px 10px;
+  border-radius: 50px;
+  margin-bottom: 12px;
+}
+.product-pricing { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
+.price-current { font-size: 1.4rem; font-weight: 800; color: var(--accent); }
+.price-old { font-size: 0.85rem; color: var(--platinum); text-decoration: line-through; }
+.price-pix { font-size: 0.72rem; color: var(--silver); }
+.product-installment { font-size: 0.75rem; color: var(--silver); margin-bottom: 16px; }
+.product-cta {
+  width: 100%;
+  background: var(--dark);
+  color: var(--white);
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.product-cta:hover { background: var(--accent); }
+
+/* ===== CERTIFICATION (compact) ===== */
+.certification { background: var(--dark); color: var(--white); padding: 36px 40px !important; }
+.certification .section-header { margin-bottom: 20px; }
+.certification .section-title { font-size: 1.4rem; }
+.certification .section-subtitle { font-size: 0.8rem; }
+.certification .section-label { margin-bottom: 6px; }
+.cert-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.cert-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 40px;
+  padding: 8px 18px;
+  transition: var(--transition);
+}
+.cert-card:hover { background: rgba(255,255,255,0.08); }
+.cert-number {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+.cert-label { font-size: 0.78rem; font-weight: 600; color: var(--white); }
+.cert-desc { display: none; }
+
+/* ===== SOCIAL PROOF ===== */
+.social-proof { background: var(--surface-1); }
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.review-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  position: relative;
+}
+.review-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.review-stars { margin-bottom: 16px; color: var(--gold); font-size: 1.1rem; letter-spacing: 2px; }
+.review-text { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; font-style: italic; }
+.review-author { display: flex; align-items: center; gap: 12px; }
+.review-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.review-name { font-size: 0.85rem; font-weight: 700; color: var(--white); }
+.review-detail { font-size: 0.72rem; color: var(--silver); }
+.review-verified {
+  font-size: 0.68rem;
+  color: var(--green);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ===== TRADE-IN SECTION ===== */
+.trade-in {
+  background: linear-gradient(135deg, var(--accent) 0%, #D63050 100%);
+  color: var(--white);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.trade-in::before {
+  content: '';
+  position: absolute;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1), transparent 70%);
+  top: -100px; left: -100px;
+}
+.trade-content { max-width: 700px; margin: 0 auto; position: relative; z-index: 2; }
+.trade-content h2 { font-size: 2.4rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -1px; }
+.trade-content p { font-size: 1.05rem; opacity: 0.9; line-height: 1.6; margin-bottom: 32px; }
+.trade-steps {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 36px;
+  justify-content: center;
+}
+.trade-step {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  flex: 1;
+  max-width: 200px;
+}
+.trade-step-num { font-size: 1.6rem; font-weight: 800; margin-bottom: 8px; }
+.trade-step-text { font-size: 0.82rem; opacity: 0.9; }
+.btn-white {
+  background: var(--white);
+  color: var(--accent);
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+
+/* ===== FAQ ===== */
+.faq { background: var(--surface-0); }
+.faq-list { max-width: 720px; margin: 0 auto; }
+.faq-item {
+  border-bottom: 1px solid var(--border-dark);
+  padding: 20px 0;
+}
+.faq-question {
+  width: 100%;
+  background: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  padding: 0;
+  text-align: left;
+}
+.faq-question span {
+  transition: transform 0.3s;
+  font-size: 1.4rem;
+  color: var(--accent);
+}
+.faq-item.open .faq-question span { transform: rotate(45deg); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s;
+  font-size: 0.92rem;
+  color: var(--silver);
+  line-height: 1.7;
+}
+.faq-item.open .faq-answer { max-height: 300px; padding-top: 12px; }
+
+/* ===== FINAL CTA ===== */
+.final-cta {
+  background: var(--dark);
+  text-align: center;
+  padding: 100px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.final-cta::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(233,69,96,0.12), transparent 70%);
+  bottom: -200px; left: 50%;
+  transform: translateX(-50%);
+}
+.final-cta h2 { font-size: 2.8rem; font-weight: 800; color: var(--white); margin-bottom: 16px; letter-spacing: -1px; position: relative; z-index: 2; }
+.final-cta h2 .accent { color: var(--accent); }
+.final-cta p { color: rgba(255,255,255,0.6); font-size: 1.05rem; margin-bottom: 36px; position: relative; z-index: 2; }
+.final-cta .btn-primary { font-size: 1.1rem; padding: 18px 48px; position: relative; z-index: 2; }
+
+/* ===== FOOTER ===== */
+footer {
+  background: #0D0D14;
+  color: rgba(255,255,255,0.45);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 40px 24px;
+}
+.footer-brand-area {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.footer-brand-area .logo { font-size: 1.1rem; }
+.footer-tagline {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.3);
+  border-left: 1px solid rgba(255,255,255,0.1);
+  padding-left: 16px;
+}
+.footer-social {
+  display: flex;
+  gap: 10px;
+}
+.footer-social a {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.footer-social a:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.footer-social svg { width: 16px; height: 16px; fill: rgba(255,255,255,0.5); }
+.footer-social a:hover svg { fill: #fff; }
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  padding: 16px 40px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  flex-wrap: wrap;
+}
+.footer-links a {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.footer-links a:hover { color: var(--accent); }
+.footer-bottom {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.25);
+}
+.footer-bottom .footer-location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.footer-bottom .footer-location svg { width: 12px; height: 12px; stroke: var(--accent); fill: none; }
+@media (max-width: 768px) {
+  .footer-top { flex-direction: column; gap: 16px; text-align: center; padding: 24px 24px 20px; }
+  .footer-brand-area { flex-direction: column; gap: 8px; }
+  .footer-tagline { border-left: none; padding-left: 0; }
+  .footer-links { gap: 16px; padding: 14px 24px; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; padding: 14px 24px; }
+}
+
+/* ===== WHATSAPP FLOAT ===== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+.wa-tooltip {
+  background: var(--surface-2);
+  color: var(--white);
+  padding: 12px 18px;
+  border-radius: 12px 12px 0 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-lg);
+  animation: fadeSlide 0.5s ease 2s both;
+  max-width: 220px;
+  line-height: 1.4;
+}
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.wa-btn {
+  width: 64px; height: 64px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 24px rgba(37,211,102,0.4);
+  transition: var(--transition);
+  animation: pulse 2s infinite;
+}
+.wa-btn:hover { transform: scale(1.08); box-shadow: 0 6px 32px rgba(37,211,102,0.5); }
+.wa-btn svg { width: 32px; height: 32px; }
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 4px 24px rgba(37,211,102,0.4); }
+  50% { box-shadow: 0 4px 24px rgba(37,211,102,0.4), 0 0 0 12px rgba(37,211,102,0.1); }
+}
+
+/* ===== URGENCY BAR (bottom) ===== */
+.urgency-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--dark);
+  color: var(--white);
+  padding: 12px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  z-index: 998;
+  font-size: 0.85rem;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+.urgency-bar.visible { transform: translateY(0); }
+.urgency-bar .timer { color: var(--accent); font-weight: 800; font-size: 1.1rem; font-variant-numeric: tabular-nums; }
+.urgency-bar .btn-sm {
+  background: var(--accent);
+  color: var(--white);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: var(--transition);
+}
+.urgency-bar .btn-sm:hover { background: var(--accent-hover); }
+
+/* ===== COUNTER ANIMATION ===== */
+.counter-section {
+  background: var(--surface-1);
+  padding: 60px 40px;
+  border-bottom: 1px solid var(--border-dark);
+}
+.counter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+.counter-item .counter-num {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.counter-item .counter-label {
+  font-size: 0.82rem;
+  color: var(--silver);
+  font-weight: 500;
+}
+
+/* ===== PRODUCT DETAIL VIEW ===== */
+/* ===== PRODUCT DETAIL VIEW — APPLE STYLE ===== */
+.product-detail-view {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 9999;
+  background: #000;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.product-detail-view.active { display: block; }
+
+/* Top nav */
+.ap-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 24px;
+  height: 52px;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.ap-nav-back {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: #0071E3;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+}
+.ap-nav-back svg { stroke: #0071E3; }
+.ap-nav-back:hover { opacity: 0.7; }
+.ap-nav-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ap-nav-series {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+.ap-nav-badge {
+  font-size: 0.6rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.ap-nav-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.ap-nav-wa {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: #25D366;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.ap-nav-wa:hover { background: #1ebe57; }
+.ap-nav-wa svg { width: 14px; height: 14px; }
+@media (max-width: 520px) {
+  .ap-nav-wa span { display: none; }
+  .ap-nav-wa { padding: 6px 8px; }
+}
+
+/* Hero section */
+.ap-hero {
+  text-align: center;
+  padding: 14px 24px 0;
+  background: #000;
+  position: relative;
+  overflow: hidden;
+}
+.ap-hero-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 4px;
+}
+.ap-hero-title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 6px;
+}
+.ap-hero-sub {
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 12px;
+  letter-spacing: 0.01em;
+}
+.ap-hero-img {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 300px;
+  padding: 0 20px 10px;
+  position: relative;
+}
+.ap-hero-img::before {
+  content: '';
+  position: absolute;
+  width: 360px; height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.04), transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.ap-hero-img img {
+  max-height: 340px;
+  max-width: 280px;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 30px 60px rgba(0,0,0,0.6));
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.ap-hero-img img.switching {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+/* Shared section styling */
+.ap-section {
+  border-top: 1px solid rgba(255,255,255,0.04) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.ap-section-inner {
+  max-width: 680px;
+  margin: 0 auto !important;
+  padding: 20px 24px !important;
+}
+.ap-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+.ap-label-light {
+  font-weight: 400;
+  color: rgba(255,255,255,0.45);
+}
+
+/* Color picker — Apple style */
+.ap-color-active-name {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 6px;
+  margin-top: -6px;
+}
+.ap-color-picker {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.ap-color-swatch {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 2.5px solid transparent;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  position: relative;
+}
+.ap-color-swatch:hover { transform: scale(1.12); }
+.ap-color-swatch.active {
+  outline-color: #0071E3;
+}
+
+/* Model picker */
+.ap-model-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.ap-model-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.04);
+  border: 2px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #fff;
+}
+.ap-model-btn:hover { background: rgba(255,255,255,0.07); }
+.ap-model-btn.active {
+  border-color: #0071E3;
+  background: rgba(0,113,227,0.08);
+}
+.ap-model-name {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.ap-model-detail {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+  margin-top: 2px;
+}
+.ap-model-from {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  text-align: right;
+}
+
+/* Storage grid */
+.ap-storage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 8px;
+}
+.ap-storage-btn {
+  padding: 8px 8px;
+  text-align: center;
+  background: rgba(255,255,255,0.04);
+  border: 2px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #fff;
+}
+.ap-storage-btn:hover { background: rgba(255,255,255,0.07); }
+.ap-storage-btn.active {
+  border-color: #0071E3;
+  background: rgba(0,113,227,0.08);
+}
+.ap-storage-size {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.ap-storage-price {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
+}
+
+/* Purchase block (storage + price + cta unified) */
+.ap-purchase-price {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Price */
+.ap-price-main {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 2px;
+}
+.ap-price-pix {
+  font-size: 0.9rem;
+  color: #34C759;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.ap-price-installment {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 4px;
+}
+.ap-price-old-row { display: flex; align-items: center; gap: 10px; }
+.ap-price-old {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.3);
+  text-decoration: line-through;
+}
+.ap-price-discount {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #34C759;
+  background: rgba(52,199,89,0.12);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+/* CTA Card Premium */
+.ap-cta-card {
+  background: linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.ap-cta-card::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle at 30% 20%, rgba(37,211,102,0.06), transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(0,113,227,0.06), transparent 50%);
+  pointer-events: none;
+}
+.ap-cta-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  position: relative;
+}
+.ap-cta-header-icon {
+  width: 36px; height: 36px;
+  background: rgba(37,211,102,0.12);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ap-cta-header-icon svg { width: 20px; height: 20px; fill: #25D366; }
+.ap-cta-header-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+}
+.ap-cta-header-sub {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.45);
+  margin-top: 1px;
+}
+.ap-cta-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 4px;
+  position: relative;
+}
+.ap-cta-price-val {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+.ap-cta-price-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #34C759;
+  background: rgba(52,199,89,0.12);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.ap-cta-price-detail {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 16px;
+  position: relative;
+}
+.ap-cta-price-detail span { color: #34C759; font-weight: 600; }
+.ap-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 24px;
+  background: #25D366;
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.25);
+  text-decoration: none;
+}
+.ap-cta-btn:hover {
+  background: #1ebe57;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(37,211,102,0.4);
+}
+.ap-cta-btn svg { width: 20px; height: 20px; fill: #fff; }
+.ap-cta-trust {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 14px;
+  position: relative;
+}
+.ap-cta-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.4);
+}
+.ap-cta-trust-item svg { width: 13px; height: 13px; stroke: #34C759; fill: none; stroke-width: 2.5; }
+.ap-cta-secondary {
+  display: block;
+  text-align: center;
+  color: #0071E3;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 8px;
+  margin-top: 4px;
+}
+.ap-cta-secondary:hover { text-decoration: underline; }
+
+/* Features grid */
+.ap-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+.ap-feat {
+  text-align: center;
+  padding: 8px 6px;
+}
+.ap-feat-icon {
+  width: 28px;
+  height: 28px;
+  margin: 0 auto 4px;
+}
+.ap-feat-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: rgba(255,255,255,0.7);
+}
+.ap-feat-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.ap-feat-desc {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.4;
+}
+
+/* Detail responsive */
+@media (max-width: 768px) {
+  .ap-hero-title { font-size: 2rem; }
+  .ap-hero-img { min-height: 280px; }
+  .ap-hero-img img { max-height: 260px; }
+  .ap-features-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  .ap-price-main { font-size: 1.8rem; }
+}
+@media (max-width: 480px) {
+  .ap-hero-title { font-size: 1.7rem; }
+  .ap-hero-img { min-height: 240px; }
+  .ap-hero-img img { max-height: 220px; }
+  .ap-section-inner { padding: 4px 16px; }
+  .ap-features-grid { grid-template-columns: 1fr 1fr; gap: 6px; }
+  .ap-gallery-item img { height: 160px; }
+}
+/* (old pdv styles removed — now using ap-* classes) */
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .hero-content { grid-template-columns: 1fr; text-align: center; }
+  .hero-text h1 { font-size: 2.6rem; }
+  .hero-sub { margin: 0 auto 32px; }
+  .hero-badges { justify-content: center; }
+  .hero-ctas { justify-content: center; }
+  .hero-visual { display: none; }
+  .cert-grid { gap: 8px; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .trade-steps { flex-direction: column; align-items: center; }
+}
+@media (max-width: 768px) {
+  section { padding: 60px 20px; }
+  .navbar { padding: 0 20px; }
+  .nav-links { display: none; }
+  .section-title { font-size: 2rem; }
+  .hero { padding: 40px 20px; }
+  .hero-text h1 { font-size: 2.2rem; }
+  .product-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .cert-grid { gap: 6px; }
+  .counter-grid { grid-template-columns: repeat(2, 1fr); }
+  .urgency-bar { padding: 10px 16px; gap: 12px; font-size: 0.75rem; }
+}
+@media (max-width: 480px) {
+  .product-grid { grid-template-columns: 1fr; gap: 16px; }
+  .hero-text h1 { font-size: 1.8rem; }
+  .ap-hero-title { font-size: 1.6rem; }
+  .ap-hero-img img { max-height: 220px; }
+}
+
+/* ===== MOBILE-FIRST (iPhone) ===== */
+@media (max-width: 430px) {
+  /* Navbar */
+  .navbar { padding: 0 12px; height: 52px; }
+  .logo { font-size: 1.1rem; }
+  .nav-links { display: none !important; }
+
+  /* Hero principal */
+  .hero { padding: 24px 16px; min-height: auto; }
+  .hero-text h1 { font-size: 1.6rem; line-height: 1.15; }
+  .hero-sub { font-size: 0.85rem; }
+  .hero-badges { gap: 6px; flex-wrap: wrap; }
+  .hero-badge { font-size: 0.65rem; padding: 4px 8px; }
+  .hero-ctas { flex-direction: column; gap: 10px; }
+  .hero-ctas a { width: 100%; text-align: center; padding: 14px 20px; font-size: 0.9rem; }
+
+  /* Urgency bar */
+  .urgency-bar { padding: 8px 12px; gap: 8px; font-size: 0.7rem; flex-wrap: wrap; justify-content: center; }
+
+  /* Product grid */
+  .product-grid { grid-template-columns: 1fr; gap: 14px; padding: 0 4px; }
+  .product-image { height: 280px; padding: 12px; }
+  .product-image img { max-height: 220px !important; max-width: 65% !important; }
+  .product-image img.carousel-active { transform: scale(1.2) translateX(0) !important; }
+  .product-image img.carousel-prev { transform: scale(0.5) translateX(-100%) !important; }
+  .product-image img.carousel-next { transform: scale(0.5) translateX(100%) !important; }
+  .product-info { padding: 16px; }
+  .product-name { font-size: 1.05rem; }
+  .product-price { font-size: 1.4rem; }
+
+  /* Section titles */
+  .section-title { font-size: 1.6rem; }
+  .section-sub { font-size: 0.85rem; }
+  section { padding: 40px 16px; }
+
+  /* Detail view */
+  .product-detail-view { overflow-x: hidden; }
+  .ap-nav { padding: 0 12px; height: 48px; }
+  .ap-nav-series { font-size: 0.8rem; }
+  .ap-nav-wa span { display: none; }
+  .ap-nav-wa { padding: 6px 8px; }
+
+  /* Detail hero */
+  .ap-hero { padding: 10px 16px 0; }
+  .ap-hero-title { font-size: 1.5rem !important; }
+  .ap-hero-sub { font-size: 0.85rem; margin-bottom: 8px; }
+  .ap-hero-img { min-height: 220px !important; padding: 0 12px 8px; }
+  .ap-hero-img img { max-height: 200px !important; max-width: 200px; }
+  .ap-hero-img::before { width: 200px; height: 200px; }
+
+  /* Showcase */
+  .ap-showcase { padding: 4px 0; }
+  .ap-showcase-inner { padding: 0 12px; }
+  .ap-showcase-layout { grid-template-columns: 1fr !important; gap: 12px; }
+  .ap-showcase-media { max-height: 300px; }
+  .ap-showcase-media video { max-height: 300px; }
+  .ap-compare { padding: 12px !important; }
+  .ap-compare-header { margin-bottom: 10px; padding-bottom: 8px; }
+  .ap-spec-row { padding: 8px 0; }
+  .ap-spec-bar-name { width: 50px; font-size: 0.65rem; }
+
+  /* Gallery */
+  .ap-gallery-section { padding: 2px 0; }
+  .ap-gallery-scroll { gap: 8px; }
+  .ap-gallery-item img { height: 140px !important; }
+
+  /* Sections inner */
+  .ap-section-inner { padding: 12px 16px !important; }
+
+  /* Color picker */
+  .ap-color-swatch { width: 28px; height: 28px; }
+  .ap-color-picker { gap: 10px; }
+
+  /* Model picker */
+  .ap-model-btn { padding: 8px 10px; }
+  .ap-model-name { font-size: 0.9rem; }
+  .ap-model-from { font-size: 0.78rem; }
+
+  /* Storage */
+  .ap-storage-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)) !important; gap: 6px; }
+  .ap-storage-btn { padding: 8px 6px; border-radius: 10px; }
+  .ap-storage-size { font-size: 0.95rem; }
+  .ap-storage-price { font-size: 0.72rem; }
+
+  /* CTA Card */
+  .ap-cta-card { padding: 18px 16px; border-radius: 16px; }
+  .ap-cta-header-icon { width: 32px; height: 32px; }
+  .ap-cta-header-text { font-size: 0.88rem; }
+  .ap-cta-price-val { font-size: 1.5rem !important; }
+  .ap-cta-btn { padding: 13px 20px; font-size: 0.92rem; border-radius: 12px; }
+  .ap-cta-trust { gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .ap-cta-trust-item { font-size: 0.68rem; }
+
+  /* Features */
+  .ap-features-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 4px; }
+  .ap-feat { padding: 6px 4px; }
+  .ap-feat-icon { width: 24px; height: 24px; margin-bottom: 3px; }
+  .ap-feat-title { font-size: 0.75rem; }
+  .ap-feat-desc { font-size: 0.65rem; }
+
+  /* Certification grid */
+  .cert-grid { grid-template-columns: 1fr !important; gap: 8px; }
+
+  /* Counter */
+  .counter-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+
+  /* Trade-in */
+  .trade-steps { flex-direction: column; }
+
+  /* Reviews */
+  .reviews-grid { grid-template-columns: 1fr; }
+
+  /* Footer */
+  .footer-links { flex-direction: column; gap: 12px; padding: 12px 16px; }
+  .footer-bottom { flex-direction: column; gap: 6px; padding: 12px 16px; }
+
+  /* WhatsApp float */
+  .whatsapp-float { bottom: 16px; right: 16px; }
+  .wa-btn { width: 52px; height: 52px; }
+  .wa-tooltip { display: none; }
+
+  /* Lightbox */
+  .ap-lightbox img { max-width: 95vw; max-height: 80vh; }
+  .ap-lightbox-nav { width: 36px; height: 36px; font-size: 1.1rem; }
+  .ap-lightbox-nav.prev { left: 8px; }
+  .ap-lightbox-nav.next { right: 8px; }
+}
+
+/* iPhone SE / small phones */
+@media (max-width: 375px) {
+  .product-image { height: 240px; }
+  .product-image img { max-height: 180px !important; }
+  .ap-hero-img { min-height: 180px !important; }
+  .ap-hero-img img { max-height: 170px !important; }
+  .ap-cta-price-val { font-size: 1.3rem !important; }
+  .ap-cta-btn { font-size: 0.85rem; padding: 12px 16px; }
+  .ap-features-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .hero-text h1 { font-size: 1.4rem; }
+}
+
+/* Ensure touch targets are at least 44px (Apple HIG) */
+@media (pointer: coarse) {
+  .ap-color-swatch { min-width: 44px; min-height: 44px; }
+  .ap-model-btn { min-height: 48px; }
+  .ap-storage-btn { min-height: 48px; }
+  .carousel-dot { min-width: 12px; min-height: 12px; }
+  .ap-nav-back { min-width: 44px; min-height: 44px; }
+  .ap-lightbox-nav { min-width: 44px; min-height: 44px; }
+  .ap-cta-btn { min-height: 50px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="#" class="logo">Alpha<span>Phone</span></a>
+  <div class="nav-links">
+    <a href="#produtos">iPhones</a>
+    <a href="#certificacao">Certificação</a>
+    <a href="#trade-in">Venda o Seu</a>
+    <a href="#depoimentos">Depoimentos</a>
+    <a href="#faq">Dúvidas</a>
+  </div>
+  <a href="https://wa.me/5511999999999?text=Oi!%20Quero%20saber%20mais%20sobre%20os%20iPhones" class="nav-cta">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.592-.838-6.313-2.236l-.44-.363-2.893.97.97-2.893-.363-.44A9.953 9.953 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+    Chamar no WhatsApp
+  </a>
+</nav>
+
+<!-- VIDEO BANNER — iPhone 17e -->
+<section class="video-banner">
+  <video autoplay muted playsinline loop>
+    <source src="img/iphone17e-hero.mp4" type="video/mp4">
+  </video>
+</section>
+
+<!-- TRANSITION STRIP -->
+<div class="video-transition">
+  <div class="vt-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <span><strong>Garantia</strong> de até 12 meses</span>
+  </div>
+  <div class="vt-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+    <span><strong>50 pontos</strong> de certificação</span>
+  </div>
+  <div class="vt-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+    <span><strong>Frete grátis</strong> Zona Leste SP</span>
+  </div>
+  <div class="vt-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+    <span><strong>12x</strong> sem juros no cartão</span>
+  </div>
+  <div class="vt-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+    <span><strong>Nota fiscal</strong> garantida</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>
+        <span class="line">Seu próximo iPhone</span>
+        <span class="line">com <span class="accent">garantia real</span></span>
+        <span class="line">e preço justo.</span>
+      </h1>
+      <p class="hero-sub">
+        Novos e seminovos certificados com inspeção de 50 pontos, garantia de até 12 meses e atendimento consultivo. No Tatuapé ou entregamos na sua casa.
+      </p>
+      <div class="hero-badges">
+        <div class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+          Certificação 50 pontos
+        </div>
+        <div class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Garantia estendida
+        </div>
+        <div class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          12x sem juros
+        </div>
+      </div>
+      <div class="hero-ctas">
+        <a href="#produtos" class="btn-primary">
+          Ver iPhones disponíveis
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://wa.me/5511999999999?text=Quero%20vender%20meu%20iPhone" class="btn-secondary">Vender meu iPhone</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-phone-img"><img src="img/hero-iphone.png" alt="iPhone 16 Pro Max" loading="eager"></div>
+      <div class="floating-tag tag1">Bateria 100%</div>
+      <div class="floating-tag tag2">IMEI Verificado</div>
+      <div class="floating-tag tag3">Nota Fiscal</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- COUNTERS -->
+<div class="counter-section">
+  <div class="counter-grid">
+    <div class="counter-item">
+      <div class="counter-num" data-target="2847">0</div>
+      <div class="counter-label">iPhones vendidos</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-num" data-target="98">0</div>
+      <div class="counter-label">% satisfação (NPS)</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-num" data-target="50">0</div>
+      <div class="counter-label">pontos de verificação</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-num" data-target="12">0</div>
+      <div class="counter-label">meses de garantia</div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products" id="produtos">
+  <div class="section-header">
+    <div class="section-label">Estoque atualizado</div>
+    <h2 class="section-title">iPhones disponíveis agora</h2>
+    <p class="section-subtitle">Cada aparelho passou pela nossa certificação de 50 pontos. Se não aprovado, não entra no catálogo.</p>
+  </div>
+  <div class="product-grid" id="productGrid">
+    <!-- Products injected by JS -->
+  </div>
+</section>
+
+<!-- CERTIFICATION -->
+<section class="certification" id="certificacao">
+  <div class="section-header">
+    <div class="section-label" style="color: rgba(255,255,255,0.5);">Por que confiar na Alpha Phone</div>
+    <h2 class="section-title" style="color: var(--white);">Certificação de 50 pontos</h2>
+    <p class="section-subtitle" style="color: rgba(255,255,255,0.5);">Nosso processo de inspeção é mais rigoroso que o da maioria das revendas autorizadas.</p>
+  </div>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <div class="cert-number">10</div>
+      <div class="cert-label">Hardware Externo</div>
+      <div class="cert-desc">Tela, chassi, botões, câmera, alto-falantes — zero defeito</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-number">10</div>
+      <div class="cert-label">Hardware Interno</div>
+      <div class="cert-desc">Bateria >85%, placa, sensores, Face ID, NFC testados</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-number">10</div>
+      <div class="cert-label">Software</div>
+      <div class="cert-desc">iOS atualizado, iCloud livre, IMEI limpo, Buscar desativado</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-number">10</div>
+      <div class="cert-label">Conectividade</div>
+      <div class="cert-desc">Wi-Fi, Bluetooth, 5G, GPS, chamadas — tudo funcional</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-number">10</div>
+      <div class="cert-label">Procedência</div>
+      <div class="cert-desc">NF original, verificação ANATEL, histórico de reparo</div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="social-proof" id="depoimentos">
+  <div class="section-header">
+    <div class="section-label">Prova social</div>
+    <h2 class="section-title">O que nossos clientes dizem</h2>
+    <p class="section-subtitle">Cada depoimento é real. Cada cliente, verificado.</p>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Comprei um iPhone 15 Pro seminovo e veio impecável. Bateria com 94% de saúde, zero risco. O atendimento no WhatsApp foi absurdo de rápido.</p>
+      <div class="review-author">
+        <div class="review-avatar">RM</div>
+        <div>
+          <div class="review-name">Rafael M.</div>
+          <div class="review-detail">iPhone 15 Pro 256GB — Tatuapé</div>
+          <div class="review-verified">✓ Compra verificada</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Terceiro iPhone que compro aqui. Já indiquei pra toda minha família. A diferença é o certificado de 50 pontos — você sabe exatamente o que tá levando.</p>
+      <div class="review-author">
+        <div class="review-avatar">CS</div>
+        <div>
+          <div class="review-name">Camila S.</div>
+          <div class="review-detail">iPhone 16 128GB — Mooca</div>
+          <div class="review-verified">✓ Compra verificada</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Comprei 4 iPhones pro meu salão. Atendimento empresarial nota 10, nota fiscal certinha, e ainda me deram condição especial. Recomendo demais.</p>
+      <div class="review-author">
+        <div class="review-avatar">LO</div>
+        <div>
+          <div class="review-name">Lucas O.</div>
+          <div class="review-detail">4x iPhone 14 128GB — Anália Franco</div>
+          <div class="review-verified">✓ Compra verificada</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRADE-IN -->
+<section class="trade-in" id="trade-in">
+  <div class="trade-content">
+    <div class="section-label" style="color: rgba(255,255,255,0.7);">Trade-in Alpha Phone</div>
+    <h2>Seu iPhone atual vale dinheiro</h2>
+    <p>Traga seu iPhone antigo e use como entrada no novo. Avaliamos na hora, pagamos o melhor preço do mercado.</p>
+    <div class="trade-steps">
+      <div class="trade-step">
+        <div class="trade-step-num">01</div>
+        <div class="trade-step-text">Manda foto do seu iPhone no WhatsApp</div>
+      </div>
+      <div class="trade-step">
+        <div class="trade-step-num">02</div>
+        <div class="trade-step-text">Recebe avaliação em até 15 minutos</div>
+      </div>
+      <div class="trade-step">
+        <div class="trade-step-num">03</div>
+        <div class="trade-step-text">Use como entrada ou receba via Pix</div>
+      </div>
+    </div>
+    <a href="https://wa.me/5511999999999?text=Quero%20avaliar%20meu%20iPhone%20para%20trade-in" class="btn-white">
+      Avaliar meu iPhone agora
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="section-header">
+    <div class="section-label">Dúvidas frequentes</div>
+    <h2 class="section-title">Tudo que você precisa saber</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-question">Como funciona a garantia de até 12 meses? <span>+</span></button>
+      <div class="faq-answer">Todos os iPhones novos lacrados acompanham garantia Apple de 12 meses. Os seminovos certificados têm garantia Alpha Phone de 3 a 6 meses cobrindo defeitos de fabricação, bateria e componentes internos. Se der problema, trocamos ou devolvemos seu dinheiro.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">O que é a certificação de 50 pontos? <span>+</span></button>
+      <div class="faq-answer">É nossa inspeção proprietária que verifica 50 itens do aparelho: tela, bateria, sensores, câmeras, conectividade, IMEI, procedência, software e muito mais. Só aparelhos aprovados em todos os 50 pontos entram no nosso catálogo. Se reprovou em um, não vendemos.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Como sei que o iPhone não é roubado? <span>+</span></button>
+      <div class="faq-answer">Verificamos IMEI em bases nacionais e internacionais, conferimos nota fiscal original, checamos se o iCloud está desbloqueado e se o Buscar iPhone está desativado. Além disso, emitimos nota fiscal própria na venda para sua total segurança jurídica.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Vocês parcelam em quantas vezes? <span>+</span></button>
+      <div class="faq-answer">Até 12x sem juros no cartão de crédito (Visa, Mastercard, Elo, Amex). No Pix, você ganha até 15% de desconto. Também aceitamos dois cartões para dividir o valor.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Entregam no meu endereço? <span>+</span></button>
+      <div class="faq-answer">Sim! Frete grátis para toda a Zona Leste de SP (Tatuapé, Mooca, Anália Franco, Vila Formosa, Penha, Carrão). Para outras regiões de SP e Brasil, cobramos frete com rastreamento. Entrega em 1-3 dias úteis.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Posso retirar pessoalmente? <span>+</span></button>
+      <div class="faq-answer">Claro! Nosso studio fica no Tatuapé. Agende pelo WhatsApp e retire no mesmo dia. Testamos o aparelho junto com você antes da entrega.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Pronto para o seu <span class="accent">próximo iPhone</span>?</h2>
+  <p>Fale com um consultor agora. Sem pressão, sem robô. Pessoa real, resposta em 3 minutos.</p>
+  <a href="https://wa.me/5511999999999?text=Oi!%20Quero%20saber%20sobre%20os%20iPhones%20dispon%C3%ADveis" class="btn-primary">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.592-.838-6.313-2.236l-.44-.363-2.893.97.97-2.893-.363-.44A9.953 9.953 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+    Chamar consultor no WhatsApp
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand-area">
+      <div class="logo">Alpha<span>Phone</span></div>
+      <span class="footer-tagline">iPhones certificados no Tatuapé</span>
+    </div>
+    <div class="footer-social">
+      <a href="#" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+      <a href="https://wa.me/5511999999999" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.592-.838-6.313-2.236l-.44-.363-2.893.97.97-2.893-.363-.44A9.953 9.953 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="footer-links">
+    <a href="#produtos">iPhones</a>
+    <a href="#certificacao">Certificação 50 pts</a>
+    <a href="#trade-in">Venda o Seu</a>
+    <a href="#depoimentos">Depoimentos</a>
+    <a href="#faq">Dúvidas</a>
+    <a href="#">Garantia</a>
+    <a href="#">Trocas</a>
+  </div>
+  <div class="footer-bottom">
+    <span>Alpha Phone © 2026 — CNPJ: XX.XXX.XXX/0001-XX</span>
+    <span class="footer-location">
+      <svg viewBox="0 0 24 24" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Tatuapé, São Paulo — Seg a Sáb 9h–19h
+    </span>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<div class="whatsapp-float">
+  <a href="https://wa.me/5511999999999?text=Oi!%20Vi%20no%20site%20e%20quero%20saber%20mais" class="wa-btn">
+    <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.592-.838-6.313-2.236l-.44-.363-2.893.97.97-2.893-.363-.44A9.953 9.953 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+  </a>
+</div>
+
+<!-- PRODUCT DETAIL VIEW — Apple-style -->
+<div class="product-detail-view" id="productDetailView">
+
+  <!-- Top nav bar -->
+  <div class="ap-nav">
+    <button class="ap-nav-back" onclick="closeSeries()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="ap-nav-center">
+      <span class="ap-nav-series" id="apNavSeries">iPhone 16</span>
+      <span class="ap-nav-badge" id="apNavBadge">Certificado</span>
+    </div>
+    <div class="ap-nav-right">
+      <a class="ap-nav-wa" id="apNavWa" href="#">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.592-.838-6.313-2.236l-.44-.363-2.893.97.97-2.893-.363-.44A9.953 9.953 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+        <span>Consultor</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- SECTION 1: Hero (hidden elements kept for JS) -->
+  <div style="display:none">
+    <span id="apHeroLabel"></span>
+    <span id="apHeroTitle"></span>
+    <span id="apHeroSub"></span>
+    <img id="pdvImage" src="" alt="">
+  </div>
+
+  <!-- Showcase: Video/Placeholder + Comparison (all models) -->
+  <section class="ap-showcase" id="apShowcase">
+    <div class="ap-showcase-inner">
+      <div class="ap-showcase-layout">
+        <div class="ap-showcase-media placeholder" id="apShowcaseMedia">
+          <img id="apShowcaseImg" src="" alt="">
+          <video autoplay muted playsinline loop id="apShowcaseVideo" style="display:none">
+            <source id="apShowcaseVideoSrc" src="" type="video/mp4">
+          </video>
+          <div class="ap-showcase-play">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="ap-compare" id="apCompare"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Gallery -->
+  <section class="ap-section ap-gallery-section">
+    <div class="ap-section-inner">
+      <p class="ap-gallery-label">Galeria</p>
+      <div class="ap-gallery-scroll" id="apGalleryScroll"></div>
+      <div class="ap-gallery-dots" id="apGalleryDots"></div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="ap-lightbox" id="apLightbox" onclick="if(event.target===this)closeLightbox()">
+    <button class="ap-lightbox-close" onclick="closeLightbox()">✕</button>
+    <button class="ap-lightbox-nav prev" onclick="navLightbox(-1)">‹</button>
+    <img id="apLightboxImg" src="" alt="">
+    <button class="ap-lightbox-nav next" onclick="navLightbox(1)">›</button>
+  </div>
+
+  <!-- Color picker — Apple style -->
+  <section class="ap-section ap-colors-section">
+    <div class="ap-section-inner">
+      <p class="ap-label">Acabamento.</p>
+      <p class="ap-color-active-name" id="apColorName">—</p>
+      <div class="ap-color-picker" id="pdvColorPicker"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Model selector -->
+  <section class="ap-section ap-model-section">
+    <div class="ap-section-inner">
+      <p class="ap-label">Modelo.</p>
+      <div class="ap-model-grid" id="pdvVariantPicker"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Storage -->
+  <section class="ap-section ap-storage-section">
+    <div class="ap-section-inner">
+      <p class="ap-label">Armazenamento. <span class="ap-label-light">Quanto espaço você precisa?</span></p>
+      <div class="ap-storage-grid" id="pdvStorageSelector"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: CTA Card Premium -->
+  <section class="ap-section ap-cta-section">
+    <div class="ap-section-inner">
+      <div class="ap-cta-card">
+        <div class="ap-cta-header">
+          <div class="ap-cta-header-icon">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+          </div>
+          <div>
+            <div class="ap-cta-header-text">Fale com um especialista</div>
+            <div class="ap-cta-header-sub">Resposta em até 5 minutos</div>
+          </div>
+        </div>
+        <div class="ap-cta-price-row">
+          <span class="ap-cta-price-val" id="pdvPriceCurrent"></span>
+          <span class="ap-cta-price-badge" id="pdvDiscount"></span>
+        </div>
+        <div class="ap-cta-price-detail">
+          <span id="pdvPricePix"></span> · <span id="pdvInstallment" style="color:rgba(255,255,255,0.45);font-weight:400"></span>
+          <div style="margin-top:3px"><span id="pdvPriceOld" style="text-decoration:line-through;color:rgba(255,255,255,0.3);font-size:0.8rem"></span></div>
+        </div>
+        <a id="pdvCta" class="ap-cta-btn" href="#">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+          Quero esse — Chamar no WhatsApp
+        </a>
+        <div class="ap-cta-trust">
+          <div class="ap-cta-trust-item">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Garantia real
+          </div>
+          <div class="ap-cta-trust-item">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Certificado
+          </div>
+          <div class="ap-cta-trust-item">
+            <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            12x sem juros
+          </div>
+        </div>
+      </div>
+      <a class="ap-cta-secondary" href="#certificacao" onclick="closeSeries()">Saiba mais sobre certificação</a>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Features grid — like Apple's specs -->
+  <section class="ap-section ap-features-section">
+    <div class="ap-section-inner">
+      <div class="ap-features-grid">
+        <div class="ap-feat">
+          <div class="ap-feat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="ap-feat-title">Garantia</div>
+          <div class="ap-feat-desc">Até 12 meses de garantia real</div>
+        </div>
+        <div class="ap-feat">
+          <div class="ap-feat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+          </div>
+          <div class="ap-feat-title">Certificação 50 pts</div>
+          <div class="ap-feat-desc">Inspeção mais rigorosa que revenda autorizada</div>
+        </div>
+        <div class="ap-feat">
+          <div class="ap-feat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </div>
+          <div class="ap-feat-title">12x sem juros</div>
+          <div class="ap-feat-desc">No cartão de crédito</div>
+        </div>
+        <div class="ap-feat">
+          <div class="ap-feat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="6" width="18" height="12" rx="2"/><line x1="23" y1="10" x2="23" y2="14"/></svg>
+          </div>
+          <div class="ap-feat-title" id="pdvBatteryText">Bateria ≥85%</div>
+          <div class="ap-feat-desc">Testada e certificada</div>
+        </div>
+        <div class="ap-feat">
+          <div class="ap-feat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <div class="ap-feat-title">Frete grátis</div>
+          <div class="ap-feat-desc">Zona Leste de São Paulo</div>
+        </div>
+        <div class="ap-feat">
+          <div class="ap-feat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="ap-feat-title">Nota Fiscal</div>
+          <div class="ap-feat-desc">NF original + IMEI limpo + ANATEL</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</div>
+
+<script>
+// ===== FORCE SCROLL TO TOP ON RELOAD =====
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+window.addEventListener('beforeunload', function() { window.scrollTo(0, 0); });
+window.addEventListener('load', function() { window.scrollTo(0, 0); });
+
+// ===== SERIES DATABASE =====
+const SERIES = {
+  12: {
+    name: "iPhone 12",
+    img: "img/apple-iphone-12-black.png",
+    imgs: ["img/apple-iphone-12-black.png", "img/apple-iphone-12-blue.png", "img/apple-iphone-12-green.png"],
+    gallery: ["img/apple-iphone-12-black.png","img/apple-iphone-12-blue.png","img/apple-iphone-12-green.png","img/apple-iphone-12-purple.png","img/apple-iphone-12-red.png","img/apple-iphone-12-white.png"],
+    variants: {
+      mini: {
+        name: "12 mini",
+        screen: "5.4\"",
+        chip: "A14 Bionic",
+        storage: ["64GB", "128GB", "256GB"],
+        gallery: ["img/gallery-12mini-colors.png"],
+        colors: [
+          { name: "Black", hex: "#1C1C1E", img: "img/apple-iphone-12-black.png" },
+          { name: "White", hex: "#F5F5F0", img: "img/apple-iphone-12-white.png" },
+          { name: "Red", hex: "#BF0013", img: "img/apple-iphone-12-red.png" },
+          { name: "Green", hex: "#ADE0C0", img: "img/apple-iphone-12-green.png" },
+          { name: "Blue", hex: "#5B7B9C", img: "img/apple-iphone-12-blue.png" },
+          { name: "Purple", hex: "#C8B5D3", img: "img/apple-iphone-12-purple.png" }
+        ],
+        basePrice: 1799
+      },
+      standard: {
+        name: "12",
+        screen: "6.1\"",
+        chip: "A14 Bionic",
+        storage: ["64GB", "128GB", "256GB"],
+        gallery: ["img/gallery-12-colors.png"],
+        colors: [
+          { name: "Black", hex: "#1C1C1E", img: "img/apple-iphone-12-black.png" },
+          { name: "White", hex: "#F5F5F0", img: "img/apple-iphone-12-white.png" },
+          { name: "Red", hex: "#BF0013", img: "img/apple-iphone-12-red.png" },
+          { name: "Green", hex: "#ADE0C0", img: "img/apple-iphone-12-green.png" },
+          { name: "Blue", hex: "#5B7B9C", img: "img/apple-iphone-12-blue.png" },
+          { name: "Purple", hex: "#C8B5D3", img: "img/apple-iphone-12-purple.png" }
+        ],
+        basePrice: 2199
+      },
+      pro: {
+        name: "12 Pro",
+        screen: "6.1\"",
+        chip: "A14 Bionic",
+        storage: ["128GB", "256GB", "512GB"],
+        gallery: ["img/gallery-12pro-colors.jpg"],
+        colors: [
+          { name: "Graphite", hex: "#8A8A8E", img: "img/apple-iphone-12-black.png" },
+          { name: "Silver", hex: "#C0C0C0", img: "img/apple-iphone-12-white.png" },
+          { name: "Gold", hex: "#F4E0C2", img: "img/apple-iphone-12-white.png" },
+          { name: "Pacific Blue", hex: "#2B4E6E", img: "img/apple-iphone-12-blue.png" }
+        ],
+        basePrice: 2699
+      },
+      proMax: {
+        name: "12 Pro Max",
+        screen: "6.7\"",
+        chip: "A14 Bionic",
+        storage: ["128GB", "256GB", "512GB"],
+        heroVideo: "img/iphone12promax-hero.mp4",
+        gallery: ["img/gallery-12promax-colors.jpg"],
+        colors: [
+          { name: "Graphite", hex: "#8A8A8E", img: "img/apple-iphone-12-black.png" },
+          { name: "Silver", hex: "#C0C0C0", img: "img/apple-iphone-12-white.png" },
+          { name: "Gold", hex: "#F4E0C2", img: "img/apple-iphone-12-white.png" },
+          { name: "Pacific Blue", hex: "#2B4E6E", img: "img/apple-iphone-12-blue.png" }
+        ],
+        basePrice: 3299
+      }
+    }
+  },
+  13: {
+    name: "iPhone 13",
+    img: "img/apple-iphone-13-midnight.png",
+    imgs: ["img/apple-iphone-13-midnight.png", "img/apple-iphone-13-pink.png", "img/apple-iphone-13-blue.png"],
+    gallery: ["img/apple-iphone-13-midnight.png","img/apple-iphone-13-pink.png","img/apple-iphone-13-blue.png","img/apple-iphone-13-green.png","img/apple-iphone-13-starlight.png"],
+    variants: {
+      mini: {
+        name: "13 mini",
+        screen: "5.4\"",
+        chip: "A15 Bionic",
+        storage: ["128GB", "256GB", "512GB"],
+        heroVideo: "img/iphone13mini-hero.mp4",
+        gallery: ["img/gallery-13mini-colors.png"],
+        colors: [
+          { name: "Midnight", hex: "#1C1C1E", img: "img/apple-iphone-13-midnight.png" },
+          { name: "Starlight", hex: "#F5F5F0", img: "img/apple-iphone-13-starlight.png" },
+          { name: "Blue", hex: "#5B7B9C", img: "img/apple-iphone-13-blue.png" },
+          { name: "Pink", hex: "#F9CEC7", img: "img/apple-iphone-13-pink.png" },
+          { name: "Green", hex: "#ADE0C0", img: "img/apple-iphone-13-green.png" }
+        ],
+        basePrice: 2199
+      },
+      standard: {
+        name: "13",
+        screen: "6.1\"",
+        chip: "A15 Bionic",
+        storage: ["128GB", "256GB", "512GB"],
+        gallery: ["img/gallery-13-colors.png"],
+        colors: [
+          { name: "Midnight", hex: "#1C1C1E", img: "img/apple-iphone-13-midnight.png" },
+          { name: "Starlight", hex: "#F5F5F0", img: "img/apple-iphone-13-starlight.png" },
+          { name: "Blue", hex: "#5B7B9C", img: "img/apple-iphone-13-blue.png" },
+          { name: "Pink", hex: "#F9CEC7", img: "img/apple-iphone-13-pink.png" },
+          { name: "Green", hex: "#ADE0C0", img: "img/apple-iphone-13-green.png" }
+        ],
+        basePrice: 2699
+      },
+      pro: {
+        name: "13 Pro",
+        screen: "6.1\"",
+        chip: "A15 Bionic",
+        storage: ["128GB", "256GB", "512GB", "1TB"],
+        heroVideo: "img/iphone13pro-hero.mp4",
+        gallery: ["img/gallery-13pro-colors.png"],
+        colors: [
+          { name: "Graphite", hex: "#8A8A8E", img: "img/apple-iphone-13-midnight.png" },
+          { name: "Silver", hex: "#C0C0C0", img: "img/apple-iphone-13-starlight.png" },
+          { name: "Gold", hex: "#F4E0C2", img: "img/apple-iphone-13-pink.png" },
+          { name: "Sierra Blue", hex: "#A7C1D9", img: "img/apple-iphone-13-blue.png" }
+        ],
+        basePrice: 3299
+      },
+      proMax: {
+        name: "13 Pro Max",
+        screen: "6.7\"",
+        chip: "A15 Bionic",
+        storage: ["128GB", "256GB", "512GB", "1TB"],
+        gallery: ["img/gallery-13promax-colors.png"],
+        colors: [
+          { name: "Graphite", hex: "#8A8A8E", img: "img/apple-iphone-13-midnight.png" },
+          { name: "Silver", hex: "#C0C0C0", img: "img/apple-iphone-13-starlight.png" },
+          { name: "Gold", hex: "#F4E0C2", img: "img/apple-iphone-13-pink.png" },
+          { name: "Sierra Blue", hex: "#A7C1D9", img: "img/apple-iphone-13-blue.png" }
+        ],
+        basePrice: 3999
+      }
+    }
+  },
+  14: {
+    name: "iPhone 14",
+    img: "img/apple-iphone-14-purple.png",
+    imgs: ["img/apple-iphone-14-purple.png", "img/apple-iphone-14-blue.png", "img/apple-iphone-14-starlight.png"],
+    gallery: ["img/gallery-14-view1.png","img/apple-iphone-14-purple.png","img/gallery-14-view2.png","img/apple-iphone-14-blue.png","img/apple-iphone-14-starlight.png"],
+    variants: {
+      standard: {
+        name: "14",
+        screen: "6.1\"",
+        chip: "A15 Bionic",
+        storage: ["128GB", "256GB", "512GB"],
+        heroVideo: "img/iphone14-hero.mp4",
+        gallery: ["img/gallery-14-1.png","img/gallery-14-2.png","img/gallery-14-colors.png"],
+        colors: [
+          { name: "Midnight", hex: "#1C1C1E", img: "img/apple-iphone-14-blue.png" },
+          { name: "Starlight", hex: "#F5F5F0", img: "img/apple-iphone-14-blue.png" },
+          { name: "Red", hex: "#BF0013", img: "img/apple-iphone-14-blue.png" },
+          { name: "Blue", hex: "#5B7B9C", img: "img/apple-iphone-14-blue.png" },
+          { name: "Purple", hex: "#C8B5D3", img: "img/apple-iphone-14-purple.png" },
+          { name: "Yellow", hex: "#F9E878", img: "img/apple-iphone-14-starlight.png" }
+        ],
+        basePrice: 2499
+      },
+      plus: {
+        name: "14 Plus",
+        screen: "6.7\"",
+        chip: "A15 Bionic",
+        storage: ["128GB", "256GB", "512GB"],
+        gallery: ["img/gallery-14plus-colors.png","img/gallery-14-1.png","img/gallery-14-2.png"],
+        colors: [
+          { name: "Midnight", hex: "#1C1C1E", img: "img/apple-iphone-14-blue.png" },
+          { name: "Starlight", hex: "#F5F5F0", img: "img/apple-iphone-14-blue.png" },
+          { name: "Red", hex: "#BF0013", img: "img/apple-iphone-14-blue.png" },
+          { name: "Blue", hex: "#5B7B9C", img: "img/apple-iphone-14-blue.png" },
+          { name: "Purple", hex: "#C8B5D3", img: "img/apple-iphone-14-purple.png" },
+          { name: "Yellow", hex: "#F9E878", img: "img/apple-iphone-14-starlight.png" }
+        ],
+        basePrice: 2999
+      },
+      pro: {
+        name: "14 Pro",
+        screen: "6.1\"",
+        chip: "A16 Bionic",
+        storage: ["128GB", "256GB", "512GB", "1TB"],
+        heroVideo: "img/iphone14pro-hero.mp4",
+        gallery: ["img/gallery-14pro-1.png","img/gallery-14pro-2.png","img/gallery-14pro-colors.png"],
+        colors: [
+          { name: "Space Black", hex: "#3A3A3C", img: "img/apple-iphone-14-blue.png" },
+          { name: "Silver", hex: "#8A8A8E", img: "img/apple-iphone-14-starlight.png" },
+          { name: "Gold", hex: "#F4E0C2", img: "img/apple-iphone-14-starlight.png" },
+          { name: "Deep Purple", hex: "#59476B", img: "img/apple-iphone-14-starlight.png" }
+        ],
+        basePrice: 3999
+      },
+      proMax: {
+        name: "14 Pro Max",
+        screen: "6.7\"",
+        chip: "A16 Bionic",
+        storage: ["128GB", "256GB", "512GB", "1TB"],
+        gallery: ["img/gallery-14promax-colors.png","img/gallery-14pro-1.png","img/gallery-14pro-2.png"],
+        colors: [
+          { name: "Space Black", hex: "#3A3A3C", img: "img/apple-iphone-14-blue.png" },
+          { name: "Silver", hex: "#8A8A8E", img: "img/apple-iphone-14-starlight.png" },
+          { name: "Gold", hex: "#F4E0C2", img: "img/apple-iphone-14-starlight.png" },
+          { name: "Deep Purple", hex: "#59476B", img: "img/apple-iphone-14-starlight.png" }
+        ],
+        basePrice: 5499
+      }
+    }
+  },
+  15: {
+    name: "iPhone 15",
+    img: "img/apple-iphone-15-blue.png",
+    imgs: ["img/apple-iphone-15-blue.png", "img/apple-iphone-15-pink.png", "img/apple-iphone-15-black.png"],
+    gallery: ["img/gallery-15-view1.png","img/apple-iphone-15-blue.png","img/gallery-15-view2.png","img/apple-iphone-15-pink.png","img/apple-iphone-15-black.png","img/apple-iphone-15-yellow.png"],
+    variants: {
+      standard: {
+        name: "15",
+        screen: "6.1\"",
+        chip: "A16 Bionic",
+        storage: ["128GB", "256GB", "512GB"],
+        gallery: ["img/gallery-15-1.png","img/gallery-15-2.png","img/gallery-15-hero.png","img/gallery-15-colors.png"],
+        colors: [
+          { name: "Black", hex: "#1C1C1E", img: "img/apple-iphone-15-black.png" },
+          { name: "Blue", hex: "#5B7B9C", img: "img/apple-iphone-15-blue.png" },
+          { name: "Green", hex: "#ADE0C0", img: "img/apple-iphone-15-yellow.png" },
+          { name: "Yellow", hex: "#F9E878", img: "img/apple-iphone-15-yellow.png" },
+          { name: "Pink", hex: "#F9CEC7", img: "img/apple-iphone-15-pink.png" }
+        ],
+        basePrice: 3299
+      },
+      plus: {
+        name: "15 Plus",
+        screen: "6.7\"",
+        chip: "A16 Bionic",
+        storage: ["128GB", "256GB", "512GB"],
+        gallery: ["img/gallery-15plus-colors.png","img/gallery-15plus-hero.png","img/gallery-15-1.png","img/gallery-15-2.png"],
+        colors: [
+          { name: "Black", hex: "#1C1C1E", img: "img/apple-iphone-15-black.png" },
+          { name: "Blue", hex: "#5B7B9C", img: "img/apple-iphone-15-blue.png" },
+          { name: "Green", hex: "#ADE0C0", img: "img/apple-iphone-15-yellow.png" },
+          { name: "Yellow", hex: "#F9E878", img: "img/apple-iphone-15-yellow.png" },
+          { name: "Pink", hex: "#F9CEC7", img: "img/apple-iphone-15-pink.png" }
+        ],
+        basePrice: 3999
+      },
+      pro: {
+        name: "15 Pro",
+        screen: "6.1\"",
+        chip: "A17 Pro",
+        storage: ["128GB", "256GB", "512GB", "1TB"],
+        gallery: ["img/gallery-15pro-1.png","img/gallery-15pro-2.png","img/gallery-15pro-colors.png"],
+        colors: [
+          { name: "Natural Titanium", hex: "#A09484", img: "img/apple-iphone-15-yellow.png" },
+          { name: "Blue Titanium", hex: "#3D4E5C", img: "img/apple-iphone-15-blue.png" },
+          { name: "White Titanium", hex: "#E5E3DE", img: "img/apple-iphone-15-black.png" },
+          { name: "Black Titanium", hex: "#3A3A3C", img: "img/apple-iphone-15-black.png" }
+        ],
+        basePrice: 5499
+      },
+      proMax: {
+        name: "15 Pro Max",
+        screen: "6.7\"",
+        chip: "A17 Pro",
+        storage: ["256GB", "512GB", "1TB"],
+        gallery: ["img/gallery-15promax-colors.png","img/gallery-15pro-1.png","img/gallery-15pro-2.png"],
+        colors: [
+          { name: "Natural Titanium", hex: "#A09484", img: "img/apple-iphone-15-yellow.png" },
+          { name: "Blue Titanium", hex: "#3D4E5C", img: "img/apple-iphone-15-blue.png" },
+          { name: "White Titanium", hex: "#E5E3DE", img: "img/apple-iphone-15-black.png" },
+          { name: "Black Titanium", hex: "#3A3A3C", img: "img/apple-iphone-15-black.png" }
+        ],
+        basePrice: 7499
+      }
+    }
+  },
+  16: {
+    name: "iPhone 16",
+    img: "img/apple-iphone-16-teal.png",
+    imgs: ["img/apple-iphone-16-teal.png", "img/apple-iphone-16-pink.png", "img/apple-iphone-16-ultramarine.png"],
+    gallery: ["img/gallery-16-view1.png","img/apple-iphone-16-teal.png","img/gallery-16-view2.png","img/apple-iphone-16-pink.png","img/apple-iphone-16-ultramarine.png","img/apple-iphone-16-black.png"],
+    variants: {
+      standard: {
+        name: "16",
+        screen: "6.1\"",
+        chip: "A18",
+        storage: ["128GB", "256GB", "512GB"],
+        gallery: ["img/gallery-16-1.png","img/gallery-16-2.png","img/gallery-16-colors.png","img/gallery-16-connector.jpg"],
+        colors: [
+          { name: "Black", hex: "#1C1C1E", img: "img/apple-iphone-16-black.png" },
+          { name: "White", hex: "#F5F5F0", img: "img/apple-iphone-16-pink.png" },
+          { name: "Pink", hex: "#F9CEC7", img: "img/apple-iphone-16-pink.png" },
+          { name: "Teal", hex: "#5B9E9E", img: "img/apple-iphone-16-teal.png" },
+          { name: "Ultramarine", hex: "#4B51A3", img: "img/apple-iphone-16-ultramarine.png" }
+        ],
+        basePrice: 4199
+      },
+      plus: {
+        name: "16 Plus",
+        screen: "6.7\"",
+        chip: "A18",
+        storage: ["128GB", "256GB", "512GB"],
+        gallery: ["img/gallery-16plus-colors.png","img/gallery-16-1.png","img/gallery-16-2.png","img/gallery-16-connector.jpg"],
+        colors: [
+          { name: "Black", hex: "#1C1C1E", img: "img/apple-iphone-16-black.png" },
+          { name: "White", hex: "#F5F5F0", img: "img/apple-iphone-16-pink.png" },
+          { name: "Pink", hex: "#F9CEC7", img: "img/apple-iphone-16-pink.png" },
+          { name: "Teal", hex: "#5B9E9E", img: "img/apple-iphone-16-teal.png" },
+          { name: "Ultramarine", hex: "#4B51A3", img: "img/apple-iphone-16-ultramarine.png" }
+        ],
+        basePrice: 4999
+      },
+      pro: {
+        name: "16 Pro",
+        screen: "6.3\"",
+        chip: "A18 Pro",
+        storage: ["128GB", "256GB", "512GB", "1TB"],
+        gallery: ["img/gallery-16pro-1.png","img/gallery-16pro-2.png","img/gallery-16pro-colors.png"],
+        colors: [
+          { name: "Black Titanium", hex: "#3A3A3C", img: "img/apple-iphone-16-black.png" },
+          { name: "White Titanium", hex: "#E5E3DE", img: "img/apple-iphone-16-white.png" },
+          { name: "Natural Titanium", hex: "#A09484", img: "img/apple-iphone-16-white.png" },
+          { name: "Desert Titanium", hex: "#C4A882", img: "img/apple-iphone-16-white.png" }
+        ],
+        basePrice: 7499
+      },
+      proMax: {
+        name: "16 Pro Max",
+        screen: "6.9\"",
+        chip: "A18 Pro",
+        storage: ["256GB", "512GB", "1TB"],
+        gallery: ["img/gallery-16promax-colors.png","img/gallery-16pro-1.png","img/gallery-16pro-2.png"],
+        colors: [
+          { name: "Black Titanium", hex: "#3A3A3C", img: "img/apple-iphone-16-black.png" },
+          { name: "White Titanium", hex: "#E5E3DE", img: "img/apple-iphone-16-white.png" },
+          { name: "Natural Titanium", hex: "#A09484", img: "img/apple-iphone-16-white.png" },
+          { name: "Desert Titanium", hex: "#C4A882", img: "img/apple-iphone-16-white.png" }
+        ],
+        basePrice: 9499
+      },
+      air: {
+        name: "16e",
+        screen: "6.1\"",
+        chip: "A18",
+        storage: ["128GB", "256GB", "512GB"],
+        gallery: ["img/gallery-16-colors.png"],
+        colors: [
+          { name: "Black", hex: "#1C1C1E", img: "img/apple-iphone-16-black.png" },
+          { name: "White", hex: "#F5F5F0", img: "img/apple-iphone-16-pink.png" }
+        ],
+        basePrice: 3999
+      }
+    }
+  },
+  17: {
+    name: "iPhone 17",
+    img: "img/apple-iphone-17-white.png",
+    imgs: ["img/apple-iphone-17-white.png", "img/apple-iphone-17-sage.png", "img/apple-iphone-17-lavender.png"],
+    gallery: ["img/gallery-17-rear-camera.png","img/apple-iphone-17-white.png","img/gallery-17-contrast.jpg","img/apple-iphone-17-sage.png","img/apple-iphone-17-mistblue.png","img/iphone-air-camera-hero.jpg","img/gallery-air-design.jpg","img/gallery-air-rear-camera.jpg"],
+    variants: {
+      standard: {
+        name: "17",
+        screen: "6.3\"",
+        chip: "A19",
+        storage: ["128GB", "256GB", "512GB"],
+        heroVideo: "img/iphone17-hero-web.mp4",
+        colors: [
+          { name: "Sage", hex: "#8FA58A", img: "img/apple-iphone-17-sage.png" },
+          { name: "Mist Blue", hex: "#A5C4D4", img: "img/apple-iphone-17-mistblue.png" },
+          { name: "Lavender", hex: "#C8B5D3", img: "img/apple-iphone-17-lavender.png" },
+          { name: "White", hex: "#F5F5F0", img: "img/apple-iphone-17-white.png" },
+          { name: "Black", hex: "#1D1D1F", img: "img/apple-iphone-17-black.png" }
+        ],
+        gallery: ["img/gallery-17-colors.png","img/gallery-17-rear-camera.png","img/gallery-17-contrast.jpg"],
+        basePrice: 5999
+      },
+      air: {
+        name: "17 Air",
+        screen: "6.5\"",
+        chip: "A19",
+        storage: ["256GB", "512GB"],
+        heroVideo: "img/iphone17e-hero.mp4",
+        colors: [
+          { name: "Black", hex: "#3A3A3C", img: "img/apple-iphone-17-black.png" },
+          { name: "White", hex: "#F5F5F0", img: "img/apple-iphone-17-white.png" },
+          { name: "Lavender", hex: "#C8B5D3", img: "img/apple-iphone-17-lavender.png" },
+          { name: "Mist Blue", hex: "#7EB8D4", img: "img/apple-iphone-17-mistblue.png" }
+        ],
+        gallery: ["img/gallery-17air-colors.png","img/gallery-air-hero.jpg","img/iphone-air-camera-hero.jpg","img/gallery-air-design.jpg","img/gallery-air-rear-camera.jpg","img/gallery-air-color-black.jpg","img/gallery-air-color-white.jpg","img/gallery-air-color-gold.jpg","img/gallery-air-color-ultra.jpg"],
+        basePrice: 7999
+      },
+      pro: {
+        name: "17 Pro",
+        screen: "6.3\"",
+        chip: "A19 Pro",
+        storage: ["256GB", "512GB", "1TB"],
+        colors: [
+          { name: "White", hex: "#8A8A8E", img: "img/apple-iphone-17-white.png" },
+          { name: "Black", hex: "#2A3A6A", img: "img/apple-iphone-17-black.png" },
+          { name: "Sage", hex: "#8FA58A", img: "img/apple-iphone-17-sage.png" }
+        ],
+        gallery: ["img/gallery-17pro-colors.png","img/gallery-17pro-hero.jpg","img/gallery-17pro-rear-camera.jpg","img/gallery-17pro-camera-hero.jpg","img/gallery-17pro-design-end.jpg","img/gallery-17pro-color-silver.jpg","img/gallery-17pro-color-blue.jpg","img/gallery-17pro-color-orange.jpg"],
+        basePrice: 9999
+      },
+      proMax: {
+        name: "17 Pro Max",
+        screen: "6.9\"",
+        chip: "A19 Pro",
+        storage: ["256GB", "512GB", "1TB"],
+        colors: [
+          { name: "White", hex: "#8A8A8E", img: "img/apple-iphone-17-white.png" },
+          { name: "Black", hex: "#2A3A6A", img: "img/apple-iphone-17-black.png" },
+          { name: "Sage", hex: "#8FA58A", img: "img/apple-iphone-17-sage.png" }
+        ],
+        gallery: ["img/gallery-17promax-colors.png","img/gallery-17promax-highlights.jpg","img/gallery-17promax-ceramic.jpg","img/gallery-17promax-action.jpg","img/gallery-17promax-design.jpg"],
+        basePrice: 12499
+      }
+    }
+  }
+};
+
+let currentSeries = null;
+let currentVariant = null;
+let currentColorIndex = 0;
+let currentStorageIndex = 0;
+
+let carouselTimers = [];
+
+function renderSeriesGrid() {
+  // Clear any existing carousel timers
+  carouselTimers.forEach(t => clearInterval(t));
+  carouselTimers = [];
+
+  const grid = document.getElementById('productGrid');
+  grid.innerHTML = Object.entries(SERIES).reverse().map(([key, series]) => {
+    const variants = Object.values(series.variants);
+    const minPrice = Math.min(...variants.map(v => v.basePrice));
+    const modelCount = variants.length;
+    const images = series.imgs || [series.img];
+    const imgsHtml = images.map((src, i) => {
+      let cls = '';
+      if (i === 0) cls = 'carousel-active';
+      else if (i === 1) cls = 'carousel-next';
+      else if (i === images.length - 1) cls = 'carousel-prev';
+      return `<img src="${src}" alt="${series.name} ${i+1}" loading="lazy" class="${cls}" data-idx="${i}">`;
+    }).join('');
+    const dotsHtml = images.length > 1 ? `<div class="carousel-dots">${images.map((_, i) =>
+      `<div class="carousel-dot${i === 0 ? ' active' : ''}" data-idx="${i}"></div>`
+    ).join('')}</div>` : '';
+    return `
+      <div class="product-card" data-series="${key}" onclick="openSeries('${key}')" style="cursor:pointer">
+        <div class="product-image" data-carousel="${key}">
+          ${imgsHtml}
+          ${dotsHtml}
+        </div>
+        <div class="product-info">
+          <div class="product-name">${series.name}</div>
+          <div class="product-spec">${modelCount} modelos disponíveis</div>
+          <div class="product-pricing">
+            <span class="price-current">a partir de R$ ${minPrice.toLocaleString('pt-BR')}</span>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  // Start carousel rotation for each card
+  initCarousels();
+}
+
+function setCarouselPositions(imgs, dots, current) {
+  const total = imgs.length;
+  const prevIdx = (current - 1 + total) % total;
+  const nextIdx = (current + 1) % total;
+  imgs.forEach((img, i) => {
+    img.classList.remove('carousel-active', 'carousel-prev', 'carousel-next');
+    if (i === current) img.classList.add('carousel-active');
+    else if (i === prevIdx) img.classList.add('carousel-prev');
+    else if (i === nextIdx) img.classList.add('carousel-next');
+  });
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === current);
+  });
+}
+
+function initCarousels() {
+  document.querySelectorAll('.product-image[data-carousel]').forEach(container => {
+    const imgs = Array.from(container.querySelectorAll('img'));
+    const dots = Array.from(container.querySelectorAll('.carousel-dot'));
+    if (imgs.length <= 1) return;
+
+    let current = 0;
+    const total = imgs.length;
+    setCarouselPositions(imgs, dots, current);
+
+    const seriesKey = container.getAttribute('data-carousel');
+    const delay = (parseInt(seriesKey) % 6) * 700;
+
+    const timer = setTimeout(() => {
+      const interval = setInterval(() => {
+        current = (current + 1) % total;
+        setCarouselPositions(imgs, dots, current);
+      }, 3500);
+      carouselTimers.push(interval);
+    }, delay);
+    carouselTimers.push(timer);
+  });
+}
+
+// ===== APPLE-STYLE DETAIL VIEW ENGINE =====
+
+function openSeries(seriesKey) {
+  currentSeries = seriesKey;
+  const variants = Object.keys(SERIES[seriesKey].variants);
+  currentVariant = variants[0];
+  currentColorIndex = 0;
+  currentStorageIndex = 0;
+
+  updateDetailView();
+  document.getElementById('productDetailView').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('productDetailView').scrollTop = 0;
+}
+
+function closeSeries() {
+  document.getElementById('productDetailView').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// ===== Gallery + Lightbox =====
+let galleryImages = [];
+let lightboxIndex = 0;
+
+function renderGallery() {
+  const series = SERIES[currentSeries];
+  const variant = series.variants[currentVariant];
+  // Priority: variant.gallery > series.gallery > color images
+  const variantGallery = variant.gallery || [];
+  const seriesGallery = series.gallery || [];
+  const variantColorImgs = variant.colors.map(c => c.img);
+  const seen = new Set();
+  const gallery = [];
+  // 1. Add variant-specific gallery images first
+  variantGallery.forEach(src => { if (!seen.has(src)) { seen.add(src); gallery.push(src); } });
+  // 2. If no variant gallery, use series gallery view images
+  if (variantGallery.length === 0) {
+    seriesGallery.filter(src => src.includes('gallery-')).forEach(src => { if (!seen.has(src)) { seen.add(src); gallery.push(src); } });
+  }
+  // 3. Always add variant color images at the end
+  variantColorImgs.forEach(src => { if (!seen.has(src)) { seen.add(src); gallery.push(src); } });
+
+  galleryImages = gallery;
+  const scroll = document.getElementById('apGalleryScroll');
+  const dots = document.getElementById('apGalleryDots');
+  scroll.innerHTML = '';
+  dots.innerHTML = '';
+  scroll.scrollLeft = 0;
+  gallery.forEach((src, i) => {
+    const item = document.createElement('div');
+    item.className = 'ap-gallery-item';
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = variant.name + ' — foto ' + (i + 1);
+    img.loading = 'lazy';
+    img.onclick = function() { openLightbox(i); };
+    item.appendChild(img);
+    scroll.appendChild(item);
+    const dot = document.createElement('div');
+    dot.className = 'ap-gallery-dot' + (i === 0 ? ' active' : '');
+    dots.appendChild(dot);
+  });
+  // Update dots on scroll
+  scroll.onscroll = function() {
+    const scrollLeft = scroll.scrollLeft;
+    const itemWidth = scroll.firstElementChild ? scroll.firstElementChild.offsetWidth + 12 : 200;
+    const activeIdx = Math.round(scrollLeft / itemWidth);
+    dots.querySelectorAll('.ap-gallery-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === activeIdx);
+    });
+  };
+}
+
+function openLightbox(idx) {
+  lightboxIndex = idx;
+  const lb = document.getElementById('apLightbox');
+  document.getElementById('apLightboxImg').src = galleryImages[idx];
+  lb.classList.add('active');
+}
+
+function closeLightbox() {
+  document.getElementById('apLightbox').classList.remove('active');
+}
+
+function navLightbox(dir) {
+  lightboxIndex = (lightboxIndex + dir + galleryImages.length) % galleryImages.length;
+  document.getElementById('apLightboxImg').src = galleryImages[lightboxIndex];
+}
+
+// ===== SHOWCASE: Comparison specs per variant =====
+// Comparação sempre com 2 gerações anteriores (ex: 14 vs 12, 17 vs 15)
+const SPECS = {
+  '12-mini':    { chip:'A14 Bionic', chipPct:58, prevChip:'A12', prevPct:40, cam:'12 MP Dual', camPct:50, prevCam:'12 MP', prevCamPct:42, tela:'5.4" OLED', telaPct:54, prevTela:'6.1" LCD', prevTelaPct:45, bat:'2227 mAh', batPct:45, prevBat:'1821 mAh', prevBatPct:36, prev:'iPhone XR' },
+  '12-standard':{ chip:'A14 Bionic', chipPct:58, prevChip:'A12', prevPct:40, cam:'12 MP Dual', camPct:50, prevCam:'12 MP', prevCamPct:42, tela:'6.1" OLED', telaPct:65, prevTela:'6.1" LCD', prevTelaPct:45, bat:'2815 mAh', batPct:56, prevBat:'2942 mAh', prevBatPct:59, prev:'iPhone XR' },
+  '12-pro':     { chip:'A14 Bionic', chipPct:58, prevChip:'A12', prevPct:40, cam:'12 MP + LiDAR', camPct:60, prevCam:'12 MP Dual', prevCamPct:48, tela:'6.1" OLED', telaPct:65, prevTela:'5.8" OLED', prevTelaPct:52, bat:'2815 mAh', batPct:56, prevBat:'3046 mAh', prevBatPct:61, prev:'iPhone XS' },
+  '12-proMax':  { chip:'A14 Bionic', chipPct:58, prevChip:'A12', prevPct:40, cam:'12 MP + LiDAR', camPct:60, prevCam:'12 MP Dual', prevCamPct:48, tela:'6.7" OLED', telaPct:72, prevTela:'6.5" OLED', prevTelaPct:62, bat:'3687 mAh', batPct:74, prevBat:'3174 mAh', prevBatPct:63, prev:'iPhone XS Max' },
+  '13-mini':    { chip:'A15 Bionic', chipPct:66, prevChip:'A13', prevPct:48, cam:'12 MP Dual', camPct:55, prevCam:'12 MP', prevCamPct:42, tela:'5.4" OLED', telaPct:54, prevTela:'6.1" LCD', prevTelaPct:45, bat:'2406 mAh', batPct:48, prevBat:'3110 mAh', prevBatPct:62, prev:'iPhone 11' },
+  '13-standard':{ chip:'A15 Bionic', chipPct:66, prevChip:'A13', prevPct:48, cam:'12 MP Dual', camPct:55, prevCam:'12 MP Dual', prevCamPct:46, tela:'6.1" OLED', telaPct:65, prevTela:'6.1" LCD', prevTelaPct:50, bat:'3227 mAh', batPct:65, prevBat:'3110 mAh', prevBatPct:62, prev:'iPhone 11' },
+  '13-pro':     { chip:'A15 Bionic', chipPct:66, prevChip:'A13', prevPct:48, cam:'12 MP Pro 3x', camPct:65, prevCam:'12 MP Triple', prevCamPct:52, tela:'6.1" ProMotion', telaPct:72, prevTela:'5.8" OLED', prevTelaPct:52, bat:'3095 mAh', batPct:62, prevBat:'3046 mAh', prevBatPct:61, prev:'iPhone 11 Pro' },
+  '13-proMax':  { chip:'A15 Bionic', chipPct:66, prevChip:'A13', prevPct:48, cam:'12 MP Pro 3x', camPct:65, prevCam:'12 MP Triple', prevCamPct:52, tela:'6.7" ProMotion', telaPct:78, prevTela:'6.5" OLED', prevTelaPct:62, bat:'4352 mAh', batPct:87, prevBat:'3969 mAh', prevBatPct:79, prev:'11 Pro Max' },
+  '14-standard':{ chip:'A15 Bionic', chipPct:66, prevChip:'A14', prevPct:58, cam:'12 MP Dual', camPct:55, prevCam:'12 MP Dual', prevCamPct:50, tela:'6.1" OLED', telaPct:65, prevTela:'6.1" OLED', prevTelaPct:65, bat:'3279 mAh', batPct:66, prevBat:'2815 mAh', prevBatPct:56, prev:'iPhone 12' },
+  '14-plus':    { chip:'A15 Bionic', chipPct:66, prevChip:'A14', prevPct:58, cam:'12 MP Dual', camPct:55, prevCam:'12 MP Dual', prevCamPct:50, tela:'6.7" OLED', telaPct:72, prevTela:'6.1" OLED', prevTelaPct:65, bat:'4325 mAh', batPct:86, prevBat:'2815 mAh', prevBatPct:56, prev:'iPhone 12' },
+  '14-pro':     { chip:'A16 Bionic', chipPct:74, prevChip:'A14', prevPct:58, cam:'48 MP Pro', camPct:80, prevCam:'12 MP + LiDAR', prevCamPct:60, tela:'6.1" Always-On', telaPct:78, prevTela:'6.1" OLED', prevTelaPct:65, bat:'3200 mAh', batPct:64, prevBat:'2815 mAh', prevBatPct:56, prev:'iPhone 12 Pro' },
+  '14-proMax':  { chip:'A16 Bionic', chipPct:74, prevChip:'A14', prevPct:58, cam:'48 MP Pro', camPct:80, prevCam:'12 MP + LiDAR', prevCamPct:60, tela:'6.7" Always-On', telaPct:82, prevTela:'6.7" OLED', prevTelaPct:72, bat:'4323 mAh', batPct:86, prevBat:'3687 mAh', prevBatPct:74, prev:'12 Pro Max' },
+  '15-standard':{ chip:'A16 Bionic', chipPct:74, prevChip:'A15', prevPct:66, cam:'48 MP Dual', camPct:75, prevCam:'12 MP Dual', prevCamPct:55, tela:'6.1" Dynamic Island', telaPct:74, prevTela:'6.1" OLED', prevTelaPct:65, bat:'3349 mAh', batPct:67, prevBat:'3227 mAh', prevBatPct:65, prev:'iPhone 13' },
+  '15-plus':    { chip:'A16 Bionic', chipPct:74, prevChip:'A15', prevPct:66, cam:'48 MP Dual', camPct:75, prevCam:'12 MP Dual', prevCamPct:55, tela:'6.7" Dynamic Island', telaPct:78, prevTela:'6.1" OLED', prevTelaPct:65, bat:'4383 mAh', batPct:88, prevBat:'3227 mAh', prevBatPct:65, prev:'iPhone 13' },
+  '15-pro':     { chip:'A17 Pro', chipPct:82, prevChip:'A15', prevPct:66, cam:'48 MP Pro 5x', camPct:88, prevCam:'12 MP Pro 3x', prevCamPct:65, tela:'6.1" Titanium', telaPct:78, prevTela:'6.1" ProMotion', prevTelaPct:72, bat:'3274 mAh', batPct:65, prevBat:'3095 mAh', prevBatPct:62, prev:'iPhone 13 Pro' },
+  '15-proMax':  { chip:'A17 Pro', chipPct:82, prevChip:'A15', prevPct:66, cam:'48 MP Pro 5x', camPct:88, prevCam:'12 MP Pro 3x', prevCamPct:65, tela:'6.7" Titanium', telaPct:82, prevTela:'6.7" ProMotion', prevTelaPct:78, bat:'4422 mAh', batPct:88, prevBat:'4352 mAh', prevBatPct:87, prev:'13 Pro Max' },
+  '16-standard':{ chip:'A18', chipPct:88, prevChip:'A15', prevPct:66, cam:'48 MP Fusion', camPct:82, prevCam:'12 MP Dual', prevCamPct:55, tela:'6.1" Super Retina', telaPct:75, prevTela:'6.1" OLED', prevTelaPct:65, bat:'3561 mAh', batPct:71, prevBat:'3279 mAh', prevBatPct:66, prev:'iPhone 14' },
+  '16-plus':    { chip:'A18', chipPct:88, prevChip:'A15', prevPct:66, cam:'48 MP Fusion', camPct:82, prevCam:'12 MP Dual', prevCamPct:55, tela:'6.7" Super Retina', telaPct:80, prevTela:'6.7" OLED', prevTelaPct:72, bat:'4674 mAh', batPct:93, prevBat:'4325 mAh', prevBatPct:86, prev:'iPhone 14 Plus' },
+  '16-pro':     { chip:'A18 Pro', chipPct:92, prevChip:'A16', prevPct:74, cam:'48 MP Pro 5x', camPct:90, prevCam:'48 MP Pro', prevCamPct:80, tela:'6.3" Always-On', telaPct:82, prevTela:'6.1" Always-On', prevTelaPct:78, bat:'3582 mAh', batPct:72, prevBat:'3200 mAh', prevBatPct:64, prev:'iPhone 14 Pro' },
+  '16-proMax':  { chip:'A18 Pro', chipPct:92, prevChip:'A16', prevPct:74, cam:'48 MP Pro 5x', camPct:90, prevCam:'48 MP Pro', prevCamPct:80, tela:'6.9" Always-On', telaPct:88, prevTela:'6.7" Always-On', prevTelaPct:82, bat:'4685 mAh', batPct:94, prevBat:'4323 mAh', prevBatPct:86, prev:'14 Pro Max' },
+  '16-air':     { chip:'A18', chipPct:88, prevChip:'A15', prevPct:58, cam:'48 MP', camPct:75, prevCam:'12 MP', prevCamPct:42, tela:'6.1" OLED', telaPct:65, prevTela:'4.7" LCD', prevTelaPct:35, bat:'3561 mAh', batPct:71, prevBat:'2018 mAh', prevBatPct:40, prev:'iPhone SE 2' },
+  '17-standard':{ chip:'A19', chipPct:95, prevChip:'A16', prevPct:74, cam:'48 MP Fusion', camPct:85, prevCam:'48 MP Dual', prevCamPct:75, tela:'6.3" ProMotion', telaPct:82, prevTela:'6.1" Dynamic I.', prevTelaPct:74, bat:'3700 mAh', batPct:74, prevBat:'3349 mAh', prevBatPct:67, prev:'iPhone 15' },
+  '17-air':     { chip:'A19', chipPct:95, prevChip:'A16', prevPct:74, cam:'48 MP + 24 MP', camPct:84, prevCam:'48 MP Dual', prevCamPct:75, tela:'6.6" OLED', telaPct:80, prevTela:'6.1" Dynamic I.', prevTelaPct:74, bat:'3600 mAh', batPct:72, prevBat:'3349 mAh', prevBatPct:67, prev:'iPhone 15' },
+  '17-pro':     { chip:'A19 Pro', chipPct:100, prevChip:'A17 Pro', prevPct:82, cam:'48 MP Pro 5x', camPct:95, prevCam:'48 MP Pro 5x', prevCamPct:88, tela:'6.3" ProMotion', telaPct:84, prevTela:'6.1" Titanium', prevTelaPct:78, bat:'3800 mAh', batPct:76, prevBat:'3274 mAh', prevBatPct:65, prev:'iPhone 15 Pro' },
+  '17-proMax':  { chip:'A19 Pro', chipPct:100, prevChip:'A17 Pro', prevPct:82, cam:'48 MP Pro 5x', camPct:95, prevCam:'48 MP Pro 5x', prevCamPct:88, tela:'6.9" ProMotion', telaPct:92, prevTela:'6.7" Titanium', prevTelaPct:82, bat:'4900 mAh', batPct:98, prevBat:'4422 mAh', prevBatPct:88, prev:'15 Pro Max' }
+};
+
+const SPEC_ICONS = {
+  chip: '<svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><line x1="9" y1="2" x2="9" y2="5"/><line x1="15" y1="2" x2="15" y2="5"/><line x1="9" y1="19" x2="9" y2="22"/><line x1="15" y1="19" x2="15" y2="22"/><line x1="2" y1="9" x2="5" y2="9"/><line x1="2" y1="15" x2="5" y2="15"/><line x1="19" y1="9" x2="22" y2="9"/><line x1="19" y1="15" x2="22" y2="15"/></svg>',
+  cam: '<svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>',
+  tela: '<svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>',
+  bat: '<svg viewBox="0 0 24 24"><rect x="1" y="6" width="18" height="12" rx="2"/><line x1="23" y1="10" x2="23" y2="14"/></svg>'
+};
+
+function renderShowcase() {
+  const series = SERIES[currentSeries];
+  const variant = series.variants[currentVariant];
+  const specKey = currentSeries + '-' + currentVariant;
+  const spec = SPECS[specKey];
+
+  // Media: video or placeholder image
+  const media = document.getElementById('apShowcaseMedia');
+  const vid = document.getElementById('apShowcaseVideo');
+  const vidSrc = document.getElementById('apShowcaseVideoSrc');
+  const img = document.getElementById('apShowcaseImg');
+
+  if (variant.heroVideo) {
+    vidSrc.src = variant.heroVideo;
+    vid.style.display = 'block';
+    img.style.display = 'none';
+    vid.load();
+    vid.play();
+    media.classList.remove('placeholder');
+  } else {
+    vid.style.display = 'none';
+    vid.pause();
+    img.style.display = 'block';
+    img.src = variant.colors[0].img;
+    img.alt = variant.name;
+    media.classList.add('placeholder');
+  }
+
+  // Comparison panel
+  const panel = document.getElementById('apCompare');
+  if (!spec) { panel.innerHTML = ''; return; }
+
+  const variantName = 'iPhone ' + variant.name;
+  const cats = [
+    { key:'chip', label:'Processador', cur:spec.chip, curPct:spec.chipPct, prev:spec.prevChip, prevPct:spec.prevPct },
+    { key:'cam', label:'Câmera', cur:spec.cam, curPct:spec.camPct, prev:spec.prevCam, prevPct:spec.prevCamPct },
+    { key:'tela', label:'Tela', cur:spec.tela, curPct:spec.telaPct, prev:spec.prevTela, prevPct:spec.prevTelaPct },
+    { key:'bat', label:'Bateria', cur:spec.bat, curPct:spec.batPct, prev:spec.prevBat, prevPct:spec.prevBatPct }
+  ];
+
+  let html = '<div class="ap-compare-header">';
+  html += '<span class="ap-compare-model">' + variantName + '</span>';
+  html += '<span class="ap-compare-vs">vs</span>';
+  html += '<span class="ap-compare-chip">' + spec.prev + '</span>';
+  html += '</div>';
+
+  cats.forEach(c => {
+    html += '<div class="ap-spec-row">';
+    html += '<div class="ap-spec-label">' + SPEC_ICONS[c.key] + '<span>' + c.label + '</span></div>';
+    html += '<div class="ap-spec-bars">';
+    html += '<div class="ap-spec-bar-row"><span class="ap-spec-bar-name">' + variant.name + '</span><div class="ap-spec-bar-track"><div class="ap-spec-bar-fill current" data-w="' + c.curPct + '%"></div></div><span class="ap-spec-bar-val current-val">' + c.cur + '</span></div>';
+    html += '<div class="ap-spec-bar-row"><span class="ap-spec-bar-name">' + spec.prev + '</span><div class="ap-spec-bar-track"><div class="ap-spec-bar-fill prev" data-w="' + c.prevPct + '%"></div></div><span class="ap-spec-bar-val">' + c.prev + '</span></div>';
+    html += '</div></div>';
+  });
+
+  panel.innerHTML = html;
+
+  // Animate bars
+  setTimeout(() => {
+    panel.querySelectorAll('.ap-spec-bar-fill').forEach(bar => {
+      bar.style.width = bar.getAttribute('data-w');
+    });
+  }, 100);
+}
+
+function selectVariant(variantKey) {
+  if (variantKey === currentVariant) return;
+  currentVariant = variantKey;
+  currentColorIndex = 0;
+  currentStorageIndex = 0;
+  updateDetailView();
+}
+
+function selectColor(index) {
+  // Animate image swap
+  const img = document.getElementById('pdvImage');
+  img.classList.add('switching');
+  setTimeout(() => {
+    currentColorIndex = index;
+    updateDetailView();
+    img.classList.remove('switching');
+  }, 250);
+}
+
+function selectStorage(index) {
+  currentStorageIndex = index;
+  updateDetailView();
+}
+
+function updateDetailView() {
+  const series = SERIES[currentSeries];
+  const variant = series.variants[currentVariant];
+  const color = variant.colors[currentColorIndex];
+  const storage = variant.storage[currentStorageIndex];
+
+  // Price calc
+  const basePrice = variant.basePrice;
+  const storageIdx = variant.storage.indexOf(storage);
+  const price = Math.round(basePrice + storageIdx * 300);
+  const pix = Math.round(price * 0.85);
+  const installment = (price / 12).toFixed(2).replace('.', ',');
+
+  // Nav bar
+  document.getElementById('apNavSeries').textContent = series.name;
+  document.getElementById('apNavBadge').textContent = 'Certificado 50 pts';
+  document.getElementById('apNavWa').href = 'https://wa.me/5511999999999?text=' + encodeURIComponent('Oi! Quero saber sobre o ' + series.name);
+
+  // Hero
+  document.getElementById('apHeroLabel').textContent = series.name;
+  document.getElementById('apHeroTitle').textContent = 'iPhone ' + variant.name;
+  document.getElementById('apHeroSub').textContent = variant.chip + ' · Tela ' + variant.screen + ' · ' + storage;
+
+  // Image — use color-specific if available
+  const colorImg = color.img || series.img;
+  document.getElementById('pdvImage').src = colorImg;
+
+  // Color name
+  document.getElementById('apColorName').textContent = color.name;
+
+  // Color picker — Apple swatches
+  document.getElementById('pdvColorPicker').innerHTML = variant.colors.map((c, i) => {
+    return '<button class="ap-color-swatch' + (i === currentColorIndex ? ' active' : '') + '" style="background:' + c.hex + '" onclick="selectColor(' + i + ')" title="' + c.name + '" aria-label="' + c.name + '"></button>';
+  }).join('');
+
+  // Model picker — show all variants with "from" price
+  document.getElementById('pdvVariantPicker').innerHTML = Object.entries(series.variants).map(([key, v]) => {
+    const fromPrice = Math.round(v.basePrice * 0.85);
+    return '<button class="ap-model-btn' + (key === currentVariant ? ' active' : '') + '" onclick="selectVariant(\'' + key + '\')">'
+      + '<div><div class="ap-model-name">iPhone ' + v.name + '</div>'
+      + '<div class="ap-model-detail">' + v.screen + ' · ' + v.chip + '</div></div>'
+      + '<div class="ap-model-from">A partir de<br><strong>R$ ' + fromPrice.toLocaleString('pt-BR') + '</strong></div>'
+      + '</button>';
+  }).join('');
+
+  // Storage — Apple card style
+  document.getElementById('pdvStorageSelector').innerHTML = variant.storage.map((s, i) => {
+    const sPrice = Math.round((basePrice + i * 300) * 0.85);
+    return '<button class="ap-storage-btn' + (i === currentStorageIndex ? ' active' : '') + '" onclick="selectStorage(' + i + ')">'
+      + '<div class="ap-storage-size">' + s + '</div>'
+      + '<div class="ap-storage-price">R$ ' + sPrice.toLocaleString('pt-BR') + '</div>'
+      + '</button>';
+  }).join('');
+
+  // Price
+  document.getElementById('pdvPriceCurrent').textContent = 'R$ ' + pix.toLocaleString('pt-BR');
+  document.getElementById('pdvPricePix').textContent = 'No Pix com 15% de desconto';
+  document.getElementById('pdvInstallment').textContent = 'ou 12x de R$ ' + installment + ' sem juros';
+  document.getElementById('pdvPriceOld').textContent = 'De R$ ' + price.toLocaleString('pt-BR');
+  document.getElementById('pdvDiscount').textContent = '-15% Pix';
+
+  // Battery
+  document.getElementById('pdvBatteryText').textContent = 'Bateria ≥85%';
+
+  // CTA
+  document.getElementById('pdvCta').href = 'https://wa.me/5511999999999?text=' + encodeURIComponent('Oi! Quero o iPhone ' + variant.name + ' ' + storage + ' ' + color.name + '. Qual o valor?');
+
+  // Showcase (video/placeholder + comparison)
+  renderShowcase();
+
+  // Render photo gallery
+  renderGallery();
+}
+
+// close on ESC
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    if (document.getElementById('apLightbox').classList.contains('active')) {
+      closeLightbox();
+    } else {
+      closeSeries();
+    }
+  }
+  if (e.key === 'ArrowLeft') navLightbox(-1);
+  if (e.key === 'ArrowRight') navLightbox(1);
+});
+
+// ===== NAVBAR SCROLL =====
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ===== FAQ TOGGLE =====
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    document.querySelectorAll('.faq-item').forEach(i => { if (i !== item) i.classList.remove('open'); });
+    item.classList.toggle('open');
+  });
+});
+
+// ===== COUNTER ANIMATION =====
+function animateCounters() {
+  document.querySelectorAll('.counter-num').forEach(el => {
+    const target = +el.dataset.target;
+    const duration = 2000;
+    const start = performance.now();
+    function update(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target).toLocaleString('pt-BR');
+      if (progress < 1) requestAnimationFrame(update);
+      else el.textContent = target.toLocaleString('pt-BR');
+    }
+    requestAnimationFrame(update);
+  });
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) { animateCounters(); counterObserver.unobserve(entry.target); }
+  });
+}, { threshold: 0.5 });
+document.querySelector('.counter-section') && counterObserver.observe(document.querySelector('.counter-section'));
+
+
+// Show urgency bar after scroll
+window.addEventListener('scroll', () => {
+  const nb = document.getElementById('navbar');
+  if (nb) nb.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ===== INIT =====
+renderSeriesGrid();
+</script>
+</body>
+</html>

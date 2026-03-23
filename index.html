@@ -2700,7 +2700,7 @@ footer::before {
               <span class="mac-title">PrimeCell — Loja</span>
             </div>
             <div class="mac-content">
-              <video class="hero-logo-video" autoplay muted loop playsinline preload="metadata">
+              <video class="hero-logo-video" autoplay muted loop playsinline preload="none">
                 <source src="img/logo-primecell.mp4" type="video/mp4">
               </video>
             </div>
@@ -3078,7 +3078,7 @@ footer::before {
     <span id="apHeroLabel"></span>
     <span id="apHeroTitle"></span>
     <span id="apHeroSub"></span>
-    <img id="pdvImage" src="" alt="">
+    <img id="pdvImage" src="" alt="" loading="lazy">
   </div>
 
   <!-- Showcase: Video/Placeholder + Comparison (all models) -->
@@ -3086,7 +3086,7 @@ footer::before {
     <div class="ap-showcase-inner">
       <div class="ap-showcase-layout">
         <div class="ap-showcase-media placeholder" id="apShowcaseMedia">
-          <img id="apShowcaseImg" src="" alt="">
+          <img id="apShowcaseImg" src="" alt="" loading="lazy">
           <video autoplay muted playsinline id="apShowcaseVideo" style="display:none">
             <source id="apShowcaseVideoSrc" src="" type="video/mp4">
           </video>
@@ -3116,7 +3116,7 @@ footer::before {
       <div class="ap-gallery-dots" id="apGalleryDots"></div>
       <div class="ap-gallery-preview" id="apGalleryPreview">
         <button class="ap-gpv-btn ap-gpv-nav ap-gpv-prev" onclick="navGalleryPreview(-1)">&#8249;</button>
-        <img id="apGalleryPreviewImg" src="" alt="">
+        <img id="apGalleryPreviewImg" src="" alt="" loading="lazy">
         <button class="ap-gpv-btn ap-gpv-nav ap-gpv-next" onclick="navGalleryPreview(1)">&#8250;</button>
         <div class="ap-sgc-actions">
           <button class="ap-gpv-action" onclick="openFullscreen()" title="Tela cheia">
@@ -3135,7 +3135,7 @@ footer::before {
   <div class="ap-lightbox" id="apLightbox" onclick="if(event.target===this)closeLightbox()">
     <button class="ap-lightbox-close" onclick="closeLightbox()">✕</button>
     <button class="ap-lightbox-nav prev" onclick="navLightbox(-1)">‹</button>
-    <img id="apLightboxImg" src="" alt="">
+    <img id="apLightboxImg" src="" alt="" loading="lazy">
     <button class="ap-lightbox-nav next" onclick="navLightbox(1)">›</button>
   </div>
 
@@ -3277,9 +3277,9 @@ window.addEventListener('load', function() { window.scrollTo(0, 0); });
 const SERIES = {
   12: {
     name: "iPhone 12",
-    img: "img/apple-iphone-12-black.png",
-    imgs: ["img/apple-iphone-12-black.png", "img/apple-iphone-12-blue.png", "img/apple-iphone-12-green.png"],
-    gallery: ["img/apple-iphone-12-black.png","img/apple-iphone-12-blue.png","img/apple-iphone-12-green.png","img/apple-iphone-12-purple.png","img/apple-iphone-12-red.png","img/apple-iphone-12-white.png"],
+    img: "img/apple-iphone-12-black.webp",
+    imgs: ["img/apple-iphone-12-black.webp", "img/apple-iphone-12-blue.webp", "img/apple-iphone-12-green.webp"],
+    gallery: ["img/apple-iphone-12-black.webp","img/apple-iphone-12-blue.webp","img/apple-iphone-12-green.webp","img/apple-iphone-12-purple.webp","img/apple-iphone-12-red.webp","img/apple-iphone-12-white.webp"],
     variants: {
       mini: {
         name: "12 mini",
@@ -3289,14 +3289,14 @@ const SERIES = {
         storage: ["64GB", "128GB", "256GB"],
         heroVideo: "img/iphone12-hero.mp4",
         heroVideoStart: 1,
-        gallery: ["img/gallery-12-colors.png"],
+        gallery: ["img/gallery-12-colors.webp"],
         colors: [
-          { name: "Black", hex: "#1C1C1E", img: "img/apple-iphone-12-black.png" },
-          { name: "White", hex: "#F5F5F0", img: "img/apple-iphone-12-white.png" },
-          { name: "Red", hex: "#BF0013", img: "img/apple-iphone-12-red.png" },
-          { name: "Green", hex: "#ADE0C0", img: "img/apple-iphone-12-green.png" },
-          { name: "Blue", hex: "#5B7B9C", img: "img/apple-iphone-12-blue.png" },
-          { name: "Purple", hex: "#C8B5D3", img: "img/apple-iphone-12-purple.png" }
+          { name: "Black", hex: "#1C1C1E", img: "img/apple-iphone-12-black.webp" },
+          { name: "White", hex: "#F5F5F0", img: "img/apple-iphone-12-white.webp" },
+          { name: "Red", hex: "#BF0013", img: "img/apple-iphone-12-red.webp" },
+          { name: "Green", hex: "#ADE0C0", img: "img/apple-iphone-12-green.webp" },
+          { name: "Blue", hex: "#5B7B9C", img: "img/apple-iphone-12-blue.webp" },
+          { name: "Purple", hex: "#C8B5D3", img: "img/apple-iphone-12-purple.webp" }
         ],
         basePrice: 666
       },
@@ -3306,14 +3306,14 @@ const SERIES = {
         screen: "6.1\"",
         chip: "A14 Bionic",
         storage: ["64GB", "128GB", "256GB"],
-        gallery: ["img/gallery-12-colors.png"],
+        gallery: ["img/gallery-12-colors.webp"],
         colors: [
-          { name: "Black", hex: "#1C1C1E", img: "img/apple-iphone-12-black.png" },
-          { name: "White", hex: "#F5F5F0", img: "img/apple-iphone-12-white.png" },
-          { name: "Red", hex: "#BF0013", img: "img/apple-iphone-12-red.png" },
-          { name: "Green", hex: "#ADE0C0", img: "img/apple-iphone-12-green.png" },
-          { name: "Blue", hex: "#5B7B9C", img: "img/apple-iphone-12-blue.png" },
-          { name: "Purple", hex: "#C8B5D3", img: "img/apple-iphone-12-purple.png" }
+          { name: "Black", hex: "#1C1C1E", img: "img/apple-iphone-12-black.webp" },
+          { name: "White", hex: "#F5F5F0", img: "img/apple-iphone-12-white.webp" },
+          { name: "Red", hex: "#BF0013", img: "img/apple-iphone-12-red.webp" },
+          { name: "Green", hex: "#ADE0C0", img: "img/apple-iphone-12-green.webp" },
+          { name: "Blue", hex: "#5B7B9C", img: "img/apple-iphone-12-blue.webp" },
+          { name: "Purple", hex: "#C8B5D3", img: "img/apple-iphone-12-purple.webp" }
         ],
         basePrice: 666
       },
@@ -3323,12 +3323,12 @@ const SERIES = {
         screen: "6.1\"",
         chip: "A14 Bionic",
         storage: ["128GB", "256GB", "512GB"],
-        gallery: ["img/gallery-12-colors.png"],
+        gallery: ["img/gallery-12-colors.webp"],
         colors: [
-          { name: "Graphite", hex: "#8A8A8E", img: "img/apple-iphone-12-black.png" },
-          { name: "Silver", hex: "#C0C0C0", img: "img/apple-iphone-12-white.png" },
-          { name: "Gold", hex: "#F4E0C2", img: "img/apple-iphone-12-white.png" },
-          { name: "Pacific Blue", hex: "#2B4E6E", img: "img/apple-iphone-12-blue.png" }
+          { name: "Graphite", hex: "#8A8A8E", img: "img/apple-iphone-12-black.webp" },
+          { name: "Silver", hex: "#C0C0C0", img: "img/apple-iphone-12-white.webp" },
+          { name: "Gold", hex: "#F4E0C2", img: "img/apple-iphone-12-white.webp" },
+          { name: "Pacific Blue", hex: "#2B4E6E", img: "img/apple-iphone-12-blue.webp" }
         ],
         basePrice: 666
       },
@@ -3339,12 +3339,12 @@ const SERIES = {
         chip: "A14 Bionic",
         storage: ["128GB", "256GB", "512GB"],
         heroVideo: "img/iphone12promax-hero.mp4",
-        gallery: ["img/gallery-12-colors.png"],
+        gallery: ["img/gallery-12-colors.webp"],
         colors: [
-          { name: "Graphite", hex: "#8A8A8E", img: "img/apple-iphone-12-black.png" },
-          { name: "Silver", hex: "#C0C0C0", img: "img/apple-iphone-12-white.png" },
-          { name: "Gold", hex: "#F4E0C2", img: "img/apple-iphone-12-white.png" },
-          { name: "Pacific Blue", hex: "#2B4E6E", img: "img/apple-iphone-12-blue.png" }
+          { name: "Graphite", hex: "#8A8A8E", img: "img/apple-iphone-12-black.webp" },
+          { name: "Silver", hex: "#C0C0C0", img: "img/apple-iphone-12-white.webp" },
+          { name: "Gold", hex: "#F4E0C2", img: "img/apple-iphone-12-white.webp" },
+          { name: "Pacific Blue", hex: "#2B4E6E", img: "img/apple-iphone-12-blue.webp" }
         ],
         basePrice: 666
       }
@@ -3352,9 +3352,9 @@ const SERIES = {
   },
   13: {
     name: "iPhone 13",
-    img: "img/apple-iphone-13-midnight.png",
-    imgs: ["img/apple-iphone-13-midnight.png", "img/apple-iphone-13-pink.png", "img/apple-iphone-13-blue.png"],
-    gallery: ["img/apple-iphone-13-midnight.png","img/apple-iphone-13-pink.png","img/apple-iphone-13-blue.png","img/apple-iphone-13-green.png","img/apple-iphone-13-starlight.png"],
+    img: "img/apple-iphone-13-midnight.webp",
+    imgs: ["img/apple-iphone-13-midnight.webp", "img/apple-iphone-13-pink.webp", "img/apple-iphone-13-blue.webp"],
+    gallery: ["img/apple-iphone-13-midnight.webp","img/apple-iphone-13-pink.webp","img/apple-iphone-13-blue.webp","img/apple-iphone-13-green.webp","img/apple-iphone-13-starlight.webp"],
     variants: {
       mini: {
         name: "13 mini",
@@ -3363,13 +3363,13 @@ const SERIES = {
         chip: "A15 Bionic",
         storage: ["128GB", "256GB", "512GB"],
         heroVideo: "img/iphone13mini-hero.mp4",
-        gallery: ["img/gallery-13-colors.png"],
+        gallery: ["img/gallery-13-colors.webp"],
         colors: [
-          { name: "Midnight", hex: "#1C1C1E", img: "img/apple-iphone-13-midnight.png" },
-          { name: "Starlight", hex: "#F5F5F0", img: "img/apple-iphone-13-starlight.png" },
-          { name: "Blue", hex: "#5B7B9C", img: "img/apple-iphone-13-blue.png" },
-          { name: "Pink", hex: "#F9CEC7", img: "img/apple-iphone-13-pink.png" },
-          { name: "Green", hex: "#ADE0C0", img: "img/apple-iphone-13-green.png" }
+          { name: "Midnight", hex: "#1C1C1E", img: "img/apple-iphone-13-midnight.webp" },
+          { name: "Starlight", hex: "#F5F5F0", img: "img/apple-iphone-13-starlight.webp" },
+          { name: "Blue", hex: "#5B7B9C", img: "img/apple-iphone-13-blue.webp" },
+          { name: "Pink", hex: "#F9CEC7", img: "img/apple-iphone-13-pink.webp" },
+          { name: "Green", hex: "#ADE0C0", img: "img/apple-iphone-13-green.webp" }
         ],
         basePrice: 666
       },
@@ -3379,13 +3379,13 @@ const SERIES = {
         screen: "6.1\"",
         chip: "A15 Bionic",
         storage: ["128GB", "256GB", "512GB"],
-        gallery: ["img/gallery-13-colors.png"],
+        gallery: ["img/gallery-13-colors.webp"],
         colors: [
-          { name: "Midnight", hex: "#1C1C1E", img: "img/apple-iphone-13-midnight.png" },
-          { name: "Starlight", hex: "#F5F5F0", img: "img/apple-iphone-13-starlight.png" },
-          { name: "Blue", hex: "#5B7B9C", img: "img/apple-iphone-13-blue.png" },
-          { name: "Pink", hex: "#F9CEC7", img: "img/apple-iphone-13-pink.png" },
-          { name: "Green", hex: "#ADE0C0", img: "img/apple-iphone-13-green.png" }
+          { name: "Midnight", hex: "#1C1C1E", img: "img/apple-iphone-13-midnight.webp" },
+          { name: "Starlight", hex: "#F5F5F0", img: "img/apple-iphone-13-starlight.webp" },
+          { name: "Blue", hex: "#5B7B9C", img: "img/apple-iphone-13-blue.webp" },
+          { name: "Pink", hex: "#F9CEC7", img: "img/apple-iphone-13-pink.webp" },
+          { name: "Green", hex: "#ADE0C0", img: "img/apple-iphone-13-green.webp" }
         ],
         basePrice: 666
       },
@@ -3395,12 +3395,12 @@ const SERIES = {
         screen: "6.1\"",
         chip: "A15 Bionic",
         storage: ["128GB", "256GB", "512GB", "1TB"],
-        gallery: ["img/gallery-13pro-colors.png"],
+        gallery: ["img/gallery-13pro-colors.webp"],
         colors: [
-          { name: "Graphite", hex: "#8A8A8E", img: "img/apple-iphone-13-midnight.png" },
-          { name: "Silver", hex: "#C0C0C0", img: "img/apple-iphone-13-starlight.png" },
-          { name: "Gold", hex: "#F4E0C2", img: "img/apple-iphone-13-pink.png" },
-          { name: "Sierra Blue", hex: "#A7C1D9", img: "img/apple-iphone-13-blue.png" }
+          { name: "Graphite", hex: "#8A8A8E", img: "img/apple-iphone-13-midnight.webp" },
+          { name: "Silver", hex: "#C0C0C0", img: "img/apple-iphone-13-starlight.webp" },
+          { name: "Gold", hex: "#F4E0C2", img: "img/apple-iphone-13-pink.webp" },
+          { name: "Sierra Blue", hex: "#A7C1D9", img: "img/apple-iphone-13-blue.webp" }
         ],
         basePrice: 666
       },
@@ -3410,12 +3410,12 @@ const SERIES = {
         screen: "6.7\"",
         chip: "A15 Bionic",
         storage: ["128GB", "256GB", "512GB", "1TB"],
-        gallery: ["img/gallery-13pro-colors.png"],
+        gallery: ["img/gallery-13pro-colors.webp"],
         colors: [
-          { name: "Graphite", hex: "#8A8A8E", img: "img/apple-iphone-13-midnight.png" },
-          { name: "Silver", hex: "#C0C0C0", img: "img/apple-iphone-13-starlight.png" },
-          { name: "Gold", hex: "#F4E0C2", img: "img/apple-iphone-13-pink.png" },
-          { name: "Sierra Blue", hex: "#A7C1D9", img: "img/apple-iphone-13-blue.png" }
+          { name: "Graphite", hex: "#8A8A8E", img: "img/apple-iphone-13-midnight.webp" },
+          { name: "Silver", hex: "#C0C0C0", img: "img/apple-iphone-13-starlight.webp" },
+          { name: "Gold", hex: "#F4E0C2", img: "img/apple-iphone-13-pink.webp" },
+          { name: "Sierra Blue", hex: "#A7C1D9", img: "img/apple-iphone-13-blue.webp" }
         ],
         basePrice: 666
       }
@@ -3423,9 +3423,9 @@ const SERIES = {
   },
   14: {
     name: "iPhone 14",
-    img: "img/apple-iphone-14-purple.png",
-    imgs: ["img/apple-iphone-14-purple.png", "img/apple-iphone-14-blue.png", "img/apple-iphone-14-starlight.png"],
-    gallery: ["img/apple-iphone-14-purple.png","img/apple-iphone-14-blue.png","img/apple-iphone-14-starlight.png"],
+    img: "img/apple-iphone-14-purple.webp",
+    imgs: ["img/apple-iphone-14-purple.webp", "img/apple-iphone-14-blue.webp", "img/apple-iphone-14-starlight.webp"],
+    gallery: ["img/apple-iphone-14-purple.webp","img/apple-iphone-14-blue.webp","img/apple-iphone-14-starlight.webp"],
     variants: {
       standard: {
         name: "14",
@@ -3434,14 +3434,14 @@ const SERIES = {
         chip: "A15 Bionic",
         storage: ["128GB", "256GB", "512GB"],
         heroVideo: "img/iphone14pro-hero.mp4",
-        gallery: ["img/gallery-14-colors.png"],
+        gallery: ["img/gallery-14-colors.webp"],
         colors: [
-          { name: "Midnight", hex: "#1C1C1E", img: "img/apple-iphone-14-blue.png" },
-          { name: "Starlight", hex: "#F5F5F0", img: "img/apple-iphone-14-blue.png" },
-          { name: "Red", hex: "#BF0013", img: "img/apple-iphone-14-blue.png" },
-          { name: "Blue", hex: "#5B7B9C", img: "img/apple-iphone-14-blue.png" },
-          { name: "Purple", hex: "#C8B5D3", img: "img/apple-iphone-14-purple.png" },
-          { name: "Yellow", hex: "#F9E878", img: "img/apple-iphone-14-starlight.png" }
+          { name: "Midnight", hex: "#1C1C1E", img: "img/apple-iphone-14-blue.webp" },
+          { name: "Starlight", hex: "#F5F5F0", img: "img/apple-iphone-14-blue.webp" },
+          { name: "Red", hex: "#BF0013", img: "img/apple-iphone-14-blue.webp" },
+          { name: "Blue", hex: "#5B7B9C", img: "img/apple-iphone-14-blue.webp" },
+          { name: "Purple", hex: "#C8B5D3", img: "img/apple-iphone-14-purple.webp" },
+          { name: "Yellow", hex: "#F9E878", img: "img/apple-iphone-14-starlight.webp" }
         ],
         basePrice: 666
       },
@@ -3451,14 +3451,14 @@ const SERIES = {
         screen: "6.7\"",
         chip: "A15 Bionic",
         storage: ["128GB", "256GB", "512GB"],
-        gallery: ["img/gallery-14-colors.png"],
+        gallery: ["img/gallery-14-colors.webp"],
         colors: [
-          { name: "Midnight", hex: "#1C1C1E", img: "img/apple-iphone-14-blue.png" },
-          { name: "Starlight", hex: "#F5F5F0", img: "img/apple-iphone-14-blue.png" },
-          { name: "Red", hex: "#BF0013", img: "img/apple-iphone-14-blue.png" },
-          { name: "Blue", hex: "#5B7B9C", img: "img/apple-iphone-14-blue.png" },
-          { name: "Purple", hex: "#C8B5D3", img: "img/apple-iphone-14-purple.png" },
-          { name: "Yellow", hex: "#F9E878", img: "img/apple-iphone-14-starlight.png" }
+          { name: "Midnight", hex: "#1C1C1E", img: "img/apple-iphone-14-blue.webp" },
+          { name: "Starlight", hex: "#F5F5F0", img: "img/apple-iphone-14-blue.webp" },
+          { name: "Red", hex: "#BF0013", img: "img/apple-iphone-14-blue.webp" },
+          { name: "Blue", hex: "#5B7B9C", img: "img/apple-iphone-14-blue.webp" },
+          { name: "Purple", hex: "#C8B5D3", img: "img/apple-iphone-14-purple.webp" },
+          { name: "Yellow", hex: "#F9E878", img: "img/apple-iphone-14-starlight.webp" }
         ],
         basePrice: 666
       },
@@ -3469,12 +3469,12 @@ const SERIES = {
         chip: "A16 Bionic",
         storage: ["128GB", "256GB", "512GB", "1TB"],
         heroVideo: "img/iphone14pro-hero.mp4",
-        gallery: ["img/gallery-14pro-colors.png"],
+        gallery: ["img/gallery-14pro-colors.webp"],
         colors: [
-          { name: "Space Black", hex: "#3A3A3C", img: "img/apple-iphone-14-blue.png" },
-          { name: "Silver", hex: "#8A8A8E", img: "img/apple-iphone-14-starlight.png" },
-          { name: "Gold", hex: "#F4E0C2", img: "img/apple-iphone-14-starlight.png" },
-          { name: "Deep Purple", hex: "#59476B", img: "img/apple-iphone-14-starlight.png" }
+          { name: "Space Black", hex: "#3A3A3C", img: "img/apple-iphone-14-blue.webp" },
+          { name: "Silver", hex: "#8A8A8E", img: "img/apple-iphone-14-starlight.webp" },
+          { name: "Gold", hex: "#F4E0C2", img: "img/apple-iphone-14-starlight.webp" },
+          { name: "Deep Purple", hex: "#59476B", img: "img/apple-iphone-14-starlight.webp" }
         ],
         basePrice: 666
       },
@@ -3484,12 +3484,12 @@ const SERIES = {
         screen: "6.7\"",
         chip: "A16 Bionic",
         storage: ["128GB", "256GB", "512GB", "1TB"],
-        gallery: ["img/gallery-14pro-colors.png"],
+        gallery: ["img/gallery-14pro-colors.webp"],
         colors: [
-          { name: "Space Black", hex: "#3A3A3C", img: "img/apple-iphone-14-blue.png" },
-          { name: "Silver", hex: "#8A8A8E", img: "img/apple-iphone-14-starlight.png" },
-          { name: "Gold", hex: "#F4E0C2", img: "img/apple-iphone-14-starlight.png" },
-          { name: "Deep Purple", hex: "#59476B", img: "img/apple-iphone-14-starlight.png" }
+          { name: "Space Black", hex: "#3A3A3C", img: "img/apple-iphone-14-blue.webp" },
+          { name: "Silver", hex: "#8A8A8E", img: "img/apple-iphone-14-starlight.webp" },
+          { name: "Gold", hex: "#F4E0C2", img: "img/apple-iphone-14-starlight.webp" },
+          { name: "Deep Purple", hex: "#59476B", img: "img/apple-iphone-14-starlight.webp" }
         ],
         basePrice: 3890
       }
@@ -3497,9 +3497,9 @@ const SERIES = {
   },
   15: {
     name: "iPhone 15",
-    img: "img/apple-iphone-15-blue.png",
-    imgs: ["img/apple-iphone-15-blue.png", "img/apple-iphone-15-pink.png", "img/apple-iphone-15-black.png"],
-    gallery: ["img/apple-iphone-15-blue.png","img/apple-iphone-15-pink.png","img/apple-iphone-15-black.png","img/apple-iphone-15-yellow.png"],
+    img: "img/apple-iphone-15-blue.webp",
+    imgs: ["img/apple-iphone-15-blue.webp", "img/apple-iphone-15-pink.webp", "img/apple-iphone-15-black.webp"],
+    gallery: ["img/apple-iphone-15-blue.webp","img/apple-iphone-15-pink.webp","img/apple-iphone-15-black.webp","img/apple-iphone-15-yellow.webp"],
     variants: {
       standard: {
         name: "15",
@@ -3511,13 +3511,13 @@ const SERIES = {
         heroVideoStart: 3,
         heroVideoZoom: 1.18,
         heroVideoX: -8,
-        gallery: ["img/gallery-15-hero.png","img/gallery-15-colors.png"],
+        gallery: ["img/gallery-15-hero.webp","img/gallery-15-colors.webp"],
         colors: [
-          { name: "Black", hex: "#1C1C1E", img: "img/apple-iphone-15-black.png" },
-          { name: "Blue", hex: "#5B7B9C", img: "img/apple-iphone-15-blue.png" },
-          { name: "Green", hex: "#ADE0C0", img: "img/apple-iphone-15-yellow.png" },
-          { name: "Yellow", hex: "#F9E878", img: "img/apple-iphone-15-yellow.png" },
-          { name: "Pink", hex: "#F9CEC7", img: "img/apple-iphone-15-pink.png" }
+          { name: "Black", hex: "#1C1C1E", img: "img/apple-iphone-15-black.webp" },
+          { name: "Blue", hex: "#5B7B9C", img: "img/apple-iphone-15-blue.webp" },
+          { name: "Green", hex: "#ADE0C0", img: "img/apple-iphone-15-yellow.webp" },
+          { name: "Yellow", hex: "#F9E878", img: "img/apple-iphone-15-yellow.webp" },
+          { name: "Pink", hex: "#F9CEC7", img: "img/apple-iphone-15-pink.webp" }
         ],
         basePrice: 666
       },
@@ -3527,13 +3527,13 @@ const SERIES = {
         screen: "6.7\"",
         chip: "A16 Bionic",
         storage: ["128GB", "256GB", "512GB"],
-        gallery: ["img/gallery-15-hero.png","img/gallery-15-colors.png"],
+        gallery: ["img/gallery-15-hero.webp","img/gallery-15-colors.webp"],
         colors: [
-          { name: "Black", hex: "#1C1C1E", img: "img/apple-iphone-15-black.png" },
-          { name: "Blue", hex: "#5B7B9C", img: "img/apple-iphone-15-blue.png" },
-          { name: "Green", hex: "#ADE0C0", img: "img/apple-iphone-15-yellow.png" },
-          { name: "Yellow", hex: "#F9E878", img: "img/apple-iphone-15-yellow.png" },
-          { name: "Pink", hex: "#F9CEC7", img: "img/apple-iphone-15-pink.png" }
+          { name: "Black", hex: "#1C1C1E", img: "img/apple-iphone-15-black.webp" },
+          { name: "Blue", hex: "#5B7B9C", img: "img/apple-iphone-15-blue.webp" },
+          { name: "Green", hex: "#ADE0C0", img: "img/apple-iphone-15-yellow.webp" },
+          { name: "Yellow", hex: "#F9E878", img: "img/apple-iphone-15-yellow.webp" },
+          { name: "Pink", hex: "#F9CEC7", img: "img/apple-iphone-15-pink.webp" }
         ],
         basePrice: 666
       },
@@ -3543,12 +3543,12 @@ const SERIES = {
         screen: "6.1\"",
         chip: "A17 Pro",
         storage: ["128GB", "256GB", "512GB", "1TB"],
-        gallery: ["img/gallery-15pro-colors.png"],
+        gallery: ["img/gallery-15pro-colors.webp"],
         colors: [
-          { name: "Natural Titanium", hex: "#A09484", img: "img/apple-iphone-15-yellow.png" },
-          { name: "Blue Titanium", hex: "#3D4E5C", img: "img/apple-iphone-15-blue.png" },
-          { name: "White Titanium", hex: "#E5E3DE", img: "img/apple-iphone-15-black.png" },
-          { name: "Black Titanium", hex: "#3A3A3C", img: "img/apple-iphone-15-black.png" }
+          { name: "Natural Titanium", hex: "#A09484", img: "img/apple-iphone-15-yellow.webp" },
+          { name: "Blue Titanium", hex: "#3D4E5C", img: "img/apple-iphone-15-blue.webp" },
+          { name: "White Titanium", hex: "#E5E3DE", img: "img/apple-iphone-15-black.webp" },
+          { name: "Black Titanium", hex: "#3A3A3C", img: "img/apple-iphone-15-black.webp" }
         ],
         basePrice: 4080
       },
@@ -3558,12 +3558,12 @@ const SERIES = {
         screen: "6.7\"",
         chip: "A17 Pro",
         storage: ["256GB", "512GB", "1TB"],
-        gallery: ["img/gallery-15pro-colors.png"],
+        gallery: ["img/gallery-15pro-colors.webp"],
         colors: [
-          { name: "Natural Titanium", hex: "#A09484", img: "img/apple-iphone-15-yellow.png" },
-          { name: "Blue Titanium", hex: "#3D4E5C", img: "img/apple-iphone-15-blue.png" },
-          { name: "White Titanium", hex: "#E5E3DE", img: "img/apple-iphone-15-black.png" },
-          { name: "Black Titanium", hex: "#3A3A3C", img: "img/apple-iphone-15-black.png" }
+          { name: "Natural Titanium", hex: "#A09484", img: "img/apple-iphone-15-yellow.webp" },
+          { name: "Blue Titanium", hex: "#3D4E5C", img: "img/apple-iphone-15-blue.webp" },
+          { name: "White Titanium", hex: "#E5E3DE", img: "img/apple-iphone-15-black.webp" },
+          { name: "Black Titanium", hex: "#3A3A3C", img: "img/apple-iphone-15-black.webp" }
         ],
         basePrice: 666
       }
@@ -3571,9 +3571,9 @@ const SERIES = {
   },
   16: {
     name: "iPhone 16",
-    img: "img/apple-iphone-16-teal.png",
-    imgs: ["img/apple-iphone-16-teal.png", "img/apple-iphone-16-pink.png", "img/apple-iphone-16-ultramarine.png"],
-    gallery: ["img/apple-iphone-16-teal.png","img/apple-iphone-16-pink.png","img/apple-iphone-16-ultramarine.png","img/apple-iphone-16-black.png"],
+    img: "img/apple-iphone-16-teal.webp",
+    imgs: ["img/apple-iphone-16-teal.webp", "img/apple-iphone-16-pink.webp", "img/apple-iphone-16-ultramarine.webp"],
+    gallery: ["img/apple-iphone-16-teal.webp","img/apple-iphone-16-pink.webp","img/apple-iphone-16-ultramarine.webp","img/apple-iphone-16-black.webp"],
     variants: {
       standard: {
         name: "16",
@@ -3582,13 +3582,13 @@ const SERIES = {
         chip: "A18",
         storage: ["128GB", "256GB", "512GB"],
         heroVideo: "img/iphone16-hero.mp4",
-        gallery: ["img/gallery-16-colors.png"],
+        gallery: ["img/gallery-16-colors.webp"],
         colors: [
-          { name: "Black", hex: "#1C1C1E", img: "img/apple-iphone-16-black.png" },
-          { name: "White", hex: "#F5F5F0", img: "img/apple-iphone-16-pink.png" },
-          { name: "Pink", hex: "#F9CEC7", img: "img/apple-iphone-16-pink.png" },
-          { name: "Teal", hex: "#5B9E9E", img: "img/apple-iphone-16-teal.png" },
-          { name: "Ultramarine", hex: "#4B51A3", img: "img/apple-iphone-16-ultramarine.png" }
+          { name: "Black", hex: "#1C1C1E", img: "img/apple-iphone-16-black.webp" },
+          { name: "White", hex: "#F5F5F0", img: "img/apple-iphone-16-pink.webp" },
+          { name: "Pink", hex: "#F9CEC7", img: "img/apple-iphone-16-pink.webp" },
+          { name: "Teal", hex: "#5B9E9E", img: "img/apple-iphone-16-teal.webp" },
+          { name: "Ultramarine", hex: "#4B51A3", img: "img/apple-iphone-16-ultramarine.webp" }
         ],
         basePrice: 666
       },
@@ -3598,13 +3598,13 @@ const SERIES = {
         screen: "6.7\"",
         chip: "A18",
         storage: ["128GB", "256GB", "512GB"],
-        gallery: ["img/gallery-16plus-colors.png"],
+        gallery: ["img/gallery-16plus-colors.webp"],
         colors: [
-          { name: "Black", hex: "#1C1C1E", img: "img/apple-iphone-16-black.png" },
-          { name: "White", hex: "#F5F5F0", img: "img/apple-iphone-16-pink.png" },
-          { name: "Pink", hex: "#F9CEC7", img: "img/apple-iphone-16-pink.png" },
-          { name: "Teal", hex: "#5B9E9E", img: "img/apple-iphone-16-teal.png" },
-          { name: "Ultramarine", hex: "#4B51A3", img: "img/apple-iphone-16-ultramarine.png" }
+          { name: "Black", hex: "#1C1C1E", img: "img/apple-iphone-16-black.webp" },
+          { name: "White", hex: "#F5F5F0", img: "img/apple-iphone-16-pink.webp" },
+          { name: "Pink", hex: "#F9CEC7", img: "img/apple-iphone-16-pink.webp" },
+          { name: "Teal", hex: "#5B9E9E", img: "img/apple-iphone-16-teal.webp" },
+          { name: "Ultramarine", hex: "#4B51A3", img: "img/apple-iphone-16-ultramarine.webp" }
         ],
         basePrice: 666
       },
@@ -3614,12 +3614,12 @@ const SERIES = {
         screen: "6.3\"",
         chip: "A18 Pro",
         storage: ["128GB", "256GB", "512GB", "1TB"],
-        gallery: ["img/gallery-16pro-colors.png"],
+        gallery: ["img/gallery-16pro-colors.webp"],
         colors: [
-          { name: "Black Titanium", hex: "#3A3A3C", img: "img/apple-iphone-16-black.png" },
-          { name: "White Titanium", hex: "#E5E3DE", img: "img/apple-iphone-16-white.png" },
-          { name: "Natural Titanium", hex: "#A09484", img: "img/apple-iphone-16-white.png" },
-          { name: "Desert Titanium", hex: "#C4A882", img: "img/apple-iphone-16-white.png" }
+          { name: "Black Titanium", hex: "#3A3A3C", img: "img/apple-iphone-16-black.webp" },
+          { name: "White Titanium", hex: "#E5E3DE", img: "img/apple-iphone-16-white.webp" },
+          { name: "Natural Titanium", hex: "#A09484", img: "img/apple-iphone-16-white.webp" },
+          { name: "Desert Titanium", hex: "#C4A882", img: "img/apple-iphone-16-white.webp" }
         ],
         basePrice: 4850
       },
@@ -3629,12 +3629,12 @@ const SERIES = {
         screen: "6.9\"",
         chip: "A18 Pro",
         storage: ["256GB", "512GB", "1TB"],
-        gallery: ["img/gallery-16pro-colors.png"],
+        gallery: ["img/gallery-16pro-colors.webp"],
         colors: [
-          { name: "Black Titanium", hex: "#3A3A3C", img: "img/apple-iphone-16-black.png" },
-          { name: "White Titanium", hex: "#E5E3DE", img: "img/apple-iphone-16-white.png" },
-          { name: "Natural Titanium", hex: "#A09484", img: "img/apple-iphone-16-white.png" },
-          { name: "Desert Titanium", hex: "#C4A882", img: "img/apple-iphone-16-white.png" }
+          { name: "Black Titanium", hex: "#3A3A3C", img: "img/apple-iphone-16-black.webp" },
+          { name: "White Titanium", hex: "#E5E3DE", img: "img/apple-iphone-16-white.webp" },
+          { name: "Natural Titanium", hex: "#A09484", img: "img/apple-iphone-16-white.webp" },
+          { name: "Desert Titanium", hex: "#C4A882", img: "img/apple-iphone-16-white.webp" }
         ],
         basePrice: 5950
       },
@@ -3644,10 +3644,10 @@ const SERIES = {
         screen: "6.1\"",
         chip: "A18",
         storage: ["128GB", "256GB", "512GB"],
-        gallery: ["img/gallery-16-colors.png"],
+        gallery: ["img/gallery-16-colors.webp"],
         colors: [
-          { name: "Black", hex: "#1C1C1E", img: "img/apple-iphone-16-black.png" },
-          { name: "White", hex: "#F5F5F0", img: "img/apple-iphone-16-pink.png" }
+          { name: "Black", hex: "#1C1C1E", img: "img/apple-iphone-16-black.webp" },
+          { name: "White", hex: "#F5F5F0", img: "img/apple-iphone-16-pink.webp" }
         ],
         basePrice: 666
       }
@@ -3655,9 +3655,9 @@ const SERIES = {
   },
   17: {
     name: "iPhone 17",
-    img: "img/apple-iphone-17-white.png",
-    imgs: ["img/apple-iphone-17-white.png", "img/apple-iphone-17-sage.png", "img/apple-iphone-17-lavender.png"],
-    gallery: ["img/gallery-17-rear-camera.png","img/apple-iphone-17-white.png","img/apple-iphone-17-sage.png","img/apple-iphone-17-mistblue.png"],
+    img: "img/apple-iphone-17-white.webp",
+    imgs: ["img/apple-iphone-17-white.webp", "img/apple-iphone-17-sage.webp", "img/apple-iphone-17-lavender.webp"],
+    gallery: ["img/gallery-17-rear-camera.webp","img/apple-iphone-17-white.webp","img/apple-iphone-17-sage.webp","img/apple-iphone-17-mistblue.webp"],
     variants: {
       standard: {
         name: "17",
@@ -3667,13 +3667,13 @@ const SERIES = {
         storage: ["128GB", "256GB", "512GB"],
         heroVideo: "img/iphone17-hero-web.mp4",
         colors: [
-          { name: "Sage", hex: "#8FA58A", img: "img/apple-iphone-17-sage.png" },
-          { name: "Mist Blue", hex: "#A5C4D4", img: "img/apple-iphone-17-mistblue.png" },
-          { name: "Lavender", hex: "#C8B5D3", img: "img/apple-iphone-17-lavender.png" },
-          { name: "White", hex: "#F5F5F0", img: "img/apple-iphone-17-white.png" },
-          { name: "Black", hex: "#1D1D1F", img: "img/apple-iphone-17-black.png" }
+          { name: "Sage", hex: "#8FA58A", img: "img/apple-iphone-17-sage.webp" },
+          { name: "Mist Blue", hex: "#A5C4D4", img: "img/apple-iphone-17-mistblue.webp" },
+          { name: "Lavender", hex: "#C8B5D3", img: "img/apple-iphone-17-lavender.webp" },
+          { name: "White", hex: "#F5F5F0", img: "img/apple-iphone-17-white.webp" },
+          { name: "Black", hex: "#1D1D1F", img: "img/apple-iphone-17-black.webp" }
         ],
-        gallery: ["img/gallery-17-colors.png","img/gallery-17-rear-camera.png"],
+        gallery: ["img/gallery-17-colors.webp","img/gallery-17-rear-camera.webp"],
         basePrice: 666
       },
       air: {
@@ -3684,12 +3684,12 @@ const SERIES = {
         storage: ["256GB", "512GB"],
         heroVideo: "img/iphone17e-hero.mp4",
         colors: [
-          { name: "Black", hex: "#3A3A3C", img: "img/apple-iphone-17-black.png" },
-          { name: "White", hex: "#F5F5F0", img: "img/apple-iphone-17-white.png" },
-          { name: "Lavender", hex: "#C8B5D3", img: "img/apple-iphone-17-lavender.png" },
-          { name: "Mist Blue", hex: "#7EB8D4", img: "img/apple-iphone-17-mistblue.png" }
+          { name: "Black", hex: "#3A3A3C", img: "img/apple-iphone-17-black.webp" },
+          { name: "White", hex: "#F5F5F0", img: "img/apple-iphone-17-white.webp" },
+          { name: "Lavender", hex: "#C8B5D3", img: "img/apple-iphone-17-lavender.webp" },
+          { name: "Mist Blue", hex: "#7EB8D4", img: "img/apple-iphone-17-mistblue.webp" }
         ],
-        gallery: ["img/gallery-17air-colors.png"],
+        gallery: ["img/gallery-17air-colors.webp"],
         basePrice: 666
       },
       pro: {
@@ -3699,11 +3699,11 @@ const SERIES = {
         chip: "A19 Pro",
         storage: ["256GB", "512GB", "1TB"],
         colors: [
-          { name: "White", hex: "#8A8A8E", img: "img/apple-iphone-17-white.png" },
-          { name: "Black", hex: "#2A3A6A", img: "img/apple-iphone-17-black.png" },
-          { name: "Sage", hex: "#8FA58A", img: "img/apple-iphone-17-sage.png" }
+          { name: "White", hex: "#8A8A8E", img: "img/apple-iphone-17-white.webp" },
+          { name: "Black", hex: "#2A3A6A", img: "img/apple-iphone-17-black.webp" },
+          { name: "Sage", hex: "#8FA58A", img: "img/apple-iphone-17-sage.webp" }
         ],
-        gallery: ["img/gallery-17pro-colors.png","img/gallery-17pro-design-end.jpg"],
+        gallery: ["img/gallery-17pro-colors.webp","img/gallery-17pro-design-end.jpg"],
         basePrice: 666
       },
       proMax: {
@@ -3713,11 +3713,11 @@ const SERIES = {
         chip: "A19 Pro",
         storage: ["256GB", "512GB", "1TB"],
         colors: [
-          { name: "White", hex: "#8A8A8E", img: "img/apple-iphone-17-white.png" },
-          { name: "Black", hex: "#2A3A6A", img: "img/apple-iphone-17-black.png" },
-          { name: "Sage", hex: "#8FA58A", img: "img/apple-iphone-17-sage.png" }
+          { name: "White", hex: "#8A8A8E", img: "img/apple-iphone-17-white.webp" },
+          { name: "Black", hex: "#2A3A6A", img: "img/apple-iphone-17-black.webp" },
+          { name: "Sage", hex: "#8FA58A", img: "img/apple-iphone-17-sage.webp" }
         ],
-        gallery: ["img/gallery-17promax-colors.png","img/gallery-17promax-highlights.jpg","img/gallery-17promax-action.jpg","img/gallery-17promax-design.jpg"],
+        gallery: ["img/gallery-17promax-colors.webp","img/gallery-17promax-highlights.jpg","img/gallery-17promax-action.jpg","img/gallery-17promax-design.jpg"],
         basePrice: 666
       }
     }

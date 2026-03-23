@@ -1,3 +1,7 @@
 node_modules/
 .claude/
 *.log
+*.bak
+optimize-images.js
+patch-html.js
+index.html.bak
