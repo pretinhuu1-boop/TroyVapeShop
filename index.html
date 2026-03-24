@@ -4981,11 +4981,11 @@ function removeBgFloodFill(imgEl, tolerance) {
     if (Math.abs(p - lastP) < 0.002) return;
     lastP = p;
 
-    // Title fades out (0→0.40)
-    var tp = ease(clamp(p / 0.40, 0, 1));
+    // Title fades out (0→0.75) — longa duração
+    var tp = ease(clamp(p / 0.75, 0, 1));
     if (titleEl) {
       titleEl.style.opacity   = 1 - tp;
-      titleEl.style.filter    = 'blur(' + (tp * 8) + 'px)';
+      titleEl.style.filter    = 'blur(' + (tp * 3) + 'px)';
       titleEl.style.transform = 'translateY(' + (tp * -12) + 'px)';
     }
 
