@@ -234,7 +234,7 @@ export function renderApp(state: AppViewState) {
           </button>
           <div class="brand">
             <div class="brand-logo">
-              <img src=${basePath ? `${basePath}/favicon.svg` : "/favicon.svg"} alt="Cloud Lab" />
+              <img src=${basePath ? `${basePath}/logo.png` : "/logo.png"} alt="Cloud Lab" />
             </div>
             <div class="brand-text">
               <div class="brand-title">Cloud Lab</div>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Cloud Lab Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .tab-btn.active {
+            border-bottom: 2px solid #FF6321;
+            color: #FF6321;
+        }
+
+        .data-grid th {
+            text-transform: uppercase;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            opacity: 0.6;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .data-grid td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .data-grid tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .editable-cell input,
+        .editable-cell select {
+            background: transparent;
+            border: 1px solid transparent;
+            color: white;
+            width: 100%;
+            outline: none;
+            padding: 0.25rem;
+        }
+
+        .editable-cell input:focus,
+        .editable-cell select:focus {
+            border-bottom: 1px solid #FF6321;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .editable-cell input[type="checkbox"] {
+            width: auto;
+        }
+
+        .checkbox-cell {
+            width: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-[#050505]">
+
+    <!-- Login Section -->
+    <section id="login-section" class="min-h-screen flex items-center justify-center px-6 hidden">
+        <div class="glass-card p-10 rounded-3xl w-full max-w-md">
+            <div class="text-center mb-10">
+                <h1 class="text-3xl font-black uppercase tracking-tighter italic mb-2">Acesso <span
+                        class="text-[#FF6321]">Restrito</span></h1>
+                <p class="text-white/40 text-xs uppercase tracking-widest font-bold">Painel de Administração Global</p>
+            </div>
+            <form id="login-form" class="space-y-6">
+                <div>
+                    <label class="text-[10px] uppercase tracking-widest font-bold opacity-50 mb-2 block">E-mail</label>
+                    <input type="email" id="login-email" placeholder="admin@cloudlabs.com"
+                        class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-[#FF6321] outline-none transition"
+                        required>
+                </div>
+                <div>
+                    <label class="text-[10px] uppercase tracking-widest font-bold opacity-50 mb-2 block">Senha</label>
+                    <input type="password" id="login-password" placeholder="••••••••"
+                        class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-[#FF6321] outline-none transition"
+                        required>
+                </div>
+                <button type="submit"
+                    class="w-full button-orange py-4 rounded-xl font-black uppercase tracking-widest text-white shadow-lg shadow-[#FF6321]/20">Entrar
+                    no Painel</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Admin Dashboard -->
+    <section id="admin-dashboard" class="hidden min-h-screen flex flex-col">
+        <!-- Topbar -->
+        <header
+            class="border-b border-white/10 bg-black/50 p-6 flex justify-between items-center sticky top-0 z-50 backdrop-blur-md">
+            <div>
+                <h1 class="text-2xl font-black uppercase tracking-tighter italic">Cloud Lab <span
+                        class="text-[#FF6321]">OS</span></h1>
+            </div>
+            <div class="flex gap-4">
+                <button id="logout-btn"
+                    class="px-6 py-2 border border-red-500/30 text-red-500 rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-red-500/10 transition">Sair</button>
+                <a href="index.html"
+                    class="px-6 py-2 border border-white/10 text-white rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-white/5 transition">Ver
+                    Loja</a>
+            </div>
+        </header>
+
+        <div class="flex flex-1 overflow-hidden">
+            <!-- Sidebar Navigation -->
+            <aside class="w-64 border-r border-white/10 bg-black/20 p-6 flex flex-col gap-2">
+                <button
+                    class="nav-tab active text-left px-4 py-3 rounded-lg text-sm font-bold opacity-50 hover:opacity-100 hover:bg-white/5 transition"
+                    data-target="tab-analytics">
+                    Analytics & Vendas
+                </button>
+                <button
+                    class="nav-tab text-left px-4 py-3 rounded-lg text-sm font-bold opacity-50 hover:opacity-100 hover:bg-white/5 transition"
+                    data-target="tab-products">
+                    Planilha de Produtos
+                </button>
+                <button
+                    class="nav-tab text-left px-4 py-3 rounded-lg text-sm font-bold opacity-50 hover:opacity-100 hover:bg-white/5 transition"
+                    data-target="tab-inventory">
+                    Logística & Estoque
+                </button>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="flex-1 p-8 overflow-y-auto w-full">
+
+                <!-- TAB: Analytics -->
+                <div id="tab-analytics" class="tab-content">
+                    <div class="flex justify-between items-center mb-8">
+                        <div>
+                            <h2 class="text-3xl font-black italic uppercase tracking-tighter">Visão Geral</h2>
+                            <p class="text-white/40 text-xs font-bold uppercase tracking-widest">Acompanhamento de
+                                vendas e faturamento</p>
+                        </div>
+                        <button id="open-sale-modal-btn"
+                            class="button-orange px-6 py-3 rounded-lg text-xs font-black uppercase tracking-widest text-white shadow-lg shadow-[#FF6321]/20">
+                            + Registrar Venda
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                        <div class="glass-card p-6 rounded-2xl">
+                            <h3 class="text-[10px] uppercase tracking-widest font-bold opacity-50 mb-2">Faturamento
+                                Total</h3>
+                            <div class="text-3xl font-black text-[#00D4FF]" id="analytics-revenue">R$ 0,00</div>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl">
+                            <h3 class="text-[10px] uppercase tracking-widest font-bold opacity-50 mb-2">Produtos
+                                Vendidos</h3>
+                            <div class="text-3xl font-black text-white" id="analytics-items">0</div>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl col-span-2 md:col-span-1">
+                            <h3 class="text-[10px] uppercase tracking-widest font-bold opacity-50 mb-3">Estoque Global</h3>
+                            <div class="text-3xl font-black text-white mb-3" id="analytics-stock">0</div>
+                            <div id="analytics-stock-by-brand" class="space-y-1.5"></div>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-bold italic mb-4">Últimas Vendas</h3>
+                    <div class="glass-card rounded-2xl overflow-hidden">
+                        <table class="w-full data-grid text-sm">
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Produto</th>
+                                    <th>Qtd</th>
+                                    <th>Total (R$)</th>
+                                    <th>Cliente/Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sales-table-body">
+                                <!-- Sales inject -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- TAB: Products Spreadsheet -->
+                <div id="tab-products" class="tab-content hidden">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
+                        <div>
+                            <h2 class="text-3xl font-black italic uppercase tracking-tighter">Planilha Mestra</h2>
+                            <p class="text-white/40 text-xs font-bold uppercase tracking-widest">Edição em massa e
+                                cadastro</p>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-4 w-full md:w-auto">
+                            <input type="text" id="filter-search" placeholder="Buscar produto ou marca..."
+                                class="px-4 py-2 rounded-lg bg-white/5 border border-white/10 focus:border-[#FF6321] outline-none text-sm w-full md:w-64">
+                            <select id="filter-promo"
+                                class="px-4 py-2 rounded-lg bg-black border border-white/10 text-sm outline-none cursor-pointer">
+                                <option value="all">Todas Ofertas</option>
+                                <option value="promo">Em Promoção</option>
+                                <option value="normal">Preço Normal</option>
+                            </select>
+                            <button id="add-product-row-btn"
+                                class="button-orange px-6 py-2 rounded-lg text-xs font-black uppercase tracking-widest text-white shadow-lg shadow-[#FF6321]/20 h-full whitespace-nowrap">
+                                + Novo Produto
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Bulk Actions -->
+                    <div id="bulk-actions"
+                        class="hidden mb-4 p-4 glass-card rounded-xl flex justify-between items-center border border-[#FF6321]/30 bg-[#FF6321]/5">
+                        <span class="text-sm font-bold text-[#FF6321]"><span id="selected-count">0</span>
+                            selecionados</span>
+                        <button id="bulk-delete-btn"
+                            class="text-xs text-red-500 font-bold uppercase tracking-widest hover:underline">Excluir
+                            Selecionados</button>
+                    </div>
+
+                    <div class="glass-card rounded-2xl overflow-x-auto w-full">
+                        <table class="w-full data-grid text-sm whitespace-nowrap">
+                            <thead>
+                                <tr>
+                                    <th class="checkbox-cell"><input type="checkbox" id="check-all"
+                                            class="cursor-pointer"></th>
+                                    <th>Nome</th>
+                                    <th>Marca</th>
+                                    <th>Preço (R$)</th>
+                                    <th>Estoque</th>
+                                    <th>Puffs</th>
+                                    <th>Sabores</th>
+                                    <th>Promo</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="spreadsheet-body">
+                                <!-- Products rows for editing -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-white/30 text-[10px] mt-4 uppercase tracking-widest font-bold text-center">Clique em
+                        qualquer campo da tabela para editar diretamente e aperte "Salvar" no fim da linha.</p>
+                </div>
+
+                <!-- TAB: Inventory -->
+                <div id="tab-inventory" class="tab-content hidden">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-black italic uppercase tracking-tighter">Controle de Estoque</h2>
+                        <p class="text-white/40 text-xs font-bold uppercase tracking-widest">Entradas e saídas rápidas
+                        </p>
+                    </div>
+
+                    <div class="glass-card rounded-2xl overflow-hidden max-w-4xl mx-auto">
+                        <table class="w-full data-grid text-sm">
+                            <thead>
+                                <tr>
+                                    <th>Produto</th>
+                                    <th class="text-center">Estoque Atual</th>
+                                    <th class="text-center">Mover Estoque (+ / -)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="inventory-body">
+                                <!-- Inventory inject -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </section>
+
+    <!-- Modal: Register Sale -->
+    <div id="sale-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" id="close-sale-modal-overlay"></div>
+        <div class="relative glass-card p-8 rounded-3xl w-full max-w-md">
+            <h2 class="text-2xl font-black italic uppercase tracking-tighter mb-6">Registrar <span
+                    class="text-[#FF6321]">Venda</span></h2>
+            <form id="sale-form" class="space-y-4">
+                <div>
+                    <label class="text-[10px] uppercase tracking-widest font-bold opacity-50 mb-2 block">Produto
+                        Vendido</label>
+                    <select id="sale-product"
+                        class="w-full px-4 py-3 rounded-xl bg-black border border-white/10 focus:border-[#FF6321] outline-none transition text-sm text-white"
+                        required>
+                        <!-- Options filled via JS -->
+                    </select>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="text-[10px] uppercase tracking-widest font-bold opacity-50 mb-2 block">Qtd</label>
+                        <input type="number" id="sale-qty" min="1" value="1"
+                            class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-[#FF6321] outline-none transition"
+                            required>
+                    </div>
+                    <div>
+                        <label class="text-[10px] uppercase tracking-widest font-bold opacity-50 mb-2 block">Valor Total
+                            (R$)</label>
+                        <input type="number" step="0.01" id="sale-total"
+                            class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-[#FF6321] outline-none transition"
+                            required>
+                    </div>
+                </div>
+                <div>
+                    <label class="text-[10px] uppercase tracking-widest font-bold opacity-50 mb-2 block">Cliente / Info
+                        (Opcional)</label>
+                    <input type="text" id="sale-info" placeholder="Whatsapp, nome..."
+                        class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-[#FF6321] outline-none transition">
+                </div>
+                <button type="submit"
+                    class="w-full button-orange py-4 rounded-xl font-black uppercase tracking-widest text-white mt-4">Confirmar
+                    Venda</button>
+            </form>
+            <p class="text-[10px] text-white/40 text-center mt-4">Isso abaterá automaticamente o estoque do produto.</p>
+        </div>
+    </div>
+
+    <!-- Modal: Create Product -->
+    <div id="create-product-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" id="close-cp-modal-overlay"></div>
+        <div class="relative glass-card p-8 rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+            <h2 class="text-2xl font-black italic uppercase tracking-tighter mb-6">Cadastrar <span
+                    class="text-[#FF6321]">Produto</span></h2>
+            <form id="create-product-form" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="text-[10px] uppercase tracking-widest font-bold opacity-50 mb-2 block">Nome do
+                            Produto</label>
+                        <input type="text" id="cp-name" placeholder="Ex: Cloud Lab Max"
+                            class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-[#FF6321] outline-none transition"
+                            required>
+                    </div>
+                    <div>
+                        <label
+                            class="text-[10px] uppercase tracking-widest font-bold opacity-50 mb-2 block">Marca</label>
+                        <input type="text" id="cp-brand" placeholder="Ex: Cloud Lab"
+                            class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-[#FF6321] outline-none transition"
+                            required>
+                    </div>
+                    <div>
+                        <label class="text-[10px] uppercase tracking-widest font-bold opacity-50 mb-2 block">Preço
+                            (R$)</label>
+                        <input type="number" step="0.01" id="cp-price" placeholder="Ex: 120.50"
+                            class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-[#FF6321] outline-none transition"
+                            required>
+                    </div>
+                    <div>
+                        <label class="text-[10px] uppercase tracking-widest font-bold opacity-50 mb-2 block">Estoque
+                            Inicial</label>
+                        <input type="number" id="cp-stock" value="0" min="0"
+                            class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-[#FF6321] outline-none transition"
+                            required>
+                    </div>
+                    <div>
+                        <label class="text-[10px] uppercase tracking-widest font-bold opacity-50 mb-2 block">Número de
+                            Puffs</label>
+                        <input type="number" id="cp-puffs" placeholder="Ex: 5000"
+                            class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-[#FF6321] outline-none transition"
+                            required>
+                    </div>
+                    <div>
+                        <label class="text-[10px] uppercase tracking-widest font-bold opacity-50 mb-2 block">Sabores
+                            (separados por vírgula)</label>
+                        <input type="text" id="cp-flavor" placeholder="Ex: Menta, Açai, Uva"
+                            class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-[#FF6321] outline-none transition">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="text-[10px] uppercase tracking-widest font-bold opacity-50 mb-2 block">Upload da
+                        Imagem do Produto (JPEG/PNG)</label>
+                    <input type="file" id="cp-image" accept="image/jpeg, image/png, image/webp"
+                        class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-[#FF6321] outline-none transition cursor-pointer text-sm"
+                        required>
+                </div>
+
+                <div class="flex items-center gap-3 mt-4 mb-2">
+                    <input type="checkbox" id="cp-promo" class="w-5 h-5 accent-[#FF6321] cursor-pointer">
+                    <label for="cp-promo"
+                        class="text-sm font-bold uppercase tracking-widest cursor-pointer mt-1">Colocar em Oferta
+                        (Promoção)?</label>
+                </div>
+
+                <div class="flex gap-4 mt-8">
+                    <button type="button" id="close-cp-btn"
+                        class="flex-1 py-4 border border-white/10 rounded-xl font-black uppercase tracking-widest hover:bg-white/5 transition">Cancelar</button>
+                    <button type="submit"
+                        class="flex-1 button-orange py-4 rounded-xl font-black uppercase tracking-widest text-white shadow-lg shadow-[#FF6321]/20">Cadastrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="assets/js/admin.js"></script>
+</body>
+
+</html>

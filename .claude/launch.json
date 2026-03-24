@@ -5,15 +5,15 @@
       "name": "troyVape-frontend",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
-      "port": 3000,
-      "cwd": "troyVape"
+      "port": 3001,
+      "cwd": "troyVape 2"
     },
     {
       "name": "troyVape-api",
       "runtimeExecutable": "node",
       "runtimeArgs": ["server.js"],
       "port": 3002,
-      "cwd": "troyVape"
+      "cwd": "troyVape 2"
     },
     {
       "name": "troyagent-gateway",

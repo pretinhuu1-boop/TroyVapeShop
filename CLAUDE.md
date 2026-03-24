@@ -4,7 +4,8 @@ Monorepo with two projects. Always be concise — no summaries, no preamble.
 
 ## Projects
 
-### troyVape (Vape Shop)
+### site-cloud-lab (Cloud Lab Store)
+- Path: `troyagent/site-cloud-lab/`
 - Stack: Vite + Vanilla JS/TS + Tailwind CSS + Supabase + Express
 - Run: `npm run dev` (port 3000), `npm run server` (API)
 - Build: `npm run build`, lint: `tsc --noEmit`
