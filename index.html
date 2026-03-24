@@ -1188,7 +1188,8 @@ section { padding: 80px 40px; }
   z-index: 1;
   opacity: 0;
   transform: scale(0.55) translateX(0);
-  transition: all 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+  transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.6s cubic-bezier(0.25,0.46,0.45,0.94), filter 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+  will-change: transform, opacity;
   filter: drop-shadow(0 8px 16px rgba(0,0,0,0.3)) brightness(0.6);
   pointer-events: none;
 }
@@ -2734,6 +2735,15 @@ footer::before {
   .hero-phone-img { animation: none !important; }
   /* Remove blur glow on detail page */
   .ap-showcase-media::after { display: none !important; }
+  /* Stop infinite pulsing animations — paint cost */
+  .cert-compact-sub::before { animation: none !important; }
+  @keyframes shieldPulse { 0%,100% { box-shadow: 0 0 18px rgba(0,113,227,0.25); } }
+  /* Promote carousel images to own GPU layer */
+  .product-image img { will-change: transform, opacity; }
+  /* Contain layout recalc to product cards */
+  .product-card { contain: layout style; }
+  /* Contain heavy sections */
+  .social-proof, .certification { contain: layout style; }
 }
 
 /* ===== PERFORMANCE: prefers-reduced-motion ===== */
@@ -4054,6 +4064,7 @@ function initCarousels() {
 
     const timer = setTimeout(() => {
       const interval = setInterval(() => {
+        if (document.hidden) return;
         current = (current + 1) % total;
         setCarouselPositions(imgs, dots, current);
       }, 3500);
@@ -4451,7 +4462,7 @@ document.addEventListener('keydown', e => {
 // ===== NAVBAR SCROLL =====
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-});
+}, { passive: true });
 
 // ===== FAQ TOGGLE =====
 function toggleFaqCard(card) {
@@ -4483,12 +4494,6 @@ const counterObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 document.querySelector('.counter-section') && counterObserver.observe(document.querySelector('.counter-section'));
 
-
-// Show urgency bar after scroll
-window.addEventListener('scroll', () => {
-  const nb = document.getElementById('navbar');
-  if (nb) nb.classList.toggle('scrolled', window.scrollY > 50);
-});
 
 // ===== INIT =====
 renderSeriesGrid();
@@ -4567,6 +4572,9 @@ function removeBgFloodFill(imgEl, tolerance) {
   let W, H, t = 0, rafId = null, visible = true, tabActive = true;
   let mouse = { x: 0, y: 0, active: false };
   let targetMouse = { x: 0, y: 0 };
+  const FPS_CAP = LOW_END ? 30 : 60;
+  const FRAME_MS = 1000 / FPS_CAP;
+  let lastFrameTime = 0;
   let stars = [], constellations = [], shooters = [];
 
   // Gyroscope tilt offset (mobile)
@@ -4681,7 +4689,10 @@ function removeBgFloodFill(imgEl, tolerance) {
   }
 
   // ---- main draw loop ----
-  function draw() {
+  function draw(now) {
+    rafId = requestAnimationFrame(draw);
+    if (now - lastFrameTime < FRAME_MS) return;
+    lastFrameTime = now;
     t++;
     ctx.clearRect(0, 0, W, H);
 
@@ -4787,7 +4798,6 @@ function removeBgFloodFill(imgEl, tolerance) {
       ctx.stroke();
     }
 
-    rafId = requestAnimationFrame(draw);
   }
 
   function startLoop() {
