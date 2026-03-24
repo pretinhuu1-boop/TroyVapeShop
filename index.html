@@ -4974,12 +4974,9 @@ function removeBgFloodFill(imgEl, tolerance) {
     var rect = frame.getBoundingClientRect();
     var vh   = window.innerHeight;
 
-    // p=0: frame top at viewport top (frame just fully visible)
-    // p=1: frame bottom at viewport top (frame fully scrolled past)
-    // Animation only starts once the frame top reaches the viewport top
-    var scrolled = -rect.top;                        // px scrolled past frame top
-    var total    = Math.max(rect.height * 0.8, 100); // animation over 80% of frame height
-    var p = clamp(scrolled / total, 0, 1);
+    // p=0: frame entering from bottom (rect.top = vh)
+    // p=1: frame top at viewport top (rect.top = 0)
+    var p = clamp((vh - rect.top) / vh, 0, 1);
 
     if (Math.abs(p - lastP) < 0.002) return;
     lastP = p;
