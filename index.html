@@ -1281,13 +1281,13 @@ section { padding: 80px 40px; }
   padding: 0 0 80px;
 }
 
-/* ---- Sticky wrapper — gives 220vh of scroll space on desktop ---- */
+/* ---- Sticky wrapper ---- */
 .cert-sticky-wrapper {
   position: relative;
-  height: 220vh;
+  min-height: 160vh; /* scroll space for pin = min-height - 100vh */
 }
 @media (max-width: 768px) {
-  .cert-sticky-wrapper { height: auto; padding: 48px 0 32px; }
+  .cert-sticky-wrapper { min-height: 0; height: auto; padding: 48px 0 32px; }
 }
 
 /* ---- Sticky scene ---- */
@@ -1439,7 +1439,7 @@ section { padding: 80px 40px; }
 
 /* ---- Cards grid — below sticky zone, revealed by scroll ---- */
 .cert-cards {
-  max-width: 960px; margin: 0 auto 20px; padding: 0 24px;
+  max-width: 960px; margin: -32px auto 20px; padding: 0 24px;
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
   position: relative; z-index: 3;
 }
@@ -3113,10 +3113,9 @@ footer::before {
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Cards — revealed by scroll after sticky zone -->
-  <div class="cert-cards" id="certCards">
+    <!-- Cards — inside wrapper, appear right after sticky zone ends -->
+    <div class="cert-cards" id="certCards">
     <div class="cert-card">
       <div class="cert-card-icon"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><line x1="9" y1="2" x2="9" y2="5"/><line x1="15" y1="2" x2="15" y2="5"/><line x1="9" y1="19" x2="9" y2="22"/><line x1="15" y1="19" x2="15" y2="22"/><line x1="2" y1="9" x2="5" y2="9"/><line x1="2" y1="15" x2="5" y2="15"/><line x1="19" y1="9" x2="22" y2="9"/><line x1="19" y1="15" x2="22" y2="15"/></svg></div>
       <div class="cert-card-label">Software e Segurança</div>
@@ -3166,6 +3165,8 @@ footer::before {
       <span><strong>Reprovar em um ponto é suficiente.</strong> Se o aparelho não passa em qualquer um desses testes, ele não vai à venda.</span>
     </div>
   </div>
+
+  </div><!-- /.cert-sticky-wrapper -->
 
 </section>
 
@@ -4985,8 +4986,8 @@ function removeBgFloodFill(imgEl, tolerance) {
     if (Math.abs(p - lastP) < 0.002) return;
     lastP = p;
 
-    // Phase 1 (0→0.32): title fades + blurs out
-    const tp = clamp(p / 0.32, 0, 1);
+    // Phase 1 (0→0.40): title fades + blurs out
+    const tp = clamp(p / 0.40, 0, 1);
     const titleOpacity = 1 - ease(tp);
     const titleBlur    = ease(tp) * 10;
     if (titleEl) {
@@ -4995,15 +4996,15 @@ function removeBgFloodFill(imgEl, tolerance) {
       titleEl.style.transform = 'translateY(' + (ease(tp) * -12) + 'px)';
     }
 
-    // Phase 2 (0.08→0.60): overlay fades, video brightens
-    const op = clamp((p - 0.08) / 0.52, 0, 1);
+    // Phase 2 (0.10→0.70): overlay fades, video brightens
+    const op = clamp((p - 0.10) / 0.60, 0, 1);
     if (overlay)  overlay.style.opacity = (1 - ease(op)) * 0.86;
     if (videoEl)  videoEl.style.opacity  = 0.18 + ease(op) * 0.60;
 
-    // Phase 3 (0.55→1.0): cards animate in staggered
+    // Phase 3 (0.60→1.0): cards animate in staggered
     cards.forEach(function(card, i) {
-      const start = 0.55 + i * 0.09;
-      const cp = ease(clamp((p - start) / 0.18, 0, 1));
+      const start = 0.60 + i * 0.09;
+      const cp = ease(clamp((p - start) / 0.15, 0, 1));
       card.style.opacity   = cp;
       card.style.transform = 'translateY(' + ((1 - cp) * 22) + 'px)';
     });
