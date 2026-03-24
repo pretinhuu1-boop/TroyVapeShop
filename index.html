@@ -4956,47 +4956,53 @@ function removeBgFloodFill(imgEl, tolerance) {
 })();
 
 // ===== CERT CINEMATIC SCROLL =====
-// ===== CERT SECTION: IntersectionObserver animations =====
+// ===== CERT SECTION: scroll-driven animation (sem sticky) =====
 (function() {
-  const overlay  = document.getElementById('certOverlay');
-  const titleEl  = document.getElementById('certSceneTitle');
-  const videoEl  = document.getElementById('certVideo');
-  const cards    = Array.from(document.querySelectorAll('#certCards .cert-card'));
-  const frame    = document.querySelector('.cert-video-frame');
+  const overlay = document.getElementById('certOverlay');
+  const titleEl = document.getElementById('certSceneTitle');
+  const videoEl = document.getElementById('certVideo');
+  const cards   = Array.from(document.querySelectorAll('#certCards .cert-card'));
+  const frame   = document.querySelector('.cert-video-frame');
   if (!frame) return;
 
-  // Reveal video: brighten when frame enters viewport
-  const vidObs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) {
-        if (overlay) overlay.style.transition = 'opacity 1.2s ease';
-        if (overlay) overlay.style.opacity = '0.1';
-        if (videoEl) { videoEl.style.transition = 'opacity 1.2s ease'; videoEl.style.opacity = '0.78'; }
-        if (titleEl) {
-          titleEl.style.transition = 'opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease';
-          titleEl.style.opacity = '1';
-          titleEl.style.filter = 'blur(0)';
-        }
-      }
-    });
-  }, { threshold: 0.2 });
-  vidObs.observe(frame);
+  let rafId = null, lastP = -1;
+  function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+  function ease(t) { return t < .5 ? 2*t*t : -1+(4-2*t)*t; }
 
-  // Reveal cards staggered
-  const cardObs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) {
-        var i = cards.indexOf(e.target);
-        setTimeout(function() {
-          e.target.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-          e.target.style.opacity = '1';
-          e.target.style.transform = 'translateY(0)';
-        }, i * 80);
-        cardObs.unobserve(e.target);
-      }
+  function tick() {
+    rafId = null;
+    var rect = frame.getBoundingClientRect();
+    var vh   = window.innerHeight;
+    // p: 0 when frame top hits bottom of viewport → 1 when frame bottom hits top
+    var p = clamp((vh - rect.top) / (rect.height + vh * 0.3), 0, 1);
+    if (Math.abs(p - lastP) < 0.002) return;
+    lastP = p;
+
+    // Title: fades + blurs as scroll progresses (0→0.45)
+    var tp = clamp(p / 0.45, 0, 1);
+    if (titleEl) {
+      titleEl.style.opacity   = 1 - ease(tp);
+      titleEl.style.filter    = 'blur(' + (ease(tp) * 8) + 'px)';
+      titleEl.style.transform = 'translateY(' + (ease(tp) * -10) + 'px)';
+    }
+
+    // Overlay fades, video brightens (0.05→0.80)
+    var op = clamp((p - 0.05) / 0.75, 0, 1);
+    if (overlay) overlay.style.opacity = (1 - ease(op)) * 0.86;
+    if (videoEl) videoEl.style.opacity  = 0.18 + ease(op) * 0.60;
+
+    // Cards staggered (0.55→1.0)
+    cards.forEach(function(card, i) {
+      var cp = ease(clamp((p - 0.55 - i * 0.08) / 0.20, 0, 1));
+      card.style.opacity   = cp;
+      card.style.transform = 'translateY(' + ((1 - cp) * 20) + 'px)';
     });
-  }, { threshold: 0.1 });
-  cards.forEach(function(c) { cardObs.observe(c); });
+  }
+
+  function onScroll() { if (!rafId) rafId = requestAnimationFrame(tick); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', function() { lastP = -1; tick(); });
+  tick();
 })();
 
 function openCertPanel() {
