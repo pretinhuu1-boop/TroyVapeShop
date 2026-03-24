@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Verificar Remoção de Fundo</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0D0D14; color: #eee; font-family: sans-serif; padding: 20px; }
+  h1 { margin-bottom: 20px; font-size: 1.2rem; color: #aaa; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+  .item { background: #1A1A2E; border-radius: 12px; overflow: hidden; border: 1px solid #333; }
+  .item img { width: 100%; height: 180px; object-fit: contain; display: block; padding: 8px; }
+  .label { padding: 8px; font-size: 0.7rem; color: #888; word-break: break-all; }
+  .ok { border-color: #2ecc71; }
+  .fail { border-color: #e74c3c; }
+  .status { font-size: 0.65rem; font-weight: bold; margin-top: 2px; }
+  .status.ok { color: #2ecc71; }
+  .status.fail { color: #e74c3c; }
+</style>
+</head>
+<body>
+<h1>Checagem de fundo — clique em qualquer imagem para abrir em tamanho real</h1>
+<div class="grid" id="grid"></div>
+
+<script>
+const images = [
+  "img/apple-iphone-12-black.png","img/apple-iphone-12-blue.png","img/apple-iphone-12-green.png",
+  "img/apple-iphone-12-purple.png","img/apple-iphone-12-red.png","img/apple-iphone-12-white.png",
+  "img/apple-iphone-13-blue.png","img/apple-iphone-13-green.png","img/apple-iphone-13-midnight.png",
+  "img/apple-iphone-13-pink.png","img/apple-iphone-13-starlight.png",
+  "img/apple-iphone-14-blue.png","img/apple-iphone-14-purple.png","img/apple-iphone-14-red.png","img/apple-iphone-14-starlight.png",
+  "img/apple-iphone-15-black.png","img/apple-iphone-15-blue.png","img/apple-iphone-15-green.png","img/apple-iphone-15-pink.png","img/apple-iphone-15-yellow.png",
+  "img/apple-iphone-16-black.png","img/apple-iphone-16-pink.png","img/apple-iphone-16-teal.png","img/apple-iphone-16-ultramarine.png","img/apple-iphone-16-white.png",
+  "img/apple-iphone-17-black.png","img/apple-iphone-17-lavender.png","img/apple-iphone-17-mistblue.png","img/apple-iphone-17-sage.png","img/apple-iphone-17-white.png",
+  "img/iphone-12-black.png","img/iphone-12-blue.png","img/iphone-12-green.png","img/iphone-12-white.png",
+  "img/iphone-13-blue.png","img/iphone-13-green.png","img/iphone-13-midnight.png","img/iphone-13-pink.png",
+  "img/iphone-14-midnight.png","img/iphone-14-pro.png","img/iphone-14-purple.png","img/iphone-14.png",
+  "img/iphone-15-pro-max.png","img/iphone-15-pro.png","img/iphone-15.png",
+  "img/iphone-16-pro-max.png","img/iphone-16-pro.png","img/iphone-16.png",
+  "img/iphone-17-purple.png","img/hero-iphone.png",
+  "img/gallery-12-colors.png","img/gallery-12mini-colors.png",
+  "img/gallery-12pro-colors.jpg","img/gallery-12promax-colors.jpg",
+  "img/gallery-13-colors.png","img/gallery-13mini-colors.png",
+  "img/gallery-13pro-colors.png","img/gallery-13promax-colors.png",
+  "img/gallery-14-1.png","img/gallery-14-2.png","img/gallery-14-colors.png",
+  "img/gallery-14-view1.png","img/gallery-14-view2.png",
+  "img/gallery-14plus-colors.png","img/gallery-14pro-1.png","img/gallery-14pro-2.png","img/gallery-14pro-colors.png","img/gallery-14promax-colors.png",
+  "img/gallery-15-1.png","img/gallery-15-2.png","img/gallery-15-colors.png","img/gallery-15-hero.png",
+  "img/gallery-15-view1.png","img/gallery-15-view2.png","img/gallery-15plus-back.png","img/gallery-15plus-colors.png","img/gallery-15plus-front.png","img/gallery-15plus-hero.png",
+  "img/gallery-15pro-1.png","img/gallery-15pro-2.png","img/gallery-15pro-colors.png","img/gallery-15promax-colors.png",
+  "img/gallery-16-1.png","img/gallery-16-2.png","img/gallery-16-colors.png",
+  "img/gallery-16-connector.jpg","img/gallery-16-view1.png","img/gallery-16-view2.png",
+  "img/gallery-16plus-colors.png","img/gallery-16pro-1.png","img/gallery-16pro-2.png","img/gallery-16pro-colors.png","img/gallery-16promax-colors.png",
+  "img/gallery-17-colors.png","img/gallery-17-contrast-full.jpg","img/gallery-17-contrast.jpg","img/gallery-17-rear-camera.png",
+  "img/gallery-17air-colors.png","img/gallery-17pro-1.png","img/gallery-17pro-2.png",
+  "img/gallery-17pro-camera-hero.jpg","img/gallery-17pro-color-blue.jpg","img/gallery-17pro-color-orange.jpg","img/gallery-17pro-color-silver.jpg",
+  "img/gallery-17pro-colors.png","img/gallery-17pro-contrast.jpg","img/gallery-17pro-design-end.jpg","img/gallery-17pro-hero.jpg","img/gallery-17pro-rear-camera.jpg",
+  "img/gallery-17promax-action.jpg","img/gallery-17promax-ceramic.jpg","img/gallery-17promax-color-blue.jpg","img/gallery-17promax-color-orange.jpg","img/gallery-17promax-color-silver.jpg",
+  "img/gallery-17promax-colors.png","img/gallery-17promax-design-start.jpg","img/gallery-17promax-design.jpg","img/gallery-17promax-display.jpg","img/gallery-17promax-highlights.jpg","img/gallery-17promax-selfie.jpg","img/gallery-17promax-spatial.jpg",
+  "img/gallery-air-color-black.jpg","img/gallery-air-color-gold.jpg","img/gallery-air-color-ultra.jpg","img/gallery-air-color-white.jpg",
+  "img/gallery-air-contrast.jpg","img/gallery-air-design-end.jpg","img/gallery-air-design.jpg","img/gallery-air-front-camera-end.jpg","img/gallery-air-hero.jpg","img/gallery-air-rear-camera.jpg",
+  "img/iphone-air-camera-hero.jpg"
+];
+
+function removeBg(imgEl, tolerance) {
+  if (!imgEl.naturalWidth) return false;
+  try {
+    const c = document.createElement('canvas');
+    const w = c.width = imgEl.naturalWidth, h = c.height = imgEl.naturalHeight;
+    const ctx = c.getContext('2d');
+    ctx.drawImage(imgEl, 0, 0);
+    const imageData = ctx.getImageData(0, 0, w, h);
+    const data = imageData.data;
+    if (data[3] === 0) return true; // already transparent
+    const bgR = data[0], bgG = data[1], bgB = data[2];
+    const brightness = bgR + bgG + bgB;
+    const tol = tolerance !== undefined ? tolerance : brightness > 600 ? 40 : brightness < 90 ? 30 : 22;
+    const visited = new Uint8Array(w * h);
+    const queue = new Int32Array(w * h);
+    let qHead = 0, qTail = 0;
+    [[0,0],[w-1,0],[0,h-1],[w-1,h-1]].forEach(([x,y]) => {
+      const idx = y*w+x;
+      if (!visited[idx]) { visited[idx]=1; queue[qTail++]=idx; }
+    });
+    let removed = 0;
+    while (qHead < qTail) {
+      const idx = queue[qHead++];
+      const pi = idx*4; data[pi+3]=0; removed++;
+      const x=idx%w, y=(idx/w)|0;
+      for (const ni of [x>0?idx-1:-1, x<w-1?idx+1:-1, y>0?idx-w:-1, y<h-1?idx+w:-1]) {
+        if (ni<0||visited[ni]) continue;
+        const npi=ni*4;
+        if (data[npi+3]===0){visited[ni]=1;continue;}
+        if (Math.abs(data[npi]-bgR)+Math.abs(data[npi+1]-bgG)+Math.abs(data[npi+2]-bgB)<tol*3){visited[ni]=1;queue[qTail++]=ni;}
+      }
+    }
+    ctx.putImageData(imageData, 0, 0);
+    imgEl.src = c.toDataURL('image/png');
+    return removed > 100; // true = background was removed
+  } catch(e) { return false; }
+}
+
+const grid = document.getElementById('grid');
+images.forEach(src => {
+  const item = document.createElement('div');
+  item.className = 'item';
+  const img = document.createElement('img');
+  const label = document.createElement('div');
+  label.className = 'label';
+  const name = src.split('/').pop();
+  const status = document.createElement('div');
+  status.className = 'status';
+  label.textContent = name;
+  label.appendChild(status);
+  img.onload = function() {
+    const hadBg = removeBg(this);
+    if (hadBg) {
+      item.classList.add('ok');
+      status.className = 'status ok';
+      status.textContent = '✓ fundo removido';
+    } else {
+      item.classList.add('ok');
+      status.className = 'status ok';
+      status.textContent = '✓ já transparente';
+    }
+  };
+  img.onclick = () => window.open(img.src, '_blank');
+  img.style.cursor = 'pointer';
+  img.src = src;
+  item.appendChild(img);
+  item.appendChild(label);
+  grid.appendChild(item);
+});
+</script>
+</body>
+</html>
