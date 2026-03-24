@@ -1283,29 +1283,16 @@ section { padding: 80px 40px; }
   margin-top: -160px;
 }
 
-/* ---- Sticky wrapper ---- */
+/* ---- Video wrapper (sem sticky) ---- */
 .cert-sticky-wrapper {
   position: relative;
-  height: 105vh; /* 5vh de scroll ativo — animação snap, zero espaço morto */
-}
-@media (max-width: 768px) {
-  .cert-sticky-wrapper { height: auto; padding: 48px 0 32px; }
+  padding: 40px 0 0;
 }
 
-/* ---- Sticky scene ---- */
 .cert-scene {
-  position: sticky;
-  top: 0;
   width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
   z-index: 2;
-  pointer-events: none;
-}
-@media (max-width: 768px) {
-  .cert-scene { position: relative; height: auto; padding: 0 16px; }
 }
 
 .cert-scene-inner {
@@ -1314,10 +1301,9 @@ section { padding: 80px 40px; }
   max-width: 960px;
   margin: 0 auto;
   padding: 0 24px;
-  pointer-events: auto;
 }
 @media (max-width: 768px) {
-  .cert-scene-inner { padding: 0; }
+  .cert-scene-inner { padding: 0 16px; }
 }
 
 /* ---- Video frame ---- */
@@ -4971,72 +4957,47 @@ function removeBgFloodFill(imgEl, tolerance) {
 })();
 
 // ===== CERT CINEMATIC SCROLL =====
+// ===== CERT SECTION: IntersectionObserver animations =====
 (function() {
-  const wrapper  = document.getElementById('certStickyWrapper');
   const overlay  = document.getElementById('certOverlay');
   const titleEl  = document.getElementById('certSceneTitle');
   const videoEl  = document.getElementById('certVideo');
   const cards    = Array.from(document.querySelectorAll('#certCards .cert-card'));
-  if (!wrapper) return;
+  const frame    = document.querySelector('.cert-video-frame');
+  if (!frame) return;
 
-  const IS_MOB = window.innerWidth <= 768;
-  let rafId = null, lastP = -1;
-
-  function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
-  function ease(t) { return t < .5 ? 2*t*t : -1+(4-2*t)*t; }
-
-  function applyProgress(p) {
-    if (Math.abs(p - lastP) < 0.002) return;
-    lastP = p;
-
-    // Phase 1 (0→0.50): title fades + blurs out
-    const tp = clamp(p / 0.50, 0, 1);
-    const titleOpacity = 1 - ease(tp);
-    const titleBlur    = ease(tp) * 10;
-    if (titleEl) {
-      titleEl.style.opacity = titleOpacity;
-      titleEl.style.filter  = 'blur(' + titleBlur + 'px)';
-      titleEl.style.transform = 'translateY(' + (ease(tp) * -12) + 'px)';
-    }
-
-    // Phase 2 (0.10→0.90): overlay fades, video brightens
-    const op = clamp((p - 0.10) / 0.80, 0, 1);
-    if (overlay)  overlay.style.opacity = (1 - ease(op)) * 0.86;
-    if (videoEl)  videoEl.style.opacity  = 0.18 + ease(op) * 0.60;
-
-    // Cards animate via IntersectionObserver (outside wrapper)
-    cards.forEach(function(card, i) {
-      const cp = ease(clamp((p * 4 - i * 0.4), 0, 1));
-      card.style.opacity   = cp;
-      card.style.transform = 'translateY(' + ((1 - cp) * 22) + 'px)';
+  // Reveal video: brighten when frame enters viewport
+  const vidObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        if (overlay) overlay.style.transition = 'opacity 1.2s ease';
+        if (overlay) overlay.style.opacity = '0.1';
+        if (videoEl) { videoEl.style.transition = 'opacity 1.2s ease'; videoEl.style.opacity = '0.78'; }
+        if (titleEl) {
+          titleEl.style.transition = 'opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease';
+          titleEl.style.opacity = '1';
+          titleEl.style.filter = 'blur(0)';
+        }
+      }
     });
-  }
+  }, { threshold: 0.2 });
+  vidObs.observe(frame);
 
-  function tick() {
-    rafId = null;
-    var p;
-    if (IS_MOB) {
-      // Mobile: simple intersection-based progress
-      var rect = wrapper.getBoundingClientRect();
-      var vh   = window.innerHeight;
-      p = clamp((vh * 0.85 - rect.top) / (vh * 1.1), 0, 1);
-    } else {
-      // Desktop: precise scroll through sticky zone
-      var rect   = wrapper.getBoundingClientRect();
-      var total  = wrapper.offsetHeight - window.innerHeight;
-      p = clamp(-rect.top / Math.max(total, 1), 0, 1);
-    }
-    applyProgress(p);
-  }
-
-  function onScroll() { if (!rafId) rafId = requestAnimationFrame(tick); }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', function() {
-    // recalculate IS_MOB on resize
-    lastP = -1;
-    tick();
-  });
-  tick();
+  // Reveal cards staggered
+  const cardObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        var i = cards.indexOf(e.target);
+        setTimeout(function() {
+          e.target.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }, i * 80);
+        cardObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  cards.forEach(function(c) { cardObs.observe(c); });
 })();
 
 function openCertPanel() {
