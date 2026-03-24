@@ -1424,15 +1424,19 @@ section { padding: 80px 40px; }
   .cert-cards { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 600px) {
-  .certification { padding: 60px 0 80px; }
+  .certification { padding: 36px 0 48px; }
   .cert-cards { grid-template-columns: repeat(2, 1fr); gap: 8px; }
   .cert-vid-badge { top: 12px; right: 12px; padding: 8px 12px; }
   .cert-vid-chips { bottom: 12px; left: 12px; gap: 5px; }
   .cert-vid-chip { padding: 5px 10px; font-size: 0.68rem; }
 }
 @media (max-width: 430px) {
-  .cert-cards { grid-template-columns: 1fr; }
-  .cert-title { font-size: 1.75rem; }
+  /* mantém 2 colunas para caber na tela sem rolar tanto */
+  .cert-cards { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .cert-title { font-size: 1.5rem; }
+  .cert-card { padding: 12px 10px; }
+  .cert-card-label { font-size: 0.76rem; margin-bottom: 6px; }
+  .cert-items li { font-size: 0.72rem; }
 }
 
 /* ===== PRODUCT CERT BADGE ===== */
@@ -1503,9 +1507,19 @@ section { padding: 80px 40px; }
 .review-detail { font-size: 0.7rem; color: rgba(255,255,255,0.35); margin-top: 2px; }
 .review-verified { font-size: 0.64rem; color: #4ade80; font-weight: 600; margin-top: 3px; }
 @media (max-width: 640px) {
+  /* 2 colunas de reviews — mais compacto, menos scroll */
+  .reviews-layout { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .review-card.featured { grid-row: auto; grid-column: 1 / -1; }
+  .review-card { padding: 14px 12px 10px; }
+  .review-text { font-size: 0.78rem !important; line-height: 1.5; }
+  .review-name { font-size: 0.78rem; }
+  .sp-head { flex-direction: column; align-items: flex-start; gap: 8px; margin-bottom: 14px; }
+  .sp-inner { padding: 0 16px; }
+  .sp-head-left h2 { font-size: 1.35rem; }
+}
+@media (max-width: 400px) {
+  /* Telas muito pequenas voltam pra 1 coluna */
   .reviews-layout { grid-template-columns: 1fr; }
-  .review-card.featured { grid-row: auto; }
-  .sp-head { flex-direction: column; align-items: flex-start; }
 }
 
 /* ===== TRADE-IN WAVES ===== */
@@ -1631,7 +1645,16 @@ section { padding: 80px 40px; }
 }
 .faq-card.open .faq-card-answer { max-height: 300px; padding-top: 10px; opacity: 1; }
 .faq-card.open { border-color: rgba(0,113,227,0.2); background: linear-gradient(145deg, rgba(0,113,227,0.06) 0%, rgba(255,255,255,0.02) 100%); }
-@media (max-width: 600px) { .faq-grid { grid-template-columns: 1fr; gap: 12px; } }
+@media (max-width: 600px) {
+  /* FAQ mantém 2 colunas compactas — sem pergunta aberta elas ocupam pouco espaço */
+  .faq-grid { grid-template-columns: 1fr 1fr; gap: 8px; padding: 0 4px; }
+  .faq-card { padding: 14px 12px; }
+  .faq-card-question { font-size: 0.82rem; }
+  .faq-card-answer { font-size: 0.78rem; }
+}
+@media (max-width: 380px) {
+  .faq-grid { grid-template-columns: 1fr; gap: 8px; }
+}
 
 /* ===== FINAL CTA ===== */
 .final-cta {
@@ -2523,7 +2546,7 @@ footer::before {
   .trade-steps { flex-direction: column; align-items: center; }
 }
 @media (max-width: 768px) {
-  section { padding: 60px 20px; }
+  section { padding: 44px 20px; }
   .navbar { padding: 0 20px; }
   .nav-links { display: none; }
   .section-title { font-size: 2rem; }
@@ -2546,9 +2569,20 @@ footer::before {
   .product-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .counter-grid { grid-template-columns: repeat(2, 1fr); }
   .urgency-bar { padding: 10px 16px; gap: 12px; font-size: 0.75rem; }
+  /* Trust bar compacto */
+  .trust-bar { padding: 16px 20px; gap: 20px; }
+  /* Trade-in h2 menor */
+  .trade-content h2 { font-size: 1.9rem; }
 }
 @media (max-width: 480px) {
-  .product-grid { grid-template-columns: 1fr; gap: 16px; }
+  /* mantém 2 colunas — usuário vê mais produtos sem rolar */
+  .product-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .product-image { height: 200px; padding: 10px; }
+  .product-image img { max-height: 160px !important; max-width: 70% !important; }
+  .product-info { padding: 12px; }
+  .product-name { font-size: 0.88rem; line-height: 1.2; }
+  .product-price { font-size: 1.1rem; }
+  .product-cert-btn { font-size: 0.62rem; padding: 4px 8px; }
   .hero-text h1 { font-size: 1.8rem; }
   .ap-hero-title { font-size: 1.6rem; }
   .ap-hero-img img { max-height: 220px; }
@@ -2583,21 +2617,22 @@ footer::before {
   /* Urgency bar */
   .urgency-bar { padding: 8px 12px; gap: 8px; font-size: 0.7rem; flex-wrap: wrap; justify-content: center; }
 
-  /* Product grid */
-  .product-grid { grid-template-columns: 1fr; gap: 14px; padding: 0 4px; }
-  .product-image { height: 280px; padding: 12px; }
-  .product-image img { max-height: 220px !important; max-width: 65% !important; }
+  /* Product grid — 2 colunas compactas no iPhone */
+  .product-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 0 2px; }
+  .product-image { height: 190px; padding: 8px; }
+  .product-image img { max-height: 155px !important; max-width: 70% !important; }
   .product-image img.carousel-active { transform: scale(1.2) translateX(0) !important; }
   .product-image img.carousel-prev { transform: scale(0.5) translateX(-100%) !important; }
   .product-image img.carousel-next { transform: scale(0.5) translateX(100%) !important; }
-  .product-info { padding: 16px; }
-  .product-name { font-size: 1.05rem; }
-  .product-price { font-size: 1.4rem; }
+  .product-info { padding: 10px 12px 12px; }
+  .product-name { font-size: 0.85rem; line-height: 1.2; margin-bottom: 4px; }
+  .product-price { font-size: 1.05rem; }
+  .product-cert-btn { font-size: 0.6rem; padding: 4px 8px; margin-top: 6px; }
 
   /* Section titles */
-  .section-title { font-size: 1.6rem; }
-  .section-sub { font-size: 0.85rem; }
-  section { padding: 40px 16px; }
+  .section-title { font-size: 1.5rem; }
+  .section-sub { font-size: 0.82rem; }
+  section { padding: 28px 16px; }
 
   /* Detail view */
   .product-detail-view { overflow-x: hidden; }
@@ -2671,8 +2706,13 @@ footer::before {
   /* Counter */
   .counter-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
 
-  /* Trade-in */
-  .trade-steps { flex-direction: column; }
+  /* Trade-in — steps em grid 2x2 ao invés de coluna única */
+  .trade-steps { flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+  .trade-step { max-width: calc(50% - 5px); flex: 0 0 calc(50% - 5px); padding: 16px 12px; }
+  .trade-step-num { font-size: 1.3rem; margin-bottom: 4px; }
+  .trade-step-text { font-size: 0.76rem; }
+  .trade-content h2 { font-size: 1.6rem; margin-bottom: 12px; }
+  .trade-content p { font-size: 0.82rem; margin-bottom: 20px; }
 
   /* Footer */
   .footer-links { flex-direction: column; gap: 12px; padding: 12px 16px; }
@@ -2692,8 +2732,10 @@ footer::before {
 
 /* iPhone SE / small phones */
 @media (max-width: 375px) {
-  .product-image { height: 240px; }
-  .product-image img { max-height: 180px !important; }
+  .product-image { height: 170px; }
+  .product-image img { max-height: 140px !important; }
+  .product-name { font-size: 0.78rem; }
+  .product-price { font-size: 0.95rem; }
   .ap-hero-img { min-height: 180px !important; }
   .ap-hero-img img { max-height: 170px !important; }
   .ap-cta-price-val { font-size: 1.3rem !important; }
