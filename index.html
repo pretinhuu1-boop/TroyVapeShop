@@ -1282,6 +1282,7 @@ section { padding: 80px 40px; }
   border-top: none;
   border-bottom: none;
   position: relative;
+  min-height: 140vh;
 }
 .certification::before {
   content: '';
@@ -4715,10 +4716,10 @@ function removeBgFloodFill(imgEl, tolerance) {
     const rect = section.getBoundingClientRect();
     const vh   = window.innerHeight;
 
-    // Opening: section top scrolls from 90%vh → 10%vh
-    const openP  = clamp((vh * 0.90 - rect.top)  / (vh * 0.80), 0, 1);
-    // Closing: section bottom scrolls from 60%vh → 5%vh
-    const closeP = clamp((rect.bottom - vh * 0.05) / (vh * 0.55), 0, 1);
+    // Opening: section top scrolls from 90%vh → 20%vh
+    const openP  = clamp((vh * 0.90 - rect.top)  / (vh * 0.70), 0, 1);
+    // Closing: only starts closing after section is well past the viewport
+    const closeP = clamp((rect.bottom + vh * 0.60) / (vh * 0.50), 0, 1);
 
     applyProgress(Math.min(openP, closeP));
   }
