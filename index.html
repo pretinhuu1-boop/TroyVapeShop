@@ -1267,136 +1267,171 @@ section { padding: 80px 40px; }
 .product-cta:hover { background: var(--accent); }
 
 /* ===== CERTIFICATION (compact expandable) ===== */
-@keyframes shieldPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(0,113,227,0.0), 0 0 18px rgba(0,113,227,0.25); }
-  50%       { box-shadow: 0 0 0 8px rgba(0,113,227,0.0), 0 0 32px rgba(0,113,227,0.45); }
-}
-@keyframes certGlow {
-  0%, 100% { opacity: 0.5; }
-  50%       { opacity: 1; }
+/* ===== CERTIFICATION SECTION ===== */
+@keyframes certDotPulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.4); }
 }
 .certification {
-  background: linear-gradient(to bottom, var(--surface-1) 0%, var(--dark) 12%, var(--dark) 88%, var(--surface-1) 100%);
+  background: var(--surface-0);
   color: var(--white);
-  padding: 0 !important;
-  border-top: none;
-  border-bottom: none;
+  padding: 90px 0 100px;
   position: relative;
-  min-height: 140vh;
+  overflow: hidden;
 }
 .certification::before {
   content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 80% at 50% 50%, rgba(0,113,227,0.06) 0%, transparent 70%);
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 50% at 50% 35%, rgba(233,69,96,0.05) 0%, transparent 70%);
   pointer-events: none;
 }
-.cert-compact { width: 100%; position: relative; }
-.cert-compact-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 28px 48px;
-  flex-wrap: nowrap;
-  cursor: pointer;
-  user-select: none;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-  transition: background 0.25s;
+/* Header */
+.cert-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 52px;
+  padding: 0 24px;
 }
-.cert-compact-top:hover { background: rgba(255,255,255,0.025); }
-.cert-compact-left { display: flex; align-items: center; gap: 18px; flex-shrink: 0; }
-.cert-compact-shield {
-  width: 58px; height: 58px; min-width: 58px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, rgba(0,113,227,0.22) 0%, rgba(0,80,180,0.12) 100%);
-  border: 1px solid rgba(0,113,227,0.35);
-  display: flex; align-items: center; justify-content: center;
-  animation: shieldPulse 3s ease-in-out infinite;
+.cert-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(233,69,96,0.07);
+  border: 1px solid rgba(233,69,96,0.2);
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-size: 0.7rem; font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.09em; text-transform: uppercase;
+  margin-bottom: 22px;
 }
-.cert-compact-shield svg { width: 28px; height: 28px; stroke: #4DA6FF; fill: none; stroke-width: 2; }
-.cert-compact-title {
-  font-size: 1.05rem; font-weight: 800; color: var(--white);
-  letter-spacing: -0.02em;
+.cert-eyebrow-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent); box-shadow: 0 0 8px var(--accent);
+  animation: certDotPulse 2s ease-in-out infinite;
 }
-.cert-compact-sub {
-  font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-top: 3px;
-  display: flex; align-items: center; gap: 6px;
+.cert-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;
+  color: var(--white); margin-bottom: 16px;
 }
-.cert-compact-sub::before {
-  content: '';
-  display: inline-block; width: 6px; height: 6px;
-  border-radius: 50%; background: #34C759;
-  box-shadow: 0 0 6px #34C759;
-  animation: certGlow 2s ease-in-out infinite;
+.cert-title span {
+  background: linear-gradient(120deg, #E94560 0%, #FF6B8A 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
-.cert-chips { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
-.cert-chip {
+.cert-subtitle {
+  font-size: 0.93rem; color: rgba(255,255,255,0.42); line-height: 1.7;
+}
+/* Video wrap */
+.cert-video-wrap {
+  max-width: 1100px; margin: 0 auto 52px; padding: 0 24px;
+  opacity: 0; transform: scale(0.97) translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.cert-video-wrap.cert-in-view { opacity: 1; transform: scale(1) translateY(0); }
+.cert-video-inner {
+  position: relative; border-radius: 22px; overflow: hidden;
+  background: #08080D;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 40px 100px rgba(0,0,0,0.7);
+  aspect-ratio: 16 / 9;
+}
+.cert-video {
+  width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.68;
+}
+.cert-video-fade-top {
+  position: absolute; top: 0; left: 0; right: 0; height: 42%;
+  background: linear-gradient(to bottom, rgba(8,8,13,0.88) 0%, transparent 100%);
+  pointer-events: none; z-index: 1;
+}
+.cert-video-fade-bottom {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 48%;
+  background: linear-gradient(to top, rgba(8,8,13,0.92) 0%, transparent 100%);
+  pointer-events: none; z-index: 1;
+}
+/* Chips over video */
+.cert-vid-chips {
+  position: absolute; bottom: 22px; left: 22px;
+  display: flex; gap: 8px; flex-wrap: wrap; z-index: 3;
+}
+.cert-vid-chip {
   display: flex; align-items: center; gap: 7px;
-  padding: 9px 16px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.09);
-  border-radius: 12px;
-  font-size: 0.78rem; font-weight: 700;
-  color: rgba(255,255,255,0.75);
-  white-space: nowrap;
-  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  padding: 7px 14px;
+  background: rgba(8,8,13,0.65);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px;
+  font-size: 0.74rem; font-weight: 700; color: rgba(255,255,255,0.85);
   letter-spacing: 0.01em;
 }
-.cert-chip:hover {
-  background: rgba(0,113,227,0.12);
-  border-color: rgba(0,113,227,0.3);
-  color: #fff;
+.cvcd { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.cvcd.blue   { background: #4DA6FF; box-shadow: 0 0 7px rgba(77,166,255,0.9); }
+.cvcd.purple { background: #AF52DE; box-shadow: 0 0 7px rgba(175,82,222,0.9); }
+.cvcd.orange { background: #FF9F0A; box-shadow: 0 0 7px rgba(255,159,10,0.9); }
+.cvcd.green  { background: #34C759; box-shadow: 0 0 7px rgba(52,199,89,0.9); }
+/* Badge over video */
+.cert-vid-badge {
+  position: absolute; top: 20px; right: 20px; z-index: 3;
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 16px;
+  background: rgba(8,8,13,0.72);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(233,69,96,0.28);
+  border-radius: 14px;
 }
-.cert-chip-dot {
-  width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+.cert-vid-badge svg { width: 20px; height: 20px; stroke: var(--accent); fill: none; stroke-width: 2; flex-shrink: 0; }
+.cert-vid-badge-num { font-size: 1.25rem; font-weight: 800; color: var(--white); letter-spacing: -0.03em; line-height: 1; }
+.cert-vid-badge-label { font-size: 0.62rem; color: rgba(255,255,255,0.42); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 1px; }
+/* Cards grid */
+.cert-cards {
+  max-width: 1100px; margin: 0 auto 20px; padding: 0 24px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
 }
-.cert-chip:nth-child(1) .cert-chip-dot { background: #4DA6FF; box-shadow: 0 0 5px rgba(77,166,255,0.7); }
-.cert-chip:nth-child(2) .cert-chip-dot { background: #AF52DE; box-shadow: 0 0 5px rgba(175,82,222,0.7); }
-.cert-chip:nth-child(3) .cert-chip-dot { background: #FF9F0A; box-shadow: 0 0 5px rgba(255,159,10,0.7); }
-.cert-chip:nth-child(4) .cert-chip-dot { background: #34C759; box-shadow: 0 0 5px rgba(52,199,89,0.7); }
-.cert-expand-btn {
-  background: linear-gradient(135deg, rgba(0,113,227,0.2) 0%, rgba(0,80,180,0.1) 100%);
-  border: 1px solid rgba(0,113,227,0.35);
-  border-radius: 12px;
-  color: #4DA6FF;
-  font-size: 0.82rem; font-weight: 700;
-  cursor: pointer;
-  display: flex; align-items: center; gap: 6px;
-  white-space: nowrap;
-  padding: 10px 20px;
-  transition: background 0.2s, box-shadow 0.2s;
-  flex-shrink: 0;
-  letter-spacing: 0.01em;
+.cert-card {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 18px; padding: 22px 18px;
+  opacity: 0; transform: translateY(18px);
+  transition: opacity 0.45s ease, transform 0.45s ease, background 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
-.cert-expand-btn:hover {
-  background: linear-gradient(135deg, rgba(0,113,227,0.35) 0%, rgba(0,80,180,0.2) 100%);
-  box-shadow: 0 0 16px rgba(0,113,227,0.25);
-}
-.cert-expand-btn svg { width: 14px; height: 14px; stroke: #4DA6FF; fill: none; stroke-width: 2.5; transition: transform 0.3s; }
-.cert-expand-btn.open svg { transform: rotate(180deg); }
-.cert-detail { max-height: 0; overflow: hidden; padding: 0 40px; opacity: 0; }
-.cert-card { opacity: 0; transform: translateY(12px); transition: opacity 0.35s ease, transform 0.35s ease; }
 .cert-card.cert-visible { opacity: 1; transform: translateY(0); }
-.cert-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
-.cert-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; padding: 16px 14px; }
-.cert-icon { width: 32px; height: 32px; border-radius: 9px; background: rgba(0,113,227,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
-.cert-icon svg { width: 16px; height: 16px; stroke: var(--accent); fill: none; stroke-width: 1.8; }
-.cert-label { font-size: 0.78rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
-.cert-items { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; }
-.cert-items li { font-size: 0.7rem; color: rgba(255,255,255,0.45); display: flex; align-items: flex-start; gap: 5px; line-height: 1.4; }
-.cert-items li::before { content: '·'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
-.cert-footer { background: rgba(239,68,68,0.05); border: 1px solid rgba(239,68,68,0.12); border-radius: 10px; padding: 12px 16px; display: flex; align-items: center; gap: 10px; font-size: 0.75rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
-.cert-footer svg { width: 16px; height: 16px; min-width: 16px; stroke: #f87171; fill: none; stroke-width: 2; }
-.cert-footer strong { color: var(--white); }
-@media (max-width: 860px) { .cert-chips { display: none; } }
-@media (max-width: 600px) {
-  .cert-compact-top { padding: 14px 20px; }
-  .cert-detail.open { padding: 16px 20px 24px; }
-  .cert-grid { grid-template-columns: repeat(2, 1fr); }
+.cert-card:hover {
+  background: rgba(255,255,255,0.045);
+  border-color: rgba(255,255,255,0.13);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.35);
 }
-@media (max-width: 430px) { .cert-grid { grid-template-columns: 1fr; } }
+.cert-card-icon {
+  width: 38px; height: 38px; border-radius: 11px;
+  background: rgba(233,69,96,0.09); border: 1px solid rgba(233,69,96,0.15);
+  display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
+}
+.cert-card-icon svg { width: 17px; height: 17px; stroke: var(--accent); fill: none; stroke-width: 1.8; }
+.cert-card-label { font-size: 0.83rem; font-weight: 700; color: var(--white); margin-bottom: 10px; letter-spacing: -0.01em; }
+.cert-items { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 5px; }
+.cert-items li { font-size: 0.71rem; color: rgba(255,255,255,0.4); display: flex; align-items: flex-start; gap: 6px; line-height: 1.45; }
+.cert-items li::before { content: '·'; color: var(--accent); font-weight: 900; flex-shrink: 0; }
+/* Warning */
+.cert-warning { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.cert-warning-inner {
+  background: rgba(233,69,96,0.04); border: 1px solid rgba(233,69,96,0.12);
+  border-radius: 12px; padding: 14px 20px;
+  display: flex; align-items: center; gap: 12px;
+  font-size: 0.78rem; color: rgba(255,255,255,0.42); line-height: 1.55;
+}
+.cert-warning-inner svg { width: 16px; height: 16px; min-width: 16px; stroke: var(--accent); fill: none; stroke-width: 2; }
+.cert-warning-inner strong { color: var(--white); }
+/* Responsive */
+@media (max-width: 860px) {
+  .cert-cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .certification { padding: 60px 0 80px; }
+  .cert-cards { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .cert-vid-badge { top: 12px; right: 12px; padding: 8px 12px; }
+  .cert-vid-chips { bottom: 12px; left: 12px; gap: 5px; }
+  .cert-vid-chip { padding: 5px 10px; font-size: 0.68rem; }
+}
+@media (max-width: 430px) {
+  .cert-cards { grid-template-columns: 1fr; }
+  .cert-title { font-size: 1.75rem; }
+}
 
 /* ===== PRODUCT CERT BADGE ===== */
 .product-cert-btn {
@@ -2805,77 +2840,93 @@ footer::before {
 
 <!-- CERTIFICATION -->
 <section class="certification" id="certificacao">
-  <div class="cert-compact">
-    <div class="cert-compact-top" onclick="toggleCert(this)">
-      <div class="cert-compact-left">
-        <div class="cert-compact-shield">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div>
-          <div class="cert-compact-title">Verificação de Segurança em 360°</div>
-          <div class="cert-compact-sub">Reprovação em qualquer teste = não vai à venda</div>
-        </div>
-      </div>
-      <div class="cert-chips">
-        <div class="cert-chip"><span class="cert-chip-dot"></span>Software</div>
-        <div class="cert-chip"><span class="cert-chip-dot"></span>Câmeras</div>
-        <div class="cert-chip"><span class="cert-chip-dot"></span>Hardware</div>
-        <div class="cert-chip"><span class="cert-chip-dot"></span>Conectividade</div>
-      </div>
-      <button class="cert-expand-btn" onclick="event.stopPropagation(); toggleCert(this.closest('.cert-compact-top'))">
-        Ver processo
-        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
+
+  <!-- Header -->
+  <div class="cert-header">
+    <div class="cert-eyebrow">
+      <span class="cert-eyebrow-dot"></span>
+      Processo certificado
     </div>
-    <div class="cert-detail">
-      <div class="cert-grid">
-        <div class="cert-card">
-          <div class="cert-icon"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><line x1="9" y1="2" x2="9" y2="5"/><line x1="15" y1="2" x2="15" y2="5"/><line x1="9" y1="19" x2="9" y2="22"/><line x1="15" y1="19" x2="15" y2="22"/><line x1="2" y1="9" x2="5" y2="9"/><line x1="2" y1="15" x2="5" y2="15"/><line x1="19" y1="9" x2="22" y2="9"/><line x1="19" y1="15" x2="22" y2="15"/></svg></div>
-          <div class="cert-label">Software e Segurança</div>
-          <ul class="cert-items">
-            <li>IMEI verificado — livre de bloqueios</li>
-            <li>iCloud desvinculado, Buscar desativado</li>
-            <li>iOS original, dados apagados</li>
-            <li>Procedência legal confirmada</li>
-          </ul>
-        </div>
-        <div class="cert-card">
-          <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
-          <div class="cert-label">Câmeras e Áudio</div>
-          <ul class="cert-items">
-            <li>Foco e nitidez de todas as lentes</li>
-            <li>Alto-falantes e microfone de chamada</li>
-            <li>Microfones auxiliares frontal e traseiro</li>
-            <li>Flash e gravação de vídeo testados</li>
-          </ul>
-        </div>
-        <div class="cert-card">
-          <div class="cert-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
-          <div class="cert-label">Estrutura e Hardware</div>
-          <ul class="cert-items">
-            <li>Carcaça, tela e touch inspecionados</li>
-            <li>Saúde e desempenho da bateria</li>
-            <li>Botões, Face ID e chave silenciadora</li>
-            <li>Sem sinais de reparo não autorizado</li>
-          </ul>
-        </div>
-        <div class="cert-card">
-          <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
-          <div class="cert-label">Conectividade</div>
-          <ul class="cert-items">
-            <li>Wi-Fi e Bluetooth testados na prática</li>
-            <li>Rede celular e sinal 4G/5G</li>
-            <li>GPS e NFC funcionais</li>
-            <li>Carregamento e porta Lightning/USB-C</li>
-          </ul>
-        </div>
+    <h2 class="cert-title">Verificação de Segurança<br><span>em 360°</span></h2>
+    <p class="cert-subtitle">Cada aparelho é testado em 50 pontos antes de chegar até você.<br>Reprovar em qualquer ponto significa não vai à venda.</p>
+  </div>
+
+  <!-- Video hero -->
+  <div class="cert-video-wrap" id="certVideoWrap">
+    <div class="cert-video-inner">
+      <video class="cert-video" autoplay muted loop playsinline preload="none">
+        <source src="img/phonecheck-video.mp4" type="video/mp4">
+      </video>
+      <div class="cert-video-fade-top"></div>
+      <div class="cert-video-fade-bottom"></div>
+      <div class="cert-vid-chips">
+        <div class="cert-vid-chip"><span class="cvcd blue"></span>Software</div>
+        <div class="cert-vid-chip"><span class="cvcd purple"></span>Câmeras</div>
+        <div class="cert-vid-chip"><span class="cvcd orange"></span>Hardware</div>
+        <div class="cert-vid-chip"><span class="cvcd green"></span>Conectividade</div>
       </div>
-      <div class="cert-footer">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        <span><strong>Reprovar em um ponto é suficiente.</strong> Se o aparelho não passa em qualquer um desses testes, ele não vai à venda.</span>
+      <div class="cert-vid-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        <div>
+          <div class="cert-vid-badge-num">50</div>
+          <div class="cert-vid-badge-label">pontos verificados</div>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- Cards -->
+  <div class="cert-cards" id="certCards">
+    <div class="cert-card">
+      <div class="cert-card-icon"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><line x1="9" y1="2" x2="9" y2="5"/><line x1="15" y1="2" x2="15" y2="5"/><line x1="9" y1="19" x2="9" y2="22"/><line x1="15" y1="19" x2="15" y2="22"/><line x1="2" y1="9" x2="5" y2="9"/><line x1="2" y1="15" x2="5" y2="15"/><line x1="19" y1="9" x2="22" y2="9"/><line x1="19" y1="15" x2="22" y2="15"/></svg></div>
+      <div class="cert-card-label">Software e Segurança</div>
+      <ul class="cert-items">
+        <li>IMEI verificado — livre de bloqueios</li>
+        <li>iCloud desvinculado, Buscar desativado</li>
+        <li>iOS original, dados apagados</li>
+        <li>Procedência legal confirmada</li>
+      </ul>
+    </div>
+    <div class="cert-card">
+      <div class="cert-card-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+      <div class="cert-card-label">Câmeras e Áudio</div>
+      <ul class="cert-items">
+        <li>Foco e nitidez de todas as lentes</li>
+        <li>Alto-falantes e microfone de chamada</li>
+        <li>Microfones auxiliares frontal e traseiro</li>
+        <li>Flash e gravação de vídeo testados</li>
+      </ul>
+    </div>
+    <div class="cert-card">
+      <div class="cert-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
+      <div class="cert-card-label">Estrutura e Hardware</div>
+      <ul class="cert-items">
+        <li>Carcaça, tela e touch inspecionados</li>
+        <li>Saúde e desempenho da bateria</li>
+        <li>Botões, Face ID e chave silenciadora</li>
+        <li>Sem sinais de reparo não autorizado</li>
+      </ul>
+    </div>
+    <div class="cert-card">
+      <div class="cert-card-icon"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
+      <div class="cert-card-label">Conectividade</div>
+      <ul class="cert-items">
+        <li>Wi-Fi e Bluetooth testados na prática</li>
+        <li>Rede celular e sinal 4G/5G</li>
+        <li>GPS e NFC funcionais</li>
+        <li>Carregamento e porta Lightning/USB-C</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Warning footer -->
+  <div class="cert-warning">
+    <div class="cert-warning-inner">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <span><strong>Reprovar em um ponto é suficiente.</strong> Se o aparelho não passa em qualquer um desses testes, ele não vai à venda.</span>
+    </div>
+  </div>
+
 </section>
 
 <!-- SOCIAL PROOF -->
@@ -4659,78 +4710,35 @@ function removeBgFloodFill(imgEl, tolerance) {
   startLoop();
 })();
 
-// ===== CERT TOGGLE =====
-// ===== CERT SCROLL-DRIVEN ANIMATION =====
+// ===== CERT SCROLL REVEAL =====
 (function() {
-  const section = document.getElementById('certificacao');
-  if (!section) return;
-  const detail   = section.querySelector('.cert-detail');
-  const expandBtn = section.querySelector('.cert-expand-btn');
-  const cards    = section.querySelectorAll('.cert-card');
-  if (!detail) return;
+  const videoWrap = document.getElementById('certVideoWrap');
+  const cardsGrid = document.getElementById('certCards');
 
-  // Measure full height with final padding included
-  detail.style.maxHeight = 'none';
-  detail.style.padding = '24px 40px 28px';
-  detail.style.visibility = 'hidden';
-  const fullH = detail.scrollHeight + 20; // +20 safety buffer
-  detail.style.maxHeight = '0';
-  detail.style.padding = '0 40px';
-  detail.style.visibility = '';
-
-  let lastP = -1, rafId = null;
-
-  function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
-
-  function applyProgress(p) {
-    if (Math.abs(p - lastP) < 0.003) return;
-    lastP = p;
-
-    // Max-height driven by scroll progress
-    detail.style.maxHeight = (p * fullH) + 'px';
-
-    // Padding interpolation
-    const pv = p * 24, pb = p * 28;
-    detail.style.padding = `${pv}px 40px ${pb}px`;
-
-    // Opacity of detail content
-    detail.style.opacity = p < 0.12 ? (p / 0.12) : 1;
-
-    // Button label + arrow
-    if (expandBtn) {
-      const isOpen = p > 0.45;
-      expandBtn.classList.toggle('open', isOpen);
-      if (expandBtn.childNodes[0])
-        expandBtn.childNodes[0].textContent = isOpen ? 'Fechar ' : 'Ver processo ';
-    }
-
-    // Staggered card reveal
-    cards.forEach((card, i) => {
-      const threshold = 0.25 + i * 0.12;
-      card.classList.toggle('cert-visible', p >= threshold);
-    });
+  // Video wrap fade-in on scroll
+  if (videoWrap) {
+    const vObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('cert-in-view'); vObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    vObs.observe(videoWrap);
   }
 
-  function tick() {
-    rafId = null;
-    const rect = section.getBoundingClientRect();
-    const vh   = window.innerHeight;
-
-    // Opening: section top scrolls from 90%vh → 20%vh
-    const openP  = clamp((vh * 0.90 - rect.top)  / (vh * 0.70), 0, 1);
-    // Closing: only starts closing after section is well past the viewport
-    const closeP = clamp((rect.bottom + vh * 0.60) / (vh * 0.50), 0, 1);
-
-    applyProgress(Math.min(openP, closeP));
+  // Cards staggered reveal
+  if (cardsGrid) {
+    const cObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.cert-card').forEach(function(card, i) {
+            setTimeout(function() { card.classList.add('cert-visible'); }, i * 90);
+          });
+          cObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    cObs.observe(cardsGrid);
   }
-
-  function onScroll() {
-    if (!rafId) rafId = requestAnimationFrame(tick);
-  }
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', tick);
-  tick();
 })();
 
 function openCertPanel() {
