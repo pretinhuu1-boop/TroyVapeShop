@@ -4992,8 +4992,8 @@ function removeBgFloodFill(imgEl, tolerance) {
       titleEl.style.transform = 'translateY(' + (tp * -12) + 'px)';
     }
 
-    // Vídeo: começa em p=0.45, 100% em p=0.85
-    var op = ease(clamp((p - 0.45) / 0.40, 0, 1));
+    // Vídeo: começa em p=0.20, 100% em p=0.70
+    var op = ease(clamp((p - 0.20) / 0.50, 0, 1));
     if (overlay) overlay.style.opacity = (1 - op) * 0.86;
     if (videoEl) videoEl.style.opacity  = 0.18 + op * 0.60;
 
