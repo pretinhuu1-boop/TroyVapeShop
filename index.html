@@ -1268,8 +1268,7 @@ section { padding: 80px 40px; }
 }
 .product-cta:hover { background: var(--accent); }
 
-/* ===== CERTIFICATION (compact expandable) ===== */
-/* ===== CERTIFICATION SECTION ===== */
+/* ===== CERTIFICATION — cinematic scroll reveal ===== */
 @keyframes certDotPulse {
   0%, 100% { opacity: 0.4; transform: scale(1); }
   50%       { opacity: 1;   transform: scale(1.4); }
@@ -1277,33 +1276,91 @@ section { padding: 80px 40px; }
 .certification {
   background: var(--surface-0);
   color: var(--white);
-  padding: 90px 0 100px;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  padding: 0 0 80px;
 }
-.certification::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse 80% 50% at 50% 35%, rgba(233,69,96,0.05) 0%, transparent 70%);
+
+/* ---- Sticky wrapper — gives 220vh of scroll space on desktop ---- */
+.cert-sticky-wrapper {
+  position: relative;
+  height: 220vh;
+}
+@media (max-width: 768px) {
+  .cert-sticky-wrapper { height: auto; padding: 48px 0 32px; }
+}
+
+/* ---- Sticky scene ---- */
+.cert-scene {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
   pointer-events: none;
 }
-/* Header */
-.cert-header {
-  text-align: center;
-  max-width: 640px;
-  margin: 0 auto 52px;
+@media (max-width: 768px) {
+  .cert-scene { position: relative; height: auto; padding: 0 16px; }
+}
+
+.cert-scene-inner {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
   padding: 0 24px;
+  pointer-events: auto;
+}
+@media (max-width: 768px) {
+  .cert-scene-inner { padding: 0; }
+}
+
+/* ---- Video frame ---- */
+.cert-video-frame {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #08080D;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 32px 80px rgba(0,0,0,0.75);
+  aspect-ratio: 21 / 9;
+}
+@media (max-width: 768px) {
+  .cert-video-frame { aspect-ratio: 16 / 9; border-radius: 16px; }
+}
+.cert-video {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  opacity: 0.18; /* JS increases to 0.78 as scroll progresses */
+}
+
+/* ---- Dark overlay (fades out via JS) ---- */
+.cert-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: rgba(8,8,13,0.86);
+  pointer-events: none;
+}
+
+/* ---- Title overlaid on dark video ---- */
+.cert-scene-title {
+  position: absolute; inset: 0; z-index: 3;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 24px 32px;
+  text-align: center;
+  /* opacity/filter driven by JS */
 }
 .cert-eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(233,69,96,0.07);
-  border: 1px solid rgba(233,69,96,0.2);
+  background: rgba(233,69,96,0.10);
+  border: 1px solid rgba(233,69,96,0.25);
   border-radius: 100px;
   padding: 6px 16px;
   font-size: 0.7rem; font-weight: 700;
   color: var(--accent);
   letter-spacing: 0.09em; text-transform: uppercase;
-  margin-bottom: 22px;
+  margin-bottom: 18px;
 }
 .cert-eyebrow-dot {
   width: 6px; height: 6px; border-radius: 50%;
@@ -1311,106 +1368,107 @@ section { padding: 80px 40px; }
   animation: certDotPulse 2s ease-in-out infinite;
 }
 .cert-title {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.9rem, 4vw, 3.2rem);
   font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;
-  color: var(--white); margin-bottom: 16px;
+  color: var(--white); margin-bottom: 14px;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.5);
 }
 .cert-title span {
   background: linear-gradient(120deg, #E94560 0%, #FF6B8A 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
 .cert-subtitle {
-  font-size: 0.93rem; color: rgba(255,255,255,0.42); line-height: 1.7;
+  font-size: 0.9rem; color: rgba(255,255,255,0.5); line-height: 1.65;
+  max-width: 480px;
 }
-/* Video wrap */
-.cert-video-wrap {
-  max-width: 1100px; margin: 0 auto 52px; padding: 0 24px;
-  opacity: 0; transform: scale(0.97) translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
+@media (max-width: 768px) {
+  .cert-scene-title { padding: 16px 20px; }
+  .cert-title { font-size: 1.55rem; }
+  .cert-subtitle { font-size: 0.78rem; }
 }
-.cert-video-wrap.cert-in-view { opacity: 1; transform: scale(1) translateY(0); }
-.cert-video-inner {
-  position: relative; border-radius: 22px; overflow: hidden;
-  background: #08080D;
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 40px 100px rgba(0,0,0,0.7);
-  aspect-ratio: 16 / 9;
+
+/* ---- Edge fades ---- */
+.cert-fade-top {
+  position: absolute; top: 0; left: 0; right: 0; height: 35%;
+  background: linear-gradient(to bottom, rgba(8,8,13,0.7) 0%, transparent 100%);
+  pointer-events: none; z-index: 2;
 }
-.cert-video {
-  width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.68;
+.cert-fade-bottom {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 40%;
+  background: linear-gradient(to top, rgba(8,8,13,0.85) 0%, transparent 100%);
+  pointer-events: none; z-index: 2;
 }
-.cert-video-fade-top {
-  position: absolute; top: 0; left: 0; right: 0; height: 42%;
-  background: linear-gradient(to bottom, rgba(8,8,13,0.88) 0%, transparent 100%);
-  pointer-events: none; z-index: 1;
-}
-.cert-video-fade-bottom {
-  position: absolute; bottom: 0; left: 0; right: 0; height: 48%;
-  background: linear-gradient(to top, rgba(8,8,13,0.92) 0%, transparent 100%);
-  pointer-events: none; z-index: 1;
-}
-/* Chips over video */
+
+/* ---- Chips ---- */
 .cert-vid-chips {
-  position: absolute; bottom: 22px; left: 22px;
-  display: flex; gap: 8px; flex-wrap: wrap; z-index: 3;
+  position: absolute; bottom: 18px; left: 18px;
+  display: flex; gap: 7px; flex-wrap: wrap; z-index: 4;
 }
 .cert-vid-chip {
-  display: flex; align-items: center; gap: 7px;
-  padding: 7px 14px;
-  background: rgba(8,8,13,0.65);
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 12px;
+  background: rgba(8,8,13,0.70);
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 100px;
-  font-size: 0.74rem; font-weight: 700; color: rgba(255,255,255,0.85);
-  letter-spacing: 0.01em;
+  font-size: 0.7rem; font-weight: 700; color: rgba(255,255,255,0.85);
+}
+@media (max-width: 500px) {
+  .cert-vid-chips { bottom: 10px; left: 10px; gap: 4px; }
+  .cert-vid-chip { padding: 4px 9px; font-size: 0.62rem; }
 }
 .cvcd { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
 .cvcd.blue   { background: #4DA6FF; box-shadow: 0 0 7px rgba(77,166,255,0.9); }
 .cvcd.purple { background: #AF52DE; box-shadow: 0 0 7px rgba(175,82,222,0.9); }
 .cvcd.orange { background: #FF9F0A; box-shadow: 0 0 7px rgba(255,159,10,0.9); }
 .cvcd.green  { background: #34C759; box-shadow: 0 0 7px rgba(52,199,89,0.9); }
-/* Badge over video */
+
+/* ---- Badge ---- */
 .cert-vid-badge {
-  position: absolute; top: 20px; right: 20px; z-index: 3;
-  display: flex; align-items: center; gap: 10px;
-  padding: 10px 16px;
-  background: rgba(8,8,13,0.72);
+  position: absolute; top: 16px; right: 16px; z-index: 4;
+  display: flex; align-items: center; gap: 9px;
+  padding: 9px 14px;
+  background: rgba(8,8,13,0.75);
   backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(233,69,96,0.28);
-  border-radius: 14px;
+  border: 1px solid rgba(233,69,96,0.3);
+  border-radius: 12px;
 }
-.cert-vid-badge svg { width: 20px; height: 20px; stroke: var(--accent); fill: none; stroke-width: 2; flex-shrink: 0; }
-.cert-vid-badge-num { font-size: 1.25rem; font-weight: 800; color: var(--white); letter-spacing: -0.03em; line-height: 1; }
-.cert-vid-badge-label { font-size: 0.62rem; color: rgba(255,255,255,0.42); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 1px; }
-/* Cards grid */
+.cert-vid-badge svg { width: 18px; height: 18px; stroke: var(--accent); fill: none; stroke-width: 2; flex-shrink: 0; }
+.cert-vid-badge-num { font-size: 1.1rem; font-weight: 800; color: var(--white); letter-spacing: -0.03em; line-height: 1; }
+.cert-vid-badge-label { font-size: 0.58rem; color: rgba(255,255,255,0.42); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 1px; }
+
+/* ---- Cards grid — below sticky zone, revealed by scroll ---- */
 .cert-cards {
-  max-width: 1100px; margin: 0 auto 20px; padding: 0 24px;
+  max-width: 960px; margin: 0 auto 20px; padding: 0 24px;
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+  position: relative; z-index: 3;
 }
 .cert-card {
   background: rgba(255,255,255,0.025);
   border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 18px; padding: 22px 18px;
-  opacity: 0; transform: translateY(18px);
-  transition: opacity 0.45s ease, transform 0.45s ease, background 0.2s, border-color 0.2s, box-shadow 0.2s;
+  border-radius: 18px; padding: 20px 16px;
+  opacity: 0; transform: translateY(22px);
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+  /* opacity/transform driven by JS for scroll animation */
 }
-.cert-card.cert-visible { opacity: 1; transform: translateY(0); }
 .cert-card:hover {
   background: rgba(255,255,255,0.045);
   border-color: rgba(255,255,255,0.13);
   box-shadow: 0 8px 40px rgba(0,0,0,0.35);
 }
 .cert-card-icon {
-  width: 38px; height: 38px; border-radius: 11px;
+  width: 36px; height: 36px; border-radius: 10px;
   background: rgba(233,69,96,0.09); border: 1px solid rgba(233,69,96,0.15);
-  display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 12px;
 }
-.cert-card-icon svg { width: 17px; height: 17px; stroke: var(--accent); fill: none; stroke-width: 1.8; }
-.cert-card-label { font-size: 0.83rem; font-weight: 700; color: var(--white); margin-bottom: 10px; letter-spacing: -0.01em; }
+.cert-card-icon svg { width: 16px; height: 16px; stroke: var(--accent); fill: none; stroke-width: 1.8; }
+.cert-card-label { font-size: 0.82rem; font-weight: 700; color: var(--white); margin-bottom: 9px; letter-spacing: -0.01em; }
 .cert-items { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 5px; }
-.cert-items li { font-size: 0.71rem; color: rgba(255,255,255,0.4); display: flex; align-items: flex-start; gap: 6px; line-height: 1.45; }
+.cert-items li { font-size: 0.7rem; color: rgba(255,255,255,0.4); display: flex; align-items: flex-start; gap: 6px; line-height: 1.45; }
 .cert-items li::before { content: '·'; color: var(--accent); font-weight: 900; flex-shrink: 0; }
-/* Warning */
-.cert-warning { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+/* ---- Warning ---- */
+.cert-warning { max-width: 960px; margin: 0 auto; padding: 0 24px; }
 .cert-warning-inner {
   background: rgba(233,69,96,0.04); border: 1px solid rgba(233,69,96,0.12);
   border-radius: 12px; padding: 14px 20px;
@@ -1419,24 +1477,18 @@ section { padding: 80px 40px; }
 }
 .cert-warning-inner svg { width: 16px; height: 16px; min-width: 16px; stroke: var(--accent); fill: none; stroke-width: 2; }
 .cert-warning-inner strong { color: var(--white); }
-/* Responsive */
-@media (max-width: 860px) {
-  .cert-cards { grid-template-columns: repeat(2, 1fr); }
-}
+
+/* ---- Responsive cards ---- */
+@media (max-width: 860px) { .cert-cards { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) {
-  .certification { padding: 36px 0 48px; }
-  .cert-cards { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-  .cert-vid-badge { top: 12px; right: 12px; padding: 8px 12px; }
-  .cert-vid-chips { bottom: 12px; left: 12px; gap: 5px; }
-  .cert-vid-chip { padding: 5px 10px; font-size: 0.68rem; }
+  .cert-cards { grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 0 16px; }
 }
 @media (max-width: 430px) {
-  /* mantém 2 colunas para caber na tela sem rolar tanto */
   .cert-cards { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-  .cert-title { font-size: 1.5rem; }
+  .cert-title { font-size: 1.35rem !important; }
   .cert-card { padding: 12px 10px; }
-  .cert-card-label { font-size: 0.76rem; margin-bottom: 6px; }
-  .cert-items li { font-size: 0.72rem; }
+  .cert-card-label { font-size: 0.74rem; margin-bottom: 6px; }
+  .cert-items li { font-size: 0.68rem; }
 }
 
 /* ===== PRODUCT CERT BADGE ===== */
@@ -3021,41 +3073,49 @@ footer::before {
 <!-- CERTIFICATION -->
 <section class="certification" id="certificacao">
 
-  <!-- Header -->
-  <div class="cert-header">
-    <div class="cert-eyebrow">
-      <span class="cert-eyebrow-dot"></span>
-      Processo certificado
-    </div>
-    <h2 class="cert-title">Verificação de Segurança<br><span>em 360°</span></h2>
-    <p class="cert-subtitle">Cada aparelho é testado em 50 pontos antes de chegar até você.<br>Reprovar em qualquer ponto significa não vai à venda.</p>
-  </div>
-
-  <!-- Video hero -->
-  <div class="cert-video-wrap" id="certVideoWrap">
-    <div class="cert-video-inner">
-      <video class="cert-video" autoplay muted loop playsinline preload="none">
-        <source src="img/phonecheck-video.mp4" type="video/mp4">
-      </video>
-      <div class="cert-video-fade-top"></div>
-      <div class="cert-video-fade-bottom"></div>
-      <div class="cert-vid-chips">
-        <div class="cert-vid-chip"><span class="cvcd blue"></span>Software</div>
-        <div class="cert-vid-chip"><span class="cvcd purple"></span>Câmeras</div>
-        <div class="cert-vid-chip"><span class="cvcd orange"></span>Hardware</div>
-        <div class="cert-vid-chip"><span class="cvcd green"></span>Conectividade</div>
-      </div>
-      <div class="cert-vid-badge">
-        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-        <div>
-          <div class="cert-vid-badge-num">50</div>
-          <div class="cert-vid-badge-label">pontos verificados</div>
+  <!-- Sticky scene wrapper -->
+  <div class="cert-sticky-wrapper" id="certStickyWrapper">
+    <div class="cert-scene" id="certScene">
+      <div class="cert-scene-inner">
+        <div class="cert-video-frame">
+          <video class="cert-video" id="certVideo" autoplay muted loop playsinline preload="none">
+            <source src="img/phonecheck-video.mp4" type="video/mp4">
+          </video>
+          <!-- Dark overlay — fades out via JS -->
+          <div class="cert-overlay" id="certOverlay"></div>
+          <!-- Edge fades -->
+          <div class="cert-fade-top"></div>
+          <div class="cert-fade-bottom"></div>
+          <!-- Title overlaid — fades + blurs via JS -->
+          <div class="cert-scene-title" id="certSceneTitle">
+            <div class="cert-eyebrow">
+              <span class="cert-eyebrow-dot"></span>
+              Processo certificado
+            </div>
+            <h2 class="cert-title">Verificação de Segurança<br><span>em 360°</span></h2>
+            <p class="cert-subtitle">Cada aparelho é testado em 50 pontos antes de chegar até você.<br>Reprovar em qualquer ponto significa não vai à venda.</p>
+          </div>
+          <!-- Chips -->
+          <div class="cert-vid-chips">
+            <div class="cert-vid-chip"><span class="cvcd blue"></span>Software</div>
+            <div class="cert-vid-chip"><span class="cvcd purple"></span>Câmeras</div>
+            <div class="cert-vid-chip"><span class="cvcd orange"></span>Hardware</div>
+            <div class="cert-vid-chip"><span class="cvcd green"></span>Conectividade</div>
+          </div>
+          <!-- Badge -->
+          <div class="cert-vid-badge">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            <div>
+              <div class="cert-vid-badge-num">50</div>
+              <div class="cert-vid-badge-label">pontos verificados</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Cards -->
+  <!-- Cards — revealed by scroll after sticky zone -->
   <div class="cert-cards" id="certCards">
     <div class="cert-card">
       <div class="cert-card-icon"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><line x1="9" y1="2" x2="9" y2="5"/><line x1="15" y1="2" x2="15" y2="5"/><line x1="9" y1="19" x2="9" y2="22"/><line x1="15" y1="19" x2="15" y2="22"/><line x1="2" y1="9" x2="5" y2="9"/><line x1="2" y1="15" x2="5" y2="15"/><line x1="19" y1="9" x2="22" y2="9"/><line x1="19" y1="15" x2="22" y2="15"/></svg></div>
@@ -4906,35 +4966,74 @@ function removeBgFloodFill(imgEl, tolerance) {
   startLoop();
 })();
 
-// ===== CERT SCROLL REVEAL =====
+// ===== CERT CINEMATIC SCROLL =====
 (function() {
-  const videoWrap = document.getElementById('certVideoWrap');
-  const cardsGrid = document.getElementById('certCards');
+  const wrapper  = document.getElementById('certStickyWrapper');
+  const overlay  = document.getElementById('certOverlay');
+  const titleEl  = document.getElementById('certSceneTitle');
+  const videoEl  = document.getElementById('certVideo');
+  const cards    = Array.from(document.querySelectorAll('#certCards .cert-card'));
+  if (!wrapper) return;
 
-  // Video wrap fade-in on scroll
-  if (videoWrap) {
-    const vObs = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) {
-        if (e.isIntersecting) { e.target.classList.add('cert-in-view'); vObs.unobserve(e.target); }
-      });
-    }, { threshold: 0.12 });
-    vObs.observe(videoWrap);
+  const IS_MOB = window.innerWidth <= 768;
+  let rafId = null, lastP = -1;
+
+  function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+  function ease(t) { return t < .5 ? 2*t*t : -1+(4-2*t)*t; }
+
+  function applyProgress(p) {
+    if (Math.abs(p - lastP) < 0.002) return;
+    lastP = p;
+
+    // Phase 1 (0→0.32): title fades + blurs out
+    const tp = clamp(p / 0.32, 0, 1);
+    const titleOpacity = 1 - ease(tp);
+    const titleBlur    = ease(tp) * 10;
+    if (titleEl) {
+      titleEl.style.opacity = titleOpacity;
+      titleEl.style.filter  = 'blur(' + titleBlur + 'px)';
+      titleEl.style.transform = 'translateY(' + (ease(tp) * -12) + 'px)';
+    }
+
+    // Phase 2 (0.08→0.60): overlay fades, video brightens
+    const op = clamp((p - 0.08) / 0.52, 0, 1);
+    if (overlay)  overlay.style.opacity = (1 - ease(op)) * 0.86;
+    if (videoEl)  videoEl.style.opacity  = 0.18 + ease(op) * 0.60;
+
+    // Phase 3 (0.55→1.0): cards animate in staggered
+    cards.forEach(function(card, i) {
+      const start = 0.55 + i * 0.09;
+      const cp = ease(clamp((p - start) / 0.18, 0, 1));
+      card.style.opacity   = cp;
+      card.style.transform = 'translateY(' + ((1 - cp) * 22) + 'px)';
+    });
   }
 
-  // Cards staggered reveal
-  if (cardsGrid) {
-    const cObs = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) {
-        if (e.isIntersecting) {
-          e.target.querySelectorAll('.cert-card').forEach(function(card, i) {
-            setTimeout(function() { card.classList.add('cert-visible'); }, i * 90);
-          });
-          cObs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.08 });
-    cObs.observe(cardsGrid);
+  function tick() {
+    rafId = null;
+    var p;
+    if (IS_MOB) {
+      // Mobile: simple intersection-based progress
+      var rect = wrapper.getBoundingClientRect();
+      var vh   = window.innerHeight;
+      p = clamp((vh * 0.85 - rect.top) / (vh * 1.1), 0, 1);
+    } else {
+      // Desktop: precise scroll through sticky zone
+      var rect   = wrapper.getBoundingClientRect();
+      var total  = wrapper.offsetHeight - window.innerHeight;
+      p = clamp(-rect.top / Math.max(total, 1), 0, 1);
+    }
+    applyProgress(p);
   }
+
+  function onScroll() { if (!rafId) rafId = requestAnimationFrame(tick); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', function() {
+    // recalculate IS_MOB on resize
+    lastP = -1;
+    tick();
+  });
+  tick();
 })();
 
 function openCertPanel() {
