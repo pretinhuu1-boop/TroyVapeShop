@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PrimeCell — O iPhone certo, com garantia real. Tatuapé, SP</title>
+<link rel="icon" href="primecell-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="primecell-icon.svg">
 <meta name="description" content="iPhone verificado, certificado e com garantia estendida. Novos e seminovos no Tatuapé, São Paulo. Atendimento consultivo via WhatsApp.">
 <style>
 /* ===== RESET & BASE ===== */
@@ -86,6 +88,15 @@ button { cursor: pointer; border: none; font-family: inherit; }
   font-weight: 800;
   letter-spacing: -0.5px;
   color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.logo-icon {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
 }
 .logo span { color: var(--accent); }
 .nav-links { display: flex; gap: 32px; align-items: center; }
@@ -2576,7 +2587,27 @@ footer::before {
 
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar">
-  <a href="#" class="logo">Prime<span>Cell</span></a>
+  <a href="#" class="logo">
+    <svg class="logo-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="lbg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#1A1A2E"/>
+          <stop offset="100%" style="stop-color:#0D0D14"/>
+        </linearGradient>
+        <linearGradient id="lacc" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#E94560"/>
+          <stop offset="100%" style="stop-color:#C72847"/>
+        </linearGradient>
+      </defs>
+      <circle cx="40" cy="40" r="40" fill="url(#lbg)"/>
+      <rect x="24" y="14" width="32" height="52" rx="8" fill="url(#lacc)" opacity="0.95"/>
+      <rect x="27" y="17" width="26" height="46" rx="6" fill="#0D0D14"/>
+      <text x="40" y="49" text-anchor="middle" fill="white" font-family="-apple-system, Inter, sans-serif" font-size="20" font-weight="800" letter-spacing="-1">P</text>
+      <rect x="34" y="18" width="12" height="3.5" rx="1.75" fill="#0D0D14"/>
+      <rect x="34" y="59" width="12" height="2" rx="1" fill="rgba(255,255,255,0.15)"/>
+    </svg>
+    Prime<span>Cell</span>
+  </a>
   <div class="nav-links">
     <a href="#produtos">iPhones</a>
     <a href="#certificacao">Certificação</a>
@@ -3016,7 +3047,27 @@ footer::before {
 <footer>
   <div class="footer-top">
     <div class="footer-brand-area">
-      <div class="logo">Prime<span>Cell</span></div>
+      <div class="logo">
+        <svg class="logo-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="fbg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#1A1A2E"/>
+              <stop offset="100%" style="stop-color:#0D0D14"/>
+            </linearGradient>
+            <linearGradient id="facc" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#E94560"/>
+              <stop offset="100%" style="stop-color:#C72847"/>
+            </linearGradient>
+          </defs>
+          <circle cx="40" cy="40" r="40" fill="url(#fbg)"/>
+          <rect x="24" y="14" width="32" height="52" rx="8" fill="url(#facc)" opacity="0.95"/>
+          <rect x="27" y="17" width="26" height="46" rx="6" fill="#0D0D14"/>
+          <text x="40" y="49" text-anchor="middle" fill="white" font-family="-apple-system, Inter, sans-serif" font-size="20" font-weight="800" letter-spacing="-1">P</text>
+          <rect x="34" y="18" width="12" height="3.5" rx="1.75" fill="#0D0D14"/>
+          <rect x="34" y="59" width="12" height="2" rx="1" fill="rgba(255,255,255,0.15)"/>
+        </svg>
+        Prime<span>Cell</span>
+      </div>
       <span class="footer-tagline">iPhones certificados no Tatuapé</span>
     </div>
     <div class="footer-social">
