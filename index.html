@@ -1085,7 +1085,7 @@ section { padding: 80px 40px; }
 /* ===== PRODUCT GRID ===== */
 .stars-zone {
   position: relative;
-  overflow: hidden;
+  overflow: clip; /* clip ≠ hidden: não cria scroll container, sticky funciona */
   background: var(--surface-0);
 }
 #starsCanvas {
