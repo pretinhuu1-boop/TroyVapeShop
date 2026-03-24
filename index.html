@@ -4984,22 +4984,22 @@ function removeBgFloodFill(imgEl, tolerance) {
     if (Math.abs(p - lastP) < 0.002) return;
     lastP = p;
 
-    // Título: visível até p=0.5, some até p=0.85
-    var tp = ease(clamp((p - 0.50) / 0.35, 0, 1));
+    // Título: nítido até p=0.55, some até p=0.80
+    var tp = ease(clamp((p - 0.55) / 0.25, 0, 1));
     if (titleEl) {
       titleEl.style.opacity   = 1 - tp;
       titleEl.style.filter    = 'blur(' + (tp * 3) + 'px)';
       titleEl.style.transform = 'translateY(' + (tp * -12) + 'px)';
     }
 
-    // Overlay/vídeo: começa a revelar em p=0.35, completo em p=0.85
-    var op = ease(clamp((p - 0.35) / 0.50, 0, 1));
+    // Vídeo: começa em p=0.45, 100% em p=0.85
+    var op = ease(clamp((p - 0.45) / 0.40, 0, 1));
     if (overlay) overlay.style.opacity = (1 - op) * 0.86;
     if (videoEl) videoEl.style.opacity  = 0.18 + op * 0.60;
 
-    // Cards: entram após p=0.75
+    // Cards: entram a partir de p=0.60
     cards.forEach(function(card, i) {
-      var cp = ease(clamp((p - 0.75 - i * 0.06) / 0.18, 0, 1));
+      var cp = ease(clamp((p - 0.60 - i * 0.06) / 0.18, 0, 1));
       card.style.opacity   = cp;
       card.style.transform = 'translateY(' + ((1 - cp) * 20) + 'px)';
     });
