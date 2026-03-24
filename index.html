@@ -4984,8 +4984,8 @@ function removeBgFloodFill(imgEl, tolerance) {
     if (Math.abs(p - lastP) < 0.002) return;
     lastP = p;
 
-    // Título: nítido até p=0.55, some até p=0.80
-    var tp = ease(clamp((p - 0.55) / 0.25, 0, 1));
+    // Título: nítido até p=0.50, some até p=0.72
+    var tp = ease(clamp((p - 0.50) / 0.22, 0, 1));
     if (titleEl) {
       titleEl.style.opacity   = 1 - tp;
       titleEl.style.filter    = 'blur(' + (tp * 3) + 'px)';
