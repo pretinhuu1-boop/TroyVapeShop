@@ -4974,29 +4974,32 @@ function removeBgFloodFill(imgEl, tolerance) {
     var rect = frame.getBoundingClientRect();
     var vh   = window.innerHeight;
 
-    // p=0: frame entering from bottom (rect.top = vh)
-    // p=1: frame top at viewport top (rect.top = 0)
-    var p = clamp((vh - rect.top) / vh, 0, 1);
+    // p baseado no CENTRO do frame:
+    // p=0: centro do frame na borda inferior do viewport
+    // p=0.5: centro do frame no centro do viewport  ← ponto chave
+    // p=1: centro do frame na borda superior do viewport
+    var centerY = rect.top + rect.height / 2;
+    var p = clamp((vh - centerY) / vh, 0, 1);
 
     if (Math.abs(p - lastP) < 0.002) return;
     lastP = p;
 
-    // Title fades out (0→0.75) — longa duração
-    var tp = ease(clamp(p / 0.75, 0, 1));
+    // Título: visível até p=0.5, some até p=0.85
+    var tp = ease(clamp((p - 0.50) / 0.35, 0, 1));
     if (titleEl) {
       titleEl.style.opacity   = 1 - tp;
       titleEl.style.filter    = 'blur(' + (tp * 3) + 'px)';
       titleEl.style.transform = 'translateY(' + (tp * -12) + 'px)';
     }
 
-    // Overlay fades + video brightens — só começa em p=0.60
-    var op = ease(clamp((p - 0.60) / 0.40, 0, 1));
+    // Overlay/vídeo: começa a revelar em p=0.35, completo em p=0.85
+    var op = ease(clamp((p - 0.35) / 0.50, 0, 1));
     if (overlay) overlay.style.opacity = (1 - op) * 0.86;
     if (videoEl) videoEl.style.opacity  = 0.18 + op * 0.60;
 
-    // Cards staggered (0.45→0.90)
+    // Cards: entram após p=0.75
     cards.forEach(function(card, i) {
-      var cp = ease(clamp((p - 0.45 - i * 0.08) / 0.20, 0, 1));
+      var cp = ease(clamp((p - 0.75 - i * 0.06) / 0.18, 0, 1));
       card.style.opacity   = cp;
       card.style.transform = 'translateY(' + ((1 - cp) * 20) + 'px)';
     });
